@@ -410,7 +410,7 @@ local ClosureBindings = {
 			WindowFrame = nil,
 			Unloaded = false,
 
-			Theme = "Crimson Night",
+			Theme = "Dark",
 			DialogOpen = false,
 			UseAcrylic = false,
 			Acrylic = false,
