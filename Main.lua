@@ -278,14 +278,8 @@ local ObjectTree = {
 					{ 68, "ModuleScript", { "Ocean Breeze" } },
 					{ 69, "ModuleScript", { "Amber Dusk" } },
 					{ 70, "ModuleScript", { "Emerald Mist" } },
-					{ 71, "ModuleScript", { "Violet Dream" } },
-					{ 71, "ModuleScript", { "Sunset Glow" } },
-					{ 73, "ModuleScript", { "Arctic Frost" } },
-					{ 74, "ModuleScript", { "Neon Blue" } },
-					{ 75, "ModuleScript", { "Neon Green" } },
-					{ 76, "ModuleScript", { "Neon Purple" } },
-					{ 77, "ModuleScript", { "Neon Pink" } },
-					{ 78, "ModuleScript", { "Neon Orange" } }
+					{ 71, "ModuleScript", { "Neon Pink" } },
+					{ 72, "ModuleScript", { "Neon Orange" } }
 				}
 			},
 			{
