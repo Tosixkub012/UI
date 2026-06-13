@@ -268,10 +268,10 @@ local ObjectTree = {
 					{ 52, "ModuleScript", { "Light" } },
 					{ 49, "ModuleScript", { "Aqua" } },
 					
-					{ 61, "ModuleScript", { "Midnight" } },
-					{ 62, "ModuleScript", { "Blood Moon" } },
-					{ 63, "ModuleScript", { "Sakura" } },
-					{ 64, "ModuleScript", { "Obsidian" } },
+					{ 61, "ModuleScript", { "Phantom Red" } },
+					{ 62, "ModuleScript", { "Ocean Breeze" } },
+					{ 63, "ModuleScript", { "Amber Dusk" } },
+					{ 64, "ModuleScript", { "Emerald Mist" } },
 					{ 65, "ModuleScript", { "Violet Dream" } },
 					{ 66, "ModuleScript", { "Sunset Glow" } },
 					{ 67, "ModuleScript", { "Arctic Frost" } },
@@ -2536,8 +2536,9 @@ local ClosureBindings = {
 		end
 
 		function Creator.GetThemeProperty(Property)
-			if Themes[require(Root).Theme][Property] then
-				return Themes[require(Root).Theme][Property]
+			local currentTheme = Themes[require(Root).Theme]
+			if currentTheme and currentTheme[Property] ~= nil then
+				return currentTheme[Property]
 			end
 			return Themes["Dark"][Property]
 		end
