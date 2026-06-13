@@ -3690,33 +3690,6 @@ end
       				end
       			end)
 
-      			ButtonLabel.InputBegan:Connect(function(Input)
-      				if Input.UserInputType == Enum.UserInputType.MouseButton1 then
-      					local Try = not Selected
-      
-      					if Dropdown:GetActiveValues() == 1 and not Try and not Config.AllowNull then
-      					else
-      						if Config.Multi then
-      							Selected = Try
-      							Dropdown.Value[Value] = Selected and true or nil
-      						else
-      							Selected = Try
-      							Dropdown.Value = Selected and Value or nil
-      
-      							for _, OtherButton in next, Buttons do
-      								OtherButton:UpdateButton()
-      							end
-      						end
-      
-      						Table:UpdateButton()
-      						Dropdown:Display()
-      
-      						Library:SafeCallback(Dropdown.Callback, Dropdown.Value)
-      						Library:SafeCallback(Dropdown.Changed, Dropdown.Value)
-      					end
-      				end
-      			end)
-      
       			Table:UpdateButton()
       			Dropdown:Display()
       
