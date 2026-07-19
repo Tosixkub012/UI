@@ -1,2 +1,3165 @@
--- This script was generated using the MoonVeil Obfuscator v1.4.5 [https://moonveil.cc]
-local tb,lf,Of,Bb,Y,jd=getmetatable,type,pairs,bit32.bxor local ta,Gc,ka,qe,kb,Rf,p,xf,ld,m,ba,fa_,yb,kd,Pc,ff,_c,nf,xa,nc,ca,jc,kc,Gb,De,Wd,Qf,Ob,Kd,hc,fd,j,lc,Ze,qb,wa,ye,Sb,Wb,Yb,Ff,Kb,_a,fc;ca=(getfenv());ta,nf,ba=(string.char),(string.byte),(bit32 .bxor);xf=function(Ea,za)local Cb,T,if_,i_,Id,ne,Vb,eb;Vb,Id=function(Oe,w_,Lf)Id[Oe]=Bb(Lf,17118)-Bb(w_,56468)return Id[Oe]end,{};T=Id[25523]or Vb(25523,9327,97524)repeat if T>=51653 then if T>57960 then T,Cb=Id[13474]or Vb(13474,56343,54749),Cb..ta(ba(nf(Ea,(ne-103)+1),nf(za,(ne-103)%#za+1)))elseif T>51653 then ne=i_ if eb~=eb then T=7146 else T=51653 end else if(if_>=0 and i_>eb)or((if_<0 or if_~=if_)and i_<eb)then T=Id[-1052]or Vb(-1052,49226,31254)else T=64699 end end elseif T<17711 then return Cb elseif T>17711 then i_=i_+if_;ne=i_ if i_~=i_ then T=Id[766]or Vb(766,38765,9533)else T=51653 end else Cb='';T,i_,if_,eb=Id[32001]or Vb(32001,11571,104145),103,1,(#Ea-1)+103 end until T==24806 end;Gc=(select);Kd=(function(...)return{[1]={...},[2]=Gc('#',...)}end);Pc=((function()local function Ic(oe,sa,pf)if sa>pf then return end return oe[sa],Ic(oe,sa+1,pf)end return Ic end)());Ze,ka=(string.gsub),(string.char);xa=(function(B)B=Ze(B,'[^ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=]','')return(B:gsub('.',function(Re)if(Re=='=')then return''end local jb,wb='',(('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'):find(Re)-1)for zf=6,1,-1 do jb=jb..(wb%2^zf-wb%2^(zf-1)>0 and'1'or'0')end return jb end):gsub('%d%d%d?%d?%d?%d?%d?%d?',function(Jf)if(#Jf~=8)then return''end local x=0 for ga=1,8 do x=x+(Jf:sub(ga,ga)=='1'and 2^(8-ga)or 0)end return ka(x)end))end);nc,j,kd,p,kc,qb,fc,Sb=ca[xf('\249SI\227I\\',"\138\';")][xf('+\213\232?\216\243','^\187\152')],ca[xf('GN\140]T\153','4:\254')][xf('\185\191\168','\202')],ca[xf('C\214\191Y\204\170','0\162\205')][xf('\137\175\159\179','\235\214')],ca[xf('\218\141\204\215\138','\184\228')][xf('\96+1e>-','\fXY')],ca[xf(')\207?\149y','K\166')][xf('\218.\142\193;\146','\168]\230')],ca[xf('\254M\232\23\174','\156$')][xf('\191\167\179\162','\221\198')],ca[xf('\2\202\20\199\19','v\171')][xf('\223\206z\223\192\96','\188\161\20')],{};ye=(function(Me)local ce=Sb[Me]if ce then return ce end local Pd,R,Pf,xe,aa=p(1,11),p(1,5),1,{},''while Pf<=#Me do local rf=kd(Me,Pf);Pf=Pf+1 for re_=35,(8)+34 do local Nc=nil if not(qb(rf,1)~=0)then if not(Pf+1<=#Me)then else local _d=nc(xf('\148\227\152','\170'),Me,Pf);Pf=Pf+2 local Ba,ea=#aa-kc(_d,5),qb(_d,(R-1))+3;Nc=j(aa,Ba,Ba+ea-1)end else if Pf<=#Me then Nc=j(Me,Pf,Pf);Pf=Pf+1 end end rf=kc(rf,1)if not(Nc)then else xe[#xe+1]=Nc;aa=j(aa..Nc,-Pd)end end end local He=fc(xe);Sb[Me]=He return He end);Rf=(function()local Bd,Qe,id,od,Ce,ra,rc,Jb,pc,df,Fb,uc=ca[xf('cOu\21\51','\1&')][xf('\174\163\163\169','\204\219')],ca[xf('6E \31f','T,')][xf('Q\184]\189','3\217')],ca[xf('PeF?\0','2\f')][xf('\147\158\131','\241')],ca[xf('\96\fvV0','\2e')][xf('nU\179k@\175','\2&\219')],ca[xf('\235\30\253D\187','\137w')][xf('Z\29\182A\b\170','(n\222')],ca[xf('\149\23\57\143\r,','\230cK')][xf('KMZ','8')],ca[xf('F\181^\\\175K','5\193,')][xf('n\26}\16','\30{')],ca[xf("\a\'\184\29=\173",'tS\202')][xf('j\189h~\176s','\31\211\24')],ca[xf('\r\209P\23\203E','~\165\"')][xf('\18\5\16','\96')],ca[xf('\31\247\t\250\14','k\150')][xf('#\168\48\162','S\201')],ca[xf('bbtos','\22\3')][xf('\237\v\127\249\6d','\152e\15')],ca[xf('\249\251\239\246\232','\141\154')][xf('\188\211\24\176\207\31','\213\189k')]local function kf(of,Dc,A,c,F)local ub,l_,rb,Cc=of[Dc],of[A],of[c],of[F]local Be;ub=Qe(ub+l_,4294967295);Be=Bd(Cc,ub);Cc=Qe(id(od(Be,16),Ce(Be,16)),4294967295);rb=Qe(rb+Cc,4294967295);Be=Bd(l_,rb);l_=Qe(id(od(Be,12),Ce(Be,20)),4294967295);ub=Qe(ub+l_,4294967295);Be=Bd(Cc,ub);Cc=Qe(id(od(Be,8),Ce(Be,24)),4294967295);rb=Qe(rb+Cc,4294967295);Be=Bd(l_,rb);l_=Qe(id(od(Be,7),Ce(Be,25)),4294967295);of[Dc],of[A],of[c],of[F]=ub,l_,rb,Cc return of end local Ub,Ua={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}local ma=function(Fc,Kc,ic)Ub[1],Ub[2],Ub[3],Ub[4]=1306345360,3962467067,3971884547,31472506 for Bf=83,(8)+82 do Ub[(Bf-82)+4]=Fc[(Bf-82)]end Ub[13]=Kc for he=249,(3)+248 do Ub[(he-248)+13]=ic[(he-248)]end for hf=97,(16)+96 do Ua[(hf-96)]=Ub[(hf-96)]end for o_=127,(10)+126 do kf(Ua,1,5,9,13);kf(Ua,2,6,10,14);kf(Ua,3,7,11,15);kf(Ua,4,8,12,16);kf(Ua,1,6,11,16);kf(Ua,2,7,12,13);kf(Ua,3,8,9,14);kf(Ua,4,5,10,15)end for Gf=222,(16)+221 do Ub[(Gf-221)]=Qe(Ub[(Gf-221)]+Ua[(Gf-221)],4294967295)end return Ub end local function dd(Pa,Tc,la,Qa,pe)local xb=#Qa-pe+1 if xb<64 then local td=ra(Qa,pe);Qa=td..pc(xf('\27','\27'),64-xb);pe=1 end ca[xf('0\236\158\52\237\153','Q\159\237')](#Qa>=64)local we,tc=df(Jb(xf('\227\165\198\233\28\168\185\147Le\255pck\161w\235\165\198\233\28\168\185\147Le\255pck\161w\235','\223\236\242\160(\225\141\218x,\203\57W\"\149>'),Qa,pe)),ma(Pa,Tc,la)for Od=88,(16)+87 do we[(Od-87)]=Bd(we[(Od-87)],tc[(Od-87)])end local b_=rc(xf('\209PCiv]\138cHPl\4Bj\19K\217PCiv]\138cHPl\4Bj\19K\217',"\237\25w B\20\190*|\25XMv#\'\2"),Fb(we))if not(xb<64)then else b_=ra(b_,1,xb)end return b_ end local function C(Zd)local Ha=''for Yc=230,(#Zd)+229 do Ha=Ha..Zd[(Yc-229)]end return Ha end local function tf(Ya,vd,pa,rd)local Ae,Rd,X,wf=df(Jb(xf('\179\166p\167a\167\205r\187\166p\167a\167\205r\187','\143\239D\238U\238\249;'),Ya)),df(Jb(xf('x&\228\r[\153p','Do\208'),pa)),{},1 while wf<=#rd do uc(X,dd(Ae,vd,Rd,rd,wf));wf=wf+64;vd=vd+1 end return C(X)end return function(k,Da,y)return tf(y,0,Da,k)end end)();lc=(function()local Jc,Tb,Se,Ib,de,Pb,le,zb,Q,P,se_=ca[xf('\180\218\162\128\228','\214\179')][xf('\166\160\171\186','\196\206')],ca[xf('\163\218\181\128\243','\193\179')][xf('o=b7','\rE')],ca[xf('i\f\127V9','\ve')][xf('\205;\182\214.\170','\191H\222')],ca[xf('|8jb,','\30Q')][xf('\17C\206\20V\210','}0\166')],ca[xf('\28\246\n\172L','~\159')][xf('\154\3\150\6','\248b')],ca[xf('\159\182\137\236\207','\253\223')][xf('\134\139\150','\228')],ca[xf('L\191Z\178]','8\222')][xf('\229^v\233Bq','\140\48\5')],ca[xf('\161M\183@\176','\213,')][xf('\24\141W\f\128L',"m\227\'")],ca[xf('\220v\128\198l\149','\175\2\242')][xf("0\'\50",'B')],ca[xf('e\175\149\127\181\128','\22\219\231')][xf('\148\148\150\142','\247\252')],ca[xf('\135\155\5\157\129\16','\244\239w')][xf('\4\176\18\172','f\201')]local function Lc(v,I)local Oa,qd=Se(v,I),Ib(v,32-I)return de(Pb(Oa,qd),4294967295)end local Ed=function(ac)local Ud={1116352408,1899447441,3049323471,3921009573,961987163,1508970993,2453635748,2870763221,3624381080,310598401,607225278,1426881987,1925078388,2162078206,2614888103,3248222580,3835390401,4022224774,264347078,604807628,770255983,1249150122,1555081692,1996064986,2554220882,2821834349,2952996808,3210313671,3336571891,3584528711,113926993,338241895,666307205,773529912,1294757372,1396182291,1695183700,1986661051,2177026350,2456956037,2730485921,2820302411,3259730800,3345764771,3516065817,3600352804,4094571909,275423344,430227734,506948616,659060556,883997877,958139571,1322822218,1537002063,1747873779,1955562222,2024104815,2227730452,2361852424,2428436474,2756734187,3204031479,3329325298}local function Ma(me)local Mc=#me local cb=Mc*8;me=me..xf('\197','E')local gd=64-((Mc+9)%64)if gd~=64 then me=me..Q(xf('f','f'),gd)end me=me..P(de(Se(cb,56),255),de(Se(cb,48),255),de(Se(cb,40),255),de(Se(cb,32),255),de(Se(cb,24),255),de(Se(cb,16),255),de(Se(cb,8),255),de(cb,255))return me end local function Nf(mb)local We={}for Af=88,(#mb)+87,64 do le(We,mb[xf('\128\134\145','\243')](mb,(Af-87),(Af-87)+63))end return We end local function hd(Ge,Vc)local fe={}for Na=56,(64)+55 do if(Na-55)<=16 then fe[(Na-55)]=Pb(Ib(se_(Ge,((Na-55)-1)*4+1),24),Ib(se_(Ge,((Na-55)-1)*4+2),16),Ib(se_(Ge,((Na-55)-1)*4+3),8),se_(Ge,((Na-55)-1)*4+4))else local Ve,ae=Tb(Lc(fe[(Na-55)-15],7),Lc(fe[(Na-55)-15],18),Se(fe[(Na-55)-15],3)),Tb(Lc(fe[(Na-55)-2],17),Lc(fe[(Na-55)-2],19),Se(fe[(Na-55)-2],10));fe[(Na-55)]=de(fe[(Na-55)-16]+Ve+fe[(Na-55)-7]+ae,4294967295)end end local Ee,Xa,Nb,md,s_,Vd,pd,Gd=zb(Vc)for Wc=193,(64)+192 do local bc,Td=Tb(Lc(s_,6),Lc(s_,11),Lc(s_,25)),Tb(de(s_,Vd),de(Jc(s_),pd))local E,be,Oc=de(Gd+bc+Td+Ud[(Wc-192)]+fe[(Wc-192)],4294967295),Tb(Lc(Ee,2),Lc(Ee,13),Lc(Ee,22)),Tb(de(Ee,Xa),de(Ee,Nb),de(Xa,Nb))local Mb=de(be+Oc,4294967295);Gd=pd;pd=Vd;Vd=s_;s_=de(md+E,4294967295);md=Nb;Nb=Xa;Xa=Ee;Ee=de(E+Mb,4294967295)end return de(Vc[1]+Ee,4294967295),de(Vc[2]+Xa,4294967295),de(Vc[3]+Nb,4294967295),de(Vc[4]+md,4294967295),de(Vc[5]+s_,4294967295),de(Vc[6]+Vd,4294967295),de(Vc[7]+pd,4294967295),de(Vc[8]+Gd,4294967295)end ac=Ma(ac)local oc,Ie,Ef=Nf(ac),{1779033703,3144134277,1013904242,2773480762,1359893119,2600822924,528734635,1541459225},''for sc,Ad in ca[xf('fa\152fc\138','\15\17\249')](oc)do Ie={hd(Ad,Ie)}end for Ga,Sc in ca[xf('\204!\23\204#\5','\165Qv')](Ie)do Ef=Ef..P(de(Se(Sc,24),255));Ef=Ef..P(de(Se(Sc,16),255));Ef=Ef..P(de(Se(Sc,8),255));Ef=Ef..P(de(Sc,255))end return Ef end return Ed end)()local gb,va,ha,Fd,Uc,Ta,Rb,nb,ec,Md,L,te,Z,gc,K,vb,yd,Pe,Hd,bd,ue,_b,xd,ze,n_,ke,Sa,zc,u_,fb=ca[xf('1\247\53\235','E\142')],ca[xf('R\250C\245N','\"\153')],ca[xf('\225+\246\54\246','\132Y')],ca[xf('\23\199\226\219\14\202\233\220','c\168\140\174')],ca[xf('\a\171\164\3\170\163','f\216\215')],ca[xf("\'\228\156\49\226\132",'T\129\240')],ca[xf('\208y6\22f\234\194h#\25o\251','\163\28B{\3\158')],ca[xf('Xf\207B|\218','+\18\189')][xf('\250\18\176\241\28\182','\156}\194')],ca[xf('\163\26\0\185\0\21','\208nr')][xf('\5\158\170\17\147\177','p\240\218')],ca[xf('\20\224\173\14\250\184','g\148\223')][xf('\f\n\29','\127')],ca[xf('qD\129k^\148','\2\48\243')][xf('\237\144\251\140','\143\233')],ca[xf('\185*\237\163\48\248','\202^\159')][xf('\175\v\173\17','\204c')],ca[xf('\206\205\216\192\223','\186\172')][xf('\3\224\24\234','n\143')],ca[xf('\1\253\23\240\16','u\156')][xf('\187\16\168\26','\203q')],ca[xf('\198\138\208\135\215','\178\235')][xf('\161\164\25\163\162\25','\194\214|')],ca[xf('}~ksl','\t\31')][xf('\216D\176\212X\183','\177*\195')],ca[xf('\166\17\176\28\183','\210p')][xf('C\178#C\188\57',' \221M')],ca[xf('\152H\171\20\142S\176\21\158',"\251\'\217{")][xf('\231YB\229_B',"\132+\'")],ca[xf('\224P\188\155\246K\167\154\230','\131?\206\244')][xf('B\200^\205_',';\161')],ca[xf('ei\186\139sr\161\138c','\6\6\200\228')][xf('\191\16\179\184\24\165','\205u\192')],ca[xf('V\208-+@\203\54*P','5\191_D')][xf('\24\r\20\18\30','{a')],ca[xf('\239F\201\238F\211\254','\136#\189')],ca[xf('\184\233\174\179\232','\218\128')][xf('\142\131\158','\236')],ca[xf('\158\184\136\226\206','\252\209')][xf('6{;q','T\3')],ca[xf('\154\227\140\185\202','\248\138')][xf('\22\159\26\154','t\254')],ca[xf('\27\220\r\134K','y\181')][xf('\216\30\223\25\206','\186j')],ca[xf('\127\54il/','\29_')][xf('2v\163)c\191','@\5\203')],ca[xf('\6\245\16\175V','d\156')][xf('L\224TI\245H',' \147<')],ca[xf('\14\56\24b^','lQ')][xf('\185\152\182\174\129\161\168','\220\224\194')],{[15789]={},[61517]={},[31323]={{2,1,false},{7,2,false},{1,2,true},{2,4,true},{0,1,false},{10,6,false},{0,9,false},{1,1,false},{0,10,false},{2,1,false},{7,2,true},{10,10,true},{0,4,true},{1,4,false},{0,8,false},{0,8,true},{0,10,false},{0,1,true},{1,0,true},{2,6,true},{10,8,false},{2,10,false},{1,10,false},{5,10,false},{5,0,false},{7,4,true},{10,8,false},{0,10,false},{10,9,true},{1,6,true},{1,8,true},{0,4,true},{2,10,false},{2,10,true},{2,9,false},{0,10,true},{10,8,false},{0,3,false},{2,4,true},{2,1,false},{7,1,false},{2,0,true},{1,2,true},{10,10,false},{5,1,false},{0,10,false},{0,6,false},{0,10,true},{2,7,true},{5,6,false},{0,10,false},{2,2,true},{1,1,true},{5,10,false},{2,2,true},{0,8,false},{2,9,true},{2,4,true},{10,10,true},{0,10,false},{0,4,true},{0,10,true},{10,10,false},{2,10,false},{10,0,false},{1,7,true},{2,2,false},{0,10,false},{7,8,true},{7,7,true},{7,10,true},{7,7,false},{0,2,true},{10,1,true},{7,8,false},{0,10,false},{2,9,true},{1,8,false},{0,7,false},{0,6,false},{0,4,true},{10,8,false},{5,7,true},{0,9,true},{5,10,true},{10,10,false},{2,10,true},{7,4,true},{1,6,false},{0,10,false},{2,10,false},{7,2,false},{0,10,false},{7,0,false},{0,0,true},{0,10,false},{0,10,false},{10,10,false},{2,4,true},{10,2,true},{1,6,false},{2,10,false},{0,10,false},{0,2,false},{1,4,true},{1,2,false},{1,9,false},{1,4,true},{10,10,false},{0,10,false},{2,10,true},{1,1,true},{1,4,true},{2,9,true},{1,4,true},{1,2,true},{0,10,false},{10,1,true},{1,9,false},{1,6,false},{5,2,false},{0,4,true},{1,1,false},{2,9,true},{0,10,false},{0,0,false},{2,10,false},{0,10,false},{0,6,false},{0,10,false},{2,1,true},{2,8,false},{0,3,false},{2,6,false},{0,10,false},{0,10,false},{10,4,true},{7,9,true},{2,8,false},{1,0,false},{2,2,true},{0,10,false},{10,8,true},{10,10,false},{0,1,false},{0,6,false},{2,8,false},{0,10,false},{5,9,true},{2,2,false},{2,10,true},{0,0,true},{0,10,false},{2,10,true},{10,10,true},{7,0,true},{0,3,false},{10,8,false},{1,9,false},{2,4,false},{7,8,true},{10,2,false},{5,2,false},{0,10,false},{10,9,true},{10,10,true},{0,10,false},{7,9,true},{2,0,true},{0,6,true},{10,8,false},{2,4,true},{2,4,true},{2,10,false},{1,6,true},{10,10,true},{0,10,false},{10,9,false},{7,10,true},{5,5,false},{5,8,true},{10,1,true},{1,9,true},{0,1,true},{0,4,true},{2,0,false},{0,10,false},{2,9,false},{5,7,true},{0,4,true},{10,6,true},{0,4,false},{2,9,true},{2,10,true},{0,6,true},{2,10,true},{0,10,false},{0,10,false},{2,6,false},{10,6,true},{2,4,false},{5,10,false},{0,10,false},{0,8,true},{2,2,false},{2,2,false},{2,10,false},{2,10,true},{1,6,false},{5,6,false},{5,6,false},{2,10,false},{2,6,false},{2,6,true},{5,8,false},{0,10,false},{0,6,false},{0,6,false},{0,8,false},{0,10,true},{7,7,false},{5,7,true},{2,10,false},{2,10,false},{5,9,false},{1,1,true},{0,10,true},{0,3,false},{2,10,true},{0,3,false},{2,4,false},{0,10,false},{7,4,false},{0,10,false},{0,4,true},{5,8,true},{5,2,true},{10,6,true},{10,1,false},{2,0,true},{2,2,false},{1,8,true},{2,8,true},{5,0,false},{2,10,true},{5,2,false},{7,1,true},{7,9,false},{10,1,true},{5,7,true},{0,3,false},{5,9,true},{7,7,true},{5,7,true},{1,1,true},{2,0,true}}}local Hf=(function(bb)local wd=fb[61517][bb]if(wd)then return wd end local Xe=1 local function cc()local ia,Te,Kf,U,If,wc,ya,Cf,ud,S,Ka,yc,ee,Qd,Mf,ua,pb,Zc,Bc,Wa,ed,Cd,hb,Db,je,lb,Qb,Hc,g,f_,d_,vc;lb,wc={},function(cd,e_,zd)lb[cd]=Bb(e_,64249)-Bb(zd,40443)return lb[cd]end;Bc=lb[-20873]or wc(-20873,2980,64457)while Bc~=65249 do if Bc>35005 then if Bc<=52322 then if Bc>45381 then if Bc<49284 then if Bc>=47809 then if Bc>=48428 then if Bc>48428 then Mf,Bc=ze(d_,43),lb[-28787]or wc(-28787,119497,16686)continue else d_=ec(xf('~','<'),bb,Xe);Xe,Bc=Xe+1,lb[-12100]or wc(-12100,11546,34221)end elseif Bc>47809 then U=0;Db,Bc,Wa,If=234,47809,1,238 else Qd=Db if If~=If then Bc=lb[23601]or wc(23601,86937,16584)else Bc=4839 end end elseif Bc>47135 then Cf,Bc=ze(Ka,1865967503),44221 continue elseif Bc>47123 then if(d_>=0 and ia>Mf)or((d_<0 or d_~=d_)and ia<Mf)then Bc=38373 else Bc=lb[-15651]or wc(-15651,55741,37180)end elseif Bc<=46830 then Bc,hb=lb[-31036]or wc(-31036,3200,11170),nil else ia=If if Wa~=Wa then Bc=25756 else Bc=60683 end end elseif Bc>51387 then if Bc>52269 then if(ed==3)then Bc=lb[-5548]or wc(-5548,125535,5506)continue else Bc=lb[-9579]or wc(-9579,3567,28683)continue end Bc=lb[-14309]or wc(-14309,62595,39087)elseif Bc<51554 then if(pb>=0 and Hc>ya)or((pb<0 or pb~=pb)and Hc<ya)then Bc=lb[-17090]or wc(-17090,1995,48141)else Bc=46830 end elseif Bc>51554 then vc,Bc=ze(U,1865967503),lb[17810]or wc(17810,5258,55119)continue else Mf[32270],Bc=Db[Mf[14472]+1],lb[-22009]or wc(-22009,30585,6561)end elseif Bc>=50540 then if Bc<=51183 then if Bc<=50540 then Bc,ia=8155,nil else If=If+Qd;ia=If if If~=If then Bc=25756 else Bc=lb[21850]or wc(21850,93724,14881)end end else ya=ya+f_;hb=ya if ya~=ya then Bc=lb[23561]or wc(23561,29608,50993)else Bc=29253 end end elseif Bc<=49284 then ed=Cd;Wa=xd(Wa,zc(n_(ed,127),(d_-124)*7))if(not ke(ed,128))then Bc=lb[15657]or wc(15657,127373,10412)continue else Bc=lb[-12099]or wc(-12099,82685,23996)continue end Bc=lb[674]or wc(674,71009,27168)else Mf,Bc=nil,lb[16754]or wc(16754,2483,44005)end elseif Bc>40976 then if Bc<=44563 then if Bc>41919 then if Bc>44221 then Bc,vc=48085,nil else Ka=Cf;Qb,Kf=K(Ka),false;U,Bc,Db,vc=(Ka)+50,lb[26470]or wc(26470,15728,2884),1,51 end elseif Bc<41611 then Hc=Hc+pb;f_=Hc if Hc~=Hc then Bc=lb[-7776]or wc(-7776,121481,55503)else Bc=51469 end elseif Bc>41611 then U=vc;Db=K(U);Wa,Bc,If,Qd=(U)+145,47123,146,1 else Mf=ia;U=xd(U,zc(n_(Mf,127),(Qd-234)*7))if(not ke(Mf,128))then Bc=lb[4184]or wc(4184,98954,24624)continue else Bc=lb[18223]or wc(18223,92462,12158)continue end Bc=lb[-17920]or wc(-17920,100899,4723)end elseif Bc<44692 then Cd,Bc=Pc(ed[1],1,ed[2]),lb[-11378]or wc(-11378,36544,51098)elseif Bc<=44692 then Bc,ee=lb[-24227]or wc(-24227,117552,20747),nil else ud=ec(xf('\v','I'),bb,Xe);Xe,Bc=Xe+1,52597 end elseif Bc<38637 then if Bc>=35671 then if Bc>=36034 then if Bc>36034 then return{[335]=yc,[50438]=ud,[46548]=S,[56098]='',[28789]=Qb,[45328]=Qd}else Bc,Mf[32270]=lb[-6517]or wc(-6517,30788,58476),u_(Mf[14472],0,16)end else ya,Bc=nil,lb[28651]or wc(28651,24621,46691)end elseif Bc<=35181 then Mf[32270],Bc=Db[Mf[62721]+1],lb[-19931]or wc(-19931,18265,10625)else je,Bc=nil,lb[-4296]or wc(-4296,109341,53149)end elseif Bc>=39517 then if Bc<39575 then Cd,Bc=ed,lb[-18483]or wc(-18483,38509,53063)elseif Bc>39575 then f_=Hc if ya~=ya then Bc=lb[-6797]or wc(-6797,107351,58249)else Bc=lb[-5694]or wc(-5694,111978,7037)end else Wa=0;ia,Bc,Qd,Mf=128,22902,124,1 end elseif Bc>38637 then if d_==4 then Bc=lb[-22702]or wc(-22702,45217,35194)continue elseif(d_==0)then Bc=lb[-25370]or wc(-25370,21479,51708)continue else Bc=lb[-6514]or wc(-6514,41482,41696)continue end Bc=lb[3852]or wc(3852,2830,17892)else Bc=lb[22636]or wc(22636,43384,47361)continue end elseif Bc<=58422 then if Bc>=55544 then if Bc<55829 then if Bc>=55636 then if Bc<=55636 then if(Kf)then Bc=lb[6288]or wc(6288,46832,56396)continue else Bc=lb[11851]or wc(11851,3995,2388)continue end Bc=lb[15825]or wc(15825,122042,19104)else ia=If if Wa~=Wa then Bc=lb[27844]or wc(27844,94501,773)else Bc=lb[-6913]or wc(-6913,2148,30056)end end elseif Bc>55544 then Cd=ia if Mf~=Mf then Bc=lb[-29822]or wc(-29822,101729,31816)else Bc=47135 end else if(Mf>=0 and Qd>ia)or((Mf<0 or Mf~=Mf)and Qd<ia)then Bc=lb[24512]or wc(24512,30986,52830)else Bc=lb[14577]or wc(14577,105367,57539)end end elseif Bc<=57682 then if Bc>56124 then Db=Db+Wa;Qd=Db if Db~=Db then Bc=lb[1205]or wc(1205,93060,22699)else Bc=4839 end elseif Bc<=55829 then Bc=lb[-21115]or wc(-21115,99469,22804)continue else ed,Bc=Kd(ze(ua,1865967503)),58516 continue end elseif Bc>57869 then Bc,Cd=2823,nil else ya,Bc=pb,lb[12719]or wc(12719,10134,50652)continue end elseif Bc>55347 then if Bc>=55377 then if Bc<=55377 then ia=ia+d_;Cd=ia if ia~=ia then Bc=38373 else Bc=lb[-25843]or wc(-25843,1894,55419)end else pb=ya;Hc[14472]=pb;vb(Qb,{});Bc=lb[-29588]or wc(-29588,25102,63057)end else Qb=Qb+vc;U=Qb if Qb~=Qb then Bc=lb[12292]or wc(12292,93523,17374)else Bc=lb[-2475]or wc(-2475,31202,54657)end end elseif Bc<=54739 then if Bc>=54582 then if Bc>54582 then Bc,Kf=lb[17841]or wc(17841,46585,40419),Wa else if(Db>=0 and vc>U)or((Db<0 or Db~=Db)and vc<U)then Bc=lb[25565]or wc(25565,123025,61870)else Bc=55636 end end else Bc,Te=lb[-10780]or wc(-10780,13964,50846),ze(ud,43)continue end elseif Bc<=55315 then U=Qb if Kf~=Kf then Bc=lb[11536]or wc(11536,95955,20318)else Bc=15009 end else Bc,Cd=lb[3609]or wc(3609,97915,24069),ze(ed,43)continue end elseif Bc<63704 then if Bc<61403 then if Bc<=60683 then if Bc>=60638 then if Bc>60638 then if(Qd>=0 and If>Wa)or((Qd<0 or Qd~=Qd)and If<Wa)then Bc=25756 else Bc=lb[24002]or wc(24002,98554,9688)end else Bc,If=lb[-10654]or wc(-10654,93350,26163),nil end else Cd,Bc=Pc(ed[1],1,ed[2]),lb[9606]or wc(9606,127567,29477)end else Bc,je=63642,ze(yc,43)continue end elseif Bc>=63421 then if Bc<=63421 then Qd=Qd+Mf;d_=Qd if Qd~=Qd then Bc=lb[-22989]or wc(-22989,22073,57737)else Bc=55544 end else yc,Bc,Te=je,45381,nil end elseif Bc>61403 then Bc,g=257,ze(S,43)continue else If=ec(xf('\233','\171'),bb,Xe);Xe,Bc=Xe+1,7069 end elseif Bc>=64738 then if Bc>65406 then Bc,ed=lb[27590]or wc(27590,102072,27619),Kd(nil)elseif Bc<=65385 then if Bc>64738 then ia=Qd;Mf=n_(ia,255);d_=fb[31323][Mf+1];Cd,ed,ua=d_[1],d_[2],d_[3];Hc={[62721]=0,[1625]=0,[61826]=ed,[49916]=nil,[45176]=0,[6169]=0,[62554]=0,[42671]=0,[7439]=0,[14472]=0,[32270]=0,[36146]=Mf,[19047]=0,[58228]=0,[58444]=0};vb(Qb,Hc)if Cd==5 then Bc=lb[-2457]or wc(-2457,9475,12489)continue elseif(Cd==2)then Bc=lb[-17831]or wc(-17831,20956,7098)continue else Bc=lb[20221]or wc(20221,83037,24426)continue end Bc=lb[756]or wc(756,29292,63383)else Bc,Mf[32270]=lb[30151]or wc(30151,24581,3117),Db[Mf[19047]+1]end else yc=ec(xf('\237','\175'),bb,Xe);Xe,Bc=Xe+1,61318 end elseif Bc<=64608 then if Bc<64531 then if d_==1 then Bc=lb[14298]or wc(14298,24340,34000)continue elseif d_==2 then Bc=lb[270]or wc(270,118868,45104)continue elseif d_==7 then Bc=lb[-18991]or wc(-18991,126920,16968)continue elseif(d_==8)then Bc=lb[10709]or wc(10709,123990,49076)continue else Bc=lb[-28395]or wc(-28395,48340,38558)continue end Bc=lb[15889]or wc(15889,48747,42647)elseif Bc<=64531 then if Cd==0 then Bc=lb[5611]or wc(5611,6397,61250)continue end Bc=lb[-2096]or wc(-2096,15469,13712)else Mf[32270],Bc=Db[Mf[45176]+1],lb[-5196]or wc(-5196,573,29285)end else ia,Bc=ze(Mf,43),41611 continue end elseif Bc<=19291 then if Bc>=11597 then if Bc<=13783 then if Bc>13000 then if Bc>13694 then Bc,Cd=lb[11269]or wc(11269,32024,62450),nil elseif Bc>=13286 then if Bc<=13286 then ua=ec(xf('=e','\1'),bb,Xe);Bc,Xe=lb[-12607]or wc(-12607,23283,50247),Xe+8 else Cd=Mf[14472];ed,ua=Sa(Cd,30),n_(Sa(Cd,20),1023);Mf[32270]=Db[ua+1];Mf[58444]=ed if(ed==2)then Bc=lb[14253]or wc(14253,57329,35665)continue else Bc=lb[-4234]or wc(-4234,89524,18192)continue end Bc=lb[-16621]or wc(-16621,51230,46138)end else Wa=If;Qd=K(Wa);Mf,ia,d_,Bc=(Wa)+130,131,1,lb[6517]or wc(6517,100869,2606)end elseif Bc>12490 then if Bc>12800 then ya,pb=n_(Sa(ia,8),16777215),nil;pb=if ya<8388608 then ya else ya-16777216;Hc[58228],Bc=pb,lb[-31520]or wc(-31520,25267,59354)else ya,Bc=ze(pb,1707071399),lb[-29844]or wc(-29844,118376,49645)continue end elseif Bc>12366 then If=vc if U~=U then Bc=lb[-6758]or wc(-6758,17004,38777)else Bc=54582 end elseif Bc>11911 then Bc,If=lb[1601]or wc(1601,4242,10930),ze(Wa,1865967503)continue elseif Bc>11597 then Bc,ua=23571,ze(Hc,1865967503)continue else Wa,Bc=ua,lb[-25253]or wc(-25253,84462,16575)continue end elseif Bc>17216 then if Bc>17998 then d_=Mf if(d_==5)then Bc=lb[-18115]or wc(-18115,73451,31139)continue else Bc=lb[3235]or wc(3235,12103,63753)continue end Bc=6616 elseif Bc<=17355 then if(d_==5)then Bc=lb[-7531]or wc(-7531,128789,3537)continue else Bc=lb[18626]or wc(18626,76056,18162)continue end Bc=lb[12127]or wc(12127,4109,31797)else Bc,ed=lb[-21785]or wc(-21785,102174,18033),ua continue end elseif Bc<=15423 then if Bc<15048 then if(vc>=0 and Qb>Kf)or((vc<0 or vc~=vc)and Qb<Kf)then Bc=lb[-3090]or wc(-3090,2740,43827)else Bc=24463 end elseif Bc>15048 then Bc,ua=29025,nil else if d_==6 then Bc=lb[-4382]or wc(-4382,11212,55859)continue elseif(d_==9)then Bc=lb[12968]or wc(12968,27005,44300)continue else Bc=lb[-20032]or wc(-20032,26245,6315)continue end Bc=lb[-6668]or wc(-6668,36586,63254)end elseif Bc<=16416 then ee=ec(xf('\29','_'),bb,Xe);Bc,Xe=29414,Xe+1 else hb=ya if pb~=pb then Bc=lb[-31848]or wc(-31848,29880,49729)else Bc=29253 end end elseif Bc>=5932 then if Bc<8155 then if Bc>7069 then if(ua)then Bc=lb[21294]or wc(21294,100642,30079)continue else Bc=lb[-11070]or wc(-11070,9219,11350)continue end Bc=lb[-8113]or wc(-8113,39848,43519)elseif Bc>=6616 then if Bc<=6616 then Bc,Db[(ia-145)]=lb[-17861]or wc(-17861,5319,48052),Cd else Db,Bc=ze(If,43),24424 continue end else if(d_==4)then Bc=lb[21563]or wc(21563,107948,2056)continue else Bc=lb[29333]or wc(29333,61038,38538)continue end Bc=lb[-22577]or wc(-22577,32859,60551)end elseif Bc<=9444 then if Bc<=9385 then if Bc>8155 then Mf=Qb[(ia-34)];d_=Mf[61826]if(d_==3)then Bc=lb[-13487]or wc(-13487,124607,1076)continue else Bc=lb[8804]or wc(8804,45840,39909)continue end Bc=lb[-22572]or wc(-22572,6695,19011)else Mf=ec(xf('4','v'),bb,Xe);Bc,Xe=64689,Xe+1 end else Hc[62554]=n_(Sa(ia,8),255);ya=n_(Sa(ia,16),65535);Hc[1625]=ya;pb=nil;pb=if ya<32768 then ya else ya-65536;Hc[19047],Bc=pb,lb[-12658]or wc(-12658,42542,41813)end elseif Bc<=10178 then ed,Bc=nil,13286 else ee,Bc=ze(Zc,43),23552 continue end elseif Bc<2823 then if Bc>=2570 then if Bc>2570 then Kf,Bc=false,lb[1246]or wc(1246,119684,18286)else if(Qd>=0 and If>Wa)or((Qd<0 or Qd~=Qd)and If<Wa)then Bc=lb[20746]or wc(20746,3111,38907)else Bc=lb[28460]or wc(28460,1568,17867)end end elseif Bc<=257 then S,Cf,Bc=g,nil,30733 else If=If+Qd;ia=If if If~=If then Bc=60638 else Bc=2570 end end elseif Bc<=4811 then if Bc<=3678 then if Bc>2823 then Hc=n_(Sa(Cd,10),1023);Mf[42671],Bc=Db[Hc+1],lb[-1467]or wc(-1467,38927,50219)else ed=ec(xf('\31',']'),bb,Xe);Bc,Xe=55347,Xe+1 end else ee=hb;ua=xd(ua,zc(n_(ee,127),(f_-51)*7))if(not ke(ee,128))then Bc=lb[-28968]or wc(-28968,113093,27855)continue else Bc=lb[-15236]or wc(-15236,103090,23532)continue end Bc=lb[-14978]or wc(-14978,116470,1056)end elseif Bc>4839 then Bc,Qd[(Cd-130)]=lb[-18814]or wc(-18814,119556,52311),cc()else if(Wa>=0 and Db>If)or((Wa<0 or Wa~=Wa)and Db<If)then Bc=lb[11130]or wc(11130,80195,27254)else Bc=50540 end end elseif Bc<28265 then if Bc>=23552 then if Bc<24755 then if Bc>24424 then Db,Bc=nil,61403 elseif Bc>=23571 then if Bc<=23571 then Hc=ua if Hc==0 then Bc=lb[13030]or wc(13030,12364,59663)continue else Bc=lb[9694]or wc(9694,42546,37261)continue end Bc=lb[-28818]or wc(-28818,118419,26064)else If=Db;Ka=xd(Ka,zc(n_(If,127),(U-147)*7))if(not ke(If,128))then Bc=lb[-2402]or wc(-2402,81929,32032)continue else Bc=lb[-27546]or wc(-27546,122472,53690)continue end Bc=lb[31447]or wc(31447,124316,56046)end else Zc=ee;Hc=xd(Hc,zc(n_(Zc,127),(hb-218)*7))if not ke(Zc,128)then Bc=lb[15628]or wc(15628,129675,62590)continue end Bc=lb[17119]or wc(17119,1386,43811)end elseif Bc<=25229 then if Bc<=24980 then if Bc<=24755 then Bc,Wa=28265,nil else S=ec(xf('e',"\'"),bb,Xe);Xe,Bc=Xe+1,63181 end else Mf[32270]=Db[u_(Mf[14472],0,24)+1];Mf[6169],Bc=u_(Mf[14472],31,1)==1,lb[-12183]or wc(-12183,307,28511)end elseif Bc>25756 then Zc=ec(xf('f','$'),bb,Xe);Bc,Xe=lb[9996]or wc(9996,52217,39163),Xe+1 else Wa,Qd,If,Bc=(Ka)+34,1,35,lb[-23547]or wc(-23547,86736,21345)end elseif Bc<=21783 then if Bc<20688 then if Bc>20200 then ya,Bc=nil,30371 else vc=vc+Db;If=vc if vc~=vc then Bc=lb[-29881]or wc(-29881,109129,16230)else Bc=54582 end end elseif Bc<21000 then Qd,Bc=ze(ia,1707071399),lb[-20369]or wc(-20369,84279,10654)continue elseif Bc<=21000 then Bc=lb[-24305]or wc(-24305,88331,21837)continue else Bc,ed=15423,Kd(nil)end elseif Bc<22045 then ed,Bc=Kd'',lb[1877]or wc(1877,102608,9766)continue elseif Bc>22045 then d_=Qd if ia~=ia then Bc=lb[-15227]or wc(-15227,122389,26981)else Bc=lb[15527]or wc(15527,83112,30882)end else Bc=lb[-7771]or wc(-7771,48298,35838)continue end elseif Bc>30371 then if Bc>33399 then if Bc<34861 then ed,Bc=Kd(ya),44620 continue elseif Bc>34861 then ia=ec(xf('\b}\0','4'),bb,Xe);Bc,Xe=20688,Xe+4 else Hc,ya=n_(Sa(Cd,10),1023),n_(Sa(Cd,0),1023);Mf[42671]=Db[Hc+1];Mf[7439],Bc=Db[ya+1],lb[-1217]or wc(-1217,3313,28953)end elseif Bc>32194 then if Bc>32297 then Bc,Mf[32270]=lb[7273]or wc(7273,21500,548),Db[Mf[62554]+1]else ua=0;ya,Hc,pb,Bc=55,51,1,lb[21316]or wc(21316,22232,37354)end elseif Bc>31400 then Mf[32270],Bc=Db[Mf[58228]+1],lb[-21231]or wc(-21231,49552,44984)elseif Bc<=30733 then Ka=0;Kf,vc,Qb,Bc=151,1,147,lb[-2232]or wc(-2232,93238,9031)else Bc=lb[14673]or wc(14673,98725,13012)continue end elseif Bc<28944 then if Bc>=28491 then if Bc>28491 then if(d_==2)then Bc=lb[-19203]or wc(-19203,121327,26287)continue else Bc=lb[-26995]or wc(-26995,125164,59220)continue end Bc=lb[8485]or wc(8485,16745,15427)else Hc[62554]=n_(Sa(ia,8),255);Hc[62721]=n_(Sa(ia,16),255);Hc[45176],Bc=n_(Sa(ia,24),255),lb[17627]or wc(17627,25797,7656)end elseif Bc<=28265 then Qd,Bc=nil,lb[-30813]or wc(-30813,113783,8234)else pb=ec(xf(' U(','\28'),bb,Xe);Bc,Xe=12800,Xe+4 end elseif Bc>=29253 then if Bc<29414 then if(f_>=0 and ya>pb)or((f_<0 or f_~=f_)and ya<pb)then Bc=lb[-9715]or wc(-9715,42994,45951)else Bc=lb[-5867]or wc(-5867,11584,46302)end elseif Bc<=29414 then Bc,hb=lb[23505]or wc(23505,57631,38112),ze(ee,43)continue else pb=ec(xf('\137','\234')..Hc,bb,Xe);Bc,Xe=57869,Xe+Hc end elseif Bc<=28944 then ud,Bc,g=Te,24980,nil else Hc=0;ya,Bc,f_,pb=218,lb[-16077]or wc(-16077,31050,56712),1,222 end end end local a_=cc();fb[61517][bb]=a_ return a_ end)local N=(function(ef,Je)ef=Hf(ef)local Df=_b()local function Dd(Xc,h)local M=(function(...)return{...},Ta('#',...)end)local Ue;Ue=(function(Jd,mc,z)if mc>z then return end return Jd[mc],Ue(Jd,mc+1,z)end)local function mf(qf,V,uf,gf)local ve,jf,Ne,Yd,da,_e,Ab,ib,Xb,Nd,ge,Eb,af,Va,Ec,J,Fa,Aa,sb,G,Zb,nd,ja,cf;Ec,Ab={},function(ob,Ye,O)Ec[ob]=Bb(O,54681)-Bb(Ye,46400)return Ec[ob]end;Xb=Ec[64]or Ab(64,28381,108749)while Xb~=56818 do if Xb>=31331 then if Xb>46606 then if Xb<55651 then if Xb<=50850 then if Xb>48626 then if Xb<=50781 then if Xb>=50266 then if Xb>50266 then Zb=jf[62721];Aa=da[Zb]if(Aa==nil)then Xb=Ec[23303]or Ab(23303,20296,93179)continue else Xb=Ec[30001]or Ab(30001,30671,117399)continue end Xb=Ec[-25932]or Ab(-25932,44153,40993)else Aa={[1]=Zb,[3]=qf};Xb,da[Zb]=Ec[28066]or Ab(28066,20324,99130),Aa end elseif Xb<=49302 then return Ue(qf,sb,sb+Eb-1)else if(_e>=0 and Fa>af)or((_e<0 or _e~=_e)and Fa<af)then Xb=Ec[-8443]or Ab(-8443,11618,28693)else Xb=Ec[29325]or Ab(29325,20928,10133)end end elseif Xb>50786 then Xb,qf[ib[62721]]=Ec[2789]or Ab(2789,36573,4731),qf[ib[45176]]-ib[32270]else if sb==3 then Xb=Ec[-24544]or Ab(-24544,52674,28460)continue end Xb=Ec[-22751]or Ab(-22751,19591,71930)end elseif Xb>47891 then if Xb<48380 then nd[2]=nd[3][nd[1]];nd[3]=nd;nd[1]=2;Xb,da[ve]=Ec[16930]or Ab(16930,33787,29897),nil elseif Xb>48380 then Va=uf[J+ib[19047]]if G[Va]==nil then Xb=Ec[20966]or Ab(20966,63179,3688)continue end Xb=Ec[21223]or Ab(21223,13575,120753)else ib=uf[J];ge,Xb=ib[36146],Ec[-2766]or Ab(-2766,18698,105494)end elseif Xb<=47130 then if Xb<46889 then Eb,Xb=cf-sb+1,Ec[-3613]or Ab(-3613,1875,108336)elseif Xb<=46889 then if sb==3 then Xb=Ec[10197]or Ab(10197,15885,126900)continue end Xb=Ec[-18331]or Ab(-18331,32664,114958)else if qf[ib[62554]]then Xb=Ec[27922]or Ab(27922,26654,95132)continue end Xb=Ec[-7209]or Ab(-7209,2560,106012)end elseif Xb>47136 then Nd,Va,Eb=da if lf(Nd)~=xf('\230\53!W\244) Z','\128@O4')then Xb=Ec[24297]or Ab(24297,13362,130480)continue end Xb=Ec[-18380]or Ab(-18380,22001,91323)else sb=ib[32270];qf[ib[45176]][sb]=qf[ib[62554]];J+=1;Xb=Ec[-26380]or Ab(-26380,39911,28533)end elseif Xb<54104 then if Xb<=52300 then if Xb<=51367 then if Xb>=51096 then if Xb>51096 then J+=ib[19047];Xb=Ec[-28912]or Ab(-28912,28611,111441)else if(ib[45176]==173)then Xb=Ec[916]or Ab(916,22344,118558)continue else Xb=Ec[16220]or Ab(16220,21678,90725)continue end Xb=Ec[-8434]or Ab(-8434,25556,112448)end else Nd,Va,Eb=Of(Nd);Xb=Ec[17987]or Ab(17987,16341,102047)end else if ge>127 then Xb=Ec[4989]or Ab(4989,29589,111465)continue else Xb=Ec[-14290]or Ab(-14290,17670,89605)continue end Xb=Ec[-1128]or Ab(-1128,9982,128410)end elseif Xb>52556 then ve,nd=Nd(Va,Eb);Eb=ve if Eb==nil then Xb=Ec[-11942]or Ab(-11942,42744,19044)else Xb=3818 end else af=af+jf;Ne=af if af~=af then Xb=Ec[16830]or Ab(16830,13228,10964)else Xb=Ec[-28002]or Ab(-28002,37902,57488)end end elseif Xb>54798 then if Xb>55426 then if ge>150 then Xb=Ec[21674]or Ab(21674,35862,4752)continue else Xb=Ec[-10641]or Ab(-10641,22115,15102)continue end Xb=Ec[29730]or Ab(29730,37623,26213)elseif Xb<=54919 then Z(qf,Nd,Nd+Va-1,ib[14472],qf[sb]);J+=1;Xb=Ec[14915]or Ab(14915,49331,120737)else Xb,qf[ib[62721]]=Ec[-10636]or Ab(-10636,43521,32287),qf[ib[62554]]+ib[32270]end elseif Xb<54698 then if Xb<=54104 then sb=tb(Nd)if(sb~=nil and sb[xf('i\156\207B\166\212','6\195\166')]~=nil)then Xb=Ec[22773]or Ab(22773,33831,40369)continue else Xb=Ec[-467]or Ab(-467,19822,67722)continue end Xb=Ec[24052]or Ab(24052,59144,44044)else J+=1;Xb=Ec[32313]or Ab(32313,21051,108121)end elseif Xb<=54698 then Xb,cf=Ec[-565]or Ab(-565,60491,21832),sb+ja-1 else if ib[45176]==208 then Xb=Ec[8720]or Ab(8720,10593,28922)continue else Xb=Ec[-23349]or Ab(-23349,64047,27821)continue end Xb=Ec[28282]or Ab(28282,283,103737)end elseif Xb<=61110 then if Xb<58822 then if Xb>58391 then if Xb<=58597 then if Xb<=58418 then Eb..=qf[Fa];Xb=Ec[1514]or Ab(1514,24083,109221)else if lf(Nd)==xf('\149\192\131\205\132','\225\161')then Xb=Ec[-15332]or Ab(-15332,46265,119828)continue end Xb=Ec[-28914]or Ab(-28914,10987,4961)end else Xb,qf[ib[62554]]=Ec[-28520]or Ab(-28520,9995,117513),nil end elseif Xb<55903 then if Xb>55651 then if ge>50 then Xb=Ec[-1822]or Ab(-1822,46182,22311)continue else Xb=Ec[20138]or Ab(20138,43484,40942)continue end Xb=Ec[16905]or Ab(16905,60980,12832)else sb=h[ib[62721]+1];Xb,sb[3][sb[1]]=Ec[-1261]or Ab(-1261,44805,29459),qf[ib[62554]]end elseif Xb<=55903 then sb[32270]=Nd;Xb,ib[36146]=Ec[-11722]or Ab(-11722,54156,9864),97 else if(ge>96)then Xb=Ec[6702]or Ab(6702,45066,17304)continue else Xb=Ec[25060]or Ab(25060,2040,123261)continue end Xb=Ec[-11846]or Ab(-11846,38539,25993)end elseif Xb>=59503 then if Xb<61103 then if Xb>59503 then if(af>=0 and ja>Fa)or((af<0 or af~=af)and ja<Fa)then Xb=Ec[-32192]or Ab(-32192,8728,89335)else Xb=25598 end else if(_e>=0 and Fa>af)or((_e<0 or _e~=_e)and Fa<af)then Xb=Ec[-24204]or Ab(-24204,18975,130800)else Xb=Ec[-22979]or Ab(-22979,40090,118572)end end elseif Xb<=61103 then J+=1;Xb=Ec[-29644]or Ab(-29644,30765,101419)else Xb=Ec[-18698]or Ab(-18698,60085,125054)continue end elseif Xb<59430 then if Xb>58822 then J+=1;Xb=Ec[-3604]or Ab(-3604,28951,99589)else Nd,Va,Eb=da if(lf(Nd)~=xf(':\141\232z(\145\233w','\\\248\134\25'))then Xb=Ec[-9468]or Ab(-9468,57938,121017)continue else Xb=Ec[8495]or Ab(8495,26497,125135)continue end Xb=Ec[-1136]or Ab(-1136,33461,30483)end elseif Xb>59430 then J-=1;Xb,uf[J]=Ec[7629]or Ab(7629,18318,109194),{[36146]=67,[62554]=ze(ib[62554],23),[62721]=ze(ib[62721],124),[45176]=0}else Nd,Va,Eb=Of(Nd);Xb=Ec[-8786]or Ab(-8786,4781,116507)end elseif Xb>=62850 then if Xb<63647 then if Xb<62865 then if ge>128 then Xb=Ec[-21929]or Ab(-21929,55011,8549)continue else Xb=Ec[-25515]or Ab(-25515,31958,82043)continue end Xb=Ec[10063]or Ab(10063,29317,98707)elseif Xb<=62865 then af=nd if ja~=ja then Xb=Ec[-20733]or Ab(-20733,25990,103945)else Xb=Ec[-13453]or Ab(-13453,38163,23874)end else if(ge>204)then Xb=Ec[13463]or Ab(13463,20333,87316)continue else Xb=Ec[18363]or Ab(18363,31484,71836)continue end Xb=Ec[-11349]or Ab(-11349,24685,111851)end elseif Xb>64841 then Nd,Va,Eb=Of(Nd);Xb=Ec[-15820]or Ab(-15820,56529,17735)elseif Xb<64481 then if ge>244 then Xb=Ec[-16332]or Ab(-16332,35384,119683)continue else Xb=Ec[30829]or Ab(30829,27754,106914)continue end Xb=Ec[26055]or Ab(26055,5999,130029)elseif Xb<=64481 then if(ib[45176]==27)then Xb=Ec[23562]or Ab(23562,15861,107664)continue else Xb=Ec[22782]or Ab(22782,3602,10970)continue end Xb=Ec[25616]or Ab(25616,63748,3344)else sb=V[ib[32270]+1];Nd=sb[46548];Va=K(Nd);qf[ib[62554]]=Dd(sb,Va);Eb,ve,Xb,nd=102,(Nd)+101,Ec[-28840]or Ab(-28840,5103,1877),1 end elseif Xb<61974 then if Xb<=61229 then if Xb<=61209 then J+=1;Xb=Ec[11190]or Ab(11190,53754,9574)else sb,Nd=nil,ze(ib[1625],5638);sb=if Nd<32768 then Nd else Nd-65536;Va=sb;Eb=V[Va+1];ve=Eb[46548];nd=K(ve);qf[ze(ib[62554],144)]=Dd(Eb,nd);af,Xb,Fa,ja=1,Ec[10700]or Ab(10700,59699,25918),(ve)+216,217 end else ja,Xb=ja..te(ze(L(ve,(jf-171)+1),L(nd,(jf-171)%#nd+1))),Ec[15939]or Ab(15939,47489,31129)end elseif Xb>62088 then _e=ja if Fa~=Fa then Xb=Ec[5388]or Ab(5388,21487,68956)else Xb=Ec[12892]or Ab(12892,42425,11803)end elseif Xb>61974 then if ge>14 then Xb=Ec[-9246]or Ab(-9246,46105,24425)continue else Xb=Ec[1941]or Ab(1941,46236,61071)continue end Xb=Ec[-17408]or Ab(-17408,64295,3893)else Xb,Va=Ec[20378]or Ab(20378,38133,7432),nd continue end elseif Xb>=39697 then if Xb<=42328 then if Xb<40987 then if Xb>=40194 then if Xb<40767 then if Xb>40194 then Fa=uf[J];J+=1;af=Fa[62554]if(af==0)then Xb=Ec[11714]or Ab(11714,51284,14877)continue else Xb=Ec[17575]or Ab(17575,38108,62342)continue end Xb=Ec[-29543]or Ab(-29543,13677,116194)else Xb,Va=Ec[-10026]or Ab(-10026,23003,71355),cf-Nd+1 end elseif Xb<=40767 then Fa=Fa+_e;jf=Fa if Fa~=Fa then Xb=Ec[-12383]or Ab(-12383,65058,41717)else Xb=Ec[1965]or Ab(1965,39653,118157)end else if(ge>21)then Xb=Ec[-9509]or Ab(-9509,2846,27331)continue else Xb=Ec[-30376]or Ab(-30376,28579,71922)continue end Xb=Ec[-23848]or Ab(-23848,1913,125927)end elseif Xb<39766 then if(ge>234)then Xb=Ec[3348]or Ab(3348,56256,26656)continue else Xb=Ec[12531]or Ab(12531,26008,111473)continue end Xb=Ec[8475]or Ab(8475,24615,111669)elseif Xb<=39766 then if(ge>126)then Xb=Ec[28650]or Ab(28650,15534,102552)continue else Xb=Ec[-24089]or Ab(-24089,37643,114913)continue end Xb=Ec[-26678]or Ab(-26678,25270,111010)else Nd[42671]=Eb;Xb,ve=Ec[5696]or Ab(5696,685,12513),nil end elseif Xb<=41704 then if Xb>41399 then if Xb<=41528 then if(nd==-2)then Xb=Ec[-10869]or Ab(-10869,10147,126984)continue else Xb=Ec[-20553]or Ab(-20553,5507,106254)continue end Xb=Ec[21716]or Ab(21716,2434,105630)else ja=ja+af;_e=ja if ja~=ja then Xb=Ec[-14638]or Ab(-14638,37803,117912)else Xb=Ec[6676]or Ab(6676,40632,115480)end end elseif Xb>=41378 then if Xb>41378 then cf,J,da,Xb,G,Yd=-1,1,Rb({},{[xf('\139\20,\187/$','\212KA')]=xf('\18\23','d')}),35909,Rb({},{[xf('SH\211cs\219','\f\23\190')]=xf('\176\168','\219')}),false else if ib[45176]==132 then Xb=Ec[-20333]or Ab(-20333,51375,31799)continue else Xb=Ec[30902]or Ab(30902,62165,23842)continue end Xb=Ec[-6996]or Ab(-6996,37117,26523)end else sb=qf[ib[45176]];qf[ib[62554]],Xb=if sb then sb else ib[32270]or false,Ec[19485]or Ab(19485,12377,115911)end elseif Xb<41865 then Nd,Va,Eb=sb[xf('\134\148\3\173\174\24','\217\203j')](Nd);Xb=Ec[-9942]or Ab(-9942,55957,103903)elseif Xb>41865 then J-=1;uf[J],Xb={[36146]=75,[62554]=ze(ib[62554],233),[62721]=ze(ib[62721],178),[45176]=0},Ec[-10062]or Ab(-10062,14257,121519)else if not qf[ib[62554]]then Xb=Ec[24924]or Ab(24924,55495,5882)continue end Xb=Ec[31283]or Ab(31283,45032,29556)end elseif Xb>=43476 then if Xb<44768 then if Xb<43754 then Z(nd,1,Nd,sb+3,qf);qf[sb+2]=qf[sb+3];J+=ib[19047];Xb=Ec[-1402]or Ab(-1402,19117,88491)elseif Xb>43754 then ve,nd=Nd[42671],ib[42671];nd=xf('S\27{\196\f','\\k')..nd;ja='';_e,Xb,af,Fa=1,20934,(#ve-1)+224,224 else J+=ib[19047];Xb=Ec[-2673]or Ab(-2673,31611,102169)end elseif Xb<46187 then if Xb<=44768 then Eb,Xb=nil,Ec[14992]or Ab(14992,34366,2670)else if ge>176 then Xb=Ec[13069]or Ab(13069,35580,24269)continue else Xb=Ec[-31024]or Ab(-31024,29518,318)continue end Xb=Ec[13030]or Ab(13030,29609,100023)end elseif Xb>46187 then sb=tb(Nd)if(sb~=nil and sb[xf('\173n\149\134T\142','\242\49\252')]~=nil)then Xb=Ec[-451]or Ab(-451,35127,36364)continue else Xb=Ec[-28541]or Ab(-28541,52723,22339)continue end Xb=Ec[29648]or Ab(29648,25945,126775)else Xb,nd[(_e-216)]=Ec[23898]or Ab(23898,28886,121835),h[jf[62721]+1]end elseif Xb>42800 then if Xb<=42983 then sb,Nd,Va=ze(ib[62721],112),ze(ib[62554],171),ze(ib[45176],200);Eb,ve=Nd==0 and cf-sb or Nd-1,qf[sb];nd,ja=M(ve(Ue(qf,sb+1,sb+Eb)))if(Va==0)then Xb=Ec[653]or Ab(653,45708,2287)continue else Xb=Ec[23649]or Ab(23649,52496,44213)continue end Xb=Ec[-26941]or Ab(-26941,54361,23878)else Nd[42671],Xb=Eb,Ec[16136]or Ab(16136,27112,127998)end elseif Xb>42716 then J+=1;Xb=Ec[21214]or Ab(21214,53467,9337)elseif Xb>42679 then Nd[32270]=Va if(sb==2)then Xb=Ec[-28020]or Ab(-28020,57630,31621)continue else Xb=Ec[-27055]or Ab(-27055,39010,12754)continue end Xb=Ec[32511]or Ab(32511,9137,13609)elseif Xb<=42593 then J+=ib[19047];Xb=Ec[14882]or Ab(14882,6863,126541)else sb=tb(Nd)if sb~=nil and sb[xf('\241U,\218o7','\174\nE')]~=nil then Xb=Ec[10904]or Ab(10904,51502,117317)continue elseif(lf(Nd)==xf('\193\174\215\163\208','\181\207'))then Xb=Ec[-26681]or Ab(-26681,17701,90697)continue else Xb=Ec[-17340]or Ab(-17340,25437,94999)continue end Xb=Ec[-2946]or Ab(-2946,18790,71950)end elseif Xb<=36074 then if Xb>=33324 then if Xb<=35223 then if Xb>34400 then if Xb<=34554 then if(nd>=0 and Eb>ve)or((nd<0 or nd~=nd)and Eb<ve)then Xb=Ec[20407]or Ab(20407,27419,114489)else Xb=Ec[14412]or Ab(14412,38757,5265)end else J+=ib[19047];Xb=Ec[-27303]or Ab(-27303,37014,26498)end elseif Xb>=33472 then if Xb>33472 then qf[ib[62554]],Xb=ib[32270],Ec[4987]or Ab(4987,17330,87726)else ue(nd);Xb,G[ve]=Ec[-12804]or Ab(-12804,5457,4807),nil end else if ge>92 then Xb=Ec[-14178]or Ab(-14178,7589,12117)continue else Xb=Ec[25134]or Ab(25134,58258,34942)continue end Xb=Ec[25338]or Ab(25338,59344,2892)end elseif Xb<=35909 then if Xb>35389 then if not Yd then Xb=Ec[6891]or Ab(6891,22667,98142)continue end Xb=Ec[2142]or Ab(2142,43696,47276)else if(ge>67)then Xb=Ec[16425]or Ab(16425,25307,118506)continue else Xb=Ec[-16256]or Ab(-16256,33147,120839)continue end Xb=Ec[22943]or Ab(22943,45230,18346)end else sb,Nd,Va=ib[62721],ib[45176],ib[62554]-1 if(Va==-1)then Xb=Ec[21866]or Ab(21866,17342,82329)continue else Xb=Ec[-31446]or Ab(-31446,27089,91777)continue end Xb=Ec[19799]or Ab(19799,41468,16090)end elseif Xb>33176 then if Xb<=33268 then if Xb>33249 then sb,Nd=qf[ib[62554]],nil;Nd=gb(sb)==xf('-\226\133\25?\254\132\20','K\151\235z')if not Nd then Xb=Ec[13893]or Ab(13893,35109,12238)continue end Xb=Ec[-23297]or Ab(-23297,22305,111067)else J+=ib[19047];Xb=Ec[17095]or Ab(17095,52376,119684)end else jf=uf[J];J+=1;Ne=jf[62554]if Ne==0 then Xb=Ec[17997]or Ab(17997,57620,27054)continue elseif(Ne==1)then Xb=Ec[11731]or Ab(11731,51287,104173)continue else Xb=Ec[18555]or Ab(18555,42152,47091)continue end Xb=Ec[17697]or Ab(17697,37399,42410)end elseif Xb<=31914 then if Xb<31394 then J-=1;Xb,uf[J]=Ec[17059]or Ab(17059,54308,14384),{[36146]=59,[62554]=ze(ib[62554],73),[62721]=ze(ib[62721],56),[45176]=0}elseif Xb<=31394 then qf[ib[45176]]=ib[62721]==1;J+=ib[62554];Xb=Ec[-26329]or Ab(-26329,20828,108024)else J-=1;uf[J],Xb={[36146]=127,[62554]=ze(ib[62554],9),[62721]=ze(ib[62721],88),[45176]=0},Ec[-28521]or Ab(-28521,46500,22704)end else if ge>63 then Xb=Ec[11304]or Ab(11304,13060,115992)continue else Xb=Ec[9511]or Ab(9511,6693,15921)continue end Xb=Ec[3972]or Ab(3972,22736,109644)end elseif Xb<37865 then if Xb>=37047 then if Xb>=37209 then if Xb<=37209 then sb,Nd=ib[62554],ib[32270];cf=sb+6;Va,Eb=qf[sb],nil;Eb=gb(Va)==xf('\165)=\136\183\53<\133','\195\\S\235')if(Eb)then Xb=Ec[-25837]or Ab(-25837,255,6468)continue else Xb=Ec[29699]or Ab(29699,31027,10088)continue end Xb=Ec[-28578]or Ab(-28578,43338,32214)else G[ib]=nil;J+=1;Xb=Ec[-3539]or Ab(-3539,22396,113432)end else if(ge>121)then Xb=Ec[-26218]or Ab(-26218,49732,25011)continue else Xb=Ec[-16249]or Ab(-16249,50795,6867)continue end Xb=Ec[-26809]or Ab(-26809,41519,30253)end elseif Xb<=36733 then if Xb>36275 then sb=h[ib[62721]+1];Xb,qf[ib[62554]]=Ec[20938]or Ab(20938,46621,23099),sb[3][sb[1]]else sb,Nd=ib[62554],ib[45176];Va,Eb=va(yd,qf,'',sb,Nd)if not Va then Xb=Ec[-14898]or Ab(-14898,18424,103972)continue end Xb=Ec[16565]or Ab(16565,32136,1548)end else Eb=Eb+nd;ja=Eb if Eb~=Eb then Xb=Ec[28406]or Ab(28406,30914,101470)else Xb=34554 end end elseif Xb<38911 then if Xb<=38269 then if Xb>37865 then J-=1;uf[J],Xb={[36146]=50,[62554]=ze(ib[62554],158),[62721]=ze(ib[62721],173),[45176]=0},Ec[9954]or Ab(9954,51588,122000)else ve=ve+ja;Fa=ve if ve~=ve then Xb=Ec[30180]or Ab(30180,86,27258)else Xb=18063 end end else if ge>233 then Xb=Ec[12376]or Ab(12376,59430,19795)continue else Xb=Ec[1048]or Ab(1048,7101,99197)continue end Xb=Ec[30166]or Ab(30166,47981,20459)end elseif Xb<39014 then if Xb>38911 then if ge>89 then Xb=Ec[-19097]or Ab(-19097,48192,5251)continue else Xb=Ec[20406]or Ab(20406,6947,12886)continue end Xb=Ec[18397]or Ab(18397,42520,18948)else sb,Nd=ib[58444],ib[32270];Va=Df[Nd]or fb[15789][Nd]if sb==1 then Xb=Ec[17042]or Ab(17042,38578,37600)continue elseif(sb==2)then Xb=Ec[-7110]or Ab(-7110,3512,9743)continue else Xb=Ec[3844]or Ab(3844,52997,103742)continue end Xb=Ec[-2718]or Ab(-2718,28021,97864)end elseif Xb>39014 then J+=1;Xb=Ec[7357]or Ab(7357,20636,108472)else Eb=(function(...)for vf,Qc,Xd,yf,Rc,La,ad,ab,Le,qc,Za,na,r_,Hb,Ca,ie,oa,sd,H,Ke in...do Hd{vf,Qc,Xd,yf,Rc,La,ad,ab,Le,qc,Za,na,r_,Hb,Ca,ie,oa,sd,H,Ke}end Hd(-2)end);G[Va],Xb=Pe(Eb),Ec[-19972]or Ab(-19972,42977,16667)end elseif Xb>15385 then if Xb>=21556 then if Xb>26595 then if Xb>=29285 then if Xb>29547 then if Xb>30817 then Eb,Xb=Nd-1,Ec[-9960]or Ab(-9960,63934,120845)elseif Xb>29998 then Xb,ve=Ec[12460]or Ab(12460,19883,113927),Fa continue else qf[ib[62554]],Xb=#qf[ib[62721]],Ec[-1243]or Ab(-1243,41449,30071)end elseif Xb<=29386 then if Xb>=29296 then if Xb<=29296 then _e={[2]=qf[Fa[62721]],[1]=2};_e[3]=_e;Xb,Va[(ja-101)]=Ec[-20068]or Ab(-20068,34270,5493),_e else Nd,Xb=ve,Ec[26152]or Ab(26152,18748,66370)continue end else if ge>211 then Xb=Ec[23371]or Ab(23371,51699,128421)continue else Xb=Ec[-20944]or Ab(-20944,38727,30306)continue end Xb=Ec[-30503]or Ab(-30503,45710,16778)end else if(ib[45176]==67)then Xb=Ec[31193]or Ab(31193,14858,3151)continue else Xb=Ec[1726]or Ab(1726,6868,15638)continue end Xb=Ec[-9116]or Ab(-9116,62418,1870)end elseif Xb>=28595 then if Xb>29037 then Z(gf[10473],1,Nd,sb,qf);Xb=Ec[-23712]or Ab(-23712,8873,127415)elseif Xb<=28595 then Nd[7439],Xb=ve,Ec[-1722]or Ab(-1722,58739,19563)else J+=ib[19047];Xb=Ec[875]or Ab(875,65237,579)end elseif Xb>27077 then ve,nd=Nd(Va,Eb);Eb=ve if Eb==nil then Xb=Ec[-32181]or Ab(-32181,64799,28891)else Xb=47935 end elseif Xb<=26760 then if(Fa>=0 and nd>ja)or((Fa<0 or Fa~=Fa)and nd<ja)then Xb=Ec[-32734]or Ab(-32734,4560,115395)else Xb=Ec[6940]or Ab(6940,4219,29376)end else sb,Nd=ib[62554],ib[62721];Va=Nd-1 if Va==-1 then Xb=Ec[23536]or Ab(23536,9037,104708)continue else Xb=Ec[-623]or Ab(-623,28195,98694)continue end Xb=Ec[-27199]or Ab(-27199,28818,87025)end elseif Xb>=23679 then if Xb>25310 then if Xb<=26156 then if Xb>25598 then if(ge>97)then Xb=Ec[24285]or Ab(24285,16659,87297)continue else Xb=Ec[21326]or Ab(21326,3822,103018)continue end Xb=Ec[3533]or Ab(3533,49791,120349)else Xb,nd=Ec[-17055]or Ab(-17055,15955,129122),nd..te(ze(L(Eb,(_e-157)+1),L(ve,(_e-157)%#ve+1)))end else Zb={[2]=qf[jf[62721]],[1]=2};Zb[3]=Zb;Xb,nd[(_e-216)]=Ec[15953]or Ab(15953,14691,358),Zb end elseif Xb<24726 then if Xb>23679 then Nd,Va,Eb=G if(lf(Nd)~=xf('L\135\139\233^\155\138\228','*\242\229\138'))then Xb=Ec[28922]or Ab(28922,24109,93020)continue else Xb=Ec[-32400]or Ab(-32400,61086,22194)continue end Xb=Ec[-494]or Ab(-494,41050,59902)else nd[(_e-216)],Xb=Aa,Ec[28746]or Ab(28746,10953,15868)end elseif Xb>25042 then sb,Nd,Xb,Va=ib[58444],uf[J+1],10359,nil elseif Xb>24726 then nd=nd+Fa;af=nd if nd~=nd then Xb=Ec[24551]or Ab(24551,18994,108453)else Xb=26760 end else J-=1;uf[J],Xb={[36146]=186,[62554]=ze(ib[62554],186),[62721]=ze(ib[62721],158),[45176]=0},Ec[28900]or Ab(28900,55593,11575)end elseif Xb<22361 then if Xb>21884 then J+=ib[19047];Xb=Ec[4277]or Ab(4277,47778,18878)elseif Xb<=21556 then _e=ja if Fa~=Fa then Xb=Ec[-2436]or Ab(-2436,53797,9779)else Xb=262 end else sb,Nd,Va=ib[62721],ib[45176],ib[32270];Eb=qf[Nd];qf[sb+1]=Eb;qf[sb]=Eb[Va];J+=1;Xb=Ec[-1936]or Ab(-1936,2685,106011)end elseif Xb>22974 then if(ge>102)then Xb=Ec[-26860]or Ab(-26860,3481,121804)continue else Xb=Ec[14883]or Ab(14883,10289,120324)continue end Xb=Ec[31159]or Ab(31159,41911,30373)elseif Xb>=22536 then if Xb<=22536 then Fa=Fa+_e;jf=Fa if Fa~=Fa then Xb=Ec[16189]or Ab(16189,27081,15466)else Xb=Ec[-5409]or Ab(-5409,59826,128136)end else Eb,Xb=nil,3942 end else Va,Eb=sb[32270],ib[32270];Eb=xf('k\210C\r\52','d\162')..Eb;ve='';nd,Fa,Xb,ja=58,1,62865,(#Va-1)+58 end elseif Xb>18986 then if Xb<=20610 then if Xb>19781 then if Xb>20489 then if(Ne==2)then Xb=Ec[31113]or Ab(31113,64058,120444)continue else Xb=Ec[19100]or Ab(19100,64541,18336)continue end Xb=Ec[-26188]or Ab(-26188,22168,129325)elseif Xb<=20281 then if(qf[ib[62554]]==qf[ib[14472]])then Xb=Ec[-833]or Ab(-833,29092,120164)continue else Xb=Ec[32452]or Ab(32452,2792,124044)continue end Xb=Ec[9564]or Ab(9564,56446,8218)else if ib[45176]==153 then Xb=Ec[27552]or Ab(27552,49475,117954)continue else Xb=Ec[16418]or Ab(16418,149,85741)continue end Xb=Ec[23412]or Ab(23412,11623,127477)end elseif Xb<19449 then if Xb<=19084 then J-=1;uf[J],Xb={[36146]=45,[62554]=ze(ib[62554],15),[62721]=ze(ib[62721],172),[45176]=0},Ec[-3102]or Ab(-3102,42564,19152)else Xb,sb,Nd=22361,uf[J],nil end elseif Xb>19449 then Yd=false;J+=1 if ge>123 then Xb=Ec[28010]or Ab(28010,35894,22073)continue else Xb=Ec[1932]or Ab(1932,24559,125365)continue end Xb=Ec[22851]or Ab(22851,44700,32184)else if ge>186 then Xb=Ec[9849]or Ab(9849,14751,17556)continue else Xb=Ec[-22627]or Ab(-22627,34083,47173)continue end Xb=Ec[-14867]or Ab(-14867,12437,116611)end elseif Xb>=20967 then if Xb>21490 then if(ge>152)then Xb=Ec[27842]or Ab(27842,25766,116806)continue else Xb=Ec[-22540]or Ab(-22540,53815,30914)continue end Xb=Ec[2208]or Ab(2208,64320,4060)elseif Xb>20967 then Fa=ve if nd~=nd then Xb=Ec[-22978]or Ab(-22978,59769,45727)else Xb=Ec[-2066]or Ab(-2066,51323,5715)end else if(ge>95)then Xb=Ec[-457]or Ab(-457,60300,102196)continue else Xb=Ec[-16575]or Ab(-16575,55576,13155)continue end Xb=Ec[20667]or Ab(20667,56108,12072)end elseif Xb>=20861 then if Xb<=20861 then if ge>76 then Xb=Ec[4849]or Ab(4849,54488,102454)continue else Xb=Ec[-5655]or Ab(-5655,51252,98958)continue end Xb=Ec[15718]or Ab(15718,8135,123733)else jf=Fa if af~=af then Xb=Ec[4030]or Ab(4030,10703,31840)else Xb=Ec[-20576]or Ab(-20576,39240,9662)end end else Eb=qf[sb];ve,Xb,ja,nd=sb+1,21490,1,Nd end elseif Xb<=17800 then if Xb<16947 then if Xb>=15737 then if Xb<=15737 then if(ge>179)then Xb=Ec[-14107]or Ab(-14107,4596,123304)continue else Xb=Ec[-7706]or Ab(-7706,34086,14023)continue end Xb=Ec[26657]or Ab(26657,25095,112149)else sb,Nd=ib[62554],ib[62721]-1 if Nd==-1 then Xb=Ec[-17407]or Ab(-17407,58187,42014)continue end Xb=29061 end elseif Xb<=15427 then if ge>61 then Xb=Ec[-18847]or Ab(-18847,8214,27405)continue else Xb=Ec[-30044]or Ab(-30044,60820,45469)continue end Xb=Ec[-31075]or Ab(-31075,58502,2962)else sb,Nd,Va=ib[32270],ib[6169],qf[ib[62554]]if((Va==sb)~=Nd)then Xb=Ec[-14585]or Ab(-14585,18256,85480)continue else Xb=Ec[-12220]or Ab(-12220,39221,40876)continue end Xb=Ec[-9712]or Ab(-9712,31545,102183)end elseif Xb>=17393 then if Xb<=17393 then if ib[45176]==97 then Xb=Ec[-21150]or Ab(-21150,63231,5616)continue elseif(ib[45176]==103)then Xb=Ec[-20214]or Ab(-20214,36491,18936)continue else Xb=Ec[4506]or Ab(4506,999,119593)continue end Xb=Ec[-29923]or Ab(-29923,44795,32153)else Xb,qf[ib[45176]]=Ec[-28291]or Ab(-28291,40510,25178),qf[ib[62554]]+qf[ib[62721]]end elseif Xb<=16947 then Xb,qf[ib[62554]]=Ec[19516]or Ab(19516,45886,3971),Va[ib[42671]][ib[7439]]else sb,Nd,Va=ib[32270],ib[6169],qf[ib[62554]]if(Va==sb)~=Nd then Xb=Ec[16243]or Ab(16243,28624,10039)continue else Xb=Ec[-6566]or Ab(-6566,27800,71109)continue end Xb=Ec[8984]or Ab(8984,5567,129245)end elseif Xb<=18879 then if Xb>=18652 then if Xb<=18652 then ja=ja+af;_e=ja if ja~=ja then Xb=Ec[-30010]or Ab(-30010,45364,17696)else Xb=Ec[-2971]or Ab(-2971,7620,31763)end else ib[36146]=84;J+=1;Xb=Ec[3066]or Ab(3066,41609,29079)end elseif Xb>17892 then if(ja>=0 and ve>nd)or((ja<0 or ja~=ja)and ve<nd)then Xb=Ec[7645]or Ab(7645,20079,118885)else Xb=Ec[-5282]or Ab(-5282,52660,100543)end else if(ge>130)then Xb=Ec[24881]or Ab(24881,54895,126506)continue else Xb=Ec[-1157]or Ab(-1157,10615,82976)continue end Xb=Ec[-4473]or Ab(-4473,26910,113978)end elseif Xb>18943 then if(ge>196)then Xb=Ec[-31987]or Ab(-31987,60776,21935)continue else Xb=Ec[22862]or Ab(22862,6140,9042)continue end Xb=Ec[14632]or Ab(14632,63335,7157)else if(ge>207)then Xb=Ec[5212]or Ab(5212,19070,107578)continue else Xb=Ec[24436]or Ab(24436,55339,47836)continue end Xb=Ec[993]or Ab(993,43686,31154)end elseif Xb<7036 then if Xb>3140 then if Xb>5051 then if Xb>5970 then if Xb<=6174 then J+=ib[19047];Xb=Ec[-29984]or Ab(-29984,57202,9198)else Va[(ja-101)],Xb=h[Fa[62721]+1],Ec[10383]or Ab(10383,28267,114400)end elseif Xb<5918 then if Xb>5825 then jf=Fa if af~=af then Xb=Ec[-7172]or Ab(-7172,22905,118234)else Xb=Ec[2011]or Ab(2011,48973,10213)end else Nd,Va,Eb=sb[xf('\252\245*\215\207\49','\163\170C')](Nd);Xb=Ec[-16420]or Ab(-16420,55208,24492)end elseif Xb<=5918 then ve={Va(qf[sb+1],qf[sb+2])};Z(ve,1,Nd,sb+3,qf)if qf[sb+3]~=nil then Xb=Ec[3948]or Ab(3948,28229,11412)continue else Xb=Ec[-17581]or Ab(-17581,51387,118060)continue end Xb=Ec[-10134]or Ab(-10134,16732,87544)else J+=ib[19047];Xb=Ec[3341]or Ab(3341,28697,99335)end elseif Xb<3818 then if Xb<3468 then Eb,Xb=ja,39945 continue elseif Xb<=3468 then Xb,ja=Ec[27977]or Ab(27977,45747,35426),ja..te(ze(L(ve,(jf-224)+1),L(nd,(jf-224)%#nd+1)))else qf[ib[62721]],Xb=qf[ib[62554]]-qf[ib[45176]],Ec[-4596]or Ab(-4596,24971,111753)end elseif Xb<4469 then if Xb>3818 then ve,nd=Nd[42671],ib[42671];nd=xf('\185\219\145\4\230','\182\171')..nd;ja='';af,Fa,Xb,_e=(#ve-1)+171,171,Ec[26908]or Ab(26908,4126,27131),1 else if nd[1]>=ib[62554]then Xb=Ec[11255]or Ab(11255,19480,128309)continue end Xb=Ec[3058]or Ab(3058,9832,112128)end elseif Xb>4469 then if(jf>=0 and af>_e)or((jf<0 or jf~=jf)and af<_e)then Xb=Ec[22034]or Ab(22034,44622,18166)else Xb=8810 end else qf[ib[62554]],Xb=qf[ib[62721]],Ec[9221]or Ab(9221,34801,27503)end elseif Xb<1155 then if Xb>=474 then if Xb>1014 then if ge>188 then Xb=Ec[-6431]or Ab(-6431,55392,13586)continue else Xb=Ec[-19601]or Ab(-19601,50412,275)continue end Xb=Ec[-8493]or Ab(-8493,25814,100418)elseif Xb>542 then if(qf[ib[62554]]<qf[ib[14472]])then Xb=Ec[-15567]or Ab(-15567,25250,70498)continue else Xb=Ec[12938]or Ab(12938,48784,25379)continue end Xb=Ec[-23418]or Ab(-23418,42437,18771)elseif Xb<=474 then if(ge>205)then Xb=Ec[-20056]or Ab(-20056,42506,49881)continue else Xb=Ec[-14085]or Ab(-14085,3905,91179)continue end Xb=Ec[17319]or Ab(17319,33940,27520)else ve,Xb=ve..te(ze(L(Va,(af-58)+1),L(Eb,(af-58)%#Eb+1))),Ec[15081]or Ab(15081,35747,29996)end elseif Xb>=252 then if Xb<=252 then qf[ib[62554]]=K(ib[14472]);J+=1;Xb=Ec[29102]or Ab(29102,60111,15949)else if(af>=0 and ja>Fa)or((af<0 or af~=af)and ja<Fa)then Xb=Ec[-26046]or Ab(-26046,22209,113247)else Xb=33277 end end else ja,Xb=Va-1,Ec[-30968]or Ab(-30968,61048,22375)end elseif Xb>2765 then if Xb>3115 then if qf[ib[62554]]==qf[ib[14472]]then Xb=Ec[-1502]or Ab(-1502,43127,57616)continue else Xb=Ec[-29598]or Ab(-29598,58928,12089)continue end Xb=Ec[-15445]or Ab(-15445,10474,130166)elseif Xb>2864 then if(ge>48)then Xb=Ec[-22595]or Ab(-22595,11693,121730)continue else Xb=Ec[19522]or Ab(19522,50396,121858)continue end Xb=Ec[-1150]or Ab(-1150,58131,14081)else if(ge>59)then Xb=Ec[27770]or Ab(27770,65046,3545)continue else Xb=Ec[-8043]or Ab(-8043,37816,7427)continue end Xb=Ec[-19085]or Ab(-19085,3415,102853)end elseif Xb<2370 then if Xb<=1155 then if af==2 then Xb=Ec[3402]or Ab(3402,20596,11060)continue end Xb=Ec[21697]or Ab(21697,63969,2422)else if ge>90 then Xb=Ec[-7905]or Ab(-7905,64884,47222)continue else Xb=Ec[-22244]or Ab(-22244,50357,122835)continue end Xb=Ec[32684]or Ab(32684,23614,106586)end elseif Xb>2599 then qf[ib[62721]],Xb=Eb,Ec[11579]or Ab(11579,50967,11013)elseif Xb>2370 then if lf(Nd)==xf('\202\173\220\160\219','\190\204')then Xb=Ec[-8428]or Ab(-8428,25804,93227)continue end Xb=Ec[-22450]or Ab(-22450,36067,29089)else J-=1;uf[J],Xb={[36146]=196,[62554]=ze(ib[62554],184),[62721]=ze(ib[62721],11),[45176]=0},Ec[-3312]or Ab(-3312,7880,123476)end elseif Xb<10359 then if Xb<=9659 then if Xb>8669 then if Xb>=9095 then if Xb<=9095 then qf[ib[62554]],Xb=Va,Ec[25699]or Ab(25699,4215,109898)else if(ib[45176]==144)then Xb=Ec[-19625]or Ab(-19625,28586,98516)continue else Xb=Ec[-27789]or Ab(-27789,62173,121516)continue end Xb=Ec[27025]or Ab(27025,33227,5449)end else Xb,Fa=Ec[-10260]or Ab(-10260,55572,126009),Fa..te(ze(L(nd,(Ne-92)+1),L(ja,(Ne-92)%#ja+1)))end elseif Xb<=7688 then if Xb>7616 then qf[sb+2]=qf[sb+3];J+=ib[19047];Xb=Ec[741]or Ab(741,8963,128785)elseif Xb<=7036 then Nd=gf[21225];Xb,cf=Ec[24323]or Ab(24323,27735,106245),sb+Nd-1 else J+=1;Xb=Ec[18478]or Ab(18478,8067,123537)end elseif Xb<=7966 then Nd,Va,Eb=sb[xf('g\150QL\172J','8\201\56')](Nd);Xb=Ec[15795]or Ab(15795,23405,101723)else Ne=af if _e~=_e then Xb=Ec[10941]or Ab(10941,5386,118066)else Xb=Ec[16266]or Ab(16266,12211,31543)end end elseif Xb<10068 then if Xb>=9854 then if Xb>9854 then ve,nd=Nd(Va,Eb);Eb=ve if Eb==nil then Xb=61110 else Xb=33472 end else ve,nd=bd(G[ib],Va,qf[sb+1],qf[sb+2])if(not ve)then Xb=Ec[1477]or Ab(1477,11007,4147)continue else Xb=Ec[22543]or Ab(22543,21789,87820)continue end Xb=41528 end else ha(nd);Xb=Ec[28541]or Ab(28541,9969,122992)end elseif Xb>=10182 then if Xb<=10182 then Z(nd,1,ja,sb,qf);Xb=Ec[-1007]or Ab(-1007,24109,107051)else if ge>222 then Xb=Ec[-29041]or Ab(-29041,8923,83363)continue else Xb=Ec[25273]or Ab(25273,47891,36299)continue end Xb=Ec[30858]or Ab(30858,24253,110043)end else nd[2]=nd[3][nd[1]];nd[3]=nd;nd[1]=2;da[ve],Xb=nil,Ec[-19923]or Ab(-19923,59974,129774)end elseif Xb<=14463 then if Xb<11293 then if Xb>=11199 then if Xb>11199 then Eb,Xb=ja,Ec[19287]or Ab(19287,47907,25218)continue else J-=1;uf[J],Xb={[36146]=92,[62554]=ze(ib[62554],51),[62721]=ze(ib[62721],40),[45176]=0},Ec[-12270]or Ab(-12270,55086,15146)end elseif Xb>10359 then sb,Nd=nil,ze(ib[1625],62777);sb=if Nd<32768 then Nd else Nd-65536;Va=sb;qf[ze(ib[62554],55)],Xb=Va,Ec[-6946]or Ab(-6946,16531,87937)else Eb,ve=Nd[32270],ib[32270];ve=xf('*\135\2Xu','%\247')..ve;nd='';ja,af,Fa,Xb=157,1,(#Eb-1)+157,62476 end elseif Xb>11739 then J-=1;Xb,uf[J]=Ec[443]or Ab(443,61612,1960),{[36146]=96,[62554]=ze(ib[62554],130),[62721]=ze(ib[62721],223),[45176]=0}elseif Xb>11659 then if(ge>47)then Xb=Ec[18881]or Ab(18881,38088,63530)continue else Xb=Ec[10165]or Ab(10165,37344,4508)continue end Xb=Ec[-23365]or Ab(-23365,47911,20277)elseif Xb>11293 then nd,ja=Nd[7439],ib[7439];ja=xf('q\150YI.','~\230')..ja;Fa='';Xb,_e,jf,af=Ec[21654]or Ab(21654,44183,60973),(#nd-1)+92,1,92 else ja=Eb if ve~=ve then Xb=Ec[-23108]or Ab(-23108,12637,116219)else Xb=34554 end end elseif Xb<=15006 then if Xb<14700 then if Xb>14587 then if(ge>12)then Xb=Ec[-25094]or Ab(-25094,4205,108598)continue else Xb=Ec[20414]or Ab(20414,839,113598)continue end Xb=Ec[-3561]or Ab(-3561,17281,87711)else if ib[45176]==217 then Xb=Ec[26514]or Ab(26514,56672,10244)continue else Xb=Ec[12456]or Ab(12456,53180,23016)continue end Xb=Ec[-30679]or Ab(-30679,15432,114900)end elseif Xb>14700 then qf[ib[62554]],Xb=Va[ib[42671]],Ec[27833]or Ab(27833,10927,108050)else if ge>84 then Xb=Ec[-19573]or Ab(-19573,62526,21151)continue else Xb=Ec[-4396]or Ab(-4396,3473,94745)continue end Xb=Ec[15333]or Ab(15333,48169,16439)end elseif Xb<=15204 then sb=ib[32270];qf[ib[62721]]=qf[ib[45176]][sb];J+=1;Xb=Ec[9307]or Ab(9307,11743,127357)else J+=1;Xb=Ec[31226]or Ab(31226,370,103918)end end end return function(...)local Ja,bf,sf,Ac,_f,q,Ra,Sd,t_,Fe,Lb;bf,_f=function(Ld,xc,W)_f[Ld]=Bb(W,13771)-Bb(xc,37563)return _f[Ld]end,{};q=_f[-30985]or bf(-30985,17607,54341)repeat if q<19790 then if q<16202 then if q>2834 then Sd,Ac=Xc[50438]+1,Ra[xf('\139','\229')]-Xc[50438];Lb[21225]=Ac;Z(Ra,Sd,Sd+Ac-1,1,Lb[10473]);q=_f[-8311]or bf(-8311,4995,64723)else Ra,Ja,Lb=gc(...),K(Xc[335]),{[21225]=0,[10473]={}};Z(Ra,1,Xc[50438],0,Ja)if Xc[50438]<Ra[xf('\21','{')]then q=_f[17583]or bf(17583,46175,21527)continue end q=18400 end elseif q<=16202 then q,sf=_f[30700]or bf(30700,45363,47944),gb(sf)else Sd,Ac=M(va(mf,Ja,Xc[45328],Xc[28789],Lb))if(Sd[1])then q=_f[-8386]or bf(-8386,15956,53238)continue else q=_f[-21815]or bf(-21815,28591,102293)continue end q=47112 end elseif q<=47112 then if q>27387 then q=_f[31202]or bf(31202,10529,77809)continue elseif q>19790 then return ha(sf,0)else return Ue(Sd,2,Ac)end else sf,t_=Sd[2],nil;Fe=sf;t_=gb(Fe)==xf('\31W=\5M(','l#O')if(t_==false)then q=_f[-27998]or bf(-27998,63742,40004)continue else q=_f[421]or bf(421,31127,91116)continue end q=_f[-5721]or bf(-5721,50194,62575)end until q==24224 end end return Dd(ef,Je)end)local db;db,Y={[0]=0},function()db[0]=db[0]+1 return{[1]=db[0],[3]=db}end;jd=N return(function()local D,qa,Ia,dc;qa={[1]=2,[2]=jd};qa[3]=qa;Ia={[2]=ye,[1]=2};Ia[3]=Ia;dc={[2]=Rf,[1]=2};dc[3]=dc;D={[2]=lc,[1]=2};D[3]=D return jd(xa'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',{[4]=D,[2]=Ia,[1]=qa,[3]=dc})end)()(...)
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
+local Stats = game:GetService("Stats")
+local LocalPlayer = Players.LocalPlayer
+local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+local CurrentCamera = Workspace.CurrentCamera
+
+local Library = {}
+
+local Fonts = {
+    ["Gotham"] = {Regular = Enum.Font.Gotham, Medium = Enum.Font.GothamMedium, Bold = Enum.Font.GothamBold},
+    ["Source Sans"] = {Regular = Enum.Font.SourceSans, Medium = Enum.Font.SourceSansSemibold, Bold = Enum.Font.SourceSansBold},
+    ["Arial"] = {Regular = Enum.Font.Arial, Medium = Enum.Font.Arial, Bold = Enum.Font.ArialBold},
+    ["Legacy"] = {Regular = Enum.Font.Legacy, Medium = Enum.Font.Legacy, Bold = Enum.Font.Legacy},
+    ["Roboto"] = {Regular = Enum.Font.Roboto, Medium = Enum.Font.Roboto, Bold = Enum.Font.RobotoCondensed},
+    ["Roboto Mono"] = {Regular = Enum.Font.RobotoMono, Medium = Enum.Font.RobotoMono, Bold = Enum.Font.RobotoMono},
+    ["Oswald"] = {Regular = Enum.Font.Oswald, Medium = Enum.Font.Oswald, Bold = Enum.Font.Oswald},
+    ["Ubuntu"] = {Regular = Enum.Font.Ubuntu, Medium = Enum.Font.Ubuntu, Bold = Enum.Font.Ubuntu},
+    ["Nunito"] = {Regular = Enum.Font.Nunito, Medium = Enum.Font.Nunito, Bold = Enum.Font.Nunito},
+    ["Merriweather"] = {Regular = Enum.Font.Merriweather, Medium = Enum.Font.Merriweather, Bold = Enum.Font.Merriweather},
+    ["Michroma"] = {Regular = Enum.Font.Michroma, Medium = Enum.Font.Michroma, Bold = Enum.Font.Michroma},
+    ["Kalam"] = {Regular = Enum.Font.Kalam, Medium = Enum.Font.Kalam, Bold = Enum.Font.Kalam},
+    ["Indie Flower"] = {Regular = Enum.Font.IndieFlower, Medium = Enum.Font.IndieFlower, Bold = Enum.Font.IndieFlower},
+    ["Patrick Hand"] = {Regular = Enum.Font.PatrickHand, Medium = Enum.Font.PatrickHand, Bold = Enum.Font.PatrickHand},
+    ["Permanent Marker"] = {Regular = Enum.Font.PermanentMarker, Medium = Enum.Font.PermanentMarker, Bold = Enum.Font.PermanentMarker},
+    ["Luckiest Guy"] = {Regular = Enum.Font.LuckiestGuy, Medium = Enum.Font.LuckiestGuy, Bold = Enum.Font.LuckiestGuy},
+    ["Fredoka One"] = {Regular = Enum.Font.FredokaOne, Medium = Enum.Font.FredokaOne, Bold = Enum.Font.FredokaOne},
+    ["Bangers"] = {Regular = Enum.Font.Bangers, Medium = Enum.Font.Bangers, Bold = Enum.Font.Bangers},
+    ["Titillium Web"] = {Regular = Enum.Font.TitilliumWeb, Medium = Enum.Font.TitilliumWeb, Bold = Enum.Font.TitilliumWeb},
+    ["Code"] = {Regular = Enum.Font.Code, Medium = Enum.Font.Code, Bold = Enum.Font.Code}
+}
+
+local CurrentFontName = "Gotham"
+local CurrentFontFamily = Fonts[CurrentFontName]
+local FontRegistry = {}
+
+local function SetInterFont(instance, weight)
+    FontRegistry[instance] = weight
+    instance.Font = CurrentFontFamily[weight] or CurrentFontFamily.Regular
+end
+
+local Themes = {
+    ["Midnight"] = {
+        Background = Color3.fromRGB(9, 10, 15),
+        Sidebar = Color3.fromRGB(14, 16, 24),
+        ElementBg = Color3.fromRGB(20, 23, 34),
+        Accent = Color3.fromRGB(99, 102, 241),
+        Text = Color3.fromRGB(243, 244, 246),
+        SubText = Color3.fromRGB(156, 163, 175),
+        Border = Color3.fromRGB(31, 41, 55),
+        ToggleOn = Color3.fromRGB(99, 102, 241),
+        ToggleOff = Color3.fromRGB(37, 40, 52)
+    },
+    ["Carbon"] = {
+        Background = Color3.fromRGB(18, 18, 18),
+        Sidebar = Color3.fromRGB(26, 26, 26),
+        ElementBg = Color3.fromRGB(34, 34, 34),
+        Accent = Color3.fromRGB(220, 252, 19),
+        Text = Color3.fromRGB(245, 245, 245),
+        SubText = Color3.fromRGB(140, 140, 140),
+        Border = Color3.fromRGB(48, 48, 48),
+        ToggleOn = Color3.fromRGB(220, 252, 19),
+        ToggleOff = Color3.fromRGB(44, 44, 44)
+    },
+    ["Onyx"] = {
+        Background = Color3.fromRGB(10, 11, 12),
+        Sidebar = Color3.fromRGB(17, 18, 20),
+        ElementBg = Color3.fromRGB(24, 25, 28),
+        Accent = Color3.fromRGB(139, 92, 246),
+        Text = Color3.fromRGB(249, 250, 251),
+        SubText = Color3.fromRGB(156, 163, 175),
+        Border = Color3.fromRGB(31, 41, 55),
+        ToggleOn = Color3.fromRGB(139, 92, 246),
+        ToggleOff = Color3.fromRGB(38, 38, 38)
+    },
+    ["Obsidian"] = {
+        Background = Color3.fromRGB(11, 11, 14),
+        Sidebar = Color3.fromRGB(19, 19, 24),
+        ElementBg = Color3.fromRGB(27, 27, 34),
+        Accent = Color3.fromRGB(236, 72, 153),
+        Text = Color3.fromRGB(253, 244, 245),
+        SubText = Color3.fromRGB(161, 161, 170),
+        Border = Color3.fromRGB(43, 43, 53),
+        ToggleOn = Color3.fromRGB(236, 72, 153),
+        ToggleOff = Color3.fromRGB(44, 44, 52)
+    },
+    ["Slate"] = {
+        Background = Color3.fromRGB(15, 23, 42),
+        Sidebar = Color3.fromRGB(30, 41, 59),
+        ElementBg = Color3.fromRGB(47, 62, 86),
+        Accent = Color3.fromRGB(56, 189, 248),
+        Text = Color3.fromRGB(248, 250, 252),
+        SubText = Color3.fromRGB(148, 163, 184),
+        Border = Color3.fromRGB(51, 65, 85),
+        ToggleOn = Color3.fromRGB(56, 189, 248),
+        ToggleOff = Color3.fromRGB(55, 65, 81)
+    },
+    ["Arctic"] = {
+        Background = Color3.fromRGB(241, 245, 249),
+        Sidebar = Color3.fromRGB(226, 232, 240),
+        ElementBg = Color3.fromRGB(203, 213, 225),
+        Accent = Color3.fromRGB(14, 165, 233),
+        Text = Color3.fromRGB(15, 23, 42),
+        SubText = Color3.fromRGB(71, 85, 105),
+        Border = Color3.fromRGB(148, 163, 184),
+        ToggleOn = Color3.fromRGB(14, 165, 233),
+        ToggleOff = Color3.fromRGB(186, 195, 205)
+    },
+    ["Frost"] = {
+        Background = Color3.fromRGB(224, 242, 254),
+        Sidebar = Color3.fromRGB(186, 230, 253),
+        ElementBg = Color3.fromRGB(125, 211, 252),
+        Accent = Color3.fromRGB(3, 105, 161),
+        Text = Color3.fromRGB(8, 47, 73),
+        SubText = Color3.fromRGB(14, 116, 144),
+        Border = Color3.fromRGB(56, 189, 248),
+        ToggleOn = Color3.fromRGB(3, 105, 161),
+        ToggleOff = Color3.fromRGB(150, 200, 230)
+    },
+    ["Glacier"] = {
+        Background = Color3.fromRGB(24, 37, 45),
+        Sidebar = Color3.fromRGB(35, 52, 63),
+        ElementBg = Color3.fromRGB(48, 71, 86),
+        Accent = Color3.fromRGB(130, 205, 240),
+        Text = Color3.fromRGB(240, 246, 250),
+        SubText = Color3.fromRGB(160, 185, 200),
+        Border = Color3.fromRGB(60, 85, 102),
+        ToggleOn = Color3.fromRGB(130, 205, 240),
+        ToggleOff = Color3.fromRGB(46, 60, 71)
+    },
+    ["Iceberg"] = {
+        Background = Color3.fromRGB(16, 26, 36),
+        Sidebar = Color3.fromRGB(25, 39, 54),
+        ElementBg = Color3.fromRGB(36, 55, 75),
+        Accent = Color3.fromRGB(100, 210, 255),
+        Text = Color3.fromRGB(245, 250, 255),
+        SubText = Color3.fromRGB(150, 175, 195),
+        Border = Color3.fromRGB(48, 72, 96),
+        ToggleOn = Color3.fromRGB(100, 210, 255),
+        ToggleOff = Color3.fromRGB(30, 48, 66)
+    },
+    ["Nimbus"] = {
+        Background = Color3.fromRGB(31, 33, 40),
+        Sidebar = Color3.fromRGB(41, 45, 54),
+        ElementBg = Color3.fromRGB(52, 57, 69),
+        Accent = Color3.fromRGB(245, 158, 11),
+        Text = Color3.fromRGB(249, 250, 251),
+        SubText = Color3.fromRGB(156, 163, 175),
+        Border = Color3.fromRGB(75, 85, 99),
+        ToggleOn = Color3.fromRGB(245, 158, 11),
+        ToggleOff = Color3.fromRGB(43, 47, 56)
+    },
+    ["Horizon"] = {
+        Background = Color3.fromRGB(28, 13, 26),
+        Sidebar = Color3.fromRGB(41, 18, 38),
+        ElementBg = Color3.fromRGB(56, 24, 51),
+        Accent = Color3.fromRGB(244, 63, 94),
+        Text = Color3.fromRGB(255, 241, 242),
+        SubText = Color3.fromRGB(244, 114, 182),
+        Border = Color3.fromRGB(76, 29, 69),
+        ToggleOn = Color3.fromRGB(244, 63, 94),
+        ToggleOff = Color3.fromRGB(43, 19, 39)
+    },
+    ["Eclipse"] = {
+        Background = Color3.fromRGB(8, 8, 12),
+        Sidebar = Color3.fromRGB(14, 14, 20),
+        ElementBg = Color3.fromRGB(21, 21, 30),
+        Accent = Color3.fromRGB(190, 24, 74),
+        Text = Color3.fromRGB(253, 244, 245),
+        SubText = Color3.fromRGB(156, 163, 175),
+        Border = Color3.fromRGB(31, 41, 55),
+        ToggleOn = Color3.fromRGB(190, 24, 74),
+        ToggleOff = Color3.fromRGB(28, 28, 38)
+    },
+    ["Ember"] = {
+        Background = Color3.fromRGB(24, 10, 6),
+        Sidebar = Color3.fromRGB(38, 15, 9),
+        ElementBg = Color3.fromRGB(54, 21, 12),
+        Accent = Color3.fromRGB(249, 115, 22),
+        Text = Color3.fromRGB(255, 247, 237),
+        SubText = Color3.fromRGB(253, 186, 116),
+        Border = Color3.fromRGB(79, 26, 14),
+        ToggleOn = Color3.fromRGB(249, 115, 22),
+        ToggleOff = Color3.fromRGB(43, 17, 10)
+    },
+    ["Crimson"] = {
+        Background = Color3.fromRGB(20, 8, 10),
+        Sidebar = Color3.fromRGB(31, 11, 14),
+        ElementBg = Color3.fromRGB(46, 16, 20),
+        Accent = Color3.fromRGB(225, 29, 72),
+        Text = Color3.fromRGB(255, 241, 242),
+        SubText = Color3.fromRGB(251, 113, 133),
+        Border = Color3.fromRGB(64, 15, 22),
+        ToggleOn = Color3.fromRGB(225, 29, 72),
+        ToggleOff = Color3.fromRGB(36, 13, 16)
+    },
+    ["Ruby"] = {
+        Background = Color3.fromRGB(26, 10, 15),
+        Sidebar = Color3.fromRGB(41, 15, 23),
+        ElementBg = Color3.fromRGB(56, 20, 31),
+        Accent = Color3.fromRGB(219, 39, 119),
+        Text = Color3.fromRGB(253, 244, 245),
+        SubText = Color3.fromRGB(244, 114, 182),
+        Border = Color3.fromRGB(83, 24, 43),
+        ToggleOn = Color3.fromRGB(219, 39, 119),
+        ToggleOff = Color3.fromRGB(43, 15, 22)
+    },
+    ["Cherry"] = {
+        Background = Color3.fromRGB(25, 12, 16),
+        Sidebar = Color3.fromRGB(40, 18, 25),
+        ElementBg = Color3.fromRGB(55, 25, 34),
+        Accent = Color3.fromRGB(244, 63, 128),
+        Text = Color3.fromRGB(254, 242, 244),
+        SubText = Color3.fromRGB(249, 168, 192),
+        Border = Color3.fromRGB(78, 30, 46),
+        ToggleOn = Color3.fromRGB(244, 63, 128),
+        ToggleOff = Color3.fromRGB(42, 19, 26)
+    },
+    ["Scarlet"] = {
+        Background = Color3.fromRGB(28, 10, 10),
+        Sidebar = Color3.fromRGB(43, 14, 14),
+        ElementBg = Color3.fromRGB(58, 20, 20),
+        Accent = Color3.fromRGB(239, 68, 68),
+        Text = Color3.fromRGB(254, 242, 242),
+        SubText = Color3.fromRGB(252, 165, 165),
+        Border = Color3.fromRGB(82, 24, 24),
+        ToggleOn = Color3.fromRGB(239, 68, 68),
+        ToggleOff = Color3.fromRGB(45, 15, 15)
+    },
+    ["Inferno"] = {
+        Background = Color3.fromRGB(15, 6, 6),
+        Sidebar = Color3.fromRGB(26, 9, 9),
+        ElementBg = Color3.fromRGB(38, 12, 12),
+        Accent = Color3.fromRGB(220, 38, 38),
+        Text = Color3.fromRGB(254, 242, 242),
+        SubText = Color3.fromRGB(248, 113, 113),
+        Border = Color3.fromRGB(56, 14, 14),
+        ToggleOn = Color3.fromRGB(220, 38, 38),
+        ToggleOff = Color3.fromRGB(28, 9, 9)
+    },
+    ["Sunset"] = {
+        Background = Color3.fromRGB(26, 15, 15),
+        Sidebar = Color3.fromRGB(38, 20, 18),
+        ElementBg = Color3.fromRGB(52, 27, 24),
+        Accent = Color3.fromRGB(249, 115, 22),
+        Text = Color3.fromRGB(255, 247, 237),
+        SubText = Color3.fromRGB(253, 186, 116),
+        Border = Color3.fromRGB(73, 35, 30),
+        ToggleOn = Color3.fromRGB(249, 115, 22),
+        ToggleOff = Color3.fromRGB(42, 21, 19)
+    },
+    ["Aurora"] = {
+        Background = Color3.fromRGB(10, 20, 18),
+        Sidebar = Color3.fromRGB(15, 32, 28),
+        ElementBg = Color3.fromRGB(21, 44, 38),
+        Accent = Color3.fromRGB(52, 211, 153),
+        Text = Color3.fromRGB(240, 253, 250),
+        SubText = Color3.fromRGB(110, 231, 183),
+        Border = Color3.fromRGB(30, 60, 52),
+        ToggleOn = Color3.fromRGB(52, 211, 153),
+        ToggleOff = Color3.fromRGB(16, 34, 30)
+    },
+    ["Forest"] = {
+        Background = Color3.fromRGB(10, 20, 12),
+        Sidebar = Color3.fromRGB(15, 30, 18),
+        ElementBg = Color3.fromRGB(21, 42, 25),
+        Accent = Color3.fromRGB(34, 197, 94),
+        Text = Color3.fromRGB(240, 253, 244),
+        SubText = Color3.fromRGB(134, 239, 172),
+        Border = Color3.fromRGB(30, 58, 35),
+        ToggleOn = Color3.fromRGB(34, 197, 94),
+        ToggleOff = Color3.fromRGB(16, 32, 20)
+    },
+    ["Moss"] = {
+        Background = Color3.fromRGB(18, 22, 15),
+        Sidebar = Color3.fromRGB(26, 32, 22),
+        ElementBg = Color3.fromRGB(35, 43, 30),
+        Accent = Color3.fromRGB(163, 230, 53),
+        Text = Color3.fromRGB(247, 254, 231),
+        SubText = Color3.fromRGB(190, 242, 75),
+        Border = Color3.fromRGB(48, 59, 41),
+        ToggleOn = Color3.fromRGB(163, 230, 53),
+        ToggleOff = Color3.fromRGB(27, 33, 23)
+    },
+    ["Olive"] = {
+        Background = Color3.fromRGB(19, 20, 13),
+        Sidebar = Color3.fromRGB(28, 30, 19),
+        ElementBg = Color3.fromRGB(38, 40, 25),
+        Accent = Color3.fromRGB(132, 204, 22),
+        Text = Color3.fromRGB(250, 252, 242),
+        SubText = Color3.fromRGB(163, 230, 53),
+        Border = Color3.fromRGB(53, 56, 35),
+        ToggleOn = Color3.fromRGB(132, 204, 22),
+        ToggleOff = Color3.fromRGB(29, 31, 19)
+    },
+    ["Emerald"] = {
+        Background = Color3.fromRGB(8, 22, 16),
+        Sidebar = Color3.fromRGB(12, 34, 24),
+        ElementBg = Color3.fromRGB(17, 47, 33),
+        Accent = Color3.fromRGB(16, 185, 129),
+        Text = Color3.fromRGB(236, 253, 245),
+        SubText = Color3.fromRGB(110, 231, 183),
+        Border = Color3.fromRGB(24, 67, 47),
+        ToggleOn = Color3.fromRGB(16, 185, 129),
+        ToggleOff = Color3.fromRGB(13, 37, 26)
+    },
+    ["Jade"] = {
+        Background = Color3.fromRGB(12, 24, 20),
+        Sidebar = Color3.fromRGB(18, 36, 30),
+        ElementBg = Color3.fromRGB(25, 49, 41),
+        Accent = Color3.fromRGB(5, 150, 105),
+        Text = Color3.fromRGB(236, 253, 245),
+        SubText = Color3.fromRGB(52, 211, 153),
+        Border = Color3.fromRGB(35, 68, 57),
+        ToggleOn = Color3.fromRGB(5, 150, 105),
+        ToggleOff = Color3.fromRGB(19, 37, 31)
+    },
+    ["Ocean"] = {
+        Background = Color3.fromRGB(12, 20, 30),
+        Sidebar = Color3.fromRGB(17, 29, 44),
+        ElementBg = Color3.fromRGB(23, 39, 59),
+        Accent = Color3.fromRGB(14, 165, 233),
+        Text = Color3.fromRGB(240, 249, 255),
+        SubText = Color3.fromRGB(125, 211, 252),
+        Border = Color3.fromRGB(32, 54, 82),
+        ToggleOn = Color3.fromRGB(14, 165, 233),
+        ToggleOff = Color3.fromRGB(18, 30, 45)
+    },
+    ["Abyss"] = {
+        Background = Color3.fromRGB(5, 8, 14),
+        Sidebar = Color3.fromRGB(8, 13, 24),
+        ElementBg = Color3.fromRGB(12, 19, 34),
+        Accent = Color3.fromRGB(37, 99, 235),
+        Text = Color3.fromRGB(242, 247, 255),
+        SubText = Color3.fromRGB(147, 197, 253),
+        Border = Color3.fromRGB(18, 29, 52),
+        ToggleOn = Color3.fromRGB(37, 99, 235),
+        ToggleOff = Color3.fromRGB(9, 14, 26)
+    },
+    ["Sapphire"] = {
+        Background = Color3.fromRGB(10, 18, 31),
+        Sidebar = Color3.fromRGB(15, 27, 46),
+        ElementBg = Color3.fromRGB(20, 37, 63),
+        Accent = Color3.fromRGB(29, 78, 216),
+        Text = Color3.fromRGB(240, 245, 255),
+        SubText = Color3.fromRGB(147, 197, 253),
+        Border = Color3.fromRGB(28, 52, 89),
+        ToggleOn = Color3.fromRGB(29, 78, 216),
+        ToggleOff = Color3.fromRGB(16, 29, 49)
+    },
+    ["Cobalt"] = {
+        Background = Color3.fromRGB(14, 16, 26),
+        Sidebar = Color3.fromRGB(21, 24, 39),
+        ElementBg = Color3.fromRGB(29, 33, 54),
+        Accent = Color3.fromRGB(59, 130, 246),
+        Text = Color3.fromRGB(243, 244, 246),
+        SubText = Color3.fromRGB(147, 197, 253),
+        Border = Color3.fromRGB(41, 46, 75),
+        ToggleOn = Color3.fromRGB(59, 130, 246),
+        ToggleOff = Color3.fromRGB(22, 25, 41)
+    },
+    ["Azure"] = {
+        Background = Color3.fromRGB(11, 21, 31),
+        Sidebar = Color3.fromRGB(16, 31, 46),
+        ElementBg = Color3.fromRGB(22, 43, 64),
+        Accent = Color3.fromRGB(0, 140, 255),
+        Text = Color3.fromRGB(240, 248, 255),
+        SubText = Color3.fromRGB(135, 206, 250),
+        Border = Color3.fromRGB(31, 60, 89),
+        ToggleOn = Color3.fromRGB(0, 140, 255),
+        ToggleOff = Color3.fromRGB(17, 33, 49)
+    },
+    ["Indigo"] = {
+        Background = Color3.fromRGB(15, 15, 28),
+        Sidebar = Color3.fromRGB(22, 22, 41),
+        ElementBg = Color3.fromRGB(30, 30, 56),
+        Accent = Color3.fromRGB(99, 102, 241),
+        Text = Color3.fromRGB(244, 245, 254),
+        SubText = Color3.fromRGB(165, 180, 252),
+        Border = Color3.fromRGB(42, 42, 78),
+        ToggleOn = Color3.fromRGB(99, 102, 241),
+        ToggleOff = Color3.fromRGB(23, 23, 43)
+    },
+    ["Violet"] = {
+        Background = Color3.fromRGB(19, 14, 28),
+        Sidebar = Color3.fromRGB(28, 21, 41),
+        ElementBg = Color3.fromRGB(38, 29, 56),
+        Accent = Color3.fromRGB(139, 92, 246),
+        Text = Color3.fromRGB(245, 243, 255),
+        SubText = Color3.fromRGB(196, 181, 253),
+        Border = Color3.fromRGB(53, 41, 78),
+        ToggleOn = Color3.fromRGB(139, 92, 246),
+        ToggleOff = Color3.fromRGB(29, 22, 43)
+    },
+    ["Lavender"] = {
+        Background = Color3.fromRGB(22, 18, 31),
+        Sidebar = Color3.fromRGB(32, 26, 45),
+        ElementBg = Color3.fromRGB(44, 36, 61),
+        Accent = Color3.fromRGB(167, 139, 250),
+        Text = Color3.fromRGB(245, 243, 255),
+        SubText = Color3.fromRGB(196, 181, 253),
+        Border = Color3.fromRGB(61, 50, 85),
+        ToggleOn = Color3.fromRGB(167, 139, 250),
+        ToggleOff = Color3.fromRGB(33, 27, 46)
+    },
+    ["Orchid"] = {
+        Background = Color3.fromRGB(25, 14, 25),
+        Sidebar = Color3.fromRGB(37, 21, 37),
+        ElementBg = Color3.fromRGB(51, 29, 51),
+        Accent = Color3.fromRGB(217, 70, 239),
+        Text = Color3.fromRGB(253, 242, 253),
+        SubText = Color3.fromRGB(240, 171, 252),
+        Border = Color3.fromRGB(71, 40, 71),
+        ToggleOn = Color3.fromRGB(217, 70, 239),
+        ToggleOff = Color3.fromRGB(39, 22, 39)
+    },
+    ["Royal"] = {
+        Background = Color3.fromRGB(13, 13, 31),
+        Sidebar = Color3.fromRGB(19, 19, 46),
+        ElementBg = Color3.fromRGB(26, 26, 63),
+        Accent = Color3.fromRGB(67, 56, 202),
+        Text = Color3.fromRGB(238, 242, 255),
+        SubText = Color3.fromRGB(180, 198, 252),
+        Border = Color3.fromRGB(36, 36, 88),
+        ToggleOn = Color3.fromRGB(67, 56, 202),
+        ToggleOff = Color3.fromRGB(19, 19, 45)
+    },
+    ["Amethyst"] = {
+        Background = Color3.fromRGB(20, 12, 28),
+        Sidebar = Color3.fromRGB(30, 18, 42),
+        ElementBg = Color3.fromRGB(41, 25, 57),
+        Accent = Color3.fromRGB(168, 85, 247),
+        Text = Color3.fromRGB(250, 245, 255),
+        SubText = Color3.fromRGB(216, 180, 254),
+        Border = Color3.fromRGB(57, 35, 80),
+        ToggleOn = Color3.fromRGB(168, 85, 247),
+        ToggleOff = Color3.fromRGB(31, 19, 43)
+    },
+    ["Cyber"] = {
+        Background = Color3.fromRGB(10, 10, 15),
+        Sidebar = Color3.fromRGB(16, 16, 24),
+        ElementBg = Color3.fromRGB(22, 22, 33),
+        Accent = Color3.fromRGB(0, 255, 170),
+        Text = Color3.fromRGB(255, 255, 255),
+        SubText = Color3.fromRGB(0, 180, 255),
+        Border = Color3.fromRGB(0, 120, 255),
+        ToggleOn = Color3.fromRGB(0, 255, 170),
+        ToggleOff = Color3.fromRGB(30, 30, 45)
+    },
+    ["Neon"] = {
+        Background = Color3.fromRGB(12, 12, 12),
+        Sidebar = Color3.fromRGB(18, 18, 18),
+        ElementBg = Color3.fromRGB(24, 24, 24),
+        Accent = Color3.fromRGB(239, 68, 68),
+        Text = Color3.fromRGB(255, 255, 255),
+        SubText = Color3.fromRGB(163, 230, 53),
+        Border = Color3.fromRGB(59, 130, 246),
+        ToggleOn = Color3.fromRGB(239, 68, 68),
+        ToggleOff = Color3.fromRGB(30, 30, 30)
+    },
+    ["Matrix"] = {
+        Background = Color3.fromRGB(5, 12, 6),
+        Sidebar = Color3.fromRGB(8, 18, 9),
+        ElementBg = Color3.fromRGB(11, 25, 13),
+        Accent = Color3.fromRGB(34, 197, 94),
+        Text = Color3.fromRGB(220, 252, 231),
+        SubText = Color3.fromRGB(74, 222, 128),
+        Border = Color3.fromRGB(21, 48, 25),
+        ToggleOn = Color3.fromRGB(34, 197, 94),
+        ToggleOff = Color3.fromRGB(9, 20, 10)
+    },
+    ["Terminal"] = {
+        Background = Color3.fromRGB(10, 12, 10),
+        Sidebar = Color3.fromRGB(15, 18, 15),
+        ElementBg = Color3.fromRGB(20, 24, 20),
+        Accent = Color3.fromRGB(242, 252, 30),
+        Text = Color3.fromRGB(240, 255, 240),
+        SubText = Color3.fromRGB(140, 200, 140),
+        Border = Color3.fromRGB(30, 45, 30),
+        ToggleOn = Color3.fromRGB(242, 252, 30),
+        ToggleOff = Color3.fromRGB(25, 30, 25)
+    },
+    ["Graphite"] = {
+        Background = Color3.fromRGB(28, 28, 30),
+        Sidebar = Color3.fromRGB(44, 44, 46),
+        ElementBg = Color3.fromRGB(63, 63, 66),
+        Accent = Color3.fromRGB(142, 142, 147),
+        Text = Color3.fromRGB(255, 255, 255),
+        SubText = Color3.fromRGB(174, 174, 178),
+        Border = Color3.fromRGB(72, 72, 74),
+        ToggleOn = Color3.fromRGB(142, 142, 147),
+        ToggleOff = Color3.fromRGB(48, 48, 50)
+    },
+    ["Steel"] = {
+        Background = Color3.fromRGB(20, 24, 28),
+        Sidebar = Color3.fromRGB(29, 35, 41),
+        ElementBg = Color3.fromRGB(39, 47, 55),
+        Accent = Color3.fromRGB(148, 163, 184),
+        Text = Color3.fromRGB(241, 245, 249),
+        SubText = Color3.fromRGB(148, 163, 184),
+        Border = Color3.fromRGB(51, 65, 85),
+        ToggleOn = Color3.fromRGB(148, 163, 184),
+        ToggleOff = Color3.fromRGB(31, 38, 44)
+    },
+    ["Titanium"] = {
+        Background = Color3.fromRGB(24, 26, 27),
+        Sidebar = Color3.fromRGB(36, 39, 41),
+        ElementBg = Color3.fromRGB(49, 53, 56),
+        Accent = Color3.fromRGB(203, 213, 225),
+        Text = Color3.fromRGB(248, 250, 252),
+        SubText = Color3.fromRGB(148, 163, 184),
+        Border = Color3.fromRGB(64, 69, 73),
+        ToggleOn = Color3.fromRGB(203, 213, 225),
+        ToggleOff = Color3.fromRGB(38, 41, 43)
+    },
+    ["Platinum"] = {
+        Background = Color3.fromRGB(245, 245, 247),
+        Sidebar = Color3.fromRGB(229, 229, 234),
+        ElementBg = Color3.fromRGB(209, 209, 214),
+        Accent = Color3.fromRGB(0, 122, 255),
+        Text = Color3.fromRGB(29, 29, 31),
+        SubText = Color3.fromRGB(142, 142, 147),
+        Border = Color3.fromRGB(199, 199, 204),
+        ToggleOn = Color3.fromRGB(0, 122, 255),
+        ToggleOff = Color3.fromRGB(180, 180, 185)
+    },
+    ["Sand"] = {
+        Background = Color3.fromRGB(250, 247, 242),
+        Sidebar = Color3.fromRGB(235, 228, 216),
+        ElementBg = Color3.fromRGB(215, 204, 186),
+        Accent = Color3.fromRGB(180, 140, 90),
+        Text = Color3.fromRGB(60, 50, 40),
+        SubText = Color3.fromRGB(130, 115, 95),
+        Border = Color3.fromRGB(190, 175, 150),
+        ToggleOn = Color3.fromRGB(180, 140, 90),
+        ToggleOff = Color3.fromRGB(195, 185, 170)
+    },
+    ["Desert"] = {
+        Background = Color3.fromRGB(28, 20, 14),
+        Sidebar = Color3.fromRGB(41, 29, 20),
+        ElementBg = Color3.fromRGB(56, 40, 27),
+        Accent = Color3.fromRGB(245, 158, 11),
+        Text = Color3.fromRGB(254, 243, 199),
+        SubText = Color3.fromRGB(251, 191, 36),
+        Border = Color3.fromRGB(78, 55, 38),
+        ToggleOn = Color3.fromRGB(245, 158, 11),
+        ToggleOff = Color3.fromRGB(43, 30, 21)
+    },
+    ["Mocha"] = {
+        Background = Color3.fromRGB(21, 16, 14),
+        Sidebar = Color3.fromRGB(31, 24, 21),
+        ElementBg = Color3.fromRGB(42, 33, 29),
+        Accent = Color3.fromRGB(180, 130, 100),
+        Text = Color3.fromRGB(245, 240, 235),
+        SubText = Color3.fromRGB(160, 140, 130),
+        Border = Color3.fromRGB(58, 46, 40),
+        ToggleOn = Color3.fromRGB(180, 130, 100),
+        ToggleOff = Color3.fromRGB(32, 25, 22)
+    },
+    ["Coffee"] = {
+        Background = Color3.fromRGB(15, 11, 9),
+        Sidebar = Color3.fromRGB(24, 18, 15),
+        ElementBg = Color3.fromRGB(34, 26, 22),
+        Accent = Color3.fromRGB(214, 170, 131),
+        Text = Color3.fromRGB(249, 246, 244),
+        SubText = Color3.fromRGB(176, 150, 133),
+        Border = Color3.fromRGB(48, 37, 31),
+        ToggleOn = Color3.fromRGB(214, 170, 131),
+        ToggleOff = Color3.fromRGB(26, 20, 17)
+    },
+    ["Chocolate"] = {
+        Background = Color3.fromRGB(12, 8, 6),
+        Sidebar = Color3.fromRGB(20, 13, 10),
+        ElementBg = Color3.fromRGB(28, 18, 14),
+        Accent = Color3.fromRGB(145, 90, 60),
+        Text = Color3.fromRGB(250, 242, 238),
+        SubText = Color3.fromRGB(175, 145, 130),
+        Border = Color3.fromRGB(40, 26, 20),
+        ToggleOn = Color3.fromRGB(145, 90, 60),
+        ToggleOff = Color3.fromRGB(22, 14, 11)
+    },
+    ["Rose Gold"] = {
+        Background = Color3.fromRGB(26, 18, 20),
+        Sidebar = Color3.fromRGB(38, 26, 29),
+        ElementBg = Color3.fromRGB(51, 35, 39),
+        Accent = Color3.fromRGB(244, 172, 183),
+        Text = Color3.fromRGB(255, 245, 247),
+        SubText = Color3.fromRGB(224, 141, 156),
+        Border = Color3.fromRGB(71, 49, 54),
+        ToggleOn = Color3.fromRGB(244, 172, 183),
+        ToggleOff = Color3.fromRGB(41, 28, 31)
+    },
+    ["Copper"] = {
+        Background = Color3.fromRGB(22, 13, 10),
+        Sidebar = Color3.fromRGB(33, 19, 15),
+        ElementBg = Color3.fromRGB(46, 26, 21),
+        Accent = Color3.fromRGB(230, 110, 75),
+        Text = Color3.fromRGB(255, 243, 240),
+        SubText = Color3.fromRGB(220, 160, 140),
+        Border = Color3.fromRGB(64, 36, 29),
+        ToggleOn = Color3.fromRGB(230, 110, 75),
+        ToggleOff = Color3.fromRGB(35, 20, 16)
+    },
+    ["Pearl"] = {
+        Background = Color3.fromRGB(248, 249, 250),
+        Sidebar = Color3.fromRGB(233, 236, 239),
+        ElementBg = Color3.fromRGB(218, 224, 230),
+        Accent = Color3.fromRGB(200, 180, 195),
+        Text = Color3.fromRGB(33, 37, 41),
+        SubText = Color3.fromRGB(108, 117, 125),
+        Border = Color3.fromRGB(173, 181, 189),
+        ToggleOn = Color3.fromRGB(200, 180, 195),
+        ToggleOff = Color3.fromRGB(195, 200, 205)
+    },
+    ["Ivory"] = {
+        Background = Color3.fromRGB(254, 253, 250),
+        Sidebar = Color3.fromRGB(245, 242, 232),
+        ElementBg = Color3.fromRGB(232, 227, 211),
+        Accent = Color3.fromRGB(175, 160, 120),
+        Text = Color3.fromRGB(50, 48, 42),
+        SubText = Color3.fromRGB(120, 115, 95),
+        Border = Color3.fromRGB(204, 197, 175),
+        ToggleOn = Color3.fromRGB(175, 160, 120),
+        ToggleOff = Color3.fromRGB(215, 210, 195)
+    },
+    ["Snow"] = {
+        Background = Color3.fromRGB(255, 255, 255),
+        Sidebar = Color3.fromRGB(240, 244, 248),
+        ElementBg = Color3.fromRGB(225, 232, 240),
+        Accent = Color3.fromRGB(100, 150, 200),
+        Text = Color3.fromRGB(30, 41, 59),
+        SubText = Color3.fromRGB(100, 116, 139),
+        Border = Color3.fromRGB(200, 210, 220),
+        ToggleOn = Color3.fromRGB(100, 150, 200),
+        ToggleOff = Color3.fromRGB(210, 215, 220)
+    },
+    ["Mint"] = {
+        Background = Color3.fromRGB(12, 24, 21),
+        Sidebar = Color3.fromRGB(18, 36, 31),
+        ElementBg = Color3.fromRGB(25, 49, 42),
+        Accent = Color3.fromRGB(52, 211, 153),
+        Text = Color3.fromRGB(236, 253, 245),
+        SubText = Color3.fromRGB(110, 231, 183),
+        Border = Color3.fromRGB(35, 68, 58),
+        ToggleOn = Color3.fromRGB(52, 211, 153),
+        ToggleOff = Color3.fromRGB(19, 37, 32)
+    },
+    ["Aqua"] = {
+        Background = Color3.fromRGB(8, 20, 24),
+        Sidebar = Color3.fromRGB(12, 30, 36),
+        ElementBg = Color3.fromRGB(17, 42, 51),
+        Accent = Color3.fromRGB(45, 212, 191),
+        Text = Color3.fromRGB(240, 253, 250),
+        SubText = Color3.fromRGB(94, 234, 212),
+        Border = Color3.fromRGB(24, 60, 73),
+        ToggleOn = Color3.fromRGB(45, 212, 191),
+        ToggleOff = Color3.fromRGB(13, 31, 38)
+    },
+    ["Deep Sea"] = {
+        Background = Color3.fromRGB(8, 14, 24),
+        Sidebar = Color3.fromRGB(12, 21, 36),
+        ElementBg = Color3.fromRGB(17, 29, 50),
+        Accent = Color3.fromRGB(14, 165, 233),
+        Text = Color3.fromRGB(240, 249, 255),
+        SubText = Color3.fromRGB(125, 211, 252),
+        Border = Color3.fromRGB(24, 41, 71),
+        ToggleOn = Color3.fromRGB(14, 165, 233),
+        ToggleOff = Color3.fromRGB(13, 22, 38)
+    },
+    ["Storm"] = {
+        Background = Color3.fromRGB(14, 18, 24),
+        Sidebar = Color3.fromRGB(21, 27, 36),
+        ElementBg = Color3.fromRGB(29, 37, 50),
+        Accent = Color3.fromRGB(96, 165, 250),
+        Text = Color3.fromRGB(248, 250, 252),
+        SubText = Color3.fromRGB(148, 163, 184),
+        Border = Color3.fromRGB(41, 52, 71),
+        ToggleOn = Color3.fromRGB(96, 165, 250),
+        ToggleOff = Color3.fromRGB(22, 28, 38)
+    },
+    ["Thunder"] = {
+        Background = Color3.fromRGB(14, 12, 20),
+        Sidebar = Color3.fromRGB(21, 18, 30),
+        ElementBg = Color3.fromRGB(29, 25, 41),
+        Accent = Color3.fromRGB(234, 179, 8),
+        Text = Color3.fromRGB(254, 252, 242),
+        SubText = Color3.fromRGB(216, 180, 254),
+        Border = Color3.fromRGB(41, 35, 58),
+        ToggleOn = Color3.fromRGB(234, 179, 8),
+        ToggleOff = Color3.fromRGB(22, 19, 31)
+    },
+    ["Phantom"] = {
+        Background = Color3.fromRGB(12, 10, 16),
+        Sidebar = Color3.fromRGB(19, 16, 26),
+        ElementBg = Color3.fromRGB(27, 23, 37),
+        Accent = Color3.fromRGB(168, 85, 247),
+        Text = Color3.fromRGB(250, 245, 255),
+        SubText = Color3.fromRGB(140, 120, 160),
+        Border = Color3.fromRGB(40, 34, 55),
+        ToggleOn = Color3.fromRGB(168, 85, 247),
+        ToggleOff = Color3.fromRGB(20, 17, 28)
+    }
+}
+
+local CurrentThemeName = "Midnight"
+local CurrentTheme = Themes[CurrentThemeName]
+local CurrentTransparency = 0
+local CurrentLanguage = "EN"
+
+local InstancesToTheme = {}
+local TogglesRegistry = {}
+local DropdownsRegistry = {}
+local LocaleRegistry = {}
+local ActiveDropdown = nil
+local NotifyHolder = nil
+local GlobalScreenGui = nil
+
+local MainFrameRef = nil
+local SidebarRef = nil
+local SidebarCoverRef = nil
+
+local HttpService = game:GetService("HttpService")
+local ConfigFolder = "FractureHub/UI/config"
+local ConfigFile = ConfigFolder .. "/settings.json"
+local ConfigData = {}
+local ToggleProfile = {}
+
+local function ApplyTheme(themeName)
+    if not Themes[themeName] then return end
+    CurrentThemeName = themeName
+    CurrentTheme = Themes[themeName]
+    
+    for instance, properties in pairs(InstancesToTheme) do
+        if instance and instance.Parent then
+            local targetProps = {}
+            for prop, key in pairs(properties) do
+                if type(key) == "function" then
+                    targetProps[prop] = key()
+                else
+                    targetProps[prop] = CurrentTheme[key]
+                end
+            end
+            
+            local overrideBgTransparency = nil
+            if instance == MainFrameRef or instance == SidebarRef or instance == SidebarCoverRef then
+                overrideBgTransparency = CurrentTransparency
+            end
+            
+            local tweenProps = {
+                TextColor3 = targetProps.TextColor3, 
+                BackgroundColor3 = targetProps.BackgroundColor3, 
+                Color = targetProps.Color,
+                ImageColor3 = targetProps.ImageColor3
+            }
+            if overrideBgTransparency then
+                tweenProps.BackgroundTransparency = overrideBgTransparency
+            end
+
+            TweenService:Create(instance, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), tweenProps):Play()
+        else
+            InstancesToTheme[instance] = nil
+        end
+    end
+
+    for switchFrame, info in pairs(TogglesRegistry) do
+        if switchFrame and switchFrame.Parent then
+            local targetColor = info.GetToggled() and CurrentTheme.ToggleOn or CurrentTheme.ToggleOff
+            TweenService:Create(switchFrame, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = targetColor}):Play()
+            
+            local thumb = switchFrame:FindFirstChild("Thumb")
+            if thumb then
+                TweenService:Create(thumb, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+                    BackgroundColor3 = info.GetToggled() and Color3.fromRGB(255, 255, 255) or CurrentTheme.SubText
+                }):Play()
+            end
+        else
+            TogglesRegistry[switchFrame] = nil
+        end
+    end
+
+    for menu, _ in pairs(DropdownsRegistry) do
+        if menu and menu.Parent then
+            menu.BackgroundColor3 = CurrentTheme.ElementBg
+            local stroke = menu:FindFirstChildOfClass("UIStroke")
+            if stroke then stroke.Color = CurrentTheme.Border end
+        else
+            DropdownsRegistry[menu] = nil
+        end
+    end
+end
+
+local function ApplyTransparency(transparencyValue)
+    CurrentTransparency = transparencyValue
+    if MainFrameRef then
+        TweenService:Create(MainFrameRef, TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = transparencyValue}):Play()
+    end
+    if SidebarRef then
+        TweenService:Create(SidebarRef, TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = transparencyValue}):Play()
+    end
+    if SidebarCoverRef then
+        TweenService:Create(SidebarCoverRef, TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = transparencyValue}):Play()
+    end
+end
+
+local function RegisterElement(instance, property, themeKey)
+    if not InstancesToTheme[instance] then
+        InstancesToTheme[instance] = {}
+    end
+    InstancesToTheme[instance][property] = themeKey
+    
+    if type(themeKey) == "function" then
+        instance[property] = themeKey()
+    else
+        instance[property] = CurrentTheme[themeKey]
+    end
+end
+
+local function ApplyFont(fontName)
+    if not Fonts[fontName] then return end
+    CurrentFontName = fontName
+    CurrentFontFamily = Fonts[fontName]
+
+    for instance, weight in pairs(FontRegistry) do
+        if instance and instance.Parent then
+            instance.Font = CurrentFontFamily[weight] or CurrentFontFamily.Regular
+        else
+            FontRegistry[instance] = nil
+        end
+    end
+end
+
+function Library:AddTranslation(key, translations)
+    Library.Translations[key] = translations
+end
+
+local function RegisterLocale(instance, key, isUpper)
+    LocaleRegistry[instance] = {Key = key, Upper = isUpper}
+
+    local entry = Library.Translations[key]
+    local text = (entry and entry[CurrentLanguage]) or key
+    instance.Text = isUpper and text:upper() or text
+end
+
+local function ApplyLanguage(langCode)
+    CurrentLanguage = langCode
+
+    for instance, data in pairs(LocaleRegistry) do
+        if instance and instance.Parent then
+            local entry = Library.Translations[data.Key]
+            local text = (entry and entry[langCode]) or data.Key
+            instance.Text = data.Upper and text:upper() or text
+        else
+            LocaleRegistry[instance] = nil
+        end
+    end
+end
+
+local function EnsureConfigFolder()
+    pcall(function()
+        if not isfolder("FractureHub") then makefolder("FractureHub") end
+        if not isfolder("FractureHub/UI") then makefolder("FractureHub/UI") end
+        if not isfolder(ConfigFolder) then makefolder(ConfigFolder) end
+    end)
+end
+
+local function LoadConfig()
+    EnsureConfigFolder()
+    local success, result = pcall(function()
+        if isfile and isfile(ConfigFile) then
+            return HttpService:JSONDecode(readfile(ConfigFile))
+        end
+        return nil
+    end)
+
+    if success and type(result) == "table" then
+        ConfigData = result
+        if type(result.Toggles) == "table" then
+            ToggleProfile = result.Toggles
+        end
+    end
+end
+
+local function SaveConfig()
+    ConfigData.Toggles = ToggleProfile
+    pcall(function()
+        EnsureConfigFolder()
+        writefile(ConfigFile, HttpService:JSONEncode(ConfigData))
+    end)
+end
+
+LoadConfig()
+
+local function MakeDraggable(gui)
+    local dragging, dragInput, dragStart, startPos
+
+    local function update(input)
+        local delta = input.Position - dragStart
+        gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    end
+
+    gui.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
+            dragStart = input.Position
+            startPos = gui.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
+                end
+            end)
+        end
+    end)
+
+    gui.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            dragInput = input
+        end
+    end)
+
+    UserInputService.InputChanged:Connect(function(input)
+        if input == dragInput and dragging then
+            update(input)
+        end
+    end)
+end
+
+local function CreateNotifyHolder(screenGui)
+    if NotifyHolder then return end
+    NotifyHolder = Instance.new("Frame")
+    NotifyHolder.Name = "NotificationHolder"
+    NotifyHolder.Size = UDim2.new(0, 300, 1, -20)
+    NotifyHolder.Position = UDim2.new(1, -310, 0, 10)
+    NotifyHolder.BackgroundTransparency = 1
+    NotifyHolder.ZIndex = 99999
+    NotifyHolder.Parent = screenGui
+
+    local Layout = Instance.new("UIListLayout")
+    Layout.VerticalAlignment = Enum.VerticalAlignment.Bottom
+    Layout.HorizontalAlignment = Enum.HorizontalAlignment.Right
+    Layout.Padding = UDim.new(0, 8)
+    Layout.SortOrder = Enum.SortOrder.LayoutOrder
+    Layout.Parent = NotifyHolder
+end
+
+function Library:Notify(options)
+    local title = options.Title or "Notification"
+    local desc = options.Content or "Description"
+    local icon = options.Image or "rbxassetid://10734952479"
+    local duration = options.Duration or 5
+
+    if not NotifyHolder then return end
+
+    local Box = Instance.new("Frame")
+    Box.Size = UDim2.new(0, 280, 0, 68)
+    Box.BackgroundTransparency = 0.05
+    Box.Position = UDim2.new(1.5, 0, 0, 0)
+    Box.ZIndex = 100000
+    Box.Parent = NotifyHolder
+    RegisterElement(Box, "BackgroundColor3", "ElementBg")
+
+    local BoxCorner = Instance.new("UICorner")
+    BoxCorner.CornerRadius = UDim.new(0, 10)
+    BoxCorner.Parent = Box
+
+    local BoxStroke = Instance.new("UIStroke")
+    BoxStroke.Thickness = 1
+    BoxStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    BoxStroke.Parent = Box
+    RegisterElement(BoxStroke, "Color", "Border")
+
+    local IconImg = Instance.new("ImageLabel")
+    IconImg.Size = UDim2.new(0, 36, 0, 36)
+    IconImg.Position = UDim2.new(0, 12, 0.5, -18)
+    IconImg.BackgroundTransparency = 1
+    IconImg.Image = icon
+    IconImg.ZIndex = 100001
+    IconImg.Parent = Box
+
+    local TitleLbl = Instance.new("TextLabel")
+    TitleLbl.Size = UDim2.new(1, -70, 0, 18)
+    TitleLbl.Position = UDim2.new(0, 58, 0, 12)
+    TitleLbl.Text = title
+    TitleLbl.TextSize = 13
+    SetInterFont(TitleLbl, "Bold")
+    TitleLbl.TextXAlignment = Enum.TextXAlignment.Left
+    TitleLbl.TextTruncate = Enum.TextTruncate.AtEnd
+    TitleLbl.BackgroundTransparency = 1
+    TitleLbl.ZIndex = 100001
+    TitleLbl.Parent = Box
+    RegisterElement(TitleLbl, "TextColor3", "Text")
+
+    local DescLbl = Instance.new("TextLabel")
+    DescLbl.Size = UDim2.new(1, -70, 0, 26)
+    DescLbl.Position = UDim2.new(0, 58, 0, 30)
+    DescLbl.Text = desc
+    DescLbl.TextSize = 11
+    SetInterFont(DescLbl, "Regular")
+    DescLbl.TextXAlignment = Enum.TextXAlignment.Left
+    DescLbl.TextWrapped = true
+    DescLbl.BackgroundTransparency = 1
+    DescLbl.ZIndex = 100001
+    DescLbl.Parent = Box
+    RegisterElement(DescLbl, "TextColor3", "SubText")
+
+    TweenService:Create(Box, TweenInfo.new(0.4, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Position = UDim2.new(0, 0, 0, 0)}):Play()
+
+    task.delay(duration, function()
+        if Box and Box.Parent then
+            local fadeOut = TweenService:Create(Box, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {Position = UDim2.new(1.5, 0, 0, 0)})
+            fadeOut:Play()
+            fadeOut.Completed:Connect(function()
+                Box:Destroy()
+            end)
+        end
+    end)
+end
+
+function Library:CreateWindow(config)
+    local titleText = config.Title or "Fracture Hub"
+    local rawSize = config.Size or UDim2.fromOffset(580, 420)
+    local minimizeKey = (ConfigData.MinimizeKey and Enum.KeyCode[ConfigData.MinimizeKey]) or config.MinimizeKey or Enum.KeyCode.LeftControl
+    local subtitle = config.SubTitle or ""
+    local titleLink = config.TitleLink or ""
+    local themeDefault = ConfigData.Theme or config.Theme or "Midnight"
+    local fontDefault = ConfigData.Font or "Gotham"
+    local languageDefault = ConfigData.Language or "EN"
+    local profileLook = config.Look ~= false
+
+    local viewportSize = CurrentCamera.ViewportSize
+    local safeWidth = math.min(rawSize.X.Offset, viewportSize.X - 20)
+    local safeHeight = math.min(rawSize.Y.Offset, viewportSize.Y - 20)
+    local size = UDim2.fromOffset(safeWidth, safeHeight)
+
+    local OldUI = PlayerGui:FindFirstChild("FracturePremiumLib")
+    if OldUI then OldUI:Destroy() end
+
+    local ScreenGui = Instance.new("ScreenGui")
+    ScreenGui.Name = "FracturePremiumLib"
+    ScreenGui.ResetOnSpawn = false
+    ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    ScreenGui.DisplayOrder = 100
+    ScreenGui.Parent = PlayerGui
+    GlobalScreenGui = ScreenGui
+
+    CreateNotifyHolder(ScreenGui)
+
+    local MainFrame = Instance.new("Frame")
+    MainFrame.Name = "MainFrame"
+    MainFrame.Size = size
+    MainFrame.Position = UDim2.new(0.5, -size.X.Offset/2, 0.5, -size.Y.Offset/2)
+    MainFrame.BorderSizePixel = 0
+    MainFrame.Active = true
+    MainFrame.ZIndex = 10
+    MainFrame.Parent = ScreenGui
+    RegisterElement(MainFrame, "BackgroundColor3", "Background")
+    MainFrameRef = MainFrame
+
+    local UICorner = Instance.new("UICorner")
+    UICorner.CornerRadius = UDim.new(0, 12)
+    UICorner.Parent = MainFrame
+
+    local MainStroke = Instance.new("UIStroke")
+    MainStroke.Thickness = 1.5
+    MainStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    MainStroke.Parent = MainFrame
+    RegisterElement(MainStroke, "Color", "Border")
+
+    MakeDraggable(MainFrame)
+
+    local sidebarWidth = math.min(config.TabWidth or 160, safeWidth * 0.35)
+    local Sidebar = Instance.new("Frame")
+    Sidebar.Name = "Sidebar"
+    Sidebar.Size = UDim2.new(0, sidebarWidth, 1, 0)
+    Sidebar.Position = UDim2.new(0, 0, 0, 0)
+    Sidebar.BorderSizePixel = 0
+    Sidebar.ZIndex = 11
+    Sidebar.Parent = MainFrame
+    RegisterElement(Sidebar, "BackgroundColor3", "Sidebar")
+    SidebarRef = Sidebar
+
+    local SidebarCorner = Instance.new("UICorner")
+    SidebarCorner.CornerRadius = UDim.new(0, 12)
+    SidebarCorner.Parent = Sidebar
+
+    local SidebarCover = Instance.new("Frame")
+    SidebarCover.Size = UDim2.new(0, 20, 1, 0)
+    SidebarCover.Position = UDim2.new(1, -20, 0, 0)
+    SidebarCover.BorderSizePixel = 0
+    SidebarCover.ZIndex = 11
+    SidebarCover.Parent = Sidebar
+    RegisterElement(SidebarCover, "BackgroundColor3", "Sidebar")
+    SidebarCoverRef = SidebarCover
+
+    local ProfileCard = Instance.new("Frame")
+    ProfileCard.Name = "ProfileCard"
+    ProfileCard.Size = UDim2.new(1, -20, 0, 52)
+    ProfileCard.Position = UDim2.new(0, 10, 0, 12)
+    ProfileCard.BackgroundTransparency = 0.5
+    ProfileCard.ZIndex = 12
+    ProfileCard.Parent = Sidebar
+    RegisterElement(ProfileCard, "BackgroundColor3", "ElementBg")
+
+    local ProfileCorner = Instance.new("UICorner")
+    ProfileCorner.CornerRadius = UDim.new(0, 8)
+    ProfileCorner.Parent = ProfileCard
+
+    local ProfileStroke = Instance.new("UIStroke")
+    ProfileStroke.Thickness = 1
+    ProfileStroke.Parent = ProfileCard
+    RegisterElement(ProfileStroke, "Color", "Border")
+
+    local AvatarImg = Instance.new("ImageLabel")
+    AvatarImg.Name = "Avatar"
+    AvatarImg.Size = UDim2.new(0, 32, 0, 32)
+    AvatarImg.Position = UDim2.new(0, 8, 0.5, -16)
+    AvatarImg.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. LocalPlayer.UserId .. "&width=150&height=150&format=png"
+    AvatarImg.BackgroundTransparency = 1
+    AvatarImg.ZIndex = 13
+    AvatarImg.Parent = ProfileCard
+
+    local AvatarCorner = Instance.new("UICorner")
+    AvatarCorner.CornerRadius = UDim.new(1, 0)
+    AvatarCorner.Parent = AvatarImg
+
+    local NameLabel = Instance.new("TextLabel")
+    NameLabel.Name = "PlayerName"
+    NameLabel.Size = UDim2.new(1, -52, 0, 16)
+    NameLabel.Position = UDim2.new(0, 46, 0, 10)
+    NameLabel.Text = LocalPlayer.Name
+    NameLabel.TextSize = 12
+    SetInterFont(NameLabel, "Bold")
+    NameLabel.TextXAlignment = Enum.TextXAlignment.Left
+    NameLabel.TextTruncate = Enum.TextTruncate.AtEnd
+    NameLabel.BackgroundTransparency = 1
+    NameLabel.ZIndex = 13
+    NameLabel.Parent = ProfileCard
+    RegisterElement(NameLabel, "TextColor3", "Text")
+
+    local DisplayLabel = Instance.new("TextLabel")
+    DisplayLabel.Name = "DisplayName"
+    DisplayLabel.Size = UDim2.new(1, -52, 0, 12)
+    DisplayLabel.Position = UDim2.new(0, 46, 0, 26)
+    DisplayLabel.Text = "@" .. LocalPlayer.DisplayName
+    DisplayLabel.TextSize = 9
+    SetInterFont(DisplayLabel, "Medium")
+    DisplayLabel.TextXAlignment = Enum.TextXAlignment.Left
+    DisplayLabel.TextTruncate = Enum.TextTruncate.AtEnd
+    DisplayLabel.BackgroundTransparency = 1
+    DisplayLabel.ZIndex = 13
+    DisplayLabel.Parent = ProfileCard
+    RegisterElement(DisplayLabel, "TextColor3", "SubText")
+
+    local EyeToggleBtn = Instance.new("TextButton")
+    EyeToggleBtn.Size = UDim2.new(0, 20, 0, 20)
+    EyeToggleBtn.Position = UDim2.new(1, -22, 0, 4)
+    EyeToggleBtn.BackgroundTransparency = 1
+    EyeToggleBtn.Text = profileLook and "👁" or "🙈"
+    EyeToggleBtn.TextSize = 12
+    EyeToggleBtn.ZIndex = 14
+    EyeToggleBtn.Parent = ProfileCard
+    RegisterElement(EyeToggleBtn, "TextColor3", "SubText")
+
+    local function updateProfileLook()
+        if profileLook then
+            NameLabel.Text = LocalPlayer.Name
+            DisplayLabel.Text = "@" .. LocalPlayer.DisplayName
+            EyeToggleBtn.Text = "👁"
+        else
+            NameLabel.Text = string.rep("*", string.len(LocalPlayer.Name))
+            DisplayLabel.Text = "@" .. string.rep("*", 8)
+            EyeToggleBtn.Text = "🙈"
+        end
+    end
+    updateProfileLook()
+
+    EyeToggleBtn.MouseButton1Click:Connect(function()
+        profileLook = not profileLook
+        updateProfileLook()
+    end)
+
+    local NavScroll = Instance.new("ScrollingFrame")
+    NavScroll.Name = "NavScroll"
+    NavScroll.Size = UDim2.new(1, -12, 1, -135)
+    NavScroll.Position = UDim2.new(0, 6, 0, 74)
+    NavScroll.BackgroundTransparency = 1
+    NavScroll.BorderSizePixel = 0
+    NavScroll.CanvasSize = UDim2.new(0, 0, 0, 0)
+    NavScroll.ScrollBarThickness = 0
+    NavScroll.ZIndex = 12
+    NavScroll.Parent = Sidebar
+
+    local NavLayout = Instance.new("UIListLayout")
+    NavLayout.Padding = UDim.new(0, 6)
+    NavLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    NavLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    NavLayout.Parent = NavScroll
+
+    local LinkPanel = Instance.new("Frame")
+    LinkPanel.Name = "LinkPanel"
+    LinkPanel.Size = UDim2.new(1, -16, 0, 40)
+    LinkPanel.Position = UDim2.new(0, 8, 1, -48)
+    LinkPanel.BackgroundTransparency = 1
+    LinkPanel.ZIndex = 12
+    LinkPanel.Parent = Sidebar
+
+    local LinkLayout = Instance.new("UIListLayout")
+    LinkLayout.FillDirection = Enum.FillDirection.Horizontal
+    LinkLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    LinkLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+    LinkLayout.Padding = UDim.new(0, 8)
+    LinkLayout.Parent = LinkPanel
+
+    if titleLink ~= "" then
+        local DiscordBtn = Instance.new("TextButton")
+        DiscordBtn.Name = "DiscordBtn"
+        DiscordBtn.Size = UDim2.new(1, 0, 0, 28)
+        DiscordBtn.Text = "Join Discord 🔗"
+        DiscordBtn.TextSize = 10
+        SetInterFont(DiscordBtn, "Bold")
+        DiscordBtn.AutoButtonColor = false
+        DiscordBtn.ZIndex = 13
+        DiscordBtn.Parent = LinkPanel
+        RegisterElement(DiscordBtn, "BackgroundColor3", "ElementBg")
+        RegisterElement(DiscordBtn, "TextColor3", "SubText")
+
+        local DiscordCorner = Instance.new("UICorner")
+        DiscordCorner.CornerRadius = UDim.new(0, 6)
+        DiscordCorner.Parent = DiscordBtn
+
+        local DiscordStroke = Instance.new("UIStroke")
+        DiscordStroke.Thickness = 1
+        DiscordStroke.Parent = DiscordBtn
+        RegisterElement(DiscordStroke, "Color", "Border")
+
+        DiscordBtn.MouseEnter:Connect(function()
+            TweenService:Create(DiscordBtn, TweenInfo.new(0.2), {TextColor3 = CurrentTheme.Accent}):Play()
+        end)
+        DiscordBtn.MouseLeave:Connect(function()
+            TweenService:Create(DiscordBtn, TweenInfo.new(0.2), {TextColor3 = CurrentTheme.SubText}):Play()
+        end)
+
+        DiscordBtn.MouseButton1Click:Connect(function()
+            if setclipboard then
+                setclipboard(titleLink)
+            elseif toclipboard then
+                toclipboard(titleLink)
+            end
+            Library:Notify({
+                Title = "Copied link!",
+                Content = "Discord link copied to clipboard successfully.",
+                Image = "rbxassetid://10734952479",
+                Duration = 3
+            })
+        end)
+    end
+
+    local Header = Instance.new("Frame")
+    Header.Name = "Header"
+    Header.Size = UDim2.new(1, -sidebarWidth, 0, 56)
+    Header.Position = UDim2.new(0, sidebarWidth, 0, 0)
+    Header.BackgroundTransparency = 1
+    Header.ZIndex = 11
+    Header.Parent = MainFrame
+
+    local Title = Instance.new("TextLabel")
+    Title.Name = "Title"
+    Title.Size = UDim2.new(1, -120, 0, 24)
+    Title.Position = UDim2.new(0, 20, 0, 6)
+    Title.Text = titleText
+    Title.TextSize = 16
+    SetInterFont(Title, "Bold")
+    Title.TextXAlignment = Enum.TextXAlignment.Left
+    Title.BackgroundTransparency = 1
+    Title.ZIndex = 12
+    Title.Parent = Header
+    RegisterElement(Title, "TextColor3", "Text")
+
+    local SubTitle = Instance.new("TextLabel")
+    SubTitle.Name = "SubTitle"
+    SubTitle.Size = UDim2.new(1, -120, 0, 14)
+    SubTitle.Position = UDim2.new(0, 20, 0, 26)
+    SubTitle.Text = subtitle ~= "" and subtitle or "Universal Script System"
+    SubTitle.TextSize = 11
+    SetInterFont(SubTitle, "Medium")
+    SubTitle.TextTruncate = Enum.TextTruncate.AtEnd
+    SubTitle.TextXAlignment = Enum.TextXAlignment.Left
+    SubTitle.BackgroundTransparency = 1
+    SubTitle.ZIndex = 12
+    SubTitle.Parent = Header
+    RegisterElement(SubTitle, "TextColor3", "SubText")
+
+    local StatsLabel = Instance.new("TextLabel")
+    StatsLabel.Name = "StatsLabel"
+    StatsLabel.Size = UDim2.new(1, -120, 0, 14)
+    StatsLabel.Position = UDim2.new(0, 20, 0, 40)
+    StatsLabel.Text = "FPS: Calculating... | PING: -- ms"
+    StatsLabel.TextSize = 10
+    SetInterFont(StatsLabel, "Bold")
+    StatsLabel.TextXAlignment = Enum.TextXAlignment.Left
+    StatsLabel.BackgroundTransparency = 1
+    StatsLabel.ZIndex = 12
+    StatsLabel.Parent = Header
+    RegisterElement(StatsLabel, "TextColor3", "Accent")
+
+    task.spawn(function()
+        local lastUpdate = os.clock()
+        local fpsAccumulator = 0
+        local frameCount = 0
+        
+        local runServiceConnection
+        runServiceConnection = game:GetService("RunService").RenderStepped:Connect(function(dt)
+            if not StatsLabel or not StatsLabel.Parent then
+                runServiceConnection:Disconnect()
+                return
+            end
+            
+            frameCount = frameCount + 1
+            fpsAccumulator = fpsAccumulator + (1 / dt)
+            
+            local now = os.clock()
+            if now - lastUpdate >= 0.3 then
+                local averageFps = math.round(fpsAccumulator / frameCount)
+                
+                local ping = 0
+                pcall(function()
+                    ping = math.round(Stats:GetNetworkMetricResult(Enum.NetworkMetricType.Ping, Enum.NetworkMetricDataType.Average))
+                end)
+                if ping <= 0 then
+                    pcall(function() ping = math.round(LocalPlayer:GetNetworkPing() * 1000) end)
+                end
+                
+                StatsLabel.Text = string.format("FPS: %d | PING: %d ms", math.clamp(averageFps, 1, 999), ping)
+                
+                fpsAccumulator = 0
+                frameCount = 0
+                lastUpdate = now
+            end
+        end)
+    end)
+
+    local CloseConfirmFrame = Instance.new("Frame")
+    CloseConfirmFrame.Name = "CloseConfirmFrame"
+    CloseConfirmFrame.Size = UDim2.new(1, 0, 1, 0)
+    CloseConfirmFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    CloseConfirmFrame.BackgroundTransparency = 0.5
+    CloseConfirmFrame.Active = true
+    CloseConfirmFrame.Visible = false
+    CloseConfirmFrame.ZIndex = 1000100
+    CloseConfirmFrame.Parent = GlobalScreenGui
+
+    local ConfirmBox = Instance.new("Frame")
+    ConfirmBox.Size = UDim2.new(0, 260, 0, 120)
+    ConfirmBox.Position = UDim2.new(0.5, -130, 0.5, -60)
+    ConfirmBox.ZIndex = 1000101
+    ConfirmBox.Parent = CloseConfirmFrame
+    RegisterElement(ConfirmBox, "BackgroundColor3", "ElementBg")
+
+    local ConfirmCorner = Instance.new("UICorner")
+    ConfirmCorner.CornerRadius = UDim.new(0, 10)
+    ConfirmCorner.Parent = ConfirmBox
+
+    local ConfirmStroke = Instance.new("UIStroke")
+    ConfirmStroke.Thickness = 1
+    ConfirmStroke.Parent = ConfirmBox
+    RegisterElement(ConfirmStroke, "Color", "Border")
+
+    local ConfirmTitle = Instance.new("TextLabel")
+    ConfirmTitle.Size = UDim2.new(1, 0, 0, 40)
+    ConfirmTitle.Position = UDim2.new(0, 0, 0, 15)
+    ConfirmTitle.Text = "Are you sure you want to close?"
+    ConfirmTitle.TextSize = 13
+    SetInterFont(ConfirmTitle, "Bold")
+    ConfirmTitle.BackgroundTransparency = 1
+    ConfirmTitle.ZIndex = 1000102
+    ConfirmTitle.Parent = ConfirmBox
+    RegisterElement(ConfirmTitle, "TextColor3", "Text")
+
+    local YesBtn = Instance.new("TextButton")
+    YesBtn.Size = UDim2.new(0, 105, 0, 32)
+    YesBtn.Position = UDim2.new(0, 15, 0, 70)
+    YesBtn.Text = "Confirm"
+    YesBtn.TextSize = 12
+    SetInterFont(YesBtn, "Bold")
+    YesBtn.AutoButtonColor = false
+    YesBtn.ZIndex = 1000102
+    YesBtn.Parent = ConfirmBox
+    RegisterElement(YesBtn, "BackgroundColor3", "Accent")
+    YesBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+    local YesCorner = Instance.new("UICorner")
+    YesCorner.CornerRadius = UDim.new(0, 6)
+    YesCorner.Parent = YesBtn
+
+    local NoBtn = Instance.new("TextButton")
+    NoBtn.Size = UDim2.new(0, 105, 0, 32)
+    NoBtn.Position = UDim2.new(1, -120, 0, 70)
+    NoBtn.Text = "Cancel"
+    NoBtn.TextSize = 12
+    SetInterFont(NoBtn, "Bold")
+    NoBtn.AutoButtonColor = false
+    NoBtn.ZIndex = 1000102
+    NoBtn.Parent = ConfirmBox
+    RegisterElement(NoBtn, "BackgroundColor3", "Background")
+    RegisterElement(NoBtn, "TextColor3", "Text")
+
+    local NoCorner = Instance.new("UICorner")
+    NoCorner.CornerRadius = UDim.new(0, 6)
+    NoCorner.Parent = NoBtn
+    
+    local NoStroke = Instance.new("UIStroke")
+    NoStroke.Thickness = 1
+    NoStroke.Parent = NoBtn
+    RegisterElement(NoStroke, "Color", "Border")
+
+    YesBtn.MouseButton1Click:Connect(function()
+        GlobalScreenGui:Destroy()
+    end)
+
+    NoBtn.MouseButton1Click:Connect(function()
+        CloseConfirmFrame.Visible = false
+    end)
+
+    local CloseBtn = Instance.new("TextButton")
+    CloseBtn.Name = "CloseBtn"
+    CloseBtn.Size = UDim2.new(0, 26, 0, 26)
+    CloseBtn.Position = UDim2.new(1, -38, 0, 15)
+    CloseBtn.Text = "❌"
+    CloseBtn.TextSize = 12
+    SetInterFont(CloseBtn, "Bold")
+    CloseBtn.AutoButtonColor = false
+    CloseBtn.ZIndex = 12
+    CloseBtn.Parent = Header
+    RegisterElement(CloseBtn, "BackgroundColor3", "ElementBg")
+    RegisterElement(CloseBtn, "TextColor3", "SubText")
+    local CloseCorner = Instance.new("UICorner")
+    CloseCorner.CornerRadius = UDim.new(0, 6)
+    CloseCorner.Parent = CloseBtn
+    local CloseStroke = Instance.new("UIStroke")
+    CloseStroke.Thickness = 1
+    CloseStroke.Parent = CloseBtn
+    RegisterElement(CloseStroke, "Color", "Border")
+
+    CloseBtn.MouseButton1Click:Connect(function()
+        CloseConfirmFrame.Visible = true
+    end)
+
+    local MaximizeBtn = Instance.new("TextButton")
+    MaximizeBtn.Name = "MaximizeBtn"
+    MaximizeBtn.Size = UDim2.new(0, 26, 0, 26)
+    MaximizeBtn.Position = UDim2.new(1, -68, 0, 15)
+    MaximizeBtn.Text = "➕"
+    MaximizeBtn.TextSize = 14
+    SetInterFont(MaximizeBtn, "Bold")
+    MaximizeBtn.AutoButtonColor = false
+    MaximizeBtn.ZIndex = 12
+    MaximizeBtn.Parent = Header
+    RegisterElement(MaximizeBtn, "BackgroundColor3", "ElementBg")
+    RegisterElement(MaximizeBtn, "TextColor3", "SubText")
+    local MaxCorner = Instance.new("UICorner")
+    MaxCorner.CornerRadius = UDim.new(0, 6)
+    MaxCorner.Parent = MaximizeBtn
+    local MaxStroke = Instance.new("UIStroke")
+    MaxStroke.Thickness = 1
+    MaxStroke.Parent = MaximizeBtn
+    RegisterElement(MaxStroke, "Color", "Border")
+
+    local isMaximized = false
+    local previousSize = MainFrame.Size
+    local previousPosition = MainFrame.Position
+
+    MaximizeBtn.MouseButton1Click:Connect(function()
+        isMaximized = not isMaximized
+        if isMaximized then
+            previousSize = MainFrame.Size
+            previousPosition = MainFrame.Position
+            local screenVP = CurrentCamera.ViewportSize
+            TweenService:Create(MainFrame, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+                Size = UDim2.fromOffset(screenVP.X - 40, screenVP.Y - 40),
+                Position = UDim2.new(0, 20, 0, 20)
+            }):Play()
+        else
+            TweenService:Create(MainFrame, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+                Size = previousSize,
+                Position = previousPosition
+            }):Play()
+        end
+    end)
+
+    local MinimizeBtn = Instance.new("TextButton")
+    MinimizeBtn.Name = "MinimizeBtn"
+    MinimizeBtn.Size = UDim2.new(0, 26, 0, 26)
+    MinimizeBtn.Position = UDim2.new(1, -98, 0, 15)
+    MinimizeBtn.Text = "➖"
+    MinimizeBtn.TextSize = 12
+    SetInterFont(MinimizeBtn, "Bold")
+    MinimizeBtn.AutoButtonColor = false
+    MinimizeBtn.ZIndex = 12
+    MinimizeBtn.Parent = Header
+    RegisterElement(MinimizeBtn, "BackgroundColor3", "ElementBg")
+    RegisterElement(MinimizeBtn, "TextColor3", "SubText")
+    local MinCorner = Instance.new("UICorner")
+    MinCorner.CornerRadius = UDim.new(0, 6)
+    MinCorner.Parent = MinimizeBtn
+    local MinStroke = Instance.new("UIStroke")
+    MinStroke.Thickness = 1
+    MinStroke.Parent = MinimizeBtn
+    RegisterElement(MinStroke, "Color", "Border")
+
+    if PlayerGui:FindFirstChild("FractureScreenGui") then
+        PlayerGui.FractureScreenGui:Destroy()
+    end
+
+    local FractureScreenGui = Instance.new("ScreenGui")
+    FractureScreenGui.Name = "FractureScreenGui"
+    FractureScreenGui.ResetOnSpawn = false
+    FractureScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    FractureScreenGui.DisplayOrder = 101
+    FractureScreenGui.Enabled = true
+    FractureScreenGui.Parent = PlayerGui
+
+    local FloatingFrame = Instance.new("Frame")
+    FloatingFrame.Name = "FractureFrame"
+    FloatingFrame.Size = UDim2.fromOffset(55, 55)
+    FloatingFrame.Position = UDim2.new(0.5, 0, 0.12, 0)
+    FloatingFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+    FloatingFrame.BackgroundTransparency = 1
+    FloatingFrame.Parent = FractureScreenGui
+
+    local FloatingButton = Instance.new("ImageButton")
+    FloatingButton.Name = "FractureButton"
+    FloatingButton.Size = UDim2.fromOffset(55, 55)
+    FloatingButton.Position = UDim2.new(0.5, 0, 0.5, 0)
+    FloatingButton.AnchorPoint = Vector2.new(0.5, 0.5)
+    FloatingButton.Image = "rbxassetid://83542549106889"
+    FloatingButton.ScaleType = Enum.ScaleType.Fit
+    FloatingButton.AutoButtonColor = false
+    FloatingButton.ZIndex = 1
+    FloatingButton.Parent = FloatingFrame
+    
+    RegisterElement(FloatingButton, "BackgroundColor3", "ElementBg")
+    RegisterElement(FloatingButton, "ImageColor3", "Text")
+
+    local ButtonCorner = Instance.new("UICorner")
+    ButtonCorner.CornerRadius = UDim.new(0, 16)
+    ButtonCorner.Parent = FloatingButton
+
+    local buttonTweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+    
+    FloatingButton.MouseEnter:Connect(function()
+        TweenService:Create(FloatingButton, buttonTweenInfo, {Size = UDim2.fromOffset(60, 60)}):Play()
+    end)
+    FloatingButton.MouseLeave:Connect(function()
+        TweenService:Create(FloatingButton, buttonTweenInfo, {Size = UDim2.fromOffset(55, 55)}):Play()
+    end)
+    FloatingButton.MouseButton1Down:Connect(function()
+        TweenService:Create(FloatingButton, buttonTweenInfo, {Size = UDim2.fromOffset(50, 50)}):Play()
+    end)
+    FloatingButton.MouseButton1Up:Connect(function()
+        TweenService:Create(FloatingButton, buttonTweenInfo, {Size = UDim2.fromOffset(60, 60)}):Play()
+    end)
+    local isDragging = false
+    local currentInput, startInputPos, startFramePos
+    local dragThresholdExceeded = false
+    FloatingButton.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            isDragging = true
+            currentInput = input
+            startInputPos = input.Position
+            startFramePos = FloatingFrame.Position
+            dragThresholdExceeded = false
+        end
+    end)
+    UserInputService.InputChanged:Connect(function(input)
+        if isDragging and input == currentInput then
+            local delta = input.Position - startInputPos
+            if delta.Magnitude > 6 then 
+                dragThresholdExceeded = true 
+            end
+            FloatingFrame.Position = UDim2.new(
+                startFramePos.X.Scale, 
+                startFramePos.X.Offset + delta.X, 
+                startFramePos.Y.Scale, 
+                startFramePos.Y.Offset + delta.Y
+            )
+        end
+    end)
+
+    UserInputService.InputEnded:Connect(function(input)
+        if input == currentInput then 
+            isDragging = false 
+        end
+    end)
+
+    local function ToggleUI()
+        local willMinimize = MainFrame.Visible
+        MainFrame.Visible = not willMinimize
+    end
+
+    FloatingButton.MouseButton1Click:Connect(function()
+        if not dragThresholdExceeded then
+            ToggleUI()
+        end
+    end)
+
+    MinimizeBtn.MouseButton1Click:Connect(function()
+        ToggleUI()
+    end)
+
+    UserInputService.InputBegan:Connect(function(input, gameProcessed)
+        if not gameProcessed and input.KeyCode == minimizeKey then
+            ToggleUI()
+        end
+    end)
+
+    local Container = Instance.new("Frame")
+    Container.Name = "Container"
+    Container.Size = UDim2.new(1, -sidebarWidth - 20, 1, -76)
+    Container.Position = UDim2.new(0, sidebarWidth + 10, 0, 64)
+    Container.BackgroundTransparency = 1
+    Container.ZIndex = 11
+    Container.Parent = MainFrame
+
+    local ColorPickerPopup = Instance.new("Frame")
+    ColorPickerPopup.Size = UDim2.new(0, 280, 0, 310)
+    ColorPickerPopup.Position = UDim2.new(0.5, -140, 0.5, -155)
+    ColorPickerPopup.ZIndex = 1000050
+    ColorPickerPopup.Visible = false
+    ColorPickerPopup.Parent = GlobalScreenGui
+    RegisterElement(ColorPickerPopup, "BackgroundColor3", "ElementBg")
+    local CPCorner = Instance.new("UICorner")
+    CPCorner.CornerRadius = UDim.new(0, 10)
+    CPCorner.Parent = ColorPickerPopup
+    local CPStroke = Instance.new("UIStroke")
+    CPStroke.Thickness = 1
+    CPStroke.Parent = ColorPickerPopup
+    RegisterElement(CPStroke, "Color", "Border")
+    MakeDraggable(ColorPickerPopup)
+
+    local CPTitle = Instance.new("TextLabel")
+    CPTitle.Size = UDim2.new(1, -30, 0, 30)
+    CPTitle.Position = UDim2.new(0, 15, 0, 5)
+    CPTitle.Text = "Colorpicker 3"
+    CPTitle.TextSize = 14
+    SetInterFont(CPTitle, "Bold")
+    CPTitle.TextXAlignment = Enum.TextXAlignment.Left
+    CPTitle.BackgroundTransparency = 1
+    CPTitle.ZIndex = 1000051
+    CPTitle.Parent = ColorPickerPopup
+    RegisterElement(CPTitle, "TextColor3", "Text")
+
+    local ColorMap = Instance.new("ImageLabel")
+    ColorMap.Size = UDim2.new(0, 140, 0, 140)
+    ColorMap.Position = UDim2.new(0, 15, 0, 40)
+    ColorMap.Image = "rbxassetid://4155801252"
+    ColorMap.ZIndex = 1000051
+    ColorMap.Active = true
+    ColorMap.Parent = ColorPickerPopup
+    local ColorMapCorner = Instance.new("UICorner")
+    ColorMapCorner.CornerRadius = UDim.new(0, 6)
+    ColorMapCorner.Parent = ColorMap
+
+    local ColorMapCursor = Instance.new("Frame")
+    ColorMapCursor.Size = UDim2.new(0, 10, 0, 10)
+    ColorMapCursor.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ColorMapCursor.AnchorPoint = Vector2.new(0.5, 0.5)
+    ColorMapCursor.ZIndex = 1000052
+    ColorMapCursor.Parent = ColorMap
+    local ColorMapCursorCorner = Instance.new("UICorner")
+    ColorMapCursorCorner.CornerRadius = UDim.new(1, 0)
+    ColorMapCursorCorner.Parent = ColorMapCursor
+    local ColorMapCursorStroke = Instance.new("UIStroke")
+    ColorMapCursorStroke.Thickness = 2
+    ColorMapCursorStroke.Color = Color3.fromRGB(0, 0, 0)
+    ColorMapCursorStroke.Parent = ColorMapCursor
+
+    local HueSlider = Instance.new("Frame")
+    HueSlider.Size = UDim2.new(0, 12, 0, 140)
+    HueSlider.Position = UDim2.new(0, 165, 0, 40)
+    HueSlider.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    HueSlider.ZIndex = 1000051
+    HueSlider.Active = true
+    HueSlider.Parent = ColorPickerPopup
+    local HueCorner = Instance.new("UICorner")
+    HueCorner.CornerRadius = UDim.new(0, 6)
+    HueCorner.Parent = HueSlider
+    local HueGradient = Instance.new("UIGradient")
+    HueGradient.Rotation = 90
+    HueGradient.Color = ColorSequence.new{
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+        ColorSequenceKeypoint.new(0.167, Color3.fromRGB(255, 255, 0)),
+        ColorSequenceKeypoint.new(0.333, Color3.fromRGB(0, 255, 0)),
+        ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 255)),
+        ColorSequenceKeypoint.new(0.667, Color3.fromRGB(0, 0, 255)),
+        ColorSequenceKeypoint.new(0.833, Color3.fromRGB(255, 0, 255)),
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 0, 0))
+    }
+    HueGradient.Parent = HueSlider
+
+    local HueCursor = Instance.new("Frame")
+    HueCursor.Size = UDim2.new(0, 16, 0, 16)
+    HueCursor.Position = UDim2.new(0.5, 0, 0, 0)
+    HueCursor.AnchorPoint = Vector2.new(0.5, 0.5)
+    HueCursor.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    HueCursor.ZIndex = 1000052
+    HueCursor.Parent = HueSlider
+    local HueCursorCorner = Instance.new("UICorner")
+    HueCursorCorner.CornerRadius = UDim.new(1, 0)
+    HueCursorCorner.Parent = HueCursor
+    local HueCursorStroke = Instance.new("UIStroke")
+    HueCursorStroke.Thickness = 2
+    HueCursorStroke.Color = Color3.fromRGB(0, 0, 0)
+    HueCursorStroke.Parent = HueCursor
+
+    local InputsFrame = Instance.new("Frame")
+    InputsFrame.Size = UDim2.new(0, 80, 0, 140)
+    InputsFrame.Position = UDim2.new(0, 185, 0, 40)
+    InputsFrame.BackgroundTransparency = 1
+    InputsFrame.ZIndex = 1000051
+    InputsFrame.Parent = ColorPickerPopup
+    local InputsLayout = Instance.new("UIListLayout")
+    InputsLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    InputsLayout.Padding = UDim.new(0, 8)
+    InputsLayout.Parent = InputsFrame
+
+    local CPValHex, CPValR, CPValG, CPValB
+    local function makeCPInput(labelTxt, yPos)
+        local frm = Instance.new("Frame")
+        frm.Size = UDim2.new(1, 0, 0, 26)
+        frm.BackgroundTransparency = 1
+        frm.Parent = InputsFrame
+        frm.ZIndex = 1000051
+        local box = Instance.new("TextBox")
+        box.Size = UDim2.new(0.6, 0, 1, 0)
+        box.Position = UDim2.new(0, 0, 0, 0)
+        box.Text = ""
+        box.TextSize = 11
+        SetInterFont(box, "Medium")
+        box.ClearTextOnFocus = false
+        box.ZIndex = 1000052
+        box.Parent = frm
+        RegisterElement(box, "BackgroundColor3", "Background")
+        RegisterElement(box, "TextColor3", "Text")
+        local bCorner = Instance.new("UICorner")
+        bCorner.CornerRadius = UDim.new(0, 4)
+        bCorner.Parent = box
+        local bStroke = Instance.new("UIStroke")
+        bStroke.Thickness = 1
+        bStroke.Parent = box
+        RegisterElement(bStroke, "Color", "Border")
+        local lbl = Instance.new("TextLabel")
+        lbl.Size = UDim2.new(0.35, 0, 1, 0)
+        lbl.Position = UDim2.new(0.65, 0, 0, 0)
+        lbl.Text = labelTxt
+        lbl.TextSize = 10
+        SetInterFont(lbl, "Regular")
+        lbl.TextXAlignment = Enum.TextXAlignment.Right
+        lbl.BackgroundTransparency = 1
+        lbl.ZIndex = 1000052
+        lbl.Parent = frm
+        RegisterElement(lbl, "TextColor3", "SubText")
+        return box
+    end
+    CPValHex = makeCPInput("Hex", 0)
+    CPValR = makeCPInput("Red", 34)
+    CPValG = makeCPInput("Green", 68)
+    CPValB = makeCPInput("Blue", 102)
+
+    local ColorPresets = Instance.new("ScrollingFrame")
+    ColorPresets.Size = UDim2.new(1, -30, 0, 36)
+    ColorPresets.Position = UDim2.new(0, 15, 0, 195)
+    ColorPresets.BackgroundTransparency = 1
+    ColorPresets.ScrollBarThickness = 2
+    ColorPresets.CanvasSize = UDim2.new(0, 0, 0, 0)
+    ColorPresets.ZIndex = 1000051
+    ColorPresets.Parent = ColorPickerPopup
+    RegisterElement(ColorPresets, "ScrollBarImageColor3", "Border")
+    local PresetsLayout = Instance.new("UIListLayout")
+    PresetsLayout.FillDirection = Enum.FillDirection.Horizontal
+    PresetsLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    PresetsLayout.Padding = UDim.new(0, 6)
+    PresetsLayout.Parent = ColorPresets
+
+    local CPCancelBtn = Instance.new("TextButton")
+    CPCancelBtn.Size = UDim2.new(0, 115, 0, 34)
+    CPCancelBtn.Position = UDim2.new(0, 15, 0, 250)
+    CPCancelBtn.Text = "Cancel"
+    CPCancelBtn.TextSize = 12
+    SetInterFont(CPCancelBtn, "Bold")
+    CPCancelBtn.AutoButtonColor = false
+    CPCancelBtn.ZIndex = 1000052
+    CPCancelBtn.Parent = ColorPickerPopup
+    RegisterElement(CPCancelBtn, "BackgroundColor3", "Background")
+    RegisterElement(CPCancelBtn, "TextColor3", "Text")
+    local CPCancelCorner = Instance.new("UICorner")
+    CPCancelCorner.CornerRadius = UDim.new(0, 6)
+    CPCancelCorner.Parent = CPCancelBtn
+    local CPCancelStroke = Instance.new("UIStroke")
+    CPCancelStroke.Thickness = 1
+    CPCancelStroke.Parent = CPCancelBtn
+    RegisterElement(CPCancelStroke, "Color", "Border")
+
+    local CPApplyBtn = Instance.new("TextButton")
+    CPApplyBtn.Size = UDim2.new(0, 115, 0, 34)
+    CPApplyBtn.Position = UDim2.new(0, 150, 0, 250)
+    CPApplyBtn.Text = "Apply"
+    CPApplyBtn.TextSize = 12
+    SetInterFont(CPApplyBtn, "Bold")
+    CPApplyBtn.AutoButtonColor = false
+    CPApplyBtn.ZIndex = 1000052
+    CPApplyBtn.Parent = ColorPickerPopup
+    RegisterElement(CPApplyBtn, "BackgroundColor3", "Accent")
+    CPApplyBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+    local CPApplyCorner = Instance.new("UICorner")
+    CPApplyCorner.CornerRadius = UDim.new(0, 6)
+    CPApplyCorner.Parent = CPApplyBtn
+
+    local cpTargetColor = Color3.new(1,1,1)
+    local cpHue, cpSat, cpVal = 0, 0, 1
+    local cpCallback = nil
+
+    local function updateCPVisuals(updateInputs)
+        cpTargetColor = Color3.fromHSV(cpHue, cpSat, cpVal)
+        ColorMap.BackgroundColor3 = Color3.fromHSV(cpHue, 1, 1)
+        ColorMapCursor.Position = UDim2.new(cpSat, 0, 1 - cpVal, 0)
+        HueCursor.Position = UDim2.new(0.5, 0, cpHue, 0)
+        
+        if updateInputs then
+            local r, g, b = math.floor(cpTargetColor.R*255), math.floor(cpTargetColor.G*255), math.floor(cpTargetColor.B*255)
+            CPValHex.Text = string.format("#%02X%02X%02X", r, g, b)
+            CPValR.Text = tostring(r)
+            CPValG.Text = tostring(g)
+            CPValB.Text = tostring(b)
+        end
+    end
+
+    local function cpSetColor(c)
+        cpHue, cpSat, cpVal = c:ToHSV()
+        updateCPVisuals(true)
+    end
+
+    local PresetColorsList = {
+        Color3.fromRGB(255, 0, 0), Color3.fromRGB(0, 255, 0), Color3.fromRGB(0, 0, 255),
+        Color3.fromRGB(255, 255, 0), Color3.fromRGB(0, 255, 255), Color3.fromRGB(255, 0, 255),
+        Color3.fromRGB(255, 255, 255), Color3.fromRGB(0, 0, 0), Color3.fromRGB(255, 128, 0),
+        Color3.fromRGB(128, 0, 255), Color3.fromRGB(128, 255, 0), Color3.fromRGB(255, 0, 128)
+    }
+
+    for _, pc in ipairs(PresetColorsList) do
+        local pBtn = Instance.new("TextButton")
+        pBtn.Size = UDim2.new(0, 26, 0, 26)
+        pBtn.BackgroundColor3 = pc
+        pBtn.Text = ""
+        pBtn.ZIndex = 1000052
+        pBtn.Parent = ColorPresets
+        local pC = Instance.new("UICorner")
+        pC.CornerRadius = UDim.new(0, 4)
+        pC.Parent = pBtn
+        local pS = Instance.new("UIStroke")
+        pS.Thickness = 1
+        pS.Parent = pBtn
+        RegisterElement(pS, "Color", "Border")
+        pBtn.MouseButton1Click:Connect(function()
+            cpSetColor(pc)
+        end)
+    end
+    ColorPresets.CanvasSize = UDim2.new(0, #PresetColorsList * 32, 0, 0)
+
+    local mapDragging, hueDragging = false, false
+    ColorMap.InputBegan:Connect(function(inp)
+        if inp.UserInputType == Enum.UserInputType.MouseButton1 or inp.UserInputType == Enum.UserInputType.Touch then
+            mapDragging = true
+            local x = math.clamp((inp.Position.X - ColorMap.AbsolutePosition.X) / ColorMap.AbsoluteSize.X, 0, 1)
+            local y = math.clamp((inp.Position.Y - ColorMap.AbsolutePosition.Y) / ColorMap.AbsoluteSize.Y, 0, 1)
+            cpSat, cpVal = x, 1 - y
+            updateCPVisuals(true)
+        end
+    end)
+    HueSlider.InputBegan:Connect(function(inp)
+        if inp.UserInputType == Enum.UserInputType.MouseButton1 or inp.UserInputType == Enum.UserInputType.Touch then
+            hueDragging = true
+            local y = math.clamp((inp.Position.Y - HueSlider.AbsolutePosition.Y) / HueSlider.AbsoluteSize.Y, 0, 1)
+            cpHue = y
+            updateCPVisuals(true)
+        end
+    end)
+    UserInputService.InputChanged:Connect(function(inp)
+        if inp.UserInputType == Enum.UserInputType.MouseMovement or inp.UserInputType == Enum.UserInputType.Touch then
+            if mapDragging then
+                local x = math.clamp((inp.Position.X - ColorMap.AbsolutePosition.X) / ColorMap.AbsoluteSize.X, 0, 1)
+                local y = math.clamp((inp.Position.Y - ColorMap.AbsolutePosition.Y) / ColorMap.AbsoluteSize.Y, 0, 1)
+                cpSat, cpVal = x, 1 - y
+                updateCPVisuals(true)
+            end
+            if hueDragging then
+                local y = math.clamp((inp.Position.Y - HueSlider.AbsolutePosition.Y) / HueSlider.AbsoluteSize.Y, 0, 1)
+                cpHue = y
+                updateCPVisuals(true)
+            end
+        end
+    end)
+    UserInputService.InputEnded:Connect(function(inp)
+        if inp.UserInputType == Enum.UserInputType.MouseButton1 or inp.UserInputType == Enum.UserInputType.Touch then
+            mapDragging, hueDragging = false, false
+        end
+    end)
+
+    CPCancelBtn.MouseButton1Click:Connect(function() ColorPickerPopup.Visible = false end)
+    CPApplyBtn.MouseButton1Click:Connect(function()
+        if cpCallback then cpCallback(cpTargetColor) end
+        ColorPickerPopup.Visible = false
+    end)
+
+    local function OpenColorPicker(startColor, cb)
+        cpSetColor(startColor)
+        cpCallback = cb
+        ColorPickerPopup.Visible = true
+    end
+
+    local TabsList = {}
+    local CurrentTab = nil
+
+    local function updateTabsVisual()
+        for _, btn in ipairs(NavScroll:GetChildren()) do
+            if btn:IsA("TextButton") then
+                local isSelected = CurrentTab and btn.Name == CurrentTab.Name:gsub("Page", "Tab")
+                
+                local accentBar = btn:FindFirstChild("AccentBar")
+                local content = btn:FindFirstChild("TabContent")
+                local lbl = content and content:FindFirstChildOfClass("TextLabel")
+                local img = content and content:FindFirstChildOfClass("ImageLabel")
+                local emj = content and content:FindFirstChild("EmojiLabel")
+
+                if isSelected then
+                    TweenService:Create(btn, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0}):Play()
+                    if accentBar then
+                        TweenService:Create(accentBar, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 4, 0.6, 0)}):Play()
+                    end
+                    if lbl then
+                        TweenService:Create(lbl, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = CurrentTheme.Text}):Play()
+                    end
+                    if img then
+                        TweenService:Create(img, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageColor3 = CurrentTheme.Text}):Play()
+                    end
+                    if emj then
+                        TweenService:Create(emj, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = CurrentTheme.Text}):Play()
+                    end
+                else
+                    TweenService:Create(btn, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
+                    if accentBar then
+                        TweenService:Create(accentBar, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0.6, 0)}):Play()
+                    end
+                    if lbl then
+                        TweenService:Create(lbl, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = CurrentTheme.SubText}):Play()
+                    end
+                    if img then
+                        TweenService:Create(img, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageColor3 = CurrentTheme.SubText}):Play()
+                    end
+                    if emj then
+                        TweenService:Create(emj, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = CurrentTheme.SubText}):Play()
+                    end
+                end
+            end
+        end
+    end
+
+    local function ToggleUI()
+        local isVisible = MainFrame.Visible
+        local startScale = isVisible and 1 or 0.85
+        local endScale = isVisible and 0.85 or 1
+
+        if not isVisible then
+            MainFrame.Size = UDim2.fromOffset(size.X.Offset * startScale, size.Y.Offset * startScale)
+            MainFrame.Visible = true
+        end
+
+        local tween = TweenService:Create(MainFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+            Size = UDim2.fromOffset(size.X.Offset * endScale, size.Y.Offset * endScale)
+        })
+        tween:Play()
+
+        tween.Completed:Connect(function()
+            if isVisible then
+                MainFrame.Visible = false
+                if ActiveDropdown then
+                    ActiveDropdown:Close()
+                end
+            end
+        end)
+    end
+
+    MinimizeBtn.MouseButton1Click:Connect(ToggleUI)
+
+    UserInputService.InputBegan:Connect(function(input, processed)
+        if not processed and input.KeyCode == minimizeKey then
+            ToggleUI()
+        end
+    end)
+
+    local WindowObject = {}
+
+    function WindowObject:AddTab(tabConfig)
+        local tabName = tabConfig.Title or "Tab"
+        local iconEmoji = tabConfig.Icon or "📁"
+
+        local TabButton = Instance.new("TextButton")  
+        TabButton.Name = tabName .. "Tab"  
+        TabButton.Size = UDim2.new(1, -8, 0, 32)  
+        TabButton.BackgroundTransparency = 1  
+        TabButton.Text = ""  
+        TabButton.AutoButtonColor = false  
+        TabButton.ZIndex = 13  
+        TabButton.Parent = NavScroll  
+        RegisterElement(TabButton, "BackgroundColor3", "ElementBg")  
+
+        local TabCorner = Instance.new("UICorner")  
+        TabCorner.CornerRadius = UDim.new(0, 6)  
+        TabCorner.Parent = TabButton  
+
+        local AccentBar = Instance.new("Frame")  
+        AccentBar.Name = "AccentBar"  
+        AccentBar.Size = UDim2.new(0, 0, 0.6, 0)  
+        AccentBar.Position = UDim2.new(0, 4, 0.2, 0)  
+        AccentBar.BorderSizePixel = 0  
+        AccentBar.ZIndex = 14  
+        AccentBar.Parent = TabButton  
+        RegisterElement(AccentBar, "BackgroundColor3", "Accent")  
+
+        local AccentCorner = Instance.new("UICorner")  
+        AccentCorner.CornerRadius = UDim.new(1, 0)  
+        AccentCorner.Parent = AccentBar  
+
+        local TabContent = Instance.new("Frame")  
+        TabContent.Name = "TabContent"  
+        TabContent.Size = UDim2.new(1, -16, 1, 0)  
+        TabContent.Position = UDim2.new(0, 12, 0, 0)  
+        TabContent.BackgroundTransparency = 1  
+        TabContent.ZIndex = 14  
+        TabContent.Parent = TabButton  
+
+        local TabContentLayout = Instance.new("UIListLayout")  
+        TabContentLayout.FillDirection = Enum.FillDirection.Horizontal  
+        TabContentLayout.VerticalAlignment = Enum.VerticalAlignment.Center  
+        TabContentLayout.Padding = UDim.new(0, 8)  
+        TabContentLayout.Parent = TabContent  
+
+        if iconEmoji:match("^rbxassetid") or iconEmoji:match("^rbxtemp") then  
+            local IconImageLabel = Instance.new("ImageLabel")  
+            IconImageLabel.Size = UDim2.new(0, 20, 0, 20)  
+            IconImageLabel.Image = iconEmoji  
+            IconImageLabel.BackgroundTransparency = 1  
+            IconImageLabel.ZIndex = 15  
+            IconImageLabel.Parent = TabContent  
+            RegisterElement(IconImageLabel, "ImageColor3", "SubText")
+        else  
+            local EmojiLabel = Instance.new("TextLabel")  
+            EmojiLabel.Name = "EmojiLabel"
+            EmojiLabel.Size = UDim2.new(0, 20, 0, 20)  
+            EmojiLabel.Text = iconEmoji  
+            EmojiLabel.TextSize = 16  
+            SetInterFont(EmojiLabel, "Bold")  
+            EmojiLabel.BackgroundTransparency = 1  
+            EmojiLabel.ZIndex = 15  
+            EmojiLabel.Parent = TabContent  
+            RegisterElement(EmojiLabel, "TextColor3", "SubText")
+        end  
+
+        local TextLabel = Instance.new("TextLabel")  
+        TextLabel.Size = UDim2.new(1, -28, 1, 0)  
+        TextLabel.TextSize = 12  
+        SetInterFont(TextLabel, "Medium")  
+        TextLabel.TextXAlignment = Enum.TextXAlignment.Left  
+        TextLabel.BackgroundTransparency = 1  
+        TextLabel.ZIndex = 15  
+        TextLabel.Parent = TabContent  
+        RegisterElement(TextLabel, "TextColor3", "SubText")  
+        RegisterLocale(TextLabel, tabName)
+
+        local TabPage = Instance.new("ScrollingFrame")  
+        TabPage.Name = tabName .. "Page"  
+        TabPage.Size = UDim2.new(1, 0, 1, 0)  
+        TabPage.BackgroundTransparency = 1  
+        TabPage.BorderSizePixel = 0  
+        TabPage.Visible = false  
+        TabPage.CanvasSize = UDim2.new(0, 0, 0, 0)  
+        TabPage.ScrollBarThickness = 3  
+        TabPage.ZIndex = 12  
+        TabPage.Parent = Container  
+        RegisterElement(TabPage, "ScrollBarImageColor3", "Border")  
+
+        local PageLayout = Instance.new("UIListLayout")  
+        PageLayout.Padding = UDim.new(0, 6)  
+        PageLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center  
+        PageLayout.SortOrder = Enum.SortOrder.LayoutOrder  
+        PageLayout.Parent = TabPage  
+
+        local PagePadding = Instance.new("UIPadding")  
+        PagePadding.PaddingTop = UDim.new(0, 4)  
+        PagePadding.PaddingBottom = UDim.new(0, 10)  
+        PagePadding.Parent = TabPage  
+
+        PageLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()  
+            TabPage.CanvasSize = UDim2.new(0, 0, 0, PageLayout.AbsoluteContentSize.Y + 20)  
+        end)  
+
+        local function selectTab()  
+            for _, page in ipairs(Container:GetChildren()) do  
+                if page:IsA("ScrollingFrame") then page.Visible = false end  
+            end  
+            if ActiveDropdown then ActiveDropdown:Close() end
+            CurrentTab = TabPage  
+            TabPage.Visible = true  
+            updateTabsVisual()  
+        end  
+
+        TabButton.MouseButton1Click:Connect(selectTab)  
+        TabsList[tabName] = selectTab
+
+        if not CurrentTab then selectTab() end
+
+        local Elements = {}
+
+        local function ApplyPremiumLock(parent, isLocked)
+            if not isLocked then return end
+            local LockOverlay = Instance.new("TextButton")
+            LockOverlay.Size = UDim2.new(1, 0, 1, 0)
+            LockOverlay.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+            LockOverlay.BackgroundTransparency = 0.5
+            LockOverlay.Text = ""
+            LockOverlay.AutoButtonColor = false
+            LockOverlay.ZIndex = 50
+            LockOverlay.Parent = parent
+            
+            local LockCorner = Instance.new("UICorner")
+            LockCorner.CornerRadius = UDim.new(0, 8)
+            LockCorner.Parent = LockOverlay
+            
+            local LockIcon = Instance.new("TextLabel")
+            LockIcon.Size = UDim2.new(0, 16, 0, 16)
+            LockIcon.Position = UDim2.new(0.5, -80, 0.5, -8)
+            LockIcon.BackgroundTransparency = 1
+            LockIcon.Text = "🔒"
+            LockIcon.TextSize = 14
+            LockIcon.ZIndex = 51
+            LockIcon.Parent = LockOverlay
+            
+            local LockText = Instance.new("TextLabel")
+            LockText.Size = UDim2.new(0, 140, 0, 16)
+            LockText.Position = UDim2.new(0.5, -55, 0.5, -8)
+            LockText.Text = "This element is locked"
+            LockText.TextSize = 12
+            SetInterFont(LockText, "Medium")
+            LockText.TextColor3 = Color3.fromRGB(255, 255, 255)
+            LockText.TextXAlignment = Enum.TextXAlignment.Left
+            LockText.BackgroundTransparency = 1
+            LockText.ZIndex = 51
+            LockText.Parent = LockOverlay
+        end
+
+        local function CreateBaseElement(height, hasDesc, descText, titleText, isLocked)
+            local finalHeight = height
+            if hasDesc and descText and descText ~= "" then
+                finalHeight = height + 14
+            end
+
+            local Bg = Instance.new("Frame")
+            Bg.Size = UDim2.new(1, -20, 0, finalHeight)
+            Bg.ZIndex = 13
+            Bg.Parent = TabPage
+            RegisterElement(Bg, "BackgroundColor3", "ElementBg")
+
+            local Corner = Instance.new("UICorner")
+            Corner.CornerRadius = UDim.new(0, 8)
+            Corner.Parent = Bg
+
+            local Stroke = Instance.new("UIStroke")
+            Stroke.Thickness = 1
+            Stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+            Stroke.Parent = Bg
+            RegisterElement(Stroke, "Color", "Border")
+
+            local Label = Instance.new("TextLabel")
+            Label.Size = UDim2.new(0.5, 0, 0, 20)
+            Label.Position = UDim2.new(0, 14, 0, 6)
+            Label.TextSize = 12
+            SetInterFont(Label, "Medium")
+            Label.TextXAlignment = Enum.TextXAlignment.Left
+            Label.BackgroundTransparency = 1
+            Label.ZIndex = 14
+            Label.RichText = true
+            Label.Parent = Bg
+            RegisterElement(Label, "TextColor3", "Text")
+            RegisterLocale(Label, titleText or "Control")
+
+            local DescLabel
+            if hasDesc and descText and descText ~= "" then
+                DescLabel = Instance.new("TextLabel")
+                DescLabel.Size = UDim2.new(1, -28, 0, 14)
+                DescLabel.Position = UDim2.new(0, 14, 0, 24)
+                DescLabel.Text = descText
+                DescLabel.TextSize = 8
+                SetInterFont(DescLabel, "Regular")
+                DescLabel.TextXAlignment = Enum.TextXAlignment.Left
+                DescLabel.BackgroundTransparency = 1
+                DescLabel.ZIndex = 14
+                DescLabel.RichText = true
+                DescLabel.Parent = Bg
+                RegisterElement(DescLabel, "TextColor3", "SubText")
+            end
+
+            ApplyPremiumLock(Bg, isLocked)
+
+            return Bg, Label, DescLabel
+        end
+
+        function Elements:Paragraph(options)
+            local titleText = options.Title or "Paragraph"
+            local descText = options.Content or options.Description or "Information body goes here."
+            local isLocked = options.Locked or false
+
+            local ParagraphBg = Instance.new("Frame")
+            ParagraphBg.Size = UDim2.new(1, -20, 0, 0)
+            ParagraphBg.AutomaticSize = Enum.AutomaticSize.Y
+            ParagraphBg.ZIndex = 13
+            ParagraphBg.Parent = TabPage
+            RegisterElement(ParagraphBg, "BackgroundColor3", "ElementBg")
+
+            local Corner = Instance.new("UICorner")
+            Corner.CornerRadius = UDim.new(0, 8)
+            Corner.Parent = ParagraphBg
+
+            local Stroke = Instance.new("UIStroke")
+            Stroke.Thickness = 1
+            Stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+            Stroke.Parent = ParagraphBg
+            RegisterElement(Stroke, "Color", "Border")
+
+            local InnerLayout = Instance.new("UIListLayout")
+            InnerLayout.Padding = UDim.new(0, 4)
+            InnerLayout.SortOrder = Enum.SortOrder.LayoutOrder
+            InnerLayout.Parent = ParagraphBg
+
+            local Padding = Instance.new("UIPadding")
+            Padding.PaddingTop = UDim.new(0, 10)
+            Padding.PaddingBottom = UDim.new(0, 10)
+            Padding.PaddingLeft = UDim.new(0, 14)
+            Padding.PaddingRight = UDim.new(0, 14)
+            Padding.Parent = ParagraphBg
+
+            local TitleLabel = Instance.new("TextLabel")
+            TitleLabel.Size = UDim2.new(1, 0, 0, 0)
+            TitleLabel.AutomaticSize = Enum.AutomaticSize.Y
+            TitleLabel.Text = titleText
+            TitleLabel.TextSize = 12
+            SetInterFont(TitleLabel, "Bold")
+            TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
+            TitleLabel.TextWrapped = true
+            TitleLabel.BackgroundTransparency = 1
+            TitleLabel.ZIndex = 14
+            TitleLabel.RichText = true
+            TitleLabel.LayoutOrder = 1
+            TitleLabel.Parent = ParagraphBg
+            RegisterElement(TitleLabel, "TextColor3", "Text")
+
+            local ContentLabel = Instance.new("TextLabel")
+            ContentLabel.Size = UDim2.new(1, 0, 0, 0)
+            ContentLabel.AutomaticSize = Enum.AutomaticSize.Y
+            ContentLabel.Text = descText
+            ContentLabel.TextSize = 10.5
+            SetInterFont(ContentLabel, "Regular")
+            ContentLabel.TextXAlignment = Enum.TextXAlignment.Left
+            ContentLabel.TextWrapped = true
+            ContentLabel.BackgroundTransparency = 1
+            ContentLabel.ZIndex = 14
+            ContentLabel.RichText = true
+            ContentLabel.LayoutOrder = 2
+            ContentLabel.Parent = ParagraphBg
+            RegisterElement(ContentLabel, "TextColor3", "SubText")
+            
+            ApplyPremiumLock(ParagraphBg, isLocked)
+            
+            local ParagraphMethods = {}
+            function ParagraphMethods:SetTitle(newTitle)
+                TitleLabel.Text = newTitle
+            end
+            function ParagraphMethods:SetContent(newContent)
+                ContentLabel.Text = newContent
+            end
+            return ParagraphMethods
+        end
+
+        function Elements:Input(options)
+            local inputTitle = options.Title or "Input Field"
+            local descText = options.Description
+            local placeholder = options.Placeholder or "Type here..."
+            local default = options.Default or ""
+            local isLocked = options.Locked or false
+            local callback = options.Callback or function() end
+
+            local hasDesc = descText ~= nil and descText ~= ""
+            local InputBg, Label = CreateBaseElement(38, hasDesc, descText, inputTitle, isLocked)
+
+            Label.Position = UDim2.new(0, 14, 0.5, hasDesc and -18 or -10)
+
+            local TextBoxFrame = Instance.new("Frame")
+            TextBoxFrame.Size = UDim2.new(0, 150, 0, 26)
+            TextBoxFrame.Position = UDim2.new(1, -164, 0.5, -13)
+            TextBoxFrame.ZIndex = 14
+            TextBoxFrame.Parent = InputBg
+            RegisterElement(TextBoxFrame, "BackgroundColor3", "Background")
+
+            local BoxCorner = Instance.new("UICorner")
+            BoxCorner.CornerRadius = UDim.new(0, 6)
+            BoxCorner.Parent = TextBoxFrame
+
+            local BoxStroke = Instance.new("UIStroke")
+            BoxStroke.Thickness = 1
+            BoxStroke.Parent = TextBoxFrame
+            RegisterElement(BoxStroke, "Color", "Border")
+
+            local InputField = Instance.new("TextBox")
+            InputField.Size = UDim2.new(1, -16, 1, 0)
+            InputField.Position = UDim2.new(0, 8, 0, 0)
+            InputField.BackgroundTransparency = 1
+            InputField.Text = default
+            InputField.PlaceholderText = placeholder
+            InputField.TextSize = 11
+            InputField.ClipsDescendants = true
+            SetInterFont(InputField, "Medium")
+            InputField.TextXAlignment = Enum.TextXAlignment.Left
+            InputField.ClearTextOnFocus = false
+            InputField.ZIndex = 15
+            InputField.Parent = TextBoxFrame
+            RegisterElement(InputField, "TextColor3", "Text")
+            RegisterElement(InputField, "PlaceholderColor3", "SubText")
+
+            InputField.Focused:Connect(function()
+                if isLocked then return end
+                TweenService:Create(BoxStroke, TweenInfo.new(0.2), {Color = CurrentTheme.Accent}):Play()
+            end)
+
+            InputField.FocusLost:Connect(function(enterPressed)
+                if isLocked then return end
+                TweenService:Create(BoxStroke, TweenInfo.new(0.2), {Color = CurrentTheme.Border}):Play()
+                callback(InputField.Text, enterPressed)
+            end)
+
+            local InputMethods = {}
+            function InputMethods:SetValue(val)
+                InputField.Text = tostring(val)
+                callback(tostring(val), false)
+            end
+            return InputMethods
+        end
+
+        function Elements:ColorPicker(options)
+            local titleText = options.Title or "Color Picker"
+            local descText = options.Description
+            local default = options.Default or Color3.fromRGB(255, 255, 255)
+            local isLocked = options.Locked or false
+            local callback = options.Callback or function() end
+            
+            local hasDesc = descText ~= nil and descText ~= ""
+            local PickerBg, Label = CreateBaseElement(38, hasDesc, descText, titleText, isLocked)
+            Label.Position = UDim2.new(0, 14, 0.5, hasDesc and -18 or -10)
+            
+            local ColorBtn = Instance.new("TextButton")
+            ColorBtn.Size = UDim2.new(0, 26, 0, 26)
+            ColorBtn.Position = UDim2.new(1, -40, 0.5, -13)
+            ColorBtn.BackgroundColor3 = default
+            ColorBtn.Text = ""
+            ColorBtn.ZIndex = 15
+            ColorBtn.AutoButtonColor = false
+            ColorBtn.Parent = PickerBg
+            
+            local ColorCorner = Instance.new("UICorner")
+            ColorCorner.CornerRadius = UDim.new(0, 6)
+            ColorCorner.Parent = ColorBtn
+            
+            local ColorStroke = Instance.new("UIStroke")
+            ColorStroke.Thickness = 1.5
+            ColorStroke.Parent = ColorBtn
+            RegisterElement(ColorStroke, "Color", "Border")
+            
+            ColorBtn.MouseButton1Click:Connect(function()
+                if isLocked then return end
+                OpenColorPicker(ColorBtn.BackgroundColor3, function(newColor)
+                    ColorBtn.BackgroundColor3 = newColor
+                    callback(newColor)
+                end)
+            end)
+        end
+        
+        function Elements:Keybind(options)
+            local titleText = options.Title or "Keybind"
+            local descText = options.Description
+            local default = options.Default or Enum.KeyCode.RightShift
+            local isLocked = options.Locked or false
+            local callback = options.Callback or function() end
+            
+            local currentKey = default
+            local isBinding = false
+            
+            local hasDesc = descText ~= nil and descText ~= ""
+            local KeyBg, Label = CreateBaseElement(38, hasDesc, descText, titleText, isLocked)
+            Label.Position = UDim2.new(0, 14, 0.5, hasDesc and -18 or -10)
+            
+            local KeyBtn = Instance.new("TextButton")
+            KeyBtn.Size = UDim2.new(0, 90, 0, 26)
+            KeyBtn.Position = UDim2.new(1, -104, 0.5, -13)
+            KeyBtn.Text = currentKey.Name
+            KeyBtn.TextSize = 11
+            SetInterFont(KeyBtn, "Medium")
+            KeyBtn.ZIndex = 15
+            KeyBtn.AutoButtonColor = false
+            KeyBtn.Parent = KeyBg
+            RegisterElement(KeyBtn, "BackgroundColor3", "Background")
+            RegisterElement(KeyBtn, "TextColor3", "Accent")
+            
+            local KeyCorner = Instance.new("UICorner")
+            KeyCorner.CornerRadius = UDim.new(0, 6)
+            KeyCorner.Parent = KeyBtn
+            
+            local KeyStroke = Instance.new("UIStroke")
+            KeyStroke.Thickness = 1
+            KeyStroke.Parent = KeyBtn
+            RegisterElement(KeyStroke, "Color", "Border")
+            
+            KeyBtn.MouseButton1Click:Connect(function()
+                if isLocked or isBinding then return end
+                isBinding = true
+                KeyBtn.Text = "..."
+                
+                local conn
+                conn = UserInputService.InputBegan:Connect(function(input)
+                    if input.UserInputType == Enum.UserInputType.Keyboard then
+                        conn:Disconnect()
+                        currentKey = input.KeyCode
+                        KeyBtn.Text = currentKey.Name
+                        isBinding = false
+                        callback(currentKey)
+                    end
+                end)
+            end)
+        end
+
+        function Elements:Button(options)
+            local btnText = options.Title or "Button"
+            local descText = options.Description
+            local isLocked = options.Locked or false
+            local callback = options.Callback or function() end
+
+            local hasDesc = descText ~= nil and descText ~= ""
+            local ButtonBg, Label = CreateBaseElement(34, hasDesc, descText, btnText, isLocked)
+            
+            Label.Position = UDim2.new(0, 14, 0.5, hasDesc and -18 or -10)
+
+            local ClickBtn = Instance.new("TextButton")
+            ClickBtn.Size = UDim2.new(1, 0, 1, 0)
+            ClickBtn.BackgroundTransparency = 1
+            ClickBtn.Text = ""
+            ClickBtn.ZIndex = 15
+            ClickBtn.AutoButtonColor = false
+            ClickBtn.Parent = ButtonBg
+
+            local InteractionBar = Instance.new("Frame")
+            InteractionBar.Size = UDim2.new(0, 0, 1, 0)
+            InteractionBar.Position = UDim2.new(0, 0, 0, 0)
+            InteractionBar.BackgroundTransparency = 0.96
+            InteractionBar.ZIndex = 14
+            InteractionBar.Parent = ButtonBg
+            RegisterElement(InteractionBar, "BackgroundColor3", "Accent")
+
+            local IntCorner = Instance.new("UICorner")
+            IntCorner.CornerRadius = UDim.new(0, 8)
+            IntCorner.Parent = InteractionBar
+
+            ClickBtn.MouseEnter:Connect(function()
+                if isLocked then return end
+                TweenService:Create(InteractionBar, TweenInfo.new(0.2), {Size = UDim2.new(1, 0, 1, 0)}):Play()
+            end)
+            ClickBtn.MouseLeave:Connect(function()
+                TweenService:Create(InteractionBar, TweenInfo.new(0.2), {Size = UDim2.new(0, 0, 1, 0)}):Play()
+            end)
+
+            ClickBtn.MouseButton1Click:Connect(function()
+                if isLocked then return end
+                local origSize = ButtonBg.Size
+                TweenService:Create(ButtonBg, TweenInfo.new(0.08), {Size = UDim2.new(1, -24, 0, origSize.Y.Offset - 2)}):Play()
+                task.wait(0.08)
+                TweenService:Create(ButtonBg, TweenInfo.new(0.08), {Size = origSize}):Play()
+                callback()
+            end)
+        end
+
+        function Elements:Toggle(toggleText, options)
+            local descText = options.Description
+            local default = options.Default or false
+            local isLocked = options.Locked or false
+            local callback = options.Callback or function() end
+            local flagName = options.Flag or toggleText
+
+            local savedState = ToggleProfile[flagName]
+            local toggled = default
+            if savedState ~= nil then
+                toggled = savedState
+            end
+
+            local hasDesc = descText ~= nil and descText ~= ""
+            local ToggleBg, Label = CreateBaseElement(38, hasDesc, descText, toggleText, isLocked)
+
+            Label.Position = UDim2.new(0, 14, 0.5, hasDesc and -18 or -10)
+
+            local SwitchFrame = Instance.new("Frame")
+            SwitchFrame.Name = "SwitchFrame"
+            SwitchFrame.Size = UDim2.new(0, 42, 0, 22)
+            SwitchFrame.Position = UDim2.new(1, -56, 0.5, -11)
+            SwitchFrame.ZIndex = 15
+            SwitchFrame.Parent = ToggleBg
+            SwitchFrame.BackgroundColor3 = toggled and CurrentTheme.ToggleOn or CurrentTheme.ToggleOff
+
+            local SwitchCorner = Instance.new("UICorner")
+            SwitchCorner.CornerRadius = UDim.new(1, 0)
+            SwitchCorner.Parent = SwitchFrame
+
+            local Circle = Instance.new("Frame")
+            Circle.Name = "Thumb"
+            Circle.Size = UDim2.new(0, 16, 0, 16)
+            Circle.Position = toggled and UDim2.new(1, -19, 0.5, -8) or UDim2.new(0, 3, 0.5, -8)
+            Circle.BackgroundColor3 = toggled and Color3.fromRGB(255, 255, 255) or CurrentTheme.SubText
+            Circle.ZIndex = 16
+            Circle.Parent = SwitchFrame
+
+            local CircleCorner = Instance.new("UICorner")
+            CircleCorner.CornerRadius = UDim.new(1, 0)
+            CircleCorner.Parent = Circle
+
+            local ClickBtn = Instance.new("TextButton")
+            ClickBtn.Size = UDim2.new(1, 0, 1, 0)
+            ClickBtn.BackgroundTransparency = 1
+            ClickBtn.Text = ""
+            ClickBtn.ZIndex = 17
+            ClickBtn.Parent = ToggleBg
+
+            TogglesRegistry[SwitchFrame] = {
+                GetToggled = function() return toggled end
+            }
+
+            local function fireToggle()
+                if isLocked then return end
+                toggled = not toggled
+                local targetPos = toggled and UDim2.new(1, -19, 0.5, -8) or UDim2.new(0, 3, 0.5, -8)
+                local targetColor = toggled and CurrentTheme.ToggleOn or CurrentTheme.ToggleOff
+                local thumbColor = toggled and Color3.fromRGB(255, 255, 255) or CurrentTheme.SubText
+                
+                TweenService:Create(Circle, TweenInfo.new(0.2, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {Position = targetPos, BackgroundColor3 = thumbColor}):Play()
+                TweenService:Create(SwitchFrame, TweenInfo.new(0.15), {BackgroundColor3 = targetColor}):Play()
+                
+                callback(toggled)
+                ToggleProfile[flagName] = toggled
+                SaveConfig()
+            end
+
+            ClickBtn.MouseButton1Click:Connect(fireToggle)
+
+            if savedState ~= nil then
+                task.defer(callback, toggled)
+            end
+        end
+
+        function Elements:Slider(sliderText, options)
+            local descText = options.Description
+            local min = options.Min or 0
+            local max = options.Max or 100
+            local default = options.Default or min
+            local rounding = options.Rounding or 1
+            local isLocked = options.Locked or false
+            local callback = options.Callback or function() end
+
+            local hasDesc = descText ~= nil and descText ~= ""
+            local SliderBg, Label = CreateBaseElement(46, hasDesc, descText, sliderText, isLocked)
+
+            local ValueBox = Instance.new("TextBox")
+            ValueBox.Size = UDim2.new(0, 52, 0, 18)
+            ValueBox.Position = UDim2.new(1, -66, 0, 6)
+            ValueBox.Text = tostring(default)
+            ValueBox.TextSize = 11
+            SetInterFont(ValueBox, "Bold")
+            ValueBox.TextXAlignment = Enum.TextXAlignment.Center
+            ValueBox.ClearTextOnFocus = false
+            ValueBox.ZIndex = 15
+            ValueBox.Parent = SliderBg
+            RegisterElement(ValueBox, "BackgroundColor3", "Background")
+            RegisterElement(ValueBox, "TextColor3", "Accent")
+
+            local BoxCorner = Instance.new("UICorner")
+            BoxCorner.CornerRadius = UDim.new(0, 4)
+            BoxCorner.Parent = ValueBox
+
+            local BoxStroke = Instance.new("UIStroke")
+            BoxStroke.Thickness = 1
+            BoxStroke.Parent = ValueBox
+            RegisterElement(BoxStroke, "Color", "Border")
+
+            local SliderTrack = Instance.new("Frame")
+            SliderTrack.Size = UDim2.new(1, -28, 0, 4)
+            SliderTrack.Position = UDim2.new(0, 14, 1, -12)
+            SliderTrack.BorderSizePixel = 0
+            SliderTrack.ZIndex = 14
+            SliderTrack.Parent = SliderBg
+            RegisterElement(SliderTrack, "BackgroundColor3", "Background")
+
+            local TrackCorner = Instance.new("UICorner")
+            TrackCorner.CornerRadius = UDim.new(1, 0)
+            TrackCorner.Parent = SliderTrack
+
+            local SliderFill = Instance.new("Frame")
+            local initPct = math.clamp((default - min) / (max - min), 0, 1)
+            SliderFill.Size = UDim2.new(initPct, 0, 1, 0)
+            SliderFill.BorderSizePixel = 0
+            SliderFill.ZIndex = 15
+            SliderFill.Parent = SliderTrack
+            RegisterElement(SliderFill, "BackgroundColor3", "Accent")
+
+            local FillCorner = Instance.new("UICorner")
+            FillCorner.CornerRadius = UDim.new(1, 0)
+            FillCorner.Parent = SliderFill
+
+            local SliderKnob = Instance.new("TextButton")
+            SliderKnob.Size = UDim2.new(0, 14, 0, 14)
+            SliderKnob.Position = UDim2.new(initPct, -7, 0.5, -7)
+            SliderKnob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            SliderKnob.Text = ""
+            SliderKnob.AutoButtonColor = false
+            SliderKnob.ZIndex = 16
+            SliderKnob.Parent = SliderTrack
+
+            local KnobCorner = Instance.new("UICorner")
+            KnobCorner.CornerRadius = UDim.new(1, 0)
+            KnobCorner.Parent = SliderKnob
+
+            local KnobStroke = Instance.new("UIStroke")
+            KnobStroke.Thickness = 1
+            KnobStroke.Color = Color3.fromRGB(180, 180, 180)
+            KnobStroke.Parent = SliderKnob
+
+            local dragging = false
+
+            local function updateSliderVisual(val)
+                local percentage = math.clamp((val - min) / (max - min), 0, 1)
+                SliderFill.Size = UDim2.new(percentage, 0, 1, 0)
+                SliderKnob.Position = UDim2.new(percentage, -7, 0.5, -7)
+                ValueBox.Text = tostring(val)
+            end
+
+            local function snapToMouse(input)
+                local mouseX = input.Position.X
+                local trackX = SliderTrack.AbsolutePosition.X
+                local trackWidth = SliderTrack.AbsoluteSize.X
+                local percentage = math.clamp((mouseX - trackX) / trackWidth, 0, 1)
+                
+                local calculatedValue = min + ((max - min) * percentage)
+                calculatedValue = math.round(calculatedValue / rounding) * rounding
+                calculatedValue = math.clamp(calculatedValue, min, max)
+                
+                updateSliderVisual(calculatedValue)
+                callback(calculatedValue)
+            end
+
+            SliderKnob.InputBegan:Connect(function(input)
+                if isLocked then return end
+                if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                    dragging = true
+                    TabPage.ScrollingEnabled = false
+                    snapToMouse(input)
+                end
+            end)
+
+            UserInputService.InputChanged:Connect(function(input)
+                if isLocked then return end
+                if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+                    snapToMouse(input)
+                end
+            end)
+
+            UserInputService.InputEnded:Connect(function(input)
+                if isLocked then return end
+                if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                    dragging = false
+                    TabPage.ScrollingEnabled = true
+                end
+            end)
+        end
+
+        function Elements:Dropdown(dropdownText, options)
+            local list = options.Values or {}
+            local descText = options.Description
+            local defaultIndex = options.Default or 1
+            local isLocked = options.Locked or false
+            local callback = options.Callback or function() end
+            local isMulti = options.Multi or false
+
+            local active = false
+            local isAnimating = false
+            local selectedValue = ""
+            if not isMulti then
+                selectedValue = list[defaultIndex] or ""
+            end
+            
+            local multiSelected = {}
+            if isMulti then
+                if type(options.Default) == "table" then
+                    for _, v in ipairs(options.Default) do
+                        if list[v] then multiSelected[list[v]] = true end
+                    end
+                elseif type(options.Default) == "number" then
+                    if list[options.Default] then
+                        multiSelected[list[options.Default]] = true
+                    end
+                end
+            end
+
+            local hasDesc = descText ~= nil and descText ~= ""
+            local DropdownBg, Label = CreateBaseElement(42, hasDesc, descText, dropdownText, isLocked)
+
+            Label.Position = UDim2.new(0, 14, 0.5, hasDesc and -18 or -10)
+
+            local function getDropdownDisplay()
+                if isMulti then
+                    local count = 0
+                    local first = nil
+                    for k, v in pairs(multiSelected) do
+                        if v then
+                            count = count + 1
+                            if not first then first = k end
+                        end
+                    end
+                    if count == 0 then return "Select Options" end
+                    if count == 1 then return first end
+                    return first .. " (+" .. tostring(count - 1) .. ")"
+                else
+                    return selectedValue ~= "" and selectedValue or "Select Option"
+                end
+            end
+
+            local DropBtn = Instance.new("TextButton")
+            DropBtn.Size = UDim2.new(0, 180, 1, 0)
+            DropBtn.Position = UDim2.new(1, -194, 0, 0)
+            DropBtn.Text = getDropdownDisplay() .. "  ▼"
+            DropBtn.TextSize = 12
+            SetInterFont(DropBtn, "Medium")
+            DropBtn.AutoButtonColor = false
+            DropBtn.BackgroundTransparency = 1
+            DropBtn.TextXAlignment = Enum.TextXAlignment.Right
+            DropBtn.TextTruncate = Enum.TextTruncate.AtEnd
+            DropBtn.ZIndex = 15
+            DropBtn.Parent = DropdownBg
+            RegisterElement(DropBtn, "TextColor3", "Text")
+
+            local DropMenu = Instance.new("Frame")
+            DropMenu.Name = "DropMenu"
+            DropMenu.Size = UDim2.new(0, 180, 0, 0)
+            DropMenu.ClipsDescendants = true
+            DropMenu.Visible = false
+            DropMenu.ZIndex = 1000000
+            DropMenu.BackgroundColor3 = CurrentTheme.ElementBg
+            DropMenu.Parent = GlobalScreenGui
+
+            DropdownsRegistry[DropMenu] = true
+
+            local DropMenuCorner = Instance.new("UICorner")
+            DropMenuCorner.CornerRadius = UDim.new(0, 8)
+            DropMenuCorner.Parent = DropMenu
+
+            local DropMenuStroke = Instance.new("UIStroke")
+            DropMenuStroke.Thickness = 1
+            DropMenuStroke.Parent = DropMenu
+            RegisterElement(DropMenuStroke, "Color", "Border")
+
+            local SearchBox = Instance.new("TextBox")
+            SearchBox.Size = UDim2.new(1, -16, 0, 26)
+            SearchBox.Position = UDim2.new(0, 8, 0, 8)
+            SearchBox.PlaceholderText = "Search... 🔍"
+            SearchBox.Text = ""
+            SearchBox.TextSize = 11
+            SetInterFont(SearchBox, "Regular")
+            SearchBox.ZIndex = 1000001
+            SearchBox.Parent = DropMenu
+            RegisterElement(SearchBox, "BackgroundColor3", "Background")
+            RegisterElement(SearchBox, "TextColor3", "Text")
+            RegisterElement(SearchBox, "PlaceholderColor3", "SubText")
+
+            local SearchCorner = Instance.new("UICorner")
+            SearchCorner.CornerRadius = UDim.new(0, 6)
+            SearchCorner.Parent = SearchBox
+
+            local ListHolder = Instance.new("ScrollingFrame")
+            ListHolder.Size = UDim2.new(1, 0, 1, -42)
+            ListHolder.Position = UDim2.new(0, 0, 0, 38)
+            ListHolder.BackgroundTransparency = 1
+            ListHolder.BorderSizePixel = 0
+            ListHolder.ZIndex = 1000001
+            ListHolder.Parent = DropMenu
+            ListHolder.ScrollBarThickness = 3
+            RegisterElement(ListHolder, "ScrollBarImageColor3", "Accent")
+
+            local ListLayout = Instance.new("UIListLayout")
+            ListLayout.Padding = UDim.new(0, 2)
+            ListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+            ListLayout.Parent = ListHolder
+
+            ListLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+                ListHolder.CanvasSize = UDim2.new(0, 0, 0, ListLayout.AbsoluteContentSize.Y + 15)
+            end)
+
+            local ListPadding = Instance.new("UIPadding")
+            ListPadding.PaddingLeft = UDim.new(0, 8)
+            ListPadding.PaddingRight = UDim.new(0, 8)
+            ListPadding.PaddingBottom = UDim.new(0, 6)
+            ListPadding.Parent = ListHolder
+
+            local DropdownHandler = {}
+            local savedCanvasPosition = Vector2.new(0, 0)
+
+            local function updateMenuPosition()
+                local absPos = DropBtn.AbsolutePosition
+                local absSize = DropBtn.AbsoluteSize
+                local currentViewport = CurrentCamera.ViewportSize
+                
+                local matchCount = 0
+                local filter = string.lower(SearchBox.Text)
+                for _, item in ipairs(list) do
+                    if filter == "" or string.find(string.lower(item), filter) then
+                        matchCount = matchCount + 1
+                    end
+                end
+                
+                local spaceBelow = currentViewport.Y - (absPos.Y + absSize.Y + 10)
+                local spaceAbove = absPos.Y - 10
+                local isAbove = spaceBelow < 150 and spaceAbove > spaceBelow
+                
+                local maxHeight = isAbove and (spaceAbove - 20) or (spaceBelow - 20)
+                local targetHeight = (matchCount * 28) + 46
+                
+                local calculatedHeight = math.clamp(targetHeight, 46 + 28, math.min(250, maxHeight))
+                
+                local margin = 10
+                local posX = absPos.X + absSize.X - 180
+                if posX + 180 > currentViewport.X - margin then
+                    posX = currentViewport.X - 180 - margin
+                end
+                if posX < margin then posX = margin end
+
+                local posY = isAbove and (absPos.Y - calculatedHeight - 4) or (absPos.Y + absSize.Y + 4)
+                if posY < margin then posY = margin end
+                
+                DropMenu.Position = UDim2.fromOffset(posX, posY)
+                return calculatedHeight
+            end
+
+            local function populateList(filter)
+                for _, child in ipairs(ListHolder:GetChildren()) do
+                    if child:IsA("TextButton") then child:Destroy() end
+                end
+
+                for _, item in ipairs(list) do
+                    if filter == "" or string.find(string.lower(item), string.lower(filter)) then
+                        local isSelected = false
+                        if isMulti then
+                            isSelected = multiSelected[item] == true
+                        else
+                            isSelected = (selectedValue == item)
+                        end
+                        
+                        local ItemBtn = Instance.new("TextButton")
+                        ItemBtn.Size = UDim2.new(1, 0, 0, 26)
+                        
+                        if isMulti then
+                            ItemBtn.Text = isSelected and "•  " .. item or "   " .. item
+                        else
+                            ItemBtn.Text = isSelected and "•  " .. item or "   " .. item
+                        end
+                        
+                        ItemBtn.TextSize = 11.5
+                        
+                        if isSelected then
+                            SetInterFont(ItemBtn, "Bold")
+                        else
+                            SetInterFont(ItemBtn, "Medium")
+                        end
+                        
+                        ItemBtn.TextXAlignment = Enum.TextXAlignment.Left
+                        ItemBtn.AutoButtonColor = false
+                        ItemBtn.ZIndex = 1000020
+                        ItemBtn.Parent = ListHolder
+                        ItemBtn.BackgroundTransparency = 1
+                        ItemBtn.TextTruncate = Enum.TextTruncate.AtEnd
+                        ItemBtn.RichText = true
+
+                        RegisterElement(ItemBtn, "TextColor3", function()
+                            local currentActive = isMulti and multiSelected[item] or (selectedValue == item)
+                            return currentActive and CurrentTheme.Accent or CurrentTheme.Text
+                        end)
+
+                        local ItemCorner = Instance.new("UICorner")
+                        ItemCorner.CornerRadius = UDim.new(0, 6)
+                        ItemCorner.Parent = ItemBtn
+
+                        ItemBtn.MouseEnter:Connect(function()
+                            TweenService:Create(ItemBtn, TweenInfo.new(0.15), {BackgroundTransparency = 0.92, BackgroundColor3 = CurrentTheme.Background}):Play()
+                        end)
+                        ItemBtn.MouseLeave:Connect(function()
+                            TweenService:Create(ItemBtn, TweenInfo.new(0.15), {BackgroundTransparency = 1}):Play()
+                        end)
+
+                        ItemBtn.MouseButton1Click:Connect(function()
+                            if isAnimating then return end
+                            
+                            if isMulti then
+                                multiSelected[item] = not multiSelected[item]
+                                ItemBtn.Text = multiSelected[item] and "•  " .. item or "   " .. item
+                                
+                                if multiSelected[item] then
+                                    SetInterFont(ItemBtn, "Bold")
+                                else
+                                    SetInterFont(ItemBtn, "Medium")
+                                end
+                                
+                                DropBtn.Text = getDropdownDisplay() .. "  ▼"
+                                
+                                ApplyTheme(CurrentThemeName)
+                                callback(multiSelected)
+                            else
+                                selectedValue = item
+                                DropBtn.Text = item .. "  ▼"
+                                
+                                populateList(filter)
+                                ApplyTheme(CurrentThemeName)
+                                
+                                callback(item)
+                            end
+                        end)
+                    end
+                end
+
+                
+                local totalItems = 0
+                for _, child in ipairs(ListHolder:GetChildren()) do
+                    if child:IsA("TextButton") then totalItems = totalItems + 1 end
+                end
+                ListHolder.ScrollBarThickness = (totalItems <= 5) and 0 or 3
+                
+                local maxPossibleScrollY = math.max(0, ListHolder.AbsoluteCanvasSize.Y - ListHolder.AbsoluteSize.Y)
+                if savedCanvasPosition.Y > maxPossibleScrollY then
+                    ListHolder.CanvasPosition = Vector2.new(0, maxPossibleScrollY)
+                else
+                    ListHolder.CanvasPosition = savedCanvasPosition
+                end
+            end
+
+            populateList("")
+
+            ListHolder:GetPropertyChangedSignal("CanvasPosition"):Connect(function()
+                if active and not isAnimating then
+                    savedCanvasPosition = ListHolder.CanvasPosition
+                end
+            end)
+
+            SearchBox:GetPropertyChangedSignal("Text"):Connect(function()
+                local previousPos = savedCanvasPosition
+                populateList(SearchBox.Text)
+                if active then updateMenuPosition() end
+                savedCanvasPosition = previousPos
+            end)
+
+            function DropdownHandler:Open()
+                if isAnimating or isLocked then return end
+                
+                if ActiveDropdown and ActiveDropdown ~= DropdownHandler then
+                    ActiveDropdown:Close()
+                end
+
+                active = true
+                ActiveDropdown = DropdownHandler
+                isAnimating = true
+                
+                local calculatedHeight = updateMenuPosition()
+                DropMenu.Size = UDim2.new(0, 180, 0, 0)
+                DropMenu.Visible = true
+                
+                populateList(SearchBox.Text)
+                ListHolder.CanvasPosition = savedCanvasPosition
+
+                local menuTween = TweenService:Create(DropMenu, TweenInfo.new(0.2, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {Size = UDim2.new(0, 180, 0, calculatedHeight)})
+                menuTween:Play()
+                menuTween.Completed:Connect(function()
+                    isAnimating = false
+                    ListHolder.CanvasPosition = savedCanvasPosition
+                end)
+            end
+
+            function DropdownHandler:Close()
+                if not active or isAnimating then return end
+                active = false
+                isAnimating = true
+                
+                savedCanvasPosition = ListHolder.CanvasPosition
+                
+                if ActiveDropdown == DropdownHandler then
+                    ActiveDropdown = nil
+                end
+
+                local menuTween = TweenService:Create(DropMenu, TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 180, 0, 0)})
+                menuTween:Play()
+                menuTween.Completed:Connect(function()
+                    DropMenu.Visible = false
+                    isAnimating = false
+                end)
+            end
+
+            DropBtn.MouseButton1Click:Connect(function()
+                if isLocked then return end
+                if active then
+                    DropdownHandler:Close()
+                else
+                    DropdownHandler:Open()
+                end
+            end)
+
+            DropBtn:GetPropertyChangedSignal("AbsolutePosition"):Connect(function()
+                if active then updateMenuPosition() end
+            end)
+
+            DropMenu.Destroying:Connect(function()
+                if ActiveDropdown == DropdownHandler then
+                    ActiveDropdown = nil
+                end
+                DropdownsRegistry[DropMenu] = nil
+            end)
+        end
+
+        function Elements:CreateSection(sectionText)
+            local SectionBg = Instance.new("Frame")
+            SectionBg.Size = UDim2.new(1, -20, 0, 28)
+            SectionBg.BackgroundTransparency = 1
+            SectionBg.ZIndex = 13
+            SectionBg.Parent = TabPage
+
+            local Label = Instance.new("TextLabel")
+            Label.Size = UDim2.new(1, 0, 1, 0)
+            Label.TextSize = 10.5
+            SetInterFont(Label, "Bold")
+            Label.TextXAlignment = Enum.TextXAlignment.Left
+            Label.BackgroundTransparency = 1
+            Label.ZIndex = 14
+            Label.RichText = true
+            Label.Parent = SectionBg
+            RegisterElement(Label, "TextColor3", "Accent")
+            RegisterLocale(Label, sectionText, true)
+
+            local Line = Instance.new("Frame")
+            Line.Size = UDim2.new(1, 0, 0, 1)
+            Line.Position = UDim2.new(0, 0, 1, -1)
+            Line.BorderSizePixel = 0
+            Line.ZIndex = 14
+            Line.Parent = SectionBg
+            RegisterElement(Line, "BackgroundColor3", "Border")
+        end
+
+        function Elements:SettingsUI()
+            Elements:CreateSection("Custom Theme Settings")
+
+            local themeNamesList = {}
+            for themeName, _ in pairs(Themes) do
+                table.insert(themeNamesList, themeName)
+            end
+            table.sort(themeNamesList)
+
+            Elements:Dropdown("Select Theme", {
+                Description = "เลือกธีม UI",
+                Values = themeNamesList,
+                Default = table.find(themeNamesList, CurrentThemeName) or 1,
+                Multi = false,
+                Callback = function(themeName)
+                    ApplyTheme(themeName)
+                    ConfigData.Theme = themeName
+                    SaveConfig()
+                end
+            })
+
+            Elements:Slider("UI Transparency", {
+                Description = "ความโปร่งใส UI",
+                Min = 0,
+                Max = 100,
+                Default = math.round(CurrentTransparency * 100),
+                Rounding = 1,
+                Callback = function(val)
+                    local percentageDecimal = val / 100
+                    ApplyTransparency(percentageDecimal)
+                    ConfigData.Transparency = percentageDecimal
+                    SaveConfig()
+                end
+            })
+
+            Elements:CreateSection("Custom Font Settings")
+
+            local fontNamesList = {}
+            for fontName, _ in pairs(Fonts) do
+                table.insert(fontNamesList, fontName)
+            end
+            table.sort(fontNamesList)
+
+            Elements:Dropdown("Select Font", {
+                Description = "เลือกฟอนต์ที่ใช้ทั้ง UI",
+                Values = fontNamesList,
+                Default = table.find(fontNamesList, CurrentFontName) or 1,
+                Multi = false,
+                Callback = function(fontName)
+                    ApplyFont(fontName)
+                    ConfigData.Font = fontName
+                    SaveConfig()
+                end
+            })
+
+            Elements:CreateSection("Language Settings")
+
+            Elements:Dropdown("Select Language", {
+                Description = "เลือกภาษาที่แสดงผล",
+                Values = {"English", "ไทย"},
+                Default = CurrentLanguage == "TH" and 2 or 1,
+                Multi = false,
+                Callback = function(choice)
+                    local langCode = choice == "ไทย" and "TH" or "EN"
+                    ApplyLanguage(langCode)
+                    ConfigData.Language = langCode
+                    SaveConfig()
+                end
+            })
+            
+            Elements:Keybind({
+                Title = "Minimize Keybind",
+                Description = "ปุ่มลัดสำหรับย่อหน้าต่าง UI",
+                Default = minimizeKey,
+                Callback = function(newKey)
+                    minimizeKey = newKey
+                    ConfigData.MinimizeKey = newKey.Name
+                    SaveConfig()
+                end
+            })
+        end
+
+        return Elements
+    end
+
+    ApplyTheme(themeDefault)
+    ApplyFont(fontDefault)
+    ApplyLanguage(languageDefault)
+    ApplyTransparency(ConfigData.Transparency or 0)
+    updateTabsVisual() 
+    return WindowObject
+end
+
+return Library
