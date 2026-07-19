@@ -8,6 +8,7 @@ local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 local CurrentCamera = Workspace.CurrentCamera
 
 local Library = {}
+Library.Translations = {}
 
 local Fonts = {
     ["Gotham"] = {Regular = Enum.Font.Gotham, Medium = Enum.Font.GothamMedium, Bold = Enum.Font.GothamBold},
