@@ -2961,6 +2961,34 @@ function Library:CreateWindow(config)
                 end
             end
 
+            function DropdownHandler:SetValues(newList, newDefault)
+                list = newList or {}
+
+                if isMulti then
+                    multiSelected = {}
+                    if type(newDefault) == "table" then
+                        for _, v in ipairs(newDefault) do
+                            if list[v] then multiSelected[list[v]] = true end
+                        end
+                    end
+                    DropBtn.Text = getDropdownDisplay() .. "  ▼"
+                else
+                    if newDefault ~= nil and table.find(list, newDefault) then
+                        selectedValue = newDefault
+                    elseif not table.find(list, selectedValue) then
+                        selectedValue = ""
+                    end
+                    DropBtn.Text = getDropdownDisplay() .. "  ▼"
+                end
+
+                if active then
+                    populateList(SearchBox.Text)
+                    updateMenuPosition()
+                else
+                    populateList("")
+                end
+            end
+
             populateList("")
 
             ListHolder:GetPropertyChangedSignal("CanvasPosition"):Connect(function()
@@ -3040,6 +3068,8 @@ function Library:CreateWindow(config)
                 end
                 DropdownsRegistry[DropMenu] = nil
             end)
+
+            return DropdownHandler
         end
 
         function Elements:CreateSection(sectionText)
