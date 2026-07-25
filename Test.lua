@@ -846,7 +846,7 @@ local function RegisterLocale(instance, key, isUpper)
 
     local entry = Library.Translations[key]
     local text = (entry and entry[CurrentLanguage]) or key
-    instance.Text = isUpper and text:upper() or text
+    instance.Text = isUpper and text
 end
 
 local function ApplyLanguage(langCode)
@@ -2749,8 +2749,8 @@ function Library:CreateWindow(config)
                     displayStr = selectedValue ~= "" and selectedValue or "Select Option"
                 end
 
-                if string.len(displayStr) > 18 then
-                    displayStr = string.sub(displayStr, 1, 18) .. "..."
+                if string.len(displayStr) > 16 then
+                    displayStr = string.sub(displayStr, 1, 16) .. "..."
                 end
                 return displayStr
             end
@@ -2758,20 +2758,20 @@ function Library:CreateWindow(config)
             local DropBtn = Instance.new("TextButton")
             DropBtn.Size = UDim2.new(0, 180, 1, 0)
             DropBtn.Position = UDim2.new(1, -194, 0, 0)
-            DropBtn.Text = getDropdownDisplay() .. "  >"
+            DropBtn.RichText = true
+            DropBtn.Text = getDropdownDisplay() .. '  <font color="#B0B0B0" size="11">></font>'
             DropBtn.TextSize = 13
             SetInterFont(DropBtn, "Medium")
             DropBtn.AutoButtonColor = false
             DropBtn.BackgroundTransparency = 1
             DropBtn.TextXAlignment = Enum.TextXAlignment.Right
-            DropBtn.TextTruncate = Enum.TextTruncate.AtEnd
             DropBtn.ZIndex = 15
             DropBtn.Parent = DropdownBg
             RegisterElement(DropBtn, "TextColor3", "Text")
 
             local function updateDropBtnText()
                 local icon = active and "v" or ">"
-                DropBtn.Text = getDropdownDisplay() .. "  " .. icon
+                DropBtn.Text = getDropdownDisplay() .. string.format('  <font color="#B0B0B0" size="11">%s</font>', icon)
             end
 
             local DropMenu = Instance.new("Frame")
@@ -2851,24 +2851,22 @@ function Library:CreateWindow(config)
                     end
                 end
                 
-                local spaceBelow = currentViewport.Y - (absPos.Y + absSize.Y + 10)
-                local spaceAbove = absPos.Y - 10
+                local margin = 15
+                local spaceBelow = currentViewport.Y - (absPos.Y + absSize.Y + margin)
+                local spaceAbove = absPos.Y - margin
                 local isAbove = spaceBelow < 150 and spaceAbove > spaceBelow
                 
-                local maxHeight = isAbove and (spaceAbove - 20) or (spaceBelow - 20)
+                local maxHeight = isAbove and spaceAbove or spaceBelow
                 local targetHeight = (matchCount * 34) + 52 
                 
                 local calculatedHeight = math.clamp(targetHeight, 52 + 34, math.min(260, maxHeight))
                 
-                local margin = 10
-                local posX = absPos.X + absSize.X - 190
-                if posX + 190 > currentViewport.X - margin then
-                    posX = currentViewport.X - 190 - margin
-                end
-                if posX < margin then posX = margin end
+                local menuWidth = 190
+                local posX = absPos.X + absSize.X - menuWidth
+                posX = math.clamp(posX, margin, currentViewport.X - menuWidth - margin)
 
                 local posY = isAbove and (absPos.Y - calculatedHeight - 4) or (absPos.Y + absSize.Y + 4)
-                if posY < margin then posY = margin end
+                posY = math.clamp(posY, margin, currentViewport.Y - calculatedHeight - margin)
                 
                 DropMenu.Position = UDim2.fromOffset(posX, posY)
                 return calculatedHeight
@@ -3031,7 +3029,7 @@ function Library:CreateWindow(config)
                 populateList(SearchBox.Text)
                 ListHolder.CanvasPosition = savedCanvasPosition
 
-                local menuTween = TweenService:Create(DropMenu, TweenInfo.new(0.2, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {Size = UDim2.new(0, 190, 0, calculatedHeight)})
+                local menuTween = TweenService:Create(DropMenu, TweenInfo.new(0.35, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, 190, 0, calculatedHeight)})
                 menuTween:Play()
             end
 
@@ -3046,7 +3044,7 @@ function Library:CreateWindow(config)
                     ActiveDropdown = nil
                 end
 
-                local menuTween = TweenService:Create(DropMenu, TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 190, 0, 0)})
+                local menuTween = TweenService:Create(DropMenu, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, 190, 0, 0)})
                 menuTween:Play()
                 menuTween.Completed:Connect(function()
                     if not active then
