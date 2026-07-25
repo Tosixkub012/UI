@@ -723,6 +723,16 @@ local ActiveDropdown = nil
 local NotifyHolder = nil
 local GlobalScreenGui = nil
 
+local UserInputServiceRef = game:GetService("UserInputService")
+UserInputServiceRef.InputBegan:Connect(function(input, gameProcessed)
+    if input.UserInputType == Enum.UserInputType.MouseButton1
+        or input.UserInputType == Enum.UserInputType.Touch then
+        if ActiveDropdown and ActiveDropdown.IsOutside and ActiveDropdown.IsOutside(input.Position) then
+            ActiveDropdown:Close()
+        end
+    end
+end)
+
 local MainFrameRef = nil
 local SidebarRef = nil
 local SidebarCoverRef = nil
@@ -1495,26 +1505,6 @@ function Library:CreateWindow(config)
         end
     end)
 
-    local MinimizeBtn = Instance.new("TextButton")
-    MinimizeBtn.Name = "MinimizeBtn"
-    MinimizeBtn.Size = UDim2.new(0, 26, 0, 26)
-    MinimizeBtn.Position = UDim2.new(1, -98, 0, 15)
-    MinimizeBtn.Text = "➖"
-    MinimizeBtn.TextSize = 12
-    SetInterFont(MinimizeBtn, "Bold")
-    MinimizeBtn.AutoButtonColor = false
-    MinimizeBtn.ZIndex = 12
-    MinimizeBtn.Parent = Header
-    RegisterElement(MinimizeBtn, "BackgroundColor3", "ElementBg")
-    RegisterElement(MinimizeBtn, "TextColor3", "SubText")
-    local MinCorner = Instance.new("UICorner")
-    MinCorner.CornerRadius = UDim.new(0, 6)
-    MinCorner.Parent = MinimizeBtn
-    local MinStroke = Instance.new("UIStroke")
-    MinStroke.Thickness = 1
-    MinStroke.Parent = MinimizeBtn
-    RegisterElement(MinStroke, "Color", "Border")
-
     if PlayerGui:FindFirstChild("FractureScreenGui") then
         PlayerGui.FractureScreenGui:Destroy()
     end
@@ -1602,6 +1592,9 @@ function Library:CreateWindow(config)
 
     local function ToggleUI()
         local willMinimize = MainFrame.Visible
+        if willMinimize and ActiveDropdown then
+            ActiveDropdown:Close()
+        end
         MainFrame.Visible = not willMinimize
     end
 
@@ -1609,10 +1602,6 @@ function Library:CreateWindow(config)
         if not dragThresholdExceeded then
             ToggleUI()
         end
-    end)
-
-    MinimizeBtn.MouseButton1Click:Connect(function()
-        ToggleUI()
     end)
 
     UserInputService.InputBegan:Connect(function(input, gameProcessed)
@@ -1926,12 +1915,13 @@ function Library:CreateWindow(config)
     end
 
     local TabsList = {}
+    local TabButtonsByPage = {}
     local CurrentTab = nil
 
     local function updateTabsVisual()
         for _, btn in ipairs(NavScroll:GetChildren()) do
             if btn:IsA("TextButton") then
-                local isSelected = CurrentTab and btn.Name == CurrentTab.Name:gsub("Page", "Tab")
+                local isSelected = CurrentTab ~= nil and TabButtonsByPage[CurrentTab] == btn
                 
                 local accentBar = btn:FindFirstChild("AccentBar")
                 local content = btn:FindFirstChild("TabContent")
@@ -1996,8 +1986,6 @@ function Library:CreateWindow(config)
             end
         end)
     end
-
-    MinimizeBtn.MouseButton1Click:Connect(ToggleUI)
 
     UserInputService.InputBegan:Connect(function(input, processed)
         if not processed and input.KeyCode == minimizeKey then
@@ -2111,7 +2099,10 @@ function Library:CreateWindow(config)
             TabPage.CanvasSize = UDim2.new(0, 0, 0, PageLayout.AbsoluteContentSize.Y + 20)  
         end)  
 
+        TabButtonsByPage[TabPage] = TabButton
+
         local function selectTab()  
+            if CurrentTab == TabPage then return end
             for _, page in ipairs(Container:GetChildren()) do  
                 if page:IsA("ScrollingFrame") then page.Visible = false end  
             end  
@@ -2838,6 +2829,21 @@ function Library:CreateWindow(config)
             local DropdownHandler = {}
             local savedCanvasPosition = Vector2.new(0, 0)
 
+            function DropdownHandler.IsOutside(pos)
+                if not active then return false end
+                local menuPos = DropMenu.AbsolutePosition
+                local menuSize = DropMenu.AbsoluteSize
+                local inMenu = pos.X >= menuPos.X and pos.X <= menuPos.X + menuSize.X
+                    and pos.Y >= menuPos.Y and pos.Y <= menuPos.Y + menuSize.Y
+
+                local btnPos = DropBtn.AbsolutePosition
+                local btnSize = DropBtn.AbsoluteSize
+                local inBtn = pos.X >= btnPos.X and pos.X <= btnPos.X + btnSize.X
+                    and pos.Y >= btnPos.Y and pos.Y <= btnPos.Y + btnSize.Y
+
+                return not (inMenu or inBtn)
+            end
+
             local function updateMenuPosition()
                 local absPos = DropBtn.AbsolutePosition
                 local absSize = DropBtn.AbsoluteSize
@@ -2851,22 +2857,41 @@ function Library:CreateWindow(config)
                     end
                 end
                 
-                local margin = 15
-                local spaceBelow = currentViewport.Y - (absPos.Y + absSize.Y + margin)
-                local spaceAbove = absPos.Y - margin
-                local isAbove = spaceBelow < 150 and spaceAbove > spaceBelow
-                
-                local maxHeight = isAbove and spaceAbove or spaceBelow
-                local targetHeight = (matchCount * 34) + 52 
-                
-                local calculatedHeight = math.clamp(targetHeight, 52 + 34, math.min(260, maxHeight))
-                
+                local margin = 10
                 local menuWidth = 190
-                local posX = absPos.X + absSize.X - menuWidth
-                posX = math.clamp(posX, margin, currentViewport.X - menuWidth - margin)
+                local targetHeight = (matchCount * 34) + 52
+                local maxAllowedHeight = 260
 
-                local posY = isAbove and (absPos.Y - calculatedHeight - 4) or (absPos.Y + absSize.Y + 4)
-                posY = math.clamp(posY, margin, currentViewport.Y - calculatedHeight - margin)
+                local spaceBelow = currentViewport.Y - (absPos.Y + absSize.Y) - margin
+                local spaceAbove = absPos.Y - margin
+
+                local isAbove
+                local calculatedHeight
+
+                if spaceBelow >= math.min(targetHeight, maxAllowedHeight) then
+                    isAbove = false
+                    calculatedHeight = math.clamp(targetHeight, 52 + 34, math.min(maxAllowedHeight, spaceBelow))
+                elseif spaceAbove >= math.min(targetHeight, maxAllowedHeight) then
+                    isAbove = true
+                    calculatedHeight = math.clamp(targetHeight, 52 + 34, math.min(maxAllowedHeight, spaceAbove))
+                elseif spaceBelow >= spaceAbove then
+                    isAbove = false
+                    calculatedHeight = math.clamp(targetHeight, 52 + 34, math.min(maxAllowedHeight, math.max(spaceBelow, 52 + 34)))
+                else
+                    isAbove = true
+                    calculatedHeight = math.clamp(targetHeight, 52 + 34, math.min(maxAllowedHeight, math.max(spaceAbove, 52 + 34)))
+                end
+
+                local posX = absPos.X + absSize.X - menuWidth
+                posX = math.clamp(posX, margin, math.max(margin, currentViewport.X - menuWidth - margin))
+
+                local posY
+                if isAbove then
+                    posY = absPos.Y - calculatedHeight - 4
+                else
+                    posY = absPos.Y + absSize.Y + 4
+                end
+                posY = math.clamp(posY, margin, math.max(margin, currentViewport.Y - calculatedHeight - margin))
                 
                 DropMenu.Position = UDim2.fromOffset(posX, posY)
                 return calculatedHeight
@@ -3093,7 +3118,7 @@ function Library:CreateWindow(config)
             Label.RichText = true
             Label.Parent = SectionBg
             RegisterElement(Label, "TextColor3", "Accent")
-            RegisterLocale(Label, sectionText, true)
+            RegisterLocale(Label, sectionText, false)
 
             local Line = Instance.new("Frame")
             Line.Size = UDim2.new(1, 0, 0, 1)
