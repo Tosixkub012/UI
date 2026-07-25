@@ -1065,8 +1065,9 @@ function Library:CreateWindow(config)
 
     local MainFrame = Instance.new("Frame")
     MainFrame.Name = "MainFrame"
+    MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
     MainFrame.Size = size
-    MainFrame.Position = UDim2.new(0.5, -size.X.Offset/2, 0.5, -size.Y.Offset/2)
+    MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
     MainFrame.BorderSizePixel = 0
     MainFrame.Active = true
     MainFrame.ZIndex = 10
@@ -1232,33 +1233,76 @@ function Library:CreateWindow(config)
     if titleLink ~= "" then
         local DiscordBtn = Instance.new("TextButton")
         DiscordBtn.Name = "DiscordBtn"
-        DiscordBtn.Size = UDim2.new(1, 0, 0, 28)
-        DiscordBtn.Text = "Join Discord 🔗"
-        DiscordBtn.TextSize = 10
-        SetInterFont(DiscordBtn, "Bold")
+        DiscordBtn.Size = UDim2.new(1, 0, 0, 32)
+        DiscordBtn.Text = ""
         DiscordBtn.AutoButtonColor = false
+        DiscordBtn.BackgroundTransparency = 0.3
         DiscordBtn.ZIndex = 13
         DiscordBtn.Parent = LinkPanel
         RegisterElement(DiscordBtn, "BackgroundColor3", "ElementBg")
-        RegisterElement(DiscordBtn, "TextColor3", "SubText")
 
         local DiscordCorner = Instance.new("UICorner")
-        DiscordCorner.CornerRadius = UDim.new(0, 6)
+        DiscordCorner.CornerRadius = UDim.new(0, 8)
         DiscordCorner.Parent = DiscordBtn
 
         local DiscordStroke = Instance.new("UIStroke")
         DiscordStroke.Thickness = 1
+        DiscordStroke.Transparency = 0.4
         DiscordStroke.Parent = DiscordBtn
         RegisterElement(DiscordStroke, "Color", "Border")
 
+        local DiscordRow = Instance.new("Frame")
+        DiscordRow.Size = UDim2.new(1, 0, 1, 0)
+        DiscordRow.BackgroundTransparency = 1
+        DiscordRow.ZIndex = 14
+        DiscordRow.Parent = DiscordBtn
+
+        local DiscordRowLayout = Instance.new("UIListLayout")
+        DiscordRowLayout.FillDirection = Enum.FillDirection.Horizontal
+        DiscordRowLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+        DiscordRowLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+        DiscordRowLayout.Padding = UDim.new(0, 6)
+        DiscordRowLayout.Parent = DiscordRow
+
+        local DiscordIcon = Instance.new("TextLabel")
+        DiscordIcon.Size = UDim2.new(0, 14, 0, 14)
+        DiscordIcon.Text = "🔗"
+        DiscordIcon.TextSize = 12
+        DiscordIcon.BackgroundTransparency = 1
+        DiscordIcon.ZIndex = 14
+        DiscordIcon.LayoutOrder = 1
+        DiscordIcon.Parent = DiscordRow
+
+        local DiscordLabel = Instance.new("TextLabel")
+        DiscordLabel.Size = UDim2.new(0, 0, 1, 0)
+        DiscordLabel.AutomaticSize = Enum.AutomaticSize.X
+        DiscordLabel.Text = "Join Discord"
+        DiscordLabel.TextSize = 11
+        SetInterFont(DiscordLabel, "Bold")
+        DiscordLabel.BackgroundTransparency = 1
+        DiscordLabel.ZIndex = 14
+        DiscordLabel.LayoutOrder = 2
+        DiscordLabel.Parent = DiscordRow
+        RegisterElement(DiscordLabel, "TextColor3", "SubText")
+
         DiscordBtn.MouseEnter:Connect(function()
-            TweenService:Create(DiscordBtn, TweenInfo.new(0.2), {TextColor3 = CurrentTheme.Accent}):Play()
+            TweenService:Create(DiscordBtn, TweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0}):Play()
+            TweenService:Create(DiscordStroke, TweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Transparency = 0, Color = CurrentTheme.Accent}):Play()
+            TweenService:Create(DiscordLabel, TweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = CurrentTheme.Accent}):Play()
         end)
         DiscordBtn.MouseLeave:Connect(function()
-            TweenService:Create(DiscordBtn, TweenInfo.new(0.2), {TextColor3 = CurrentTheme.SubText}):Play()
+            TweenService:Create(DiscordBtn, TweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0.3}):Play()
+            TweenService:Create(DiscordStroke, TweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Transparency = 0.4, Color = CurrentTheme.Border}):Play()
+            TweenService:Create(DiscordLabel, TweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = CurrentTheme.SubText}):Play()
         end)
 
         DiscordBtn.MouseButton1Click:Connect(function()
+            TweenService:Create(DiscordBtn, TweenInfo.new(0.08), {BackgroundTransparency = 0.15}):Play()
+            task.delay(0.08, function()
+                if DiscordBtn and DiscordBtn.Parent then
+                    TweenService:Create(DiscordBtn, TweenInfo.new(0.15), {BackgroundTransparency = 0}):Play()
+                end
+            end)
             if setclipboard then
                 setclipboard(titleLink)
             elseif toclipboard then
@@ -1493,9 +1537,10 @@ function Library:CreateWindow(config)
             previousSize = MainFrame.Size
             previousPosition = MainFrame.Position
             local screenVP = CurrentCamera.ViewportSize
+            local maxW, maxH = screenVP.X - 40, screenVP.Y - 40
             TweenService:Create(MainFrame, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
-                Size = UDim2.fromOffset(screenVP.X - 40, screenVP.Y - 40),
-                Position = UDim2.new(0, 20, 0, 20)
+                Size = UDim2.fromOffset(maxW, maxH),
+                Position = UDim2.fromOffset(20 + maxW / 2, 20 + maxH / 2)
             }):Play()
         else
             TweenService:Create(MainFrame, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
@@ -2119,8 +2164,24 @@ function Library:CreateWindow(config)
 
         local Elements = {}
 
-        local function ApplyPremiumLock(parent, isLocked)
+        local function ParseLockOption(rawLocked)
+            local locked = false
+            local lockMsg = "This element is locked"
+            if type(rawLocked) == "table" then
+                locked = rawLocked[1] == true
+                if type(rawLocked[2]) == "string" and rawLocked[2] ~= "" then
+                    lockMsg = rawLocked[2]
+                end
+            elseif type(rawLocked) == "boolean" then
+                locked = rawLocked
+            end
+            return locked, lockMsg
+        end
+
+        local function ApplyPremiumLock(parent, isLocked, lockMessage)
             if not isLocked then return end
+            local msg = lockMessage or "This element is locked"
+
             local LockOverlay = Instance.new("TextButton")
             LockOverlay.Size = UDim2.new(1, 0, 1, 0)
             LockOverlay.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -2133,30 +2194,47 @@ function Library:CreateWindow(config)
             local LockCorner = Instance.new("UICorner")
             LockCorner.CornerRadius = UDim.new(0, 8)
             LockCorner.Parent = LockOverlay
+
+            local LockRow = Instance.new("Frame")
+            LockRow.Size = UDim2.new(1, -24, 0, 18)
+            LockRow.Position = UDim2.new(0.5, 0, 0.5, 0)
+            LockRow.AnchorPoint = Vector2.new(0.5, 0.5)
+            LockRow.BackgroundTransparency = 1
+            LockRow.ZIndex = 51
+            LockRow.Parent = LockOverlay
+
+            local LockRowLayout = Instance.new("UIListLayout")
+            LockRowLayout.FillDirection = Enum.FillDirection.Horizontal
+            LockRowLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+            LockRowLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+            LockRowLayout.Padding = UDim.new(0, 6)
+            LockRowLayout.Parent = LockRow
             
             local LockIcon = Instance.new("TextLabel")
             LockIcon.Size = UDim2.new(0, 16, 0, 16)
-            LockIcon.Position = UDim2.new(0.5, -80, 0.5, -8)
             LockIcon.BackgroundTransparency = 1
             LockIcon.Text = "🔒"
             LockIcon.TextSize = 14
             LockIcon.ZIndex = 51
-            LockIcon.Parent = LockOverlay
+            LockIcon.LayoutOrder = 1
+            LockIcon.Parent = LockRow
             
             local LockText = Instance.new("TextLabel")
-            LockText.Size = UDim2.new(0, 140, 0, 16)
-            LockText.Position = UDim2.new(0.5, -55, 0.5, -8)
-            LockText.Text = "This element is locked"
+            LockText.Size = UDim2.new(0, 0, 1, 0)
+            LockText.AutomaticSize = Enum.AutomaticSize.X
+            LockText.Text = msg
             LockText.TextSize = 12
             SetInterFont(LockText, "Medium")
             LockText.TextColor3 = Color3.fromRGB(255, 255, 255)
             LockText.TextXAlignment = Enum.TextXAlignment.Left
             LockText.BackgroundTransparency = 1
+            LockText.TextTruncate = Enum.TextTruncate.AtEnd
             LockText.ZIndex = 51
-            LockText.Parent = LockOverlay
+            LockText.LayoutOrder = 2
+            LockText.Parent = LockRow
         end
 
-        local function CreateBaseElement(height, hasDesc, descText, titleText, isLocked)
+        local function CreateBaseElement(height, hasDesc, descText, titleText, isLocked, lockMessage)
             local finalHeight = height
             if hasDesc and descText and descText ~= "" then
                 finalHeight = height + 14
@@ -2207,7 +2285,7 @@ function Library:CreateWindow(config)
                 RegisterElement(DescLabel, "TextColor3", "SubText")
             end
 
-            ApplyPremiumLock(Bg, isLocked)
+            ApplyPremiumLock(Bg, isLocked, lockMessage)
 
             return Bg, Label, DescLabel
         end
@@ -2215,7 +2293,7 @@ function Library:CreateWindow(config)
         function Elements:Paragraph(options)
             local titleText = options.Title or "Paragraph"
             local descText = options.Content or options.Description or "Information body goes here."
-            local isLocked = options.Locked or false
+            local isLocked, lockMsg = ParseLockOption(options.Locked)
 
             local ParagraphBg = Instance.new("Frame")
             ParagraphBg.Size = UDim2.new(1, -20, 0, 0)
@@ -2276,7 +2354,7 @@ function Library:CreateWindow(config)
             ContentLabel.Parent = ParagraphBg
             RegisterElement(ContentLabel, "TextColor3", "SubText")
             
-            ApplyPremiumLock(ParagraphBg, isLocked)
+            ApplyPremiumLock(ParagraphBg, isLocked, lockMsg)
             
             local ParagraphMethods = {}
             function ParagraphMethods:SetTitle(newTitle)
@@ -2293,11 +2371,11 @@ function Library:CreateWindow(config)
             local descText = options.Description
             local placeholder = options.Placeholder or "Type here..."
             local default = options.Default or ""
-            local isLocked = options.Locked or false
+            local isLocked, lockMsg = ParseLockOption(options.Locked)
             local callback = options.Callback or function() end
 
             local hasDesc = descText ~= nil and descText ~= ""
-            local InputBg, Label = CreateBaseElement(38, hasDesc, descText, inputTitle, isLocked)
+            local InputBg, Label = CreateBaseElement(38, hasDesc, descText, inputTitle, isLocked, lockMsg)
 
             Label.Position = UDim2.new(0, 14, 0.5, hasDesc and -18 or -10)
 
@@ -2356,11 +2434,11 @@ function Library:CreateWindow(config)
             local titleText = options.Title or "Color Picker"
             local descText = options.Description
             local default = options.Default or Color3.fromRGB(255, 255, 255)
-            local isLocked = options.Locked or false
+            local isLocked, lockMsg = ParseLockOption(options.Locked)
             local callback = options.Callback or function() end
             
             local hasDesc = descText ~= nil and descText ~= ""
-            local PickerBg, Label = CreateBaseElement(38, hasDesc, descText, titleText, isLocked)
+            local PickerBg, Label = CreateBaseElement(38, hasDesc, descText, titleText, isLocked, lockMsg)
             Label.Position = UDim2.new(0, 14, 0.5, hasDesc and -18 or -10)
             
             local ColorBtn = Instance.new("TextButton")
@@ -2394,14 +2472,14 @@ function Library:CreateWindow(config)
             local titleText = options.Title or "Keybind"
             local descText = options.Description
             local default = options.Default or Enum.KeyCode.RightShift
-            local isLocked = options.Locked or false
+            local isLocked, lockMsg = ParseLockOption(options.Locked)
             local callback = options.Callback or function() end
             
             local currentKey = default
             local isBinding = false
             
             local hasDesc = descText ~= nil and descText ~= ""
-            local KeyBg, Label = CreateBaseElement(38, hasDesc, descText, titleText, isLocked)
+            local KeyBg, Label = CreateBaseElement(38, hasDesc, descText, titleText, isLocked, lockMsg)
             Label.Position = UDim2.new(0, 14, 0.5, hasDesc and -18 or -10)
             
             local KeyBtn = Instance.new("TextButton")
@@ -2446,11 +2524,11 @@ function Library:CreateWindow(config)
         function Elements:Button(options)
             local btnText = options.Title or "Button"
             local descText = options.Description
-            local isLocked = options.Locked or false
+            local isLocked, lockMsg = ParseLockOption(options.Locked)
             local callback = options.Callback or function() end
 
             local hasDesc = descText ~= nil and descText ~= ""
-            local ButtonBg, Label = CreateBaseElement(34, hasDesc, descText, btnText, isLocked)
+            local ButtonBg, Label = CreateBaseElement(34, hasDesc, descText, btnText, isLocked, lockMsg)
             
             Label.Position = UDim2.new(0, 14, 0.5, hasDesc and -18 or -10)
 
@@ -2495,7 +2573,7 @@ function Library:CreateWindow(config)
         function Elements:Toggle(toggleText, options)
             local descText = options.Description
             local default = options.Default or false
-            local isLocked = options.Locked or false
+            local isLocked, lockMsg = ParseLockOption(options.Locked)
             local callback = options.Callback or function() end
             local flagName = options.Flag or toggleText
 
@@ -2506,7 +2584,7 @@ function Library:CreateWindow(config)
             end
 
             local hasDesc = descText ~= nil and descText ~= ""
-            local ToggleBg, Label = CreateBaseElement(38, hasDesc, descText, toggleText, isLocked)
+            local ToggleBg, Label = CreateBaseElement(38, hasDesc, descText, toggleText, isLocked, lockMsg)
 
             Label.Position = UDim2.new(0, 14, 0.5, hasDesc and -18 or -10)
 
@@ -2573,11 +2651,11 @@ function Library:CreateWindow(config)
             local max = options.Max or 100
             local default = options.Default or min
             local rounding = options.Rounding or 1
-            local isLocked = options.Locked or false
+            local isLocked, lockMsg = ParseLockOption(options.Locked)
             local callback = options.Callback or function() end
 
             local hasDesc = descText ~= nil and descText ~= ""
-            local SliderBg, Label = CreateBaseElement(46, hasDesc, descText, sliderText, isLocked)
+            local SliderBg, Label = CreateBaseElement(46, hasDesc, descText, sliderText, isLocked, lockMsg)
 
             local ValueBox = Instance.new("TextBox")
             ValueBox.Size = UDim2.new(0, 52, 0, 18)
@@ -2695,7 +2773,7 @@ function Library:CreateWindow(config)
             local list = options.Values or {}
             local descText = options.Description
             local defaultIndex = options.Default or 1
-            local isLocked = options.Locked or false
+            local isLocked, lockMsg = ParseLockOption(options.Locked)
             local callback = options.Callback or function() end
             local isMulti = options.Multi or false
 
@@ -2719,7 +2797,7 @@ function Library:CreateWindow(config)
             end
 
             local hasDesc = descText ~= nil and descText ~= ""
-            local DropdownBg, Label = CreateBaseElement(42, hasDesc, descText, dropdownText, isLocked)
+            local DropdownBg, Label = CreateBaseElement(42, hasDesc, descText, dropdownText, isLocked, lockMsg)
 
             Label.Position = UDim2.new(0, 14, 0.5, hasDesc and -18 or -10)
 
@@ -2765,9 +2843,22 @@ function Library:CreateWindow(config)
                 DropBtn.Text = getDropdownDisplay() .. string.format('  <font color="#B0B0B0" size="11">%s</font>', icon)
             end
 
+            local DropBackdrop = Instance.new("TextButton")
+            DropBackdrop.Name = "DropBackdrop"
+            DropBackdrop.Size = UDim2.new(1, 0, 1, 0)
+            DropBackdrop.Position = UDim2.new(0, 0, 0, 0)
+            DropBackdrop.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+            DropBackdrop.BackgroundTransparency = 1
+            DropBackdrop.Text = ""
+            DropBackdrop.AutoButtonColor = false
+            DropBackdrop.ZIndex = 999999
+            DropBackdrop.Visible = false
+            DropBackdrop.Parent = GlobalScreenGui
+
             local DropMenu = Instance.new("Frame")
             DropMenu.Name = "DropMenu"
-            DropMenu.Size = UDim2.new(0, 190, 0, 0)
+            DropMenu.Size = UDim2.fromOffset(240, 0)
+            DropMenu.AnchorPoint = Vector2.new(0, 0)
             DropMenu.ClipsDescendants = true
             DropMenu.Visible = false
             DropMenu.ZIndex = 1000000
@@ -2845,10 +2936,8 @@ function Library:CreateWindow(config)
             end
 
             local function updateMenuPosition()
-                local absPos = DropBtn.AbsolutePosition
-                local absSize = DropBtn.AbsoluteSize
                 local currentViewport = CurrentCamera.ViewportSize
-                
+
                 local matchCount = 0
                 local filter = string.lower(SearchBox.Text)
                 for _, item in ipairs(list) do
@@ -2856,45 +2945,19 @@ function Library:CreateWindow(config)
                         matchCount = matchCount + 1
                     end
                 end
-                
-                local margin = 10
-                local menuWidth = 190
+
+                local margin = 20
+                local menuWidth = math.min(240, currentViewport.X - margin * 2)
+                local maxAllowedHeight = math.min(320, currentViewport.Y - margin * 2)
                 local targetHeight = (matchCount * 34) + 52
-                local maxAllowedHeight = 260
+                local calculatedHeight = math.clamp(targetHeight, 52 + 34, maxAllowedHeight)
 
-                local spaceBelow = currentViewport.Y - (absPos.Y + absSize.Y) - margin
-                local spaceAbove = absPos.Y - margin
+                local posX = (currentViewport.X - menuWidth) / 2
+                local posY = (currentViewport.Y - calculatedHeight) / 2
 
-                local isAbove
-                local calculatedHeight
-
-                if spaceBelow >= math.min(targetHeight, maxAllowedHeight) then
-                    isAbove = false
-                    calculatedHeight = math.clamp(targetHeight, 52 + 34, math.min(maxAllowedHeight, spaceBelow))
-                elseif spaceAbove >= math.min(targetHeight, maxAllowedHeight) then
-                    isAbove = true
-                    calculatedHeight = math.clamp(targetHeight, 52 + 34, math.min(maxAllowedHeight, spaceAbove))
-                elseif spaceBelow >= spaceAbove then
-                    isAbove = false
-                    calculatedHeight = math.clamp(targetHeight, 52 + 34, math.min(maxAllowedHeight, math.max(spaceBelow, 52 + 34)))
-                else
-                    isAbove = true
-                    calculatedHeight = math.clamp(targetHeight, 52 + 34, math.min(maxAllowedHeight, math.max(spaceAbove, 52 + 34)))
-                end
-
-                local posX = absPos.X + absSize.X - menuWidth
-                posX = math.clamp(posX, margin, math.max(margin, currentViewport.X - menuWidth - margin))
-
-                local posY
-                if isAbove then
-                    posY = absPos.Y - calculatedHeight - 4
-                else
-                    posY = absPos.Y + absSize.Y + 4
-                end
-                posY = math.clamp(posY, margin, math.max(margin, currentViewport.Y - calculatedHeight - margin))
-                
+                DropMenu.Size = UDim2.fromOffset(menuWidth, DropMenu.Size.Y.Offset)
                 DropMenu.Position = UDim2.fromOffset(posX, posY)
-                return calculatedHeight
+                return calculatedHeight, menuWidth
             end
 
             local function populateList(filter)
@@ -3047,14 +3110,22 @@ function Library:CreateWindow(config)
                 ActiveDropdown = DropdownHandler
                 updateDropBtnText()
                 
-                local calculatedHeight = updateMenuPosition()
-                DropMenu.Size = UDim2.new(0, 190, 0, 0)
+                local calculatedHeight, menuWidth = updateMenuPosition()
+                DropMenu.Size = UDim2.fromOffset(menuWidth, 0)
+                DropMenu.Position = UDim2.fromOffset(DropMenu.Position.X.Offset, DropMenu.Position.Y.Offset + calculatedHeight / 2)
                 DropMenu.Visible = true
+                if DropBackdrop then
+                    DropBackdrop.Visible = true
+                    TweenService:Create(DropBackdrop, TweenInfo.new(0.2), {BackgroundTransparency = 0.55}):Play()
+                end
                 
                 populateList(SearchBox.Text)
                 ListHolder.CanvasPosition = savedCanvasPosition
 
-                local menuTween = TweenService:Create(DropMenu, TweenInfo.new(0.35, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, 190, 0, calculatedHeight)})
+                local menuTween = TweenService:Create(DropMenu, TweenInfo.new(0.3, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {
+                    Size = UDim2.fromOffset(menuWidth, calculatedHeight),
+                    Position = UDim2.fromOffset(DropMenu.Position.X.Offset, DropMenu.Position.Y.Offset - calculatedHeight / 2)
+                })
                 menuTween:Play()
             end
 
@@ -3069,7 +3140,18 @@ function Library:CreateWindow(config)
                     ActiveDropdown = nil
                 end
 
-                local menuTween = TweenService:Create(DropMenu, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, 190, 0, 0)})
+                if DropBackdrop then
+                    TweenService:Create(DropBackdrop, TweenInfo.new(0.2), {BackgroundTransparency = 1}):Play()
+                    task.delay(0.2, function()
+                        if not active then DropBackdrop.Visible = false end
+                    end)
+                end
+
+                local curHeight = DropMenu.Size.Y.Offset
+                local menuTween = TweenService:Create(DropMenu, TweenInfo.new(0.22, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {
+                    Size = UDim2.fromOffset(DropMenu.Size.X.Offset, 0),
+                    Position = UDim2.fromOffset(DropMenu.Position.X.Offset, DropMenu.Position.Y.Offset + curHeight / 2)
+                })
                 menuTween:Play()
                 menuTween.Completed:Connect(function()
                     if not active then
@@ -3087,8 +3169,10 @@ function Library:CreateWindow(config)
                 end
             end)
 
-            DropBtn:GetPropertyChangedSignal("AbsolutePosition"):Connect(function()
-                if active then updateMenuPosition() end
+            DropBackdrop.MouseButton1Click:Connect(function()
+                if active then
+                    DropdownHandler:Close()
+                end
             end)
 
             DropMenu.Destroying:Connect(function()
@@ -3096,6 +3180,9 @@ function Library:CreateWindow(config)
                     ActiveDropdown = nil
                 end
                 DropdownsRegistry[DropMenu] = nil
+                if DropBackdrop and DropBackdrop.Parent then
+                    DropBackdrop:Destroy()
+                end
             end)
 
             return DropdownHandler
