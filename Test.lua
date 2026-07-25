@@ -846,7 +846,7 @@ local function RegisterLocale(instance, key, isUpper)
 
     local entry = Library.Translations[key]
     local text = (entry and entry[CurrentLanguage]) or key
-    instance.Text = isUpper and text
+    instance.Text = text
 end
 
 local function ApplyLanguage(langCode)
