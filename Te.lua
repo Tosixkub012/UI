@@ -2131,7 +2131,6 @@ function Library:CreateWindow(config)
         TabPage.BorderSizePixel = 0  
         TabPage.Visible = false  
         TabPage.CanvasSize = UDim2.new(0, 0, 0, 0)
-        TabPage.AutomaticCanvasSize = Enum.AutomaticSize.Y
         TabPage.ScrollBarThickness = 3  
         TabPage.ZIndex = 12  
         TabPage.Parent = Container  
