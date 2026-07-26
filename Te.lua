@@ -1058,6 +1058,7 @@ function Library:CreateWindow(config)
     ScreenGui.ResetOnSpawn = false
     ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     ScreenGui.DisplayOrder = 100
+    ScreenGui.AutoLocalize = false
     ScreenGui.Parent = PlayerGui
     GlobalScreenGui = ScreenGui
 
@@ -1205,6 +1206,7 @@ function Library:CreateWindow(config)
     NavScroll.BackgroundTransparency = 1
     NavScroll.BorderSizePixel = 0
     NavScroll.CanvasSize = UDim2.new(0, 0, 0, 0)
+    NavScroll.AutomaticCanvasSize = Enum.AutomaticSize.Y
     NavScroll.ScrollBarThickness = 0
     NavScroll.ZIndex = 12
     NavScroll.Parent = Sidebar
@@ -1563,6 +1565,7 @@ function Library:CreateWindow(config)
     FractureScreenGui.ResetOnSpawn = false
     FractureScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     FractureScreenGui.DisplayOrder = 101
+    FractureScreenGui.AutoLocalize = false
     FractureScreenGui.Enabled = true
     FractureScreenGui.Parent = PlayerGui
 
@@ -2127,7 +2130,8 @@ function Library:CreateWindow(config)
         TabPage.BackgroundTransparency = 1  
         TabPage.BorderSizePixel = 0  
         TabPage.Visible = false  
-        TabPage.CanvasSize = UDim2.new(0, 0, 0, 0)  
+        TabPage.CanvasSize = UDim2.new(0, 0, 0, 0)
+        TabPage.AutomaticCanvasSize = Enum.AutomaticSize.Y
         TabPage.ScrollBarThickness = 3  
         TabPage.ZIndex = 12  
         TabPage.Parent = Container  
