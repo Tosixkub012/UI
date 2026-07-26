@@ -1308,12 +1308,6 @@ function Library:CreateWindow(config)
             elseif toclipboard then
                 toclipboard(titleLink)
             end
-            Library:Notify({
-                Title = "Copied link!",
-                Content = "Discord link copied to clipboard successfully.",
-                Image = "rbxassetid://10734952479",
-                Duration = 3
-            })
         end)
     end
 
