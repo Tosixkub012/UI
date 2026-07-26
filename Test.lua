@@ -1404,19 +1404,28 @@ function Library:CreateWindow(config)
     local CloseConfirmFrame = Instance.new("Frame")
     CloseConfirmFrame.Name = "CloseConfirmFrame"
     CloseConfirmFrame.Size = UDim2.new(1, 0, 1, 0)
-    CloseConfirmFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    CloseConfirmFrame.BackgroundTransparency = 0.5
+    CloseConfirmFrame.BackgroundTransparency = 1
     CloseConfirmFrame.Active = true
     CloseConfirmFrame.Visible = false
     CloseConfirmFrame.ZIndex = 1000100
     CloseConfirmFrame.Parent = GlobalScreenGui
 
     local ConfirmBox = Instance.new("Frame")
-    ConfirmBox.Size = UDim2.new(0, 260, 0, 120)
-    ConfirmBox.Position = UDim2.new(0.5, -130, 0.5, -60)
+    ConfirmBox.AnchorPoint = Vector2.new(0.5, 0.5)
+    ConfirmBox.Size = UDim2.fromOffset(260, 120)
+    ConfirmBox.Position = UDim2.new(0.5, 0, 0.5, 0)
     ConfirmBox.ZIndex = 1000101
     ConfirmBox.Parent = CloseConfirmFrame
     RegisterElement(ConfirmBox, "BackgroundColor3", "ElementBg")
+
+    local function updateConfirmBoxSize()
+        local vp = CurrentCamera.ViewportSize
+        local w = math.min(260, vp.X - 32)
+        local h = math.min(120, vp.Y - 32)
+        ConfirmBox.Size = UDim2.fromOffset(w, h)
+    end
+    updateConfirmBoxSize()
+    CurrentCamera:GetPropertyChangedSignal("ViewportSize"):Connect(updateConfirmBoxSize)
 
     local ConfirmCorner = Instance.new("UICorner")
     ConfirmCorner.CornerRadius = UDim.new(0, 10)
@@ -1428,19 +1437,20 @@ function Library:CreateWindow(config)
     RegisterElement(ConfirmStroke, "Color", "Border")
 
     local ConfirmTitle = Instance.new("TextLabel")
-    ConfirmTitle.Size = UDim2.new(1, 0, 0, 40)
-    ConfirmTitle.Position = UDim2.new(0, 0, 0, 15)
+    ConfirmTitle.Size = UDim2.new(1, -24, 0, 40)
+    ConfirmTitle.Position = UDim2.new(0, 12, 0, 15)
     ConfirmTitle.Text = "Are you sure you want to close?"
     ConfirmTitle.TextSize = 13
     SetInterFont(ConfirmTitle, "Bold")
+    ConfirmTitle.TextWrapped = true
     ConfirmTitle.BackgroundTransparency = 1
     ConfirmTitle.ZIndex = 1000102
     ConfirmTitle.Parent = ConfirmBox
     RegisterElement(ConfirmTitle, "TextColor3", "Text")
 
     local YesBtn = Instance.new("TextButton")
-    YesBtn.Size = UDim2.new(0, 105, 0, 32)
-    YesBtn.Position = UDim2.new(0, 15, 0, 70)
+    YesBtn.Size = UDim2.new(0.5, -18, 0, 32)
+    YesBtn.Position = UDim2.new(0, 12, 1, -44)
     YesBtn.Text = "Confirm"
     YesBtn.TextSize = 12
     SetInterFont(YesBtn, "Bold")
@@ -1455,8 +1465,8 @@ function Library:CreateWindow(config)
     YesCorner.Parent = YesBtn
 
     local NoBtn = Instance.new("TextButton")
-    NoBtn.Size = UDim2.new(0, 105, 0, 32)
-    NoBtn.Position = UDim2.new(1, -120, 0, 70)
+    NoBtn.Size = UDim2.new(0.5, -18, 0, 32)
+    NoBtn.Position = UDim2.new(0.5, 6, 1, -44)
     NoBtn.Text = "Cancel"
     NoBtn.TextSize = 12
     SetInterFont(NoBtn, "Bold")
@@ -2363,6 +2373,9 @@ function Library:CreateWindow(config)
             function ParagraphMethods:SetContent(newContent)
                 ContentLabel.Text = newContent
             end
+            function ParagraphMethods:SetDesc(newContent)
+                ContentLabel.Text = newContent
+            end
             return ParagraphMethods
         end
 
@@ -2847,7 +2860,6 @@ function Library:CreateWindow(config)
             DropBackdrop.Name = "DropBackdrop"
             DropBackdrop.Size = UDim2.new(1, 0, 1, 0)
             DropBackdrop.Position = UDim2.new(0, 0, 0, 0)
-            DropBackdrop.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
             DropBackdrop.BackgroundTransparency = 1
             DropBackdrop.Text = ""
             DropBackdrop.AutoButtonColor = false
@@ -2858,7 +2870,7 @@ function Library:CreateWindow(config)
             local DropMenu = Instance.new("Frame")
             DropMenu.Name = "DropMenu"
             DropMenu.Size = UDim2.fromOffset(240, 0)
-            DropMenu.AnchorPoint = Vector2.new(0, 0)
+            DropMenu.AnchorPoint = Vector2.new(0.5, 0.5)
             DropMenu.ClipsDescendants = true
             DropMenu.Visible = false
             DropMenu.ZIndex = 1000000
@@ -2952,11 +2964,8 @@ function Library:CreateWindow(config)
                 local targetHeight = (matchCount * 34) + 52
                 local calculatedHeight = math.clamp(targetHeight, 52 + 34, maxAllowedHeight)
 
-                local posX = (currentViewport.X - menuWidth) / 2
-                local posY = (currentViewport.Y - calculatedHeight) / 2
+                DropMenu.Position = UDim2.new(0.5, 0, 0.5, 0)
 
-                DropMenu.Size = UDim2.fromOffset(menuWidth, DropMenu.Size.Y.Offset)
-                DropMenu.Position = UDim2.fromOffset(posX, posY)
                 return calculatedHeight, menuWidth
             end
 
@@ -3112,19 +3121,16 @@ function Library:CreateWindow(config)
                 
                 local calculatedHeight, menuWidth = updateMenuPosition()
                 DropMenu.Size = UDim2.fromOffset(menuWidth, 0)
-                DropMenu.Position = UDim2.fromOffset(DropMenu.Position.X.Offset, DropMenu.Position.Y.Offset + calculatedHeight / 2)
                 DropMenu.Visible = true
                 if DropBackdrop then
                     DropBackdrop.Visible = true
-                    TweenService:Create(DropBackdrop, TweenInfo.new(0.2), {BackgroundTransparency = 0.55}):Play()
                 end
                 
                 populateList(SearchBox.Text)
                 ListHolder.CanvasPosition = savedCanvasPosition
 
                 local menuTween = TweenService:Create(DropMenu, TweenInfo.new(0.3, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {
-                    Size = UDim2.fromOffset(menuWidth, calculatedHeight),
-                    Position = UDim2.fromOffset(DropMenu.Position.X.Offset, DropMenu.Position.Y.Offset - calculatedHeight / 2)
+                    Size = UDim2.fromOffset(menuWidth, calculatedHeight)
                 })
                 menuTween:Play()
             end
@@ -3141,16 +3147,11 @@ function Library:CreateWindow(config)
                 end
 
                 if DropBackdrop then
-                    TweenService:Create(DropBackdrop, TweenInfo.new(0.2), {BackgroundTransparency = 1}):Play()
-                    task.delay(0.2, function()
-                        if not active then DropBackdrop.Visible = false end
-                    end)
+                    DropBackdrop.Visible = false
                 end
 
-                local curHeight = DropMenu.Size.Y.Offset
                 local menuTween = TweenService:Create(DropMenu, TweenInfo.new(0.22, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {
-                    Size = UDim2.fromOffset(DropMenu.Size.X.Offset, 0),
-                    Position = UDim2.fromOffset(DropMenu.Position.X.Offset, DropMenu.Position.Y.Offset + curHeight / 2)
+                    Size = UDim2.fromOffset(DropMenu.Size.X.Offset, 0)
                 })
                 menuTween:Play()
                 menuTween.Completed:Connect(function()
@@ -3175,11 +3176,19 @@ function Library:CreateWindow(config)
                 end
             end)
 
+            local viewportConn = CurrentCamera:GetPropertyChangedSignal("ViewportSize"):Connect(function()
+                if active then
+                    local newHeight, newWidth = updateMenuPosition()
+                    DropMenu.Size = UDim2.fromOffset(newWidth, newHeight)
+                end
+            end)
+
             DropMenu.Destroying:Connect(function()
                 if ActiveDropdown == DropdownHandler then
                     ActiveDropdown = nil
                 end
                 DropdownsRegistry[DropMenu] = nil
+                if viewportConn then viewportConn:Disconnect() end
                 if DropBackdrop and DropBackdrop.Parent then
                     DropBackdrop:Destroy()
                 end
