@@ -11,6 +11,7 @@ local Library = {}
 Library.Translations = {}
 
 local Fonts = {
+    ["GothamSSm"] = {Regular = Enum.Font.GothamSSm, Medium = Enum.Font.GothamSSm, Bold = Enum.Font.GothamSSm},
     ["Gotham Bold"] = {Regular = Enum.Font.GothamBold, Medium = Enum.Font.GothamBold, Bold = Enum.Font.GothamBold},
     ["Gotham Medium"] = {Regular = Enum.Font.GothamMedium, Medium = Enum.Font.GothamMedium, Bold = Enum.Font.GothamMedium},
     ["Gotham"] = {Regular = Enum.Font.Gotham, Medium = Enum.Font.GothamMedium, Bold = Enum.Font.GothamBold},
@@ -1121,60 +1122,21 @@ function Library:CreateWindow(config)
     RegisterElement(SidebarCover, "BackgroundColor3", "Sidebar")
     SidebarCoverRef = SidebarCover
 
-    local StatsContainer = Instance.new("Frame")
-    StatsContainer.Name = "StatsContainer"
-    StatsContainer.Size = UDim2.new(1, -20, 0, 24)
-    StatsContainer.Position = UDim2.new(0, 10, 0, 12)
-    StatsContainer.BackgroundTransparency = 0.5
-    StatsContainer.ZIndex = 12
-    StatsContainer.Parent = Sidebar
-    RegisterElement(StatsContainer, "BackgroundColor3", "ElementBg")
-    StatsContainerRef = StatsContainer
-
-    local StatsCorner = Instance.new("UICorner")
-    StatsCorner.CornerRadius = UDim.new(0, 6)
-    StatsCorner.Parent = StatsContainer
-
-    local StatsStroke = Instance.new("UIStroke")
-    StatsStroke.Thickness = 1
-    StatsStroke.Parent = StatsContainer
-    RegisterElement(StatsStroke, "Color", "Border")
-
-    local StatsImage = Instance.new("ImageLabel")
-    StatsImage.Size = UDim2.new(0, 14, 0, 14)
-    StatsImage.Position = UDim2.new(0, 6, 0.5, -7)
-    StatsImage.BackgroundTransparency = 1
-    StatsImage.Image = "rbxassetid://10723415903"
-    StatsImage.ZIndex = 13
-    StatsImage.Parent = StatsContainer
-    RegisterElement(StatsImage, "ImageColor3", "Text")
-
-    local StatsLabel = Instance.new("TextLabel")
-    StatsLabel.Name = "StatsLabel"
-    StatsLabel.Size = UDim2.new(1, -28, 1, 0)
-    StatsLabel.Position = UDim2.new(0, 24, 0, 0)
-    StatsLabel.Text = "FPS: ... | PING: ..."
-    StatsLabel.TextSize = 9
-    SetInterFont(StatsLabel, "Bold")
-    StatsLabel.TextXAlignment = Enum.TextXAlignment.Left
-    StatsLabel.BackgroundTransparency = 1
-    StatsLabel.RichText = true
-    StatsLabel.ZIndex = 13
-    StatsLabel.AutoLocalize = false
-    StatsLabel.Parent = StatsContainer
+    local hubImageUrl = ConfigData.HubImage or floatingIcon
 
     local ProfileCard = Instance.new("Frame")
     ProfileCard.Name = "ProfileCard"
-    ProfileCard.Size = UDim2.new(1, -20, 0, 52)
-    ProfileCard.Position = UDim2.new(0, 10, 0, 42)
-    ProfileCard.BackgroundTransparency = 0.5
+    ProfileCard.Size = UDim2.new(1, -16, 0, 140)
+    ProfileCard.Position = UDim2.new(0, 8, 0, 8)
+    ProfileCard.BackgroundTransparency = 0.4
     ProfileCard.ZIndex = 12
     ProfileCard.Visible = profileEnabled
+    ProfileCard.ClipsDescendants = true
     ProfileCard.Parent = Sidebar
     RegisterElement(ProfileCard, "BackgroundColor3", "ElementBg")
 
     local ProfileCorner = Instance.new("UICorner")
-    ProfileCorner.CornerRadius = UDim.new(0, 8)
+    ProfileCorner.CornerRadius = UDim.new(0, 12)
     ProfileCorner.Parent = ProfileCard
 
     local ProfileStroke = Instance.new("UIStroke")
@@ -1182,70 +1144,105 @@ function Library:CreateWindow(config)
     ProfileStroke.Parent = ProfileCard
     RegisterElement(ProfileStroke, "Color", "Border")
 
-    local AvatarImg = Instance.new("ImageLabel")
-    AvatarImg.Name = "Avatar"
-    AvatarImg.Size = UDim2.new(0, 32, 0, 32)
-    AvatarImg.Position = UDim2.new(0, 8, 0.5, -16)
-    AvatarImg.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. LocalPlayer.UserId .. "&width=150&height=150&format=png"
-    AvatarImg.BackgroundTransparency = 1
-    AvatarImg.ZIndex = 13
-    AvatarImg.Parent = ProfileCard
+    local HubImgLabel = Instance.new("ImageLabel")
+    HubImgLabel.Name = "HubImage"
+    HubImgLabel.Size = UDim2.new(0, 50, 0, 50)
+    HubImgLabel.AnchorPoint = Vector2.new(0.5, 0)
+    HubImgLabel.Position = UDim2.new(0.5, 0, 0, 10)
+    HubImgLabel.Image = hubImageUrl
+    HubImgLabel.ScaleType = Enum.ScaleType.Fit
+    HubImgLabel.BackgroundTransparency = 1
+    HubImgLabel.ZIndex = 13
+    HubImgLabel.Parent = ProfileCard
 
-    local AvatarCorner = Instance.new("UICorner")
-    AvatarCorner.CornerRadius = UDim.new(1, 0)
-    AvatarCorner.Parent = AvatarImg
+    local HubImgCorner = Instance.new("UICorner")
+    HubImgCorner.CornerRadius = UDim.new(0, 10)
+    HubImgCorner.Parent = HubImgLabel
+
+    local HubNameLabel = Instance.new("TextLabel")
+    HubNameLabel.Name = "HubName"
+    HubNameLabel.Size = UDim2.new(1, -12, 0, 18)
+    HubNameLabel.Position = UDim2.new(0, 6, 0, 64)
+    HubNameLabel.Text = titleText
+    HubNameLabel.TextSize = 13
+    SetInterFont(HubNameLabel, "Bold")
+    HubNameLabel.TextXAlignment = Enum.TextXAlignment.Center
+    HubNameLabel.TextTruncate = Enum.TextTruncate.AtEnd
+    HubNameLabel.BackgroundTransparency = 1
+    HubNameLabel.ZIndex = 13
+    HubNameLabel.AutoLocalize = false
+    HubNameLabel.Parent = ProfileCard
+    RegisterElement(HubNameLabel, "TextColor3", "Text")
+
+    local HubSubLabel = Instance.new("TextLabel")
+    HubSubLabel.Name = "HubSubTitle"
+    HubSubLabel.Size = UDim2.new(1, -12, 0, 13)
+    HubSubLabel.Position = UDim2.new(0, 6, 0, 83)
+    HubSubLabel.Text = subtitle ~= "" and subtitle or "Universal Script System"
+    HubSubLabel.TextSize = 10
+    SetInterFont(HubSubLabel, "Medium")
+    HubSubLabel.TextXAlignment = Enum.TextXAlignment.Center
+    HubSubLabel.TextTruncate = Enum.TextTruncate.AtEnd
+    HubSubLabel.BackgroundTransparency = 1
+    HubSubLabel.ZIndex = 13
+    HubSubLabel.AutoLocalize = false
+    HubSubLabel.Parent = ProfileCard
+    RegisterElement(HubSubLabel, "TextColor3", "SubText")
+
+    local StatsContainer = Instance.new("Frame")
+    StatsContainer.Name = "StatsContainer"
+    StatsContainer.Size = UDim2.new(1, -16, 0, 22)
+    StatsContainer.Position = UDim2.new(0, 8, 0, 100)
+    StatsContainer.BackgroundTransparency = 0.6
+    StatsContainer.ZIndex = 13
+    StatsContainer.Parent = ProfileCard
+    RegisterElement(StatsContainer, "BackgroundColor3", "Background")
+    StatsContainerRef = StatsContainer
+
+    local StatsCorner = Instance.new("UICorner")
+    StatsCorner.CornerRadius = UDim.new(0, 6)
+    StatsCorner.Parent = StatsContainer
+
+    local StatsLabel = Instance.new("TextLabel")
+    StatsLabel.Name = "StatsLabel"
+    StatsLabel.Size = UDim2.new(1, -8, 1, 0)
+    StatsLabel.Position = UDim2.new(0, 4, 0, 0)
+    StatsLabel.Text = "FPS: ... | PING: ... | TIME: ..."
+    StatsLabel.TextSize = 9
+    SetInterFont(StatsLabel, "Bold")
+    StatsLabel.TextXAlignment = Enum.TextXAlignment.Center
+    StatsLabel.TextTruncate = Enum.TextTruncate.AtEnd
+    StatsLabel.BackgroundTransparency = 1
+    StatsLabel.RichText = true
+    StatsLabel.ZIndex = 14
+    StatsLabel.AutoLocalize = false
+    StatsLabel.Parent = StatsContainer
 
     local NameLabel = Instance.new("TextLabel")
     NameLabel.Name = "PlayerName"
-    NameLabel.Size = UDim2.new(1, -66, 0, 16)
-    NameLabel.Position = UDim2.new(0, 46, 0, 10)
-    NameLabel.Text = LocalPlayer.Name
-    NameLabel.TextSize = 12
-    SetInterFont(NameLabel, "Bold")
-    NameLabel.TextXAlignment = Enum.TextXAlignment.Left
-    NameLabel.TextTruncate = Enum.TextTruncate.AtEnd
+    NameLabel.Size = UDim2.new(0, 0, 0, 0)
     NameLabel.BackgroundTransparency = 1
-    NameLabel.ZIndex = 13
+    NameLabel.ZIndex = 1
     NameLabel.AutoLocalize = false
     NameLabel.Parent = ProfileCard
-    RegisterElement(NameLabel, "TextColor3", "Text")
 
     local DisplayLabel = Instance.new("TextLabel")
     DisplayLabel.Name = "DisplayName"
-    DisplayLabel.Size = UDim2.new(1, -66, 0, 12)
-    DisplayLabel.Position = UDim2.new(0, 46, 0, 26)
-    DisplayLabel.Text = "@" .. LocalPlayer.DisplayName
-    DisplayLabel.TextSize = 9
-    SetInterFont(DisplayLabel, "Medium")
-    DisplayLabel.TextXAlignment = Enum.TextXAlignment.Left
-    DisplayLabel.TextTruncate = Enum.TextTruncate.AtEnd
+    DisplayLabel.Size = UDim2.new(0, 0, 0, 0)
     DisplayLabel.BackgroundTransparency = 1
-    DisplayLabel.ZIndex = 13
+    DisplayLabel.ZIndex = 1
     DisplayLabel.AutoLocalize = false
     DisplayLabel.Parent = ProfileCard
-    RegisterElement(DisplayLabel, "TextColor3", "SubText")
 
     local EyeToggleBtn = Instance.new("TextButton")
-    EyeToggleBtn.Size = UDim2.new(0, 20, 0, 20)
-    EyeToggleBtn.Position = UDim2.new(1, -22, 0, 4)
+    EyeToggleBtn.Size = UDim2.new(0, 0, 0, 0)
     EyeToggleBtn.BackgroundTransparency = 1
-    EyeToggleBtn.Text = profileLook and "👁" or "🙈"
-    EyeToggleBtn.TextSize = 12
-    EyeToggleBtn.ZIndex = 14
+    EyeToggleBtn.Text = ""
+    EyeToggleBtn.ZIndex = 1
     EyeToggleBtn.AutoLocalize = false
     EyeToggleBtn.Parent = ProfileCard
-    RegisterElement(EyeToggleBtn, "TextColor3", "SubText")
 
     local function updateProfileLook()
-        if profileLook then
-            NameLabel.Text = LocalPlayer.Name
-            DisplayLabel.Text = "@" .. LocalPlayer.DisplayName
-            EyeToggleBtn.Text = "👁"
-        else
-            NameLabel.Text = string.rep("*", string.len(LocalPlayer.Name))
-            DisplayLabel.Text = "@" .. string.rep("*", 8)
-            EyeToggleBtn.Text = "🙈"
-        end
         ConfigData.ProfileLook = profileLook
         SaveConfig()
     end
@@ -1258,8 +1255,8 @@ function Library:CreateWindow(config)
 
     local NavScroll = Instance.new("ScrollingFrame")
     NavScroll.Name = "NavScroll"
-    NavScroll.Size = UDim2.new(1, -12, 1, profileEnabled and -150 or -92)
-    NavScroll.Position = UDim2.new(0, 6, 0, profileEnabled and 100 or 42)
+    NavScroll.Size = UDim2.new(1, -12, 1, profileEnabled and -164 or -8)
+    NavScroll.Position = UDim2.new(0, 6, 0, profileEnabled and 156 or 8)
     NavScroll.BackgroundTransparency = 1
     NavScroll.BorderSizePixel = 0
     NavScroll.CanvasSize = UDim2.new(0, 0, 0, 0)
@@ -1280,104 +1277,9 @@ function Library:CreateWindow(config)
         NavScroll.CanvasSize = UDim2.new(0, 0, 0, NavLayout.AbsoluteContentSize.Y + 20)
     end)
 
-    local LinkPanel = Instance.new("Frame")
-    LinkPanel.Name = "LinkPanel"
-    LinkPanel.Size = UDim2.new(1, -16, 0, 40)
-    LinkPanel.Position = UDim2.new(0, 8, 1, -48)
-    LinkPanel.BackgroundTransparency = 1
-    LinkPanel.ZIndex = 12
-    LinkPanel.Parent = Sidebar
+    local ToggleUI
 
-    local LinkLayout = Instance.new("UIListLayout")
-    LinkLayout.FillDirection = Enum.FillDirection.Horizontal
-    LinkLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-    LinkLayout.VerticalAlignment = Enum.VerticalAlignment.Center
-    LinkLayout.Padding = UDim.new(0, 8)
-    LinkLayout.Parent = LinkPanel
 
-    if titleLink ~= "" then
-        local DiscordBtn = Instance.new("TextButton")
-        DiscordBtn.Name = "DiscordBtn"
-        DiscordBtn.Size = UDim2.new(1, 0, 0, 32)
-        DiscordBtn.Text = ""
-        DiscordBtn.AutoButtonColor = false
-        DiscordBtn.BackgroundTransparency = 0.3
-        DiscordBtn.ZIndex = 13
-        DiscordBtn.AutoLocalize = false
-        DiscordBtn.Parent = LinkPanel
-        RegisterElement(DiscordBtn, "BackgroundColor3", "ElementBg")
-
-        local DiscordCorner = Instance.new("UICorner")
-        DiscordCorner.CornerRadius = UDim.new(0, 8)
-        DiscordCorner.Parent = DiscordBtn
-
-        local DiscordStroke = Instance.new("UIStroke")
-        DiscordStroke.Thickness = 1
-        DiscordStroke.Transparency = 0.4
-        DiscordStroke.Parent = DiscordBtn
-        RegisterElement(DiscordStroke, "Color", "Border")
-
-        local DiscordRow = Instance.new("Frame")
-        DiscordRow.Size = UDim2.new(1, 0, 1, 0)
-        DiscordRow.BackgroundTransparency = 1
-        DiscordRow.ZIndex = 14
-        DiscordRow.Parent = DiscordBtn
-
-        local DiscordRowLayout = Instance.new("UIListLayout")
-        DiscordRowLayout.FillDirection = Enum.FillDirection.Horizontal
-        DiscordRowLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-        DiscordRowLayout.VerticalAlignment = Enum.VerticalAlignment.Center
-        DiscordRowLayout.Padding = UDim.new(0, 6)
-        DiscordRowLayout.Parent = DiscordRow
-
-        local DiscordIcon = Instance.new("TextLabel")
-        DiscordIcon.Size = UDim2.new(0, 14, 0, 14)
-        DiscordIcon.Text = "🔗"
-        DiscordIcon.TextSize = 12
-        DiscordIcon.BackgroundTransparency = 1
-        DiscordIcon.ZIndex = 14
-        DiscordIcon.LayoutOrder = 1
-        DiscordIcon.AutoLocalize = false
-        DiscordIcon.Parent = DiscordRow
-
-        local DiscordLabel = Instance.new("TextLabel")
-        DiscordLabel.Size = UDim2.new(0, 0, 1, 0)
-        DiscordLabel.AutomaticSize = Enum.AutomaticSize.X
-        DiscordLabel.Text = "Join Discord"
-        DiscordLabel.TextSize = 11
-        SetInterFont(DiscordLabel, "Bold")
-        DiscordLabel.BackgroundTransparency = 1
-        DiscordLabel.ZIndex = 14
-        DiscordLabel.LayoutOrder = 2
-        DiscordLabel.AutoLocalize = false
-        DiscordLabel.Parent = DiscordRow
-        RegisterElement(DiscordLabel, "TextColor3", "SubText")
-
-        DiscordBtn.MouseEnter:Connect(function()
-            TweenService:Create(DiscordBtn, TweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0}):Play()
-            TweenService:Create(DiscordStroke, TweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Transparency = 0, Color = CurrentTheme.Accent}):Play()
-            TweenService:Create(DiscordLabel, TweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = CurrentTheme.Accent}):Play()
-        end)
-        DiscordBtn.MouseLeave:Connect(function()
-            TweenService:Create(DiscordBtn, TweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0.3}):Play()
-            TweenService:Create(DiscordStroke, TweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Transparency = 0.4, Color = CurrentTheme.Border}):Play()
-            TweenService:Create(DiscordLabel, TweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = CurrentTheme.SubText}):Play()
-        end)
-
-        DiscordBtn.MouseButton1Click:Connect(function()
-            TweenService:Create(DiscordBtn, TweenInfo.new(0.08), {BackgroundTransparency = 0.15}):Play()
-            task.delay(0.08, function()
-                if DiscordBtn and DiscordBtn.Parent then
-                    TweenService:Create(DiscordBtn, TweenInfo.new(0.15), {BackgroundTransparency = 0}):Play()
-                end
-            end)
-            if setclipboard then
-                setclipboard(titleLink)
-            elseif toclipboard then
-                toclipboard(titleLink)
-            end
-        end)
-    end
 
     local Header = Instance.new("Frame")
     Header.Name = "Header"
@@ -1389,32 +1291,18 @@ function Library:CreateWindow(config)
 
     local Title = Instance.new("TextLabel")
     Title.Name = "Title"
-    Title.Size = UDim2.new(1, -120, 0, 24)
-    Title.Position = UDim2.new(0, 20, 0, 6)
+    Title.Size = UDim2.new(1, -90, 0, 30)
+    Title.Position = UDim2.new(0, 20, 0, 13)
     Title.Text = titleText
-    Title.TextSize = 16
+    Title.TextSize = 17
     SetInterFont(Title, "Bold")
     Title.TextXAlignment = Enum.TextXAlignment.Left
+    Title.TextTruncate = Enum.TextTruncate.AtEnd
     Title.BackgroundTransparency = 1
     Title.ZIndex = 12
     Title.AutoLocalize = false
     Title.Parent = Header
     RegisterElement(Title, "TextColor3", "Text")
-
-    local SubTitle = Instance.new("TextLabel")
-    SubTitle.Name = "SubTitle"
-    SubTitle.Size = UDim2.new(1, -120, 0, 14)
-    SubTitle.Position = UDim2.new(0, 20, 0, 26)
-    SubTitle.Text = subtitle ~= "" and subtitle or "Universal Script System"
-    SubTitle.TextSize = 11
-    SetInterFont(SubTitle, "Medium")
-    SubTitle.TextTruncate = Enum.TextTruncate.AtEnd
-    SubTitle.TextXAlignment = Enum.TextXAlignment.Left
-    SubTitle.BackgroundTransparency = 1
-    SubTitle.ZIndex = 12
-    SubTitle.AutoLocalize = false
-    SubTitle.Parent = Header
-    RegisterElement(SubTitle, "TextColor3", "SubText")
 
     task.spawn(function()
         local startTime = os.clock()
@@ -1557,8 +1445,8 @@ function Library:CreateWindow(config)
     CloseBtn.Name = "CloseBtn"
     CloseBtn.Size = UDim2.new(0, 26, 0, 26)
     CloseBtn.Position = UDim2.new(1, -38, 0, 15)
-    CloseBtn.Text = "❌"
-    CloseBtn.TextSize = 12
+    CloseBtn.Text = "X"
+    CloseBtn.TextSize = 13
     SetInterFont(CloseBtn, "Bold")
     CloseBtn.AutoButtonColor = false
     CloseBtn.ZIndex = 12
@@ -1578,48 +1466,29 @@ function Library:CreateWindow(config)
         CloseConfirmFrame.Visible = true
     end)
 
-    local MaximizeBtn = Instance.new("TextButton")
-    MaximizeBtn.Name = "MaximizeBtn"
-    MaximizeBtn.Size = UDim2.new(0, 26, 0, 26)
-    MaximizeBtn.Position = UDim2.new(1, -68, 0, 15)
-    MaximizeBtn.Text = "➕"
-    MaximizeBtn.TextSize = 14
-    SetInterFont(MaximizeBtn, "Bold")
-    MaximizeBtn.AutoButtonColor = false
-    MaximizeBtn.ZIndex = 12
-    MaximizeBtn.AutoLocalize = false
-    MaximizeBtn.Parent = Header
-    RegisterElement(MaximizeBtn, "BackgroundColor3", "ElementBg")
-    RegisterElement(MaximizeBtn, "TextColor3", "SubText")
-    local MaxCorner = Instance.new("UICorner")
-    MaxCorner.CornerRadius = UDim.new(0, 6)
-    MaxCorner.Parent = MaximizeBtn
-    local MaxStroke = Instance.new("UIStroke")
-    MaxStroke.Thickness = 1
-    MaxStroke.Parent = MaximizeBtn
-    RegisterElement(MaxStroke, "Color", "Border")
+    local MinimizeBtn = Instance.new("TextButton")
+    MinimizeBtn.Name = "MinimizeBtn"
+    MinimizeBtn.Size = UDim2.new(0, 26, 0, 26)
+    MinimizeBtn.Position = UDim2.new(1, -68, 0, 15)
+    MinimizeBtn.Text = "-"
+    MinimizeBtn.TextSize = 18
+    SetInterFont(MinimizeBtn, "Bold")
+    MinimizeBtn.AutoButtonColor = false
+    MinimizeBtn.ZIndex = 12
+    MinimizeBtn.AutoLocalize = false
+    MinimizeBtn.Parent = Header
+    RegisterElement(MinimizeBtn, "BackgroundColor3", "ElementBg")
+    RegisterElement(MinimizeBtn, "TextColor3", "SubText")
+    local MinCorner = Instance.new("UICorner")
+    MinCorner.CornerRadius = UDim.new(0, 6)
+    MinCorner.Parent = MinimizeBtn
+    local MinStroke = Instance.new("UIStroke")
+    MinStroke.Thickness = 1
+    MinStroke.Parent = MinimizeBtn
+    RegisterElement(MinStroke, "Color", "Border")
 
-    local isMaximized = false
-    local previousSize = MainFrame.Size
-    local previousPosition = MainFrame.Position
-
-    MaximizeBtn.MouseButton1Click:Connect(function()
-        isMaximized = not isMaximized
-        if isMaximized then
-            previousSize = MainFrame.Size
-            previousPosition = MainFrame.Position
-            local screenVP = CurrentCamera.ViewportSize
-            local maxW, maxH = screenVP.X - 40, screenVP.Y - 40
-            TweenService:Create(MainFrame, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
-                Size = UDim2.fromOffset(maxW, maxH),
-                Position = UDim2.fromOffset(20 + maxW / 2, 20 + maxH / 2)
-            }):Play()
-        else
-            TweenService:Create(MainFrame, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
-                Size = previousSize,
-                Position = previousPosition
-            }):Play()
-        end
+    MinimizeBtn.MouseButton1Click:Connect(function()
+        if ToggleUI then ToggleUI() end
     end)
 
     if PlayerGui:FindFirstChild("FractureScreenGui") then
@@ -1706,14 +1575,6 @@ function Library:CreateWindow(config)
             isDragging = false 
         end
     end)
-
-    local function ToggleUI()
-        local willMinimize = MainFrame.Visible
-        if willMinimize and ActiveDropdown then
-            ActiveDropdown:Close()
-        end
-        MainFrame.Visible = not willMinimize
-    end
 
     FloatingButton.MouseButton1Click:Connect(function()
         if not dragThresholdExceeded then
@@ -2085,7 +1946,7 @@ function Library:CreateWindow(config)
         end
     end
 
-    local function ToggleUI()
+    ToggleUI = function()
         local isVisible = MainFrame.Visible
         local startScale = isVisible and 1 or 0.85
         local endScale = isVisible and 0.85 or 1
@@ -2124,7 +1985,7 @@ function Library:CreateWindow(config)
 
         local TabButton = Instance.new("TextButton")  
         TabButton.Name = tabName .. "Tab"  
-        TabButton.Size = UDim2.new(1, -8, 0, 32)  
+        TabButton.Size = UDim2.new(1, -8, 0, 36)  
         TabButton.BackgroundTransparency = 1  
         TabButton.Text = ""  
         TabButton.AutoButtonColor = false  
@@ -2188,8 +2049,8 @@ function Library:CreateWindow(config)
 
         local TextLabel = Instance.new("TextLabel")  
         TextLabel.Size = UDim2.new(1, -28, 1, 0)  
-        TextLabel.TextSize = 12  
-        SetInterFont(TextLabel, "Medium")  
+        TextLabel.TextSize = 14  
+        SetInterFont(TextLabel, "Bold")  
         TextLabel.TextXAlignment = Enum.TextXAlignment.Left  
         TextLabel.BackgroundTransparency = 1  
         TextLabel.ZIndex = 15  
@@ -3288,14 +3149,15 @@ function Library:CreateWindow(config)
 
         function Elements:CreateSection(sectionText)
             local SectionBg = Instance.new("Frame")
-            SectionBg.Size = UDim2.new(1, -20, 0, 32)
+            SectionBg.Size = UDim2.new(1, -20, 0, 36)
             SectionBg.BackgroundTransparency = 1
             SectionBg.ZIndex = 13
             SectionBg.Parent = TabPage
 
             local Label = Instance.new("TextLabel")
-            Label.Size = UDim2.new(1, 0, 1, 0)
-            Label.TextSize = 13
+            Label.Size = UDim2.new(1, 0, 1, -6)
+            Label.Position = UDim2.new(0, 0, 0, 6)
+            Label.TextSize = 14
             SetInterFont(Label, "Bold")
             Label.TextXAlignment = Enum.TextXAlignment.Left
             Label.BackgroundTransparency = 1
@@ -3389,18 +3251,18 @@ function Library:CreateWindow(config)
             Elements:CreateSection("Customization")
 
             Elements:Toggle("Enable Profile", {
-                Description = "เปิด/ปิด การแสดงผล Profile Card",
+                Description = "เปิด/ปิด การแสดงผล Profile",
                 Default = profileEnabled,
                 Callback = function(val)
                     profileEnabled = val
                     ProfileCard.Visible = profileEnabled
                     
                     if profileEnabled then
-                        NavScroll.Size = UDim2.new(1, -12, 1, -150)
-                        NavScroll.Position = UDim2.new(0, 6, 0, 100)
+                        NavScroll.Size = UDim2.new(1, -12, 1, -164)
+                        NavScroll.Position = UDim2.new(0, 6, 0, 156)
                     else
-                        NavScroll.Size = UDim2.new(1, -12, 1, -92)
-                        NavScroll.Position = UDim2.new(0, 6, 0, 42)
+                        NavScroll.Size = UDim2.new(1, -12, 1, -8)
+                        NavScroll.Position = UDim2.new(0, 6, 0, 8)
                     end
                     
                     ConfigData.ProfileEnabled = profileEnabled
@@ -3410,7 +3272,6 @@ function Library:CreateWindow(config)
 
             Elements:Input({
                 Title = "Floating Icon URL",
-                Description = "ใส่ rbxassetid:// หรือ URL",
                 Placeholder = "rbxassetid://...",
                 Default = floatingIcon,
                 Callback = function(val, enter)
@@ -3420,6 +3281,30 @@ function Library:CreateWindow(config)
                         ConfigData.FloatingIcon = floatingIcon
                         SaveConfig()
                     end
+                end
+            })
+
+            Elements:Input({
+                Title = "Change Hub Image",
+                Placeholder = "rbxassetid://...",
+                Default = hubImageUrl,
+                Callback = function(val, enter)
+                    if enter and val ~= "" then
+                        hubImageUrl = val
+                        HubImgLabel.Image = hubImageUrl
+                        ConfigData.HubImage = hubImageUrl
+                        SaveConfig()
+                    end
+                end
+            })
+
+            Elements:Button({
+                Title = "Reset Image",
+                Callback = function()
+                    hubImageUrl = floatingIcon
+                    HubImgLabel.Image = hubImageUrl
+                    ConfigData.HubImage = nil
+                    SaveConfig()
                 end
             })
 
