@@ -736,6 +736,7 @@ end)
 local MainFrameRef = nil
 local SidebarRef = nil
 local SidebarCoverRef = nil
+local StatsContainerRef = nil
 
 local HttpService = game:GetService("HttpService")
 local ConfigFolder = "FractureHub/UI/config"
@@ -1045,11 +1046,17 @@ function Library:CreateWindow(config)
     local themeDefault = ConfigData.Theme or config.Theme or "Midnight"
     local fontDefault = ConfigData.Font or "Gotham"
     local languageDefault = ConfigData.Language or "EN"
-    local profileLook = config.Look ~= false
+    local profileLook = ConfigData.ProfileLook ~= nil and ConfigData.ProfileLook or (config.Look ~= false)
+    local floatingIcon = ConfigData.FloatingIcon or config.Logo or "rbxassetid://83542549106889"
+    local profileEnabled = ConfigData.ProfileEnabled ~= nil and ConfigData.ProfileEnabled or true
+
+    local customWidth = ConfigData.CustomWidth or rawSize.X.Offset
+    local customHeight = ConfigData.CustomHeight or rawSize.Y.Offset
+    local rawSizeFromConfig = UDim2.fromOffset(customWidth, customHeight)
 
     local viewportSize = CurrentCamera.ViewportSize
-    local safeWidth = math.min(rawSize.X.Offset, viewportSize.X - 20)
-    local safeHeight = math.min(rawSize.Y.Offset, viewportSize.Y - 20)
+    local safeWidth = math.min(rawSizeFromConfig.X.Offset, viewportSize.X - 20)
+    local safeHeight = math.min(rawSizeFromConfig.Y.Offset, viewportSize.Y - 20)
     local size = UDim2.fromOffset(safeWidth, safeHeight)
 
     local OldUI = PlayerGui:FindFirstChild("FracturePremiumLib")
@@ -1114,12 +1121,55 @@ function Library:CreateWindow(config)
     RegisterElement(SidebarCover, "BackgroundColor3", "Sidebar")
     SidebarCoverRef = SidebarCover
 
+    local StatsContainer = Instance.new("Frame")
+    StatsContainer.Name = "StatsContainer"
+    StatsContainer.Size = UDim2.new(1, -20, 0, 24)
+    StatsContainer.Position = UDim2.new(0, 10, 0, 12)
+    StatsContainer.BackgroundTransparency = 0.5
+    StatsContainer.ZIndex = 12
+    StatsContainer.Parent = Sidebar
+    RegisterElement(StatsContainer, "BackgroundColor3", "ElementBg")
+    StatsContainerRef = StatsContainer
+
+    local StatsCorner = Instance.new("UICorner")
+    StatsCorner.CornerRadius = UDim.new(0, 6)
+    StatsCorner.Parent = StatsContainer
+
+    local StatsStroke = Instance.new("UIStroke")
+    StatsStroke.Thickness = 1
+    StatsStroke.Parent = StatsContainer
+    RegisterElement(StatsStroke, "Color", "Border")
+
+    local StatsImage = Instance.new("ImageLabel")
+    StatsImage.Size = UDim2.new(0, 14, 0, 14)
+    StatsImage.Position = UDim2.new(0, 6, 0.5, -7)
+    StatsImage.BackgroundTransparency = 1
+    StatsImage.Image = "rbxassetid://10723415903"
+    StatsImage.ZIndex = 13
+    StatsImage.Parent = StatsContainer
+    RegisterElement(StatsImage, "ImageColor3", "Text")
+
+    local StatsLabel = Instance.new("TextLabel")
+    StatsLabel.Name = "StatsLabel"
+    StatsLabel.Size = UDim2.new(1, -28, 1, 0)
+    StatsLabel.Position = UDim2.new(0, 24, 0, 0)
+    StatsLabel.Text = "FPS: ... | PING: ..."
+    StatsLabel.TextSize = 9
+    SetInterFont(StatsLabel, "Bold")
+    StatsLabel.TextXAlignment = Enum.TextXAlignment.Left
+    StatsLabel.BackgroundTransparency = 1
+    StatsLabel.RichText = true
+    StatsLabel.ZIndex = 13
+    StatsLabel.AutoLocalize = false
+    StatsLabel.Parent = StatsContainer
+
     local ProfileCard = Instance.new("Frame")
     ProfileCard.Name = "ProfileCard"
     ProfileCard.Size = UDim2.new(1, -20, 0, 52)
-    ProfileCard.Position = UDim2.new(0, 10, 0, 12)
+    ProfileCard.Position = UDim2.new(0, 10, 0, 42)
     ProfileCard.BackgroundTransparency = 0.5
     ProfileCard.ZIndex = 12
+    ProfileCard.Visible = profileEnabled
     ProfileCard.Parent = Sidebar
     RegisterElement(ProfileCard, "BackgroundColor3", "ElementBg")
 
@@ -1147,7 +1197,7 @@ function Library:CreateWindow(config)
 
     local NameLabel = Instance.new("TextLabel")
     NameLabel.Name = "PlayerName"
-    NameLabel.Size = UDim2.new(1, -52, 0, 16)
+    NameLabel.Size = UDim2.new(1, -66, 0, 16)
     NameLabel.Position = UDim2.new(0, 46, 0, 10)
     NameLabel.Text = LocalPlayer.Name
     NameLabel.TextSize = 12
@@ -1162,7 +1212,7 @@ function Library:CreateWindow(config)
 
     local DisplayLabel = Instance.new("TextLabel")
     DisplayLabel.Name = "DisplayName"
-    DisplayLabel.Size = UDim2.new(1, -52, 0, 12)
+    DisplayLabel.Size = UDim2.new(1, -66, 0, 12)
     DisplayLabel.Position = UDim2.new(0, 46, 0, 26)
     DisplayLabel.Text = "@" .. LocalPlayer.DisplayName
     DisplayLabel.TextSize = 9
@@ -1196,6 +1246,8 @@ function Library:CreateWindow(config)
             DisplayLabel.Text = "@" .. string.rep("*", 8)
             EyeToggleBtn.Text = "🙈"
         end
+        ConfigData.ProfileLook = profileLook
+        SaveConfig()
     end
     updateProfileLook()
 
@@ -1206,8 +1258,8 @@ function Library:CreateWindow(config)
 
     local NavScroll = Instance.new("ScrollingFrame")
     NavScroll.Name = "NavScroll"
-    NavScroll.Size = UDim2.new(1, -12, 1, -135)
-    NavScroll.Position = UDim2.new(0, 6, 0, 74)
+    NavScroll.Size = UDim2.new(1, -12, 1, profileEnabled and -150 or -92)
+    NavScroll.Position = UDim2.new(0, 6, 0, profileEnabled and 100 or 42)
     NavScroll.BackgroundTransparency = 1
     NavScroll.BorderSizePixel = 0
     NavScroll.CanvasSize = UDim2.new(0, 0, 0, 0)
@@ -1364,20 +1416,6 @@ function Library:CreateWindow(config)
     SubTitle.Parent = Header
     RegisterElement(SubTitle, "TextColor3", "SubText")
 
-    local StatsLabel = Instance.new("TextLabel")
-    StatsLabel.Name = "StatsLabel"
-    StatsLabel.Size = UDim2.new(1, -120, 0, 14)
-    StatsLabel.Position = UDim2.new(0, 20, 0, 40)
-    StatsLabel.Text = "FPS: Calculating... | PING: -- ms | Time: 00:00"
-    StatsLabel.TextSize = 10
-    SetInterFont(StatsLabel, "Bold")
-    StatsLabel.TextXAlignment = Enum.TextXAlignment.Left
-    StatsLabel.BackgroundTransparency = 1
-    StatsLabel.RichText = true
-    StatsLabel.ZIndex = 12
-    StatsLabel.AutoLocalize = false
-    StatsLabel.Parent = Header
-
     task.spawn(function()
         local startTime = os.clock()
         local lastUpdate = os.clock()
@@ -1407,10 +1445,11 @@ function Library:CreateWindow(config)
                 local seconds = totalSeconds % 60
                 local timeString = (hours > 0) and string.format("%02d:%02d:%02d", hours, minutes, seconds) or string.format("%02d:%02d", minutes, seconds)
                 
-                local fpsColor = averageFps >= 50 and "#34d399" or (averageFps >= 30 and "#fbbf24" or "#f87171")
-                local pingColor = ping <= 80 and "#34d399" or (ping <= 150 and "#fbbf24" or "#f87171")
+                local fpsColor = averageFps >= 50 and "#10b981" or (averageFps >= 30 and "#f59e0b" or "#ef4444")
+                local pingColor = ping <= 80 and "#10b981" or (ping <= 150 and "#f59e0b" or "#ef4444")
+                local timeColor = "#8b5cf6"
                 
-                StatsLabel.Text = string.format('<b><font color="%s">FPS:</font> %d | <font color="%s">PING:</font> %d ms | <font color="#60a5fa">Time:</font> %s</b>', fpsColor, math.clamp(averageFps, 1, 999), pingColor, ping, timeString)
+                StatsLabel.Text = string.format('<b><font color="%s">FPS:</font> %d <font color="#9ca3af">|</font> <font color="%s">PING:</font> %d ms <font color="#9ca3af">|</font> <font color="%s">TIME:</font> %s</b>', fpsColor, math.clamp(averageFps, 1, 999), pingColor, ping, timeColor, timeString)
                 
                 fpsAccumulator = 0
                 frameCount = 0
@@ -1609,14 +1648,13 @@ function Library:CreateWindow(config)
     FloatingButton.Size = UDim2.fromOffset(55, 55)
     FloatingButton.Position = UDim2.new(0.5, 0, 0.5, 0)
     FloatingButton.AnchorPoint = Vector2.new(0.5, 0.5)
-    FloatingButton.Image = "rbxassetid://83542549106889"
+    FloatingButton.Image = floatingIcon
     FloatingButton.ScaleType = Enum.ScaleType.Fit
     FloatingButton.AutoButtonColor = false
     FloatingButton.ZIndex = 1
     FloatingButton.Parent = FloatingFrame
     
     RegisterElement(FloatingButton, "BackgroundColor3", "ElementBg")
-    RegisterElement(FloatingButton, "ImageColor3", "Text")
 
     local ButtonCorner = Instance.new("UICorner")
     ButtonCorner.CornerRadius = UDim.new(0, 16)
@@ -2020,13 +2058,13 @@ function Library:CreateWindow(config)
                         TweenService:Create(accentBar, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 4, 0.6, 0)}):Play()
                     end
                     if lbl then
-                        TweenService:Create(lbl, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = CurrentTheme.Text}):Play()
+                        TweenService:Create(lbl, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = CurrentTheme.Accent}):Play()
                     end
                     if img then
-                        TweenService:Create(img, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageColor3 = CurrentTheme.Text}):Play()
+                        TweenService:Create(img, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageColor3 = CurrentTheme.Accent}):Play()
                     end
                     if emj then
-                        TweenService:Create(emj, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = CurrentTheme.Text}):Play()
+                        TweenService:Create(emj, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = CurrentTheme.Accent}):Play()
                     end
                 else
                     TweenService:Create(btn, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
@@ -3311,8 +3349,79 @@ function Library:CreateWindow(config)
                     SaveConfig()
                 end
             })
+            
+            Elements:CreateSection("Size Settings")
+            
+            Elements:Slider("Width Size", {
+                Description = "ปรับขนาดความกว้าง UI",
+                Min = 400,
+                Max = 1000,
+                Default = customWidth,
+                Rounding = 10,
+                Callback = function(val)
+                    customWidth = val
+                    local curVP = CurrentCamera.ViewportSize
+                    local sW = math.min(customWidth, curVP.X - 20)
+                    local sH = math.min(customHeight, curVP.Y - 20)
+                    MainFrame.Size = UDim2.fromOffset(sW, sH)
+                    ConfigData.CustomWidth = customWidth
+                    SaveConfig()
+                end
+            })
+            
+            Elements:Slider("Height Size", {
+                Description = "ปรับขนาดความสูง UI",
+                Min = 300,
+                Max = 800,
+                Default = customHeight,
+                Rounding = 10,
+                Callback = function(val)
+                    customHeight = val
+                    local curVP = CurrentCamera.ViewportSize
+                    local sW = math.min(customWidth, curVP.X - 20)
+                    local sH = math.min(customHeight, curVP.Y - 20)
+                    MainFrame.Size = UDim2.fromOffset(sW, sH)
+                    ConfigData.CustomHeight = customHeight
+                    SaveConfig()
+                end
+            })
 
-            Elements:CreateSection("Custom Font Settings")
+            Elements:CreateSection("Customization")
+
+            Elements:Toggle("Enable Profile", {
+                Description = "เปิด/ปิด การแสดงผล Profile Card",
+                Default = profileEnabled,
+                Callback = function(val)
+                    profileEnabled = val
+                    ProfileCard.Visible = profileEnabled
+                    
+                    if profileEnabled then
+                        NavScroll.Size = UDim2.new(1, -12, 1, -150)
+                        NavScroll.Position = UDim2.new(0, 6, 0, 100)
+                    else
+                        NavScroll.Size = UDim2.new(1, -12, 1, -92)
+                        NavScroll.Position = UDim2.new(0, 6, 0, 42)
+                    end
+                    
+                    ConfigData.ProfileEnabled = profileEnabled
+                    SaveConfig()
+                end
+            })
+
+            Elements:Input({
+                Title = "Floating Icon URL",
+                Description = "ใส่ rbxassetid:// หรือ URL",
+                Placeholder = "rbxassetid://...",
+                Default = floatingIcon,
+                Callback = function(val, enter)
+                    if enter and val ~= "" then
+                        floatingIcon = val
+                        FloatingButton.Image = floatingIcon
+                        ConfigData.FloatingIcon = floatingIcon
+                        SaveConfig()
+                    end
+                end
+            })
 
             local fontNamesList = {}
             for fontName, _ in pairs(Fonts) do
@@ -3332,7 +3441,7 @@ function Library:CreateWindow(config)
                 end
             })
 
-            Elements:CreateSection("Language Settings")
+            Elements:CreateSection("Language & Shortcuts")
 
             Elements:Dropdown("Select Language", {
                 Description = "เลือกภาษาที่แสดงผล",
