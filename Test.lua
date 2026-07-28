@@ -1005,6 +1005,7 @@ function Library:Notify(options)
     TitleLbl.TextTruncate = Enum.TextTruncate.AtEnd
     TitleLbl.BackgroundTransparency = 1
     TitleLbl.ZIndex = 100001
+    TitleLbl.AutoLocalize = false
     TitleLbl.Parent = Box
     RegisterElement(TitleLbl, "TextColor3", "Text")
 
@@ -1018,6 +1019,7 @@ function Library:Notify(options)
     DescLbl.TextWrapped = true
     DescLbl.BackgroundTransparency = 1
     DescLbl.ZIndex = 100001
+    DescLbl.AutoLocalize = false
     DescLbl.Parent = Box
     RegisterElement(DescLbl, "TextColor3", "SubText")
 
@@ -1057,7 +1059,8 @@ function Library:CreateWindow(config)
     ScreenGui.Name = "FracturePremiumLib"
     ScreenGui.ResetOnSpawn = false
     ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-    ScreenGui.DisplayOrder = 100
+    ScreenGui.DisplayOrder = 999999
+    ScreenGui.AutoLocalize = false
     ScreenGui.Parent = PlayerGui
     GlobalScreenGui = ScreenGui
 
@@ -1153,6 +1156,7 @@ function Library:CreateWindow(config)
     NameLabel.TextTruncate = Enum.TextTruncate.AtEnd
     NameLabel.BackgroundTransparency = 1
     NameLabel.ZIndex = 13
+    NameLabel.AutoLocalize = false
     NameLabel.Parent = ProfileCard
     RegisterElement(NameLabel, "TextColor3", "Text")
 
@@ -1167,6 +1171,7 @@ function Library:CreateWindow(config)
     DisplayLabel.TextTruncate = Enum.TextTruncate.AtEnd
     DisplayLabel.BackgroundTransparency = 1
     DisplayLabel.ZIndex = 13
+    DisplayLabel.AutoLocalize = false
     DisplayLabel.Parent = ProfileCard
     RegisterElement(DisplayLabel, "TextColor3", "SubText")
 
@@ -1177,6 +1182,7 @@ function Library:CreateWindow(config)
     EyeToggleBtn.Text = profileLook and "👁" or "🙈"
     EyeToggleBtn.TextSize = 12
     EyeToggleBtn.ZIndex = 14
+    EyeToggleBtn.AutoLocalize = false
     EyeToggleBtn.Parent = ProfileCard
     RegisterElement(EyeToggleBtn, "TextColor3", "SubText")
 
@@ -1205,7 +1211,10 @@ function Library:CreateWindow(config)
     NavScroll.BackgroundTransparency = 1
     NavScroll.BorderSizePixel = 0
     NavScroll.CanvasSize = UDim2.new(0, 0, 0, 0)
+    NavScroll.AutomaticCanvasSize = Enum.AutomaticSize.Y
     NavScroll.ScrollBarThickness = 0
+    NavScroll.Active = true
+    NavScroll.ScrollingDirection = Enum.ScrollingDirection.Y
     NavScroll.ZIndex = 12
     NavScroll.Parent = Sidebar
 
@@ -1214,6 +1223,10 @@ function Library:CreateWindow(config)
     NavLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
     NavLayout.SortOrder = Enum.SortOrder.LayoutOrder
     NavLayout.Parent = NavScroll
+
+    NavLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+        NavScroll.CanvasSize = UDim2.new(0, 0, 0, NavLayout.AbsoluteContentSize.Y + 20)
+    end)
 
     local LinkPanel = Instance.new("Frame")
     LinkPanel.Name = "LinkPanel"
@@ -1238,6 +1251,7 @@ function Library:CreateWindow(config)
         DiscordBtn.AutoButtonColor = false
         DiscordBtn.BackgroundTransparency = 0.3
         DiscordBtn.ZIndex = 13
+        DiscordBtn.AutoLocalize = false
         DiscordBtn.Parent = LinkPanel
         RegisterElement(DiscordBtn, "BackgroundColor3", "ElementBg")
 
@@ -1271,6 +1285,7 @@ function Library:CreateWindow(config)
         DiscordIcon.BackgroundTransparency = 1
         DiscordIcon.ZIndex = 14
         DiscordIcon.LayoutOrder = 1
+        DiscordIcon.AutoLocalize = false
         DiscordIcon.Parent = DiscordRow
 
         local DiscordLabel = Instance.new("TextLabel")
@@ -1282,6 +1297,7 @@ function Library:CreateWindow(config)
         DiscordLabel.BackgroundTransparency = 1
         DiscordLabel.ZIndex = 14
         DiscordLabel.LayoutOrder = 2
+        DiscordLabel.AutoLocalize = false
         DiscordLabel.Parent = DiscordRow
         RegisterElement(DiscordLabel, "TextColor3", "SubText")
 
@@ -1308,12 +1324,6 @@ function Library:CreateWindow(config)
             elseif toclipboard then
                 toclipboard(titleLink)
             end
-            Library:Notify({
-                Title = "Copied link!",
-                Content = "Discord link copied to clipboard successfully.",
-                Image = "rbxassetid://10734952479",
-                Duration = 3
-            })
         end)
     end
 
@@ -1335,6 +1345,7 @@ function Library:CreateWindow(config)
     Title.TextXAlignment = Enum.TextXAlignment.Left
     Title.BackgroundTransparency = 1
     Title.ZIndex = 12
+    Title.AutoLocalize = false
     Title.Parent = Header
     RegisterElement(Title, "TextColor3", "Text")
 
@@ -1349,6 +1360,7 @@ function Library:CreateWindow(config)
     SubTitle.TextXAlignment = Enum.TextXAlignment.Left
     SubTitle.BackgroundTransparency = 1
     SubTitle.ZIndex = 12
+    SubTitle.AutoLocalize = false
     SubTitle.Parent = Header
     RegisterElement(SubTitle, "TextColor3", "SubText")
 
@@ -1356,34 +1368,32 @@ function Library:CreateWindow(config)
     StatsLabel.Name = "StatsLabel"
     StatsLabel.Size = UDim2.new(1, -120, 0, 14)
     StatsLabel.Position = UDim2.new(0, 20, 0, 40)
-    StatsLabel.Text = "FPS: Calculating... | PING: -- ms"
+    StatsLabel.Text = "FPS: Calculating... | PING: -- ms | Time: 00:00"
     StatsLabel.TextSize = 10
     SetInterFont(StatsLabel, "Bold")
     StatsLabel.TextXAlignment = Enum.TextXAlignment.Left
     StatsLabel.BackgroundTransparency = 1
+    StatsLabel.RichText = true
     StatsLabel.ZIndex = 12
+    StatsLabel.AutoLocalize = false
     StatsLabel.Parent = Header
-    RegisterElement(StatsLabel, "TextColor3", "Accent")
 
     task.spawn(function()
+        local startTime = os.clock()
         local lastUpdate = os.clock()
         local fpsAccumulator = 0
         local frameCount = 0
-        
         local runServiceConnection
         runServiceConnection = game:GetService("RunService").RenderStepped:Connect(function(dt)
             if not StatsLabel or not StatsLabel.Parent then
                 runServiceConnection:Disconnect()
                 return
             end
-            
             frameCount = frameCount + 1
             fpsAccumulator = fpsAccumulator + (1 / dt)
-            
             local now = os.clock()
             if now - lastUpdate >= 0.3 then
                 local averageFps = math.round(fpsAccumulator / frameCount)
-                
                 local ping = 0
                 pcall(function()
                     ping = math.round(Stats:GetNetworkMetricResult(Enum.NetworkMetricType.Ping, Enum.NetworkMetricDataType.Average))
@@ -1391,8 +1401,16 @@ function Library:CreateWindow(config)
                 if ping <= 0 then
                     pcall(function() ping = math.round(LocalPlayer:GetNetworkPing() * 1000) end)
                 end
+                local totalSeconds = math.floor(now - startTime)
+                local hours = math.floor(totalSeconds / 3600)
+                local minutes = math.floor((totalSeconds % 3600) / 60)
+                local seconds = totalSeconds % 60
+                local timeString = (hours > 0) and string.format("%02d:%02d:%02d", hours, minutes, seconds) or string.format("%02d:%02d", minutes, seconds)
                 
-                StatsLabel.Text = string.format("FPS: %d | PING: %d ms", math.clamp(averageFps, 1, 999), ping)
+                local fpsColor = averageFps >= 50 and "#34d399" or (averageFps >= 30 and "#fbbf24" or "#f87171")
+                local pingColor = ping <= 80 and "#34d399" or (ping <= 150 and "#fbbf24" or "#f87171")
+                
+                StatsLabel.Text = string.format('<b><font color="%s">FPS:</font> %d | <font color="%s">PING:</font> %d ms | <font color="#60a5fa">Time:</font> %s</b>', fpsColor, math.clamp(averageFps, 1, 999), pingColor, ping, timeString)
                 
                 fpsAccumulator = 0
                 frameCount = 0
@@ -1445,6 +1463,7 @@ function Library:CreateWindow(config)
     ConfirmTitle.TextWrapped = true
     ConfirmTitle.BackgroundTransparency = 1
     ConfirmTitle.ZIndex = 1000102
+    ConfirmTitle.AutoLocalize = false
     ConfirmTitle.Parent = ConfirmBox
     RegisterElement(ConfirmTitle, "TextColor3", "Text")
 
@@ -1456,6 +1475,7 @@ function Library:CreateWindow(config)
     SetInterFont(YesBtn, "Bold")
     YesBtn.AutoButtonColor = false
     YesBtn.ZIndex = 1000102
+    YesBtn.AutoLocalize = false
     YesBtn.Parent = ConfirmBox
     RegisterElement(YesBtn, "BackgroundColor3", "Accent")
     YesBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -1472,6 +1492,7 @@ function Library:CreateWindow(config)
     SetInterFont(NoBtn, "Bold")
     NoBtn.AutoButtonColor = false
     NoBtn.ZIndex = 1000102
+    NoBtn.AutoLocalize = false
     NoBtn.Parent = ConfirmBox
     RegisterElement(NoBtn, "BackgroundColor3", "Background")
     RegisterElement(NoBtn, "TextColor3", "Text")
@@ -1502,6 +1523,7 @@ function Library:CreateWindow(config)
     SetInterFont(CloseBtn, "Bold")
     CloseBtn.AutoButtonColor = false
     CloseBtn.ZIndex = 12
+    CloseBtn.AutoLocalize = false
     CloseBtn.Parent = Header
     RegisterElement(CloseBtn, "BackgroundColor3", "ElementBg")
     RegisterElement(CloseBtn, "TextColor3", "SubText")
@@ -1526,6 +1548,7 @@ function Library:CreateWindow(config)
     SetInterFont(MaximizeBtn, "Bold")
     MaximizeBtn.AutoButtonColor = false
     MaximizeBtn.ZIndex = 12
+    MaximizeBtn.AutoLocalize = false
     MaximizeBtn.Parent = Header
     RegisterElement(MaximizeBtn, "BackgroundColor3", "ElementBg")
     RegisterElement(MaximizeBtn, "TextColor3", "SubText")
@@ -1568,7 +1591,8 @@ function Library:CreateWindow(config)
     FractureScreenGui.Name = "FractureScreenGui"
     FractureScreenGui.ResetOnSpawn = false
     FractureScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-    FractureScreenGui.DisplayOrder = 101
+    FractureScreenGui.DisplayOrder = 999999
+    FractureScreenGui.AutoLocalize = false
     FractureScreenGui.Enabled = true
     FractureScreenGui.Parent = PlayerGui
 
@@ -1698,6 +1722,7 @@ function Library:CreateWindow(config)
     CPTitle.TextXAlignment = Enum.TextXAlignment.Left
     CPTitle.BackgroundTransparency = 1
     CPTitle.ZIndex = 1000051
+    CPTitle.AutoLocalize = false
     CPTitle.Parent = ColorPickerPopup
     RegisterElement(CPTitle, "TextColor3", "Text")
 
@@ -1790,6 +1815,7 @@ function Library:CreateWindow(config)
         SetInterFont(box, "Medium")
         box.ClearTextOnFocus = false
         box.ZIndex = 1000052
+        box.AutoLocalize = false
         box.Parent = frm
         RegisterElement(box, "BackgroundColor3", "Background")
         RegisterElement(box, "TextColor3", "Text")
@@ -1809,6 +1835,7 @@ function Library:CreateWindow(config)
         lbl.TextXAlignment = Enum.TextXAlignment.Right
         lbl.BackgroundTransparency = 1
         lbl.ZIndex = 1000052
+        lbl.AutoLocalize = false
         lbl.Parent = frm
         RegisterElement(lbl, "TextColor3", "SubText")
         return box
@@ -1841,6 +1868,7 @@ function Library:CreateWindow(config)
     SetInterFont(CPCancelBtn, "Bold")
     CPCancelBtn.AutoButtonColor = false
     CPCancelBtn.ZIndex = 1000052
+    CPCancelBtn.AutoLocalize = false
     CPCancelBtn.Parent = ColorPickerPopup
     RegisterElement(CPCancelBtn, "BackgroundColor3", "Background")
     RegisterElement(CPCancelBtn, "TextColor3", "Text")
@@ -1860,6 +1888,7 @@ function Library:CreateWindow(config)
     SetInterFont(CPApplyBtn, "Bold")
     CPApplyBtn.AutoButtonColor = false
     CPApplyBtn.ZIndex = 1000052
+    CPApplyBtn.AutoLocalize = false
     CPApplyBtn.Parent = ColorPickerPopup
     RegisterElement(CPApplyBtn, "BackgroundColor3", "Accent")
     CPApplyBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -1904,6 +1933,7 @@ function Library:CreateWindow(config)
         pBtn.BackgroundColor3 = pc
         pBtn.Text = ""
         pBtn.ZIndex = 1000052
+        pBtn.AutoLocalize = false
         pBtn.Parent = ColorPresets
         local pC = Instance.new("UICorner")
         pC.CornerRadius = UDim.new(0, 4)
@@ -2061,6 +2091,7 @@ function Library:CreateWindow(config)
         TabButton.Text = ""  
         TabButton.AutoButtonColor = false  
         TabButton.ZIndex = 13  
+        TabButton.AutoLocalize = false
         TabButton.Parent = NavScroll  
         RegisterElement(TabButton, "BackgroundColor3", "ElementBg")  
 
@@ -2112,6 +2143,7 @@ function Library:CreateWindow(config)
             SetInterFont(EmojiLabel, "Bold")  
             EmojiLabel.BackgroundTransparency = 1  
             EmojiLabel.ZIndex = 15  
+            EmojiLabel.AutoLocalize = false
             EmojiLabel.Parent = TabContent  
             RegisterElement(EmojiLabel, "TextColor3", "SubText")
         end  
@@ -2123,6 +2155,7 @@ function Library:CreateWindow(config)
         TextLabel.TextXAlignment = Enum.TextXAlignment.Left  
         TextLabel.BackgroundTransparency = 1  
         TextLabel.ZIndex = 15  
+        TextLabel.AutoLocalize = false
         TextLabel.Parent = TabContent  
         RegisterElement(TextLabel, "TextColor3", "SubText")  
         RegisterLocale(TextLabel, tabName)
@@ -2133,7 +2166,7 @@ function Library:CreateWindow(config)
         TabPage.BackgroundTransparency = 1  
         TabPage.BorderSizePixel = 0  
         TabPage.Visible = false  
-        TabPage.CanvasSize = UDim2.new(0, 0, 0, 0)  
+        TabPage.CanvasSize = UDim2.new(0, 0, 0, 0)
         TabPage.ScrollBarThickness = 3  
         TabPage.ZIndex = 12  
         TabPage.Parent = Container  
@@ -2199,6 +2232,7 @@ function Library:CreateWindow(config)
             LockOverlay.Text = ""
             LockOverlay.AutoButtonColor = false
             LockOverlay.ZIndex = 50
+            LockOverlay.AutoLocalize = false
             LockOverlay.Parent = parent
             
             local LockCorner = Instance.new("UICorner")
@@ -2227,6 +2261,7 @@ function Library:CreateWindow(config)
             LockIcon.TextSize = 14
             LockIcon.ZIndex = 51
             LockIcon.LayoutOrder = 1
+            LockIcon.AutoLocalize = false
             LockIcon.Parent = LockRow
             
             local LockText = Instance.new("TextLabel")
@@ -2241,6 +2276,7 @@ function Library:CreateWindow(config)
             LockText.TextTruncate = Enum.TextTruncate.AtEnd
             LockText.ZIndex = 51
             LockText.LayoutOrder = 2
+            LockText.AutoLocalize = false
             LockText.Parent = LockRow
         end
 
@@ -2275,6 +2311,7 @@ function Library:CreateWindow(config)
             Label.BackgroundTransparency = 1
             Label.ZIndex = 14
             Label.RichText = true
+            Label.AutoLocalize = false
             Label.Parent = Bg
             RegisterElement(Label, "TextColor3", "Text")
             RegisterLocale(Label, titleText or "Control")
@@ -2291,6 +2328,7 @@ function Library:CreateWindow(config)
                 DescLabel.BackgroundTransparency = 1
                 DescLabel.ZIndex = 14
                 DescLabel.RichText = true
+                DescLabel.AutoLocalize = false
                 DescLabel.Parent = Bg
                 RegisterElement(DescLabel, "TextColor3", "SubText")
             end
@@ -2346,6 +2384,7 @@ function Library:CreateWindow(config)
             TitleLabel.ZIndex = 14
             TitleLabel.RichText = true
             TitleLabel.LayoutOrder = 1
+            TitleLabel.AutoLocalize = false
             TitleLabel.Parent = ParagraphBg
             RegisterElement(TitleLabel, "TextColor3", "Text")
 
@@ -2361,6 +2400,7 @@ function Library:CreateWindow(config)
             ContentLabel.ZIndex = 14
             ContentLabel.RichText = true
             ContentLabel.LayoutOrder = 2
+            ContentLabel.AutoLocalize = false
             ContentLabel.Parent = ParagraphBg
             RegisterElement(ContentLabel, "TextColor3", "SubText")
             
@@ -2420,6 +2460,7 @@ function Library:CreateWindow(config)
             InputField.TextXAlignment = Enum.TextXAlignment.Left
             InputField.ClearTextOnFocus = false
             InputField.ZIndex = 15
+            InputField.AutoLocalize = false
             InputField.Parent = TextBoxFrame
             RegisterElement(InputField, "TextColor3", "Text")
             RegisterElement(InputField, "PlaceholderColor3", "SubText")
@@ -2461,6 +2502,7 @@ function Library:CreateWindow(config)
             ColorBtn.Text = ""
             ColorBtn.ZIndex = 15
             ColorBtn.AutoButtonColor = false
+            ColorBtn.AutoLocalize = false
             ColorBtn.Parent = PickerBg
             
             local ColorCorner = Instance.new("UICorner")
@@ -2503,6 +2545,7 @@ function Library:CreateWindow(config)
             SetInterFont(KeyBtn, "Medium")
             KeyBtn.ZIndex = 15
             KeyBtn.AutoButtonColor = false
+            KeyBtn.AutoLocalize = false
             KeyBtn.Parent = KeyBg
             RegisterElement(KeyBtn, "BackgroundColor3", "Background")
             RegisterElement(KeyBtn, "TextColor3", "Accent")
@@ -2551,6 +2594,7 @@ function Library:CreateWindow(config)
             ClickBtn.Text = ""
             ClickBtn.ZIndex = 15
             ClickBtn.AutoButtonColor = false
+            ClickBtn.AutoLocalize = false
             ClickBtn.Parent = ButtonBg
 
             local InteractionBar = Instance.new("Frame")
@@ -2630,6 +2674,7 @@ function Library:CreateWindow(config)
             ClickBtn.BackgroundTransparency = 1
             ClickBtn.Text = ""
             ClickBtn.ZIndex = 17
+            ClickBtn.AutoLocalize = false
             ClickBtn.Parent = ToggleBg
 
             TogglesRegistry[SwitchFrame] = {
@@ -2679,6 +2724,7 @@ function Library:CreateWindow(config)
             ValueBox.TextXAlignment = Enum.TextXAlignment.Center
             ValueBox.ClearTextOnFocus = false
             ValueBox.ZIndex = 15
+            ValueBox.AutoLocalize = false
             ValueBox.Parent = SliderBg
             RegisterElement(ValueBox, "BackgroundColor3", "Background")
             RegisterElement(ValueBox, "TextColor3", "Accent")
@@ -2723,6 +2769,7 @@ function Library:CreateWindow(config)
             SliderKnob.Text = ""
             SliderKnob.AutoButtonColor = false
             SliderKnob.ZIndex = 16
+            SliderKnob.AutoLocalize = false
             SliderKnob.Parent = SliderTrack
 
             local KnobCorner = Instance.new("UICorner")
@@ -2848,6 +2895,7 @@ function Library:CreateWindow(config)
             DropBtn.BackgroundTransparency = 1
             DropBtn.TextXAlignment = Enum.TextXAlignment.Right
             DropBtn.ZIndex = 15
+            DropBtn.AutoLocalize = false
             DropBtn.Parent = DropdownBg
             RegisterElement(DropBtn, "TextColor3", "Text")
 
@@ -2865,6 +2913,7 @@ function Library:CreateWindow(config)
             DropBackdrop.AutoButtonColor = false
             DropBackdrop.ZIndex = 999999
             DropBackdrop.Visible = false
+            DropBackdrop.AutoLocalize = false
             DropBackdrop.Parent = GlobalScreenGui
 
             local DropMenu = Instance.new("Frame")
@@ -2896,6 +2945,7 @@ function Library:CreateWindow(config)
             SearchBox.TextSize = 13
             SetInterFont(SearchBox, "Regular")
             SearchBox.ZIndex = 1000001
+            SearchBox.AutoLocalize = false
             SearchBox.Parent = DropMenu
             RegisterElement(SearchBox, "BackgroundColor3", "Background")
             RegisterElement(SearchBox, "TextColor3", "Text")
@@ -3003,6 +3053,7 @@ function Library:CreateWindow(config)
                         ItemBtn.TextXAlignment = Enum.TextXAlignment.Left
                         ItemBtn.AutoButtonColor = false
                         ItemBtn.ZIndex = 1000020
+                        ItemBtn.AutoLocalize = false
                         ItemBtn.Parent = ListHolder
                         ItemBtn.BackgroundTransparency = 1
                         ItemBtn.TextTruncate = Enum.TextTruncate.AtEnd
@@ -3199,19 +3250,20 @@ function Library:CreateWindow(config)
 
         function Elements:CreateSection(sectionText)
             local SectionBg = Instance.new("Frame")
-            SectionBg.Size = UDim2.new(1, -20, 0, 28)
+            SectionBg.Size = UDim2.new(1, -20, 0, 32)
             SectionBg.BackgroundTransparency = 1
             SectionBg.ZIndex = 13
             SectionBg.Parent = TabPage
 
             local Label = Instance.new("TextLabel")
             Label.Size = UDim2.new(1, 0, 1, 0)
-            Label.TextSize = 10.5
+            Label.TextSize = 13
             SetInterFont(Label, "Bold")
             Label.TextXAlignment = Enum.TextXAlignment.Left
             Label.BackgroundTransparency = 1
             Label.ZIndex = 14
             Label.RichText = true
+            Label.AutoLocalize = false
             Label.Parent = SectionBg
             RegisterElement(Label, "TextColor3", "Accent")
             RegisterLocale(Label, sectionText, false)
