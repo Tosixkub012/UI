@@ -1126,7 +1126,7 @@ function Library:CreateWindow(config)
 
     local ProfileCard = Instance.new("Frame")
     ProfileCard.Name = "ProfileCard"
-    ProfileCard.Size = UDim2.new(1, -16, 0, 140)
+    ProfileCard.Size = UDim2.new(1, -16, 0, 159)
     ProfileCard.Position = UDim2.new(0, 8, 0, 8)
     ProfileCard.BackgroundTransparency = 0.4
     ProfileCard.ZIndex = 12
@@ -1144,10 +1144,40 @@ function Library:CreateWindow(config)
     ProfileStroke.Parent = ProfileCard
     RegisterElement(ProfileStroke, "Color", "Border")
 
+    local CardTitleLabel = Instance.new("TextLabel")
+    CardTitleLabel.Name = "CardTitle"
+    CardTitleLabel.Size = UDim2.new(1, -12, 0, 14)
+    CardTitleLabel.Position = UDim2.new(0, 6, 0, 6)
+    CardTitleLabel.Text = titleText
+    CardTitleLabel.TextSize = 11
+    SetInterFont(CardTitleLabel, "Medium")
+    CardTitleLabel.TextXAlignment = Enum.TextXAlignment.Center
+    CardTitleLabel.TextTruncate = Enum.TextTruncate.AtEnd
+    CardTitleLabel.BackgroundTransparency = 1
+    CardTitleLabel.ZIndex = 13
+    CardTitleLabel.AutoLocalize = false
+    CardTitleLabel.Parent = ProfileCard
+    RegisterElement(CardTitleLabel, "TextColor3", "SubText")
+
+    local HubImgLabel = Instance.new("ImageLabel")
+    HubImgLabel.Name = "HubImage"
+    HubImgLabel.Size = UDim2.new(0, 64, 0, 64)
+    HubImgLabel.AnchorPoint = Vector2.new(0.5, 0)
+    HubImgLabel.Position = UDim2.new(0.5, 0, 0, 26)
+    HubImgLabel.Image = hubImageUrl
+    HubImgLabel.ScaleType = Enum.ScaleType.Fit
+    HubImgLabel.BackgroundTransparency = 1
+    HubImgLabel.ZIndex = 13
+    HubImgLabel.Parent = ProfileCard
+
+    local HubImgCorner = Instance.new("UICorner")
+    HubImgCorner.CornerRadius = UDim.new(0, 10)
+    HubImgCorner.Parent = HubImgLabel
+
     local HubNameLabel = Instance.new("TextLabel")
     HubNameLabel.Name = "HubName"
     HubNameLabel.Size = UDim2.new(1, -12, 0, 18)
-    HubNameLabel.Position = UDim2.new(0, 6, 0, 8)
+    HubNameLabel.Position = UDim2.new(0, 6, 0, 94)
     HubNameLabel.Text = titleText
     HubNameLabel.TextSize = 13
     SetInterFont(HubNameLabel, "Bold")
@@ -1159,25 +1189,10 @@ function Library:CreateWindow(config)
     HubNameLabel.Parent = ProfileCard
     RegisterElement(HubNameLabel, "TextColor3", "Text")
 
-    local HubImgLabel = Instance.new("ImageLabel")
-    HubImgLabel.Name = "HubImage"
-    HubImgLabel.Size = UDim2.new(0, 50, 0, 50)
-    HubImgLabel.AnchorPoint = Vector2.new(0.5, 0)
-    HubImgLabel.Position = UDim2.new(0.5, 0, 0, 30)
-    HubImgLabel.Image = hubImageUrl
-    HubImgLabel.ScaleType = Enum.ScaleType.Fit
-    HubImgLabel.BackgroundTransparency = 1
-    HubImgLabel.ZIndex = 13
-    HubImgLabel.Parent = ProfileCard
-
-    local HubImgCorner = Instance.new("UICorner")
-    HubImgCorner.CornerRadius = UDim.new(0, 10)
-    HubImgCorner.Parent = HubImgLabel
-
     local HubSubLabel = Instance.new("TextLabel")
     HubSubLabel.Name = "HubSubTitle"
     HubSubLabel.Size = UDim2.new(1, -12, 0, 13)
-    HubSubLabel.Position = UDim2.new(0, 6, 0, 83)
+    HubSubLabel.Position = UDim2.new(0, 6, 0, 113)
     HubSubLabel.Text = subtitle ~= "" and subtitle or "Universal Script System"
     HubSubLabel.TextSize = 10
     SetInterFont(HubSubLabel, "Medium")
@@ -1192,7 +1207,7 @@ function Library:CreateWindow(config)
     local StatsContainer = Instance.new("Frame")
     StatsContainer.Name = "StatsContainer"
     StatsContainer.Size = UDim2.new(1, -16, 0, 22)
-    StatsContainer.Position = UDim2.new(0, 8, 0, 100)
+    StatsContainer.Position = UDim2.new(0, 8, 0, 129)
     StatsContainer.BackgroundTransparency = 0.6
     StatsContainer.ZIndex = 13
     StatsContainer.Parent = ProfileCard
@@ -1212,7 +1227,6 @@ function Library:CreateWindow(config)
     StatsLabel.TextScaled = true
     SetInterFont(StatsLabel, "Bold")
     StatsLabel.TextXAlignment = Enum.TextXAlignment.Center
-    StatsLabel.TextTruncate = Enum.TextTruncate.AtEnd
     StatsLabel.BackgroundTransparency = 1
     StatsLabel.RichText = true
     StatsLabel.ZIndex = 14
@@ -1222,7 +1236,7 @@ function Library:CreateWindow(config)
 
     local StatsSizeConstraint = Instance.new("UITextSizeConstraint")
     StatsSizeConstraint.MaxTextSize = 11
-    StatsSizeConstraint.MinTextSize = 6
+    StatsSizeConstraint.MinTextSize = 5
     StatsSizeConstraint.Parent = StatsLabel
 
     local NameLabel = Instance.new("TextLabel")
@@ -1262,8 +1276,8 @@ function Library:CreateWindow(config)
 
     local NavScroll = Instance.new("ScrollingFrame")
     NavScroll.Name = "NavScroll"
-    NavScroll.Size = UDim2.new(1, -12, 1, -164)
-    NavScroll.Position = UDim2.new(0, 6, 0, 156)
+    NavScroll.Size = UDim2.new(1, -12, 1, -183)
+    NavScroll.Position = UDim2.new(0, 6, 0, 175)
     NavScroll.BackgroundTransparency = 1
     NavScroll.BorderSizePixel = 0
     NavScroll.CanvasSize = UDim2.new(0, 0, 0, 0)
@@ -2774,6 +2788,16 @@ function Library:CreateWindow(config)
                 return displayStr
             end
 
+            local DropRowButton = Instance.new("TextButton")
+            DropRowButton.Name = "DropRowButton"
+            DropRowButton.Size = UDim2.new(1, 0, 1, 0)
+            DropRowButton.BackgroundTransparency = 1
+            DropRowButton.Text = ""
+            DropRowButton.AutoButtonColor = false
+            DropRowButton.ZIndex = 14
+            DropRowButton.AutoLocalize = false
+            DropRowButton.Parent = DropdownBg
+
             local DropBtn = Instance.new("TextButton")
             DropBtn.Size = UDim2.new(0, 160, 1, 0)
             DropBtn.Position = UDim2.new(1, -194, 0, 0)
@@ -3113,14 +3137,17 @@ function Library:CreateWindow(config)
                 end)
             end
 
-            DropBtn.MouseButton1Click:Connect(function()
+            local function toggleDropdownOpen()
                 if isLocked then return end
                 if active then
                     DropdownHandler:Close()
                 else
                     DropdownHandler:Open()
                 end
-            end)
+            end
+
+            DropBtn.MouseButton1Click:Connect(toggleDropdownOpen)
+            DropRowButton.MouseButton1Click:Connect(toggleDropdownOpen)
 
             DropBackdrop.MouseButton1Click:Connect(function()
                 if active then
@@ -3151,14 +3178,14 @@ function Library:CreateWindow(config)
 
         function Elements:CreateSection(sectionText)
             local SectionBg = Instance.new("Frame")
-            SectionBg.Size = UDim2.new(1, -20, 0, 36)
+            SectionBg.Size = UDim2.new(1, -20, 0, 24)
             SectionBg.BackgroundTransparency = 1
             SectionBg.ZIndex = 13
             SectionBg.Parent = TabPage
 
             local Label = Instance.new("TextLabel")
-            Label.Size = UDim2.new(1, 0, 1, -6)
-            Label.Position = UDim2.new(0, 0, 0, 6)
+            Label.Size = UDim2.new(1, 0, 1, -2)
+            Label.Position = UDim2.new(0, 0, 0, 2)
             Label.TextSize = 14
             SetInterFont(Label, "Bold")
             Label.TextXAlignment = Enum.TextXAlignment.Left
