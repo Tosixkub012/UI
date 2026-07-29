@@ -1130,7 +1130,7 @@ function Library:CreateWindow(config)
     ProfileCard.Position = UDim2.new(0, 8, 0, 8)
     ProfileCard.BackgroundTransparency = 0.4
     ProfileCard.ZIndex = 12
-    ProfileCard.Visible = profileEnabled
+    ProfileCard.Visible = true
     ProfileCard.ClipsDescendants = true
     ProfileCard.Parent = Sidebar
     RegisterElement(ProfileCard, "BackgroundColor3", "ElementBg")
@@ -1144,25 +1144,10 @@ function Library:CreateWindow(config)
     ProfileStroke.Parent = ProfileCard
     RegisterElement(ProfileStroke, "Color", "Border")
 
-    local HubImgLabel = Instance.new("ImageLabel")
-    HubImgLabel.Name = "HubImage"
-    HubImgLabel.Size = UDim2.new(0, 50, 0, 50)
-    HubImgLabel.AnchorPoint = Vector2.new(0.5, 0)
-    HubImgLabel.Position = UDim2.new(0.5, 0, 0, 10)
-    HubImgLabel.Image = hubImageUrl
-    HubImgLabel.ScaleType = Enum.ScaleType.Fit
-    HubImgLabel.BackgroundTransparency = 1
-    HubImgLabel.ZIndex = 13
-    HubImgLabel.Parent = ProfileCard
-
-    local HubImgCorner = Instance.new("UICorner")
-    HubImgCorner.CornerRadius = UDim.new(0, 10)
-    HubImgCorner.Parent = HubImgLabel
-
     local HubNameLabel = Instance.new("TextLabel")
     HubNameLabel.Name = "HubName"
     HubNameLabel.Size = UDim2.new(1, -12, 0, 18)
-    HubNameLabel.Position = UDim2.new(0, 6, 0, 64)
+    HubNameLabel.Position = UDim2.new(0, 6, 0, 8)
     HubNameLabel.Text = titleText
     HubNameLabel.TextSize = 13
     SetInterFont(HubNameLabel, "Bold")
@@ -1173,6 +1158,21 @@ function Library:CreateWindow(config)
     HubNameLabel.AutoLocalize = false
     HubNameLabel.Parent = ProfileCard
     RegisterElement(HubNameLabel, "TextColor3", "Text")
+
+    local HubImgLabel = Instance.new("ImageLabel")
+    HubImgLabel.Name = "HubImage"
+    HubImgLabel.Size = UDim2.new(0, 50, 0, 50)
+    HubImgLabel.AnchorPoint = Vector2.new(0.5, 0)
+    HubImgLabel.Position = UDim2.new(0.5, 0, 0, 30)
+    HubImgLabel.Image = hubImageUrl
+    HubImgLabel.ScaleType = Enum.ScaleType.Fit
+    HubImgLabel.BackgroundTransparency = 1
+    HubImgLabel.ZIndex = 13
+    HubImgLabel.Parent = ProfileCard
+
+    local HubImgCorner = Instance.new("UICorner")
+    HubImgCorner.CornerRadius = UDim.new(0, 10)
+    HubImgCorner.Parent = HubImgLabel
 
     local HubSubLabel = Instance.new("TextLabel")
     HubSubLabel.Name = "HubSubTitle"
@@ -1205,10 +1205,11 @@ function Library:CreateWindow(config)
 
     local StatsLabel = Instance.new("TextLabel")
     StatsLabel.Name = "StatsLabel"
-    StatsLabel.Size = UDim2.new(1, -8, 1, 0)
-    StatsLabel.Position = UDim2.new(0, 4, 0, 0)
+    StatsLabel.Size = UDim2.new(1, -8, 1, -4)
+    StatsLabel.Position = UDim2.new(0, 4, 0, 2)
     StatsLabel.Text = "FPS: ... | PING: ... | TIME: ..."
     StatsLabel.TextSize = 9
+    StatsLabel.TextScaled = true
     SetInterFont(StatsLabel, "Bold")
     StatsLabel.TextXAlignment = Enum.TextXAlignment.Center
     StatsLabel.TextTruncate = Enum.TextTruncate.AtEnd
@@ -1217,6 +1218,12 @@ function Library:CreateWindow(config)
     StatsLabel.ZIndex = 14
     StatsLabel.AutoLocalize = false
     StatsLabel.Parent = StatsContainer
+    RegisterElement(StatsLabel, "TextColor3", "Text")
+
+    local StatsSizeConstraint = Instance.new("UITextSizeConstraint")
+    StatsSizeConstraint.MaxTextSize = 11
+    StatsSizeConstraint.MinTextSize = 6
+    StatsSizeConstraint.Parent = StatsLabel
 
     local NameLabel = Instance.new("TextLabel")
     NameLabel.Name = "PlayerName"
@@ -1255,12 +1262,11 @@ function Library:CreateWindow(config)
 
     local NavScroll = Instance.new("ScrollingFrame")
     NavScroll.Name = "NavScroll"
-    NavScroll.Size = UDim2.new(1, -12, 1, profileEnabled and -164 or -8)
-    NavScroll.Position = UDim2.new(0, 6, 0, profileEnabled and 156 or 8)
+    NavScroll.Size = UDim2.new(1, -12, 1, -164)
+    NavScroll.Position = UDim2.new(0, 6, 0, 156)
     NavScroll.BackgroundTransparency = 1
     NavScroll.BorderSizePixel = 0
     NavScroll.CanvasSize = UDim2.new(0, 0, 0, 0)
-    NavScroll.AutomaticCanvasSize = Enum.AutomaticSize.Y
     NavScroll.ScrollBarThickness = 0
     NavScroll.Active = true
     NavScroll.ScrollingDirection = Enum.ScrollingDirection.Y
@@ -1288,21 +1294,6 @@ function Library:CreateWindow(config)
     Header.BackgroundTransparency = 1
     Header.ZIndex = 11
     Header.Parent = MainFrame
-
-    local Title = Instance.new("TextLabel")
-    Title.Name = "Title"
-    Title.Size = UDim2.new(1, -90, 0, 30)
-    Title.Position = UDim2.new(0, 20, 0, 13)
-    Title.Text = titleText
-    Title.TextSize = 17
-    SetInterFont(Title, "Bold")
-    Title.TextXAlignment = Enum.TextXAlignment.Left
-    Title.TextTruncate = Enum.TextTruncate.AtEnd
-    Title.BackgroundTransparency = 1
-    Title.ZIndex = 12
-    Title.AutoLocalize = false
-    Title.Parent = Header
-    RegisterElement(Title, "TextColor3", "Text")
 
     task.spawn(function()
         local startTime = os.clock()
@@ -1335,9 +1326,8 @@ function Library:CreateWindow(config)
                 
                 local fpsColor = averageFps >= 50 and "#10b981" or (averageFps >= 30 and "#f59e0b" or "#ef4444")
                 local pingColor = ping <= 80 and "#10b981" or (ping <= 150 and "#f59e0b" or "#ef4444")
-                local timeColor = "#8b5cf6"
                 
-                StatsLabel.Text = string.format('<b><font color="%s">FPS:</font> %d <font color="#9ca3af">|</font> <font color="%s">PING:</font> %d ms <font color="#9ca3af">|</font> <font color="%s">TIME:</font> %s</b>', fpsColor, math.clamp(averageFps, 1, 999), pingColor, ping, timeColor, timeString)
+                StatsLabel.Text = string.format('<b><font color="%s">FPS:</font> %d | <font color="%s">PING:</font> %d ms | TIME: %s</b>', fpsColor, math.clamp(averageFps, 1, 999), pingColor, ping, timeString)
                 
                 fpsAccumulator = 0
                 frameCount = 0
@@ -2196,15 +2186,16 @@ function Library:CreateWindow(config)
             Corner.Parent = Bg
 
             local Stroke = Instance.new("UIStroke")
-            Stroke.Thickness = 1
+            Stroke.Thickness = 1.5
             Stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+            Stroke.Transparency = 0.2
             Stroke.Parent = Bg
             RegisterElement(Stroke, "Color", "Border")
 
             local Label = Instance.new("TextLabel")
             Label.Size = UDim2.new(0.5, 0, 0, 20)
             Label.Position = UDim2.new(0, 14, 0, 6)
-            Label.TextSize = 12
+            Label.TextSize = 13
             SetInterFont(Label, "Medium")
             Label.TextXAlignment = Enum.TextXAlignment.Left
             Label.BackgroundTransparency = 1
@@ -2219,9 +2210,9 @@ function Library:CreateWindow(config)
             if hasDesc and descText and descText ~= "" then
                 DescLabel = Instance.new("TextLabel")
                 DescLabel.Size = UDim2.new(1, -28, 0, 14)
-                DescLabel.Position = UDim2.new(0, 14, 0, 24)
+                DescLabel.Position = UDim2.new(0, 14, 0, 25)
                 DescLabel.Text = descText
-                DescLabel.TextSize = 8
+                DescLabel.TextSize = 9
                 SetInterFont(DescLabel, "Regular")
                 DescLabel.TextXAlignment = Enum.TextXAlignment.Left
                 DescLabel.BackgroundTransparency = 1
@@ -2784,10 +2775,10 @@ function Library:CreateWindow(config)
             end
 
             local DropBtn = Instance.new("TextButton")
-            DropBtn.Size = UDim2.new(0, 180, 1, 0)
+            DropBtn.Size = UDim2.new(0, 160, 1, 0)
             DropBtn.Position = UDim2.new(1, -194, 0, 0)
             DropBtn.RichText = true
-            DropBtn.Text = getDropdownDisplay() .. '  <font color="#B0B0B0" size="11">></font>'
+            DropBtn.Text = getDropdownDisplay()
             DropBtn.TextSize = 13
             SetInterFont(DropBtn, "Medium")
             DropBtn.AutoButtonColor = false
@@ -2798,9 +2789,20 @@ function Library:CreateWindow(config)
             DropBtn.Parent = DropdownBg
             RegisterElement(DropBtn, "TextColor3", "Text")
 
+            local DropIcon = Instance.new("ImageLabel")
+            DropIcon.Name = "DropIcon"
+            DropIcon.Size = UDim2.new(0, 12, 0, 12)
+            DropIcon.AnchorPoint = Vector2.new(0, 0.5)
+            DropIcon.Position = UDim2.new(1, -18, 0.5, 0)
+            DropIcon.Image = "rbxassetid://10709790948"
+            DropIcon.BackgroundTransparency = 1
+            DropIcon.ZIndex = 15
+            DropIcon.Parent = DropdownBg
+            RegisterElement(DropIcon, "ImageColor3", "SubText")
+
             local function updateDropBtnText()
-                local icon = active and "v" or ">"
-                DropBtn.Text = getDropdownDisplay() .. string.format('  <font color="#B0B0B0" size="11">%s</font>', icon)
+                DropBtn.Text = getDropdownDisplay()
+                DropIcon.Rotation = active and 90 or 0
             end
 
             local DropBackdrop = Instance.new("TextButton")
@@ -3167,14 +3169,6 @@ function Library:CreateWindow(config)
             Label.Parent = SectionBg
             RegisterElement(Label, "TextColor3", "Accent")
             RegisterLocale(Label, sectionText, false)
-
-            local Line = Instance.new("Frame")
-            Line.Size = UDim2.new(1, 0, 0, 1)
-            Line.Position = UDim2.new(0, 0, 1, -1)
-            Line.BorderSizePixel = 0
-            Line.ZIndex = 14
-            Line.Parent = SectionBg
-            RegisterElement(Line, "BackgroundColor3", "Border")
         end
 
         function Elements:SettingsUI()
@@ -3249,26 +3243,6 @@ function Library:CreateWindow(config)
             })
 
             Elements:CreateSection("Customization")
-
-            Elements:Toggle("Enable Profile", {
-                Description = "เปิด/ปิด การแสดงผล Profile",
-                Default = profileEnabled,
-                Callback = function(val)
-                    profileEnabled = val
-                    ProfileCard.Visible = profileEnabled
-                    
-                    if profileEnabled then
-                        NavScroll.Size = UDim2.new(1, -12, 1, -164)
-                        NavScroll.Position = UDim2.new(0, 6, 0, 156)
-                    else
-                        NavScroll.Size = UDim2.new(1, -12, 1, -8)
-                        NavScroll.Position = UDim2.new(0, 6, 0, 8)
-                    end
-                    
-                    ConfigData.ProfileEnabled = profileEnabled
-                    SaveConfig()
-                end
-            })
 
             Elements:Input({
                 Title = "Floating Icon URL",
