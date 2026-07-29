@@ -11,7 +11,7 @@ local Library = {}
 Library.Translations = {}
 
 local Fonts = {
-    ["GothamSSm"] = {Regular = Enum.Font.GothamSSm, Medium = Enum.Font.GothamSSm, Bold = Enum.Font.GothamSSm},
+    ["Gotham SSm"] = {Regular = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Regular), Medium  = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Medium), Bold    = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Bold)},
     ["Gotham Bold"] = {Regular = Enum.Font.GothamBold, Medium = Enum.Font.GothamBold, Bold = Enum.Font.GothamBold},
     ["Gotham Medium"] = {Regular = Enum.Font.GothamMedium, Medium = Enum.Font.GothamMedium, Bold = Enum.Font.GothamMedium},
     ["Gotham"] = {Regular = Enum.Font.Gotham, Medium = Enum.Font.GothamMedium, Bold = Enum.Font.GothamBold},
