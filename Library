@@ -1,1 +1,4605 @@
-local sd,cd,he,c,N,ra=type,bit32.bxor,getmetatable,pairs local Ab,ue,pb,oc,ge,kf,pe,Bc,z,Mb,ud,Ba,Rc,wa,lb,Sa,ye,ec,g,ld,B,Da,gd,ae,_e,Ac,r_,ne,Vc,Cb,h,qd,gc,Oe,Te,Gd,Db,xd,Sd,m,C,Pd,Xb,ve;Db=(getfenv());Te,B,pe=(string.char),(string.byte),(bit32 .bxor);h=function(e_,ya)local nc,Qd,ja,Fc,t_,Ma,le,sb;Ma,ja=function(U,K,Qf)ja[K]=cd(Qf,37588)-cd(U,22879)return ja[K]end,{};le=ja[-5162]or Ma(8037,-5162,30431)repeat if le<=40401 then if le<30332 then if le>10822 then return Qd else nc=Fc if t_~=t_ then le=ja[-9456]or Ma(21364,-9456,50951)else le=46982 end end elseif le<=30332 then le,Qd=ja[-6412]or Ma(30260,-6412,25682),Qd..Te(pe(B(e_,(nc-219)+1),B(ya,(nc-219)%#ya+1)))else Qd='';t_,le,sb,Fc=(#e_-1)+219,ja[7621]or Ma(27770,7621,52671),1,219 end elseif le<=46982 then if(sb>=0 and Fc>t_)or((sb<0 or sb~=sb)and Fc<t_)then le=ja[333]or Ma(31498,333,65321)else le=ja[7060]or Ma(28905,7060,13030)end else Fc=Fc+sb;nc=Fc if Fc~=Fc then le=19368 else le=46982 end end until le==6996 end;m=(select);Ac=(function(...)return{[1]={...},[2]=m('#',...)}end);gd=((function()local function Gb(_d,Yd,Yc)if Yd>Yc then return end return _d[Yd],Gb(_d,Yd+1,Yc)end return Gb end)());gc,ge=(string.gsub),(string.char);Sa=(function(Ja)Ja=gc(Ja,'[^ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=]','')return(Ja:gsub('.',function(Ud)if(Ud=='=')then return''end local za,X='',(('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'):find(Ud)-1)for te=6,1,-1 do za=za..(X%2^te-X%2^(te-1)>0 and'1'or'0')end return za end):gsub('%d%d%d?%d?%d?%d?%d?%d?',function(x)if(#x~=8)then return''end local Oc=0 for Jd=1,8 do Oc=Oc+(x:sub(Jd,Jd)=='1'and 2^(8-Jd)or 0)end return ge(Oc)end))end);Xb,ld,Rc,C,z,lb,ud,_e=Db[h(':\30\214 \4\195','Ij\164')][h('\131i]\151dF','\246\a-')],Db[h('4Qn.K{','G%\28')][h('\137\143\152','\250')],Db[h('phHjr]','\3\28:')][h('\158\199\136\219','\252\190')],Db[h('\208\154\198\192\128','\178\243')][h('\184\14\174\189\27\178','\212}\198')],Db[h('f\220p\134\54','\4\181')][h('>)\235%<\247','LZ\131')],Db[h('\205\165\219\255\157','\175\204')][h('7\158;\155','U\255')],Db[h('\162G\180J\179','\214&')][h("k\f\'k\2=",'\bcI')],{};Da=(fu
+local v1 = unpack or table.unpack
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local Stats, LocalPlayer, PlayerGui, CurrentCamera
+do
+    local Players = game:GetService("Players")
+    local Workspace = game:GetService("Workspace")
+
+    Stats = game:GetService("Stats")
+    LocalPlayer = Players.LocalPlayer
+    PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+    CurrentCamera = Workspace.CurrentCamera
+end
+local t1 = {
+	Translations = {}
+}
+local font = Font.new("rbxasset://fonts/families/GothamSSm.json")
+local t2
+do
+    local font2 = Font.new("rbxasset://fonts/families/GothamSSm.json")
+    local font3 = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Bold)
+    local font4 = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Medium)
+    local font5 = Font.new("rbxasset://fonts/families/GothamSSm.json")
+    local font6 = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold)
+    local font7 = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.SemiBold)
+    local font8 = Font.new("rbxasset://fonts/families/SourceSansPro.json")
+    local font9 = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Bold)
+    local font10 = Font.new("rbxasset://fonts/families/Arial.json")
+    local font11 = Font.new("rbxasset://fonts/families/GothamSSm.json")
+    local font12 = Font.new("rbxasset://fonts/families/Roboto.json")
+    local font13 = Font.new("rbxasset://fonts/families/RobotoMono.json")
+    local font14 = Font.new("rbxasset://fonts/families/Oswald.json")
+    local font15 = Font.new("rbxasset://fonts/families/Ubuntu.json")
+    local font16 = Font.new("rbxasset://fonts/families/Nunito.json")
+    local font17 = Font.new("rbxasset://fonts/families/Merriweather.json")
+    local font18 = Font.new("rbxasset://fonts/families/Michroma.json")
+    local font19 = Font.new("rbxasset://fonts/families/Kalam.json")
+    local font20 = Font.new("rbxasset://fonts/families/IndieFlower.json")
+    local font21 = Font.new("rbxasset://fonts/families/PatrickHand.json")
+    local font22 = Font.new("rbxasset://fonts/families/PermanentMarker.json")
+    local font23 = Font.new("rbxasset://fonts/families/LuckiestGuy.json")
+    local font24 = Font.new("rbxasset://fonts/families/FredokaOne.json")
+    local font25 = Font.new("rbxasset://fonts/families/Bangers.json")
+    local font26 = Font.new("rbxasset://fonts/families/TitilliumWeb.json")
+    local font27 = Font.new("rbxasset://fonts/families/Code.json")
+
+    t2 = {
+		["Gotham SSm"] = font2,
+		["Gotham Bold"] = font3,
+		["Gotham Medium"] = font4,
+		Gotham = font5,
+		["Source Sans Bold"] = font6,
+		["Source Sans Semibold"] = font7,
+		["Source Sans"] = font8,
+		["Arial Bold"] = font9,
+		Arial = font10,
+		Legacy = font11,
+		Roboto = font12,
+		["Roboto Mono"] = font13,
+		Oswald = font14,
+		Ubuntu = font15,
+		Nunito = font16,
+		Merriweather = font17,
+		Michroma = font18,
+		Kalam = font19,
+		["Indie Flower"] = font20,
+		["Patrick Hand"] = font21,
+		["Permanent Marker"] = font22,
+		["Luckiest Guy"] = font23,
+		["Fredoka One"] = font24,
+		Bangers = font25,
+		["Titillium Web"] = font26,
+		Code = font27
+	}
+end
+local u39
+local u40 = t2["Fredoka One"]
+local t3 = {}
+local function v42(p1, p2)
+    t3[p1] = p2
+
+    if not pcall(function()
+        p1.FontFace = u40
+    end) then
+        pcall(function()
+            p1.FontFace = font
+        end)
+    end
+end
+local t64
+do
+    local t4, t5
+
+    do
+        local color3 = Color3.fromRGB(9, 10, 15)
+        local color3_2 = Color3.fromRGB(14, 16, 24)
+        local color3_3 = Color3.fromRGB(20, 23, 34)
+        local color3_4 = Color3.fromRGB(99, 102, 241)
+        local color3_5 = Color3.fromRGB(243, 244, 246)
+        local color3_6 = Color3.fromRGB(156, 163, 175)
+        local color3_7 = Color3.fromRGB(31, 41, 55)
+        local color3_8 = Color3.fromRGB(99, 102, 241)
+        local color3_9 = Color3.fromRGB(37, 40, 52)
+
+        t4 = {
+			Background = color3,
+			Sidebar = color3_2,
+			ElementBg = color3_3,
+			Accent = color3_4,
+			Text = color3_5,
+			SubText = color3_6,
+			Border = color3_7,
+			ToggleOn = color3_8,
+			ToggleOff = color3_9
+		}
+
+        local color3_10 = Color3.fromRGB(18, 18, 18)
+        local color3_11 = Color3.fromRGB(26, 26, 26)
+        local color3_12 = Color3.fromRGB(34, 34, 34)
+        local color3_13 = Color3.fromRGB(220, 252, 19)
+        local color3_14 = Color3.fromRGB(245, 245, 245)
+        local color3_15 = Color3.fromRGB(140, 140, 140)
+        local color3_16 = Color3.fromRGB(48, 48, 48)
+        local color3_17 = Color3.fromRGB(220, 252, 19)
+        local color3_18 = Color3.fromRGB(44, 44, 44)
+
+        t5 = {
+			Background = color3_10,
+			Sidebar = color3_11,
+			ElementBg = color3_12,
+			Accent = color3_13,
+			Text = color3_14,
+			SubText = color3_15,
+			Border = color3_16,
+			ToggleOn = color3_17,
+			ToggleOff = color3_18
+		}
+    end
+
+    local t6, t7
+
+    do
+        local color3 = Color3.fromRGB(10, 11, 12)
+        local color3_19 = Color3.fromRGB(17, 18, 20)
+        local color3_20 = Color3.fromRGB(24, 25, 28)
+        local color3_21 = Color3.fromRGB(139, 92, 246)
+        local color3_22 = Color3.fromRGB(249, 250, 251)
+        local color3_23 = Color3.fromRGB(156, 163, 175)
+        local color3_24 = Color3.fromRGB(31, 41, 55)
+        local color3_25 = Color3.fromRGB(139, 92, 246)
+        local color3_26 = Color3.fromRGB(38, 38, 38)
+
+        t6 = {
+			Background = color3,
+			Sidebar = color3_19,
+			ElementBg = color3_20,
+			Accent = color3_21,
+			Text = color3_22,
+			SubText = color3_23,
+			Border = color3_24,
+			ToggleOn = color3_25,
+			ToggleOff = color3_26
+		}
+
+        local color3_27 = Color3.fromRGB(11, 11, 14)
+        local color3_28 = Color3.fromRGB(19, 19, 24)
+        local color3_29 = Color3.fromRGB(27, 27, 34)
+        local color3_30 = Color3.fromRGB(236, 72, 153)
+        local color3_31 = Color3.fromRGB(253, 244, 245)
+        local color3_32 = Color3.fromRGB(161, 161, 170)
+        local color3_33 = Color3.fromRGB(43, 43, 53)
+        local color3_34 = Color3.fromRGB(236, 72, 153)
+        local color3_35 = Color3.fromRGB(44, 44, 52)
+
+        t7 = {
+			Background = color3_27,
+			Sidebar = color3_28,
+			ElementBg = color3_29,
+			Accent = color3_30,
+			Text = color3_31,
+			SubText = color3_32,
+			Border = color3_33,
+			ToggleOn = color3_34,
+			ToggleOff = color3_35
+		}
+    end
+
+    local t8, t9
+
+    do
+        local color3 = Color3.fromRGB(15, 23, 42)
+        local color3_36 = Color3.fromRGB(30, 41, 59)
+        local color3_37 = Color3.fromRGB(47, 62, 86)
+        local color3_38 = Color3.fromRGB(56, 189, 248)
+        local color3_39 = Color3.fromRGB(248, 250, 252)
+        local color3_40 = Color3.fromRGB(148, 163, 184)
+        local color3_41 = Color3.fromRGB(51, 65, 85)
+        local color3_42 = Color3.fromRGB(56, 189, 248)
+        local color3_43 = Color3.fromRGB(55, 65, 81)
+
+        t8 = {
+			Background = color3,
+			Sidebar = color3_36,
+			ElementBg = color3_37,
+			Accent = color3_38,
+			Text = color3_39,
+			SubText = color3_40,
+			Border = color3_41,
+			ToggleOn = color3_42,
+			ToggleOff = color3_43
+		}
+
+        local color3_44 = Color3.fromRGB(241, 245, 249)
+        local color3_45 = Color3.fromRGB(226, 232, 240)
+        local color3_46 = Color3.fromRGB(203, 213, 225)
+        local color3_47 = Color3.fromRGB(14, 165, 233)
+        local color3_48 = Color3.fromRGB(15, 23, 42)
+        local color3_49 = Color3.fromRGB(71, 85, 105)
+        local color3_50 = Color3.fromRGB(148, 163, 184)
+        local color3_51 = Color3.fromRGB(14, 165, 233)
+        local color3_52 = Color3.fromRGB(186, 195, 205)
+
+        t9 = {
+			Background = color3_44,
+			Sidebar = color3_45,
+			ElementBg = color3_46,
+			Accent = color3_47,
+			Text = color3_48,
+			SubText = color3_49,
+			Border = color3_50,
+			ToggleOn = color3_51,
+			ToggleOff = color3_52
+		}
+    end
+
+    local t10, t11
+
+    do
+        local color3 = Color3.fromRGB(224, 242, 254)
+        local color3_53 = Color3.fromRGB(186, 230, 253)
+        local color3_54 = Color3.fromRGB(125, 211, 252)
+        local color3_55 = Color3.fromRGB(3, 105, 161)
+        local color3_56 = Color3.fromRGB(8, 47, 73)
+        local color3_57 = Color3.fromRGB(14, 116, 144)
+        local color3_58 = Color3.fromRGB(56, 189, 248)
+        local color3_59 = Color3.fromRGB(3, 105, 161)
+        local color3_60 = Color3.fromRGB(150, 200, 230)
+
+        t10 = {
+			Background = color3,
+			Sidebar = color3_53,
+			ElementBg = color3_54,
+			Accent = color3_55,
+			Text = color3_56,
+			SubText = color3_57,
+			Border = color3_58,
+			ToggleOn = color3_59,
+			ToggleOff = color3_60
+		}
+
+        local color3_61 = Color3.fromRGB(24, 37, 45)
+        local color3_62 = Color3.fromRGB(35, 52, 63)
+        local color3_63 = Color3.fromRGB(48, 71, 86)
+        local color3_64 = Color3.fromRGB(130, 205, 240)
+        local color3_65 = Color3.fromRGB(240, 246, 250)
+        local color3_66 = Color3.fromRGB(160, 185, 200)
+        local color3_67 = Color3.fromRGB(60, 85, 102)
+        local color3_68 = Color3.fromRGB(130, 205, 240)
+        local color3_69 = Color3.fromRGB(46, 60, 71)
+
+        t11 = {
+			Background = color3_61,
+			Sidebar = color3_62,
+			ElementBg = color3_63,
+			Accent = color3_64,
+			Text = color3_65,
+			SubText = color3_66,
+			Border = color3_67,
+			ToggleOn = color3_68,
+			ToggleOff = color3_69
+		}
+    end
+
+    local t12, t13
+
+    do
+        local color3 = Color3.fromRGB(16, 26, 36)
+        local color3_70 = Color3.fromRGB(25, 39, 54)
+        local color3_71 = Color3.fromRGB(36, 55, 75)
+        local color3_72 = Color3.fromRGB(100, 210, 255)
+        local color3_73 = Color3.fromRGB(245, 250, 255)
+        local color3_74 = Color3.fromRGB(150, 175, 195)
+        local color3_75 = Color3.fromRGB(48, 72, 96)
+        local color3_76 = Color3.fromRGB(100, 210, 255)
+        local color3_77 = Color3.fromRGB(30, 48, 66)
+
+        t12 = {
+			Background = color3,
+			Sidebar = color3_70,
+			ElementBg = color3_71,
+			Accent = color3_72,
+			Text = color3_73,
+			SubText = color3_74,
+			Border = color3_75,
+			ToggleOn = color3_76,
+			ToggleOff = color3_77
+		}
+
+        local color3_78 = Color3.fromRGB(31, 33, 40)
+        local color3_79 = Color3.fromRGB(41, 45, 54)
+        local color3_80 = Color3.fromRGB(52, 57, 69)
+        local color3_81 = Color3.fromRGB(245, 158, 11)
+        local color3_82 = Color3.fromRGB(249, 250, 251)
+        local color3_83 = Color3.fromRGB(156, 163, 175)
+        local color3_84 = Color3.fromRGB(75, 85, 99)
+        local color3_85 = Color3.fromRGB(245, 158, 11)
+        local color3_86 = Color3.fromRGB(43, 47, 56)
+
+        t13 = {
+			Background = color3_78,
+			Sidebar = color3_79,
+			ElementBg = color3_80,
+			Accent = color3_81,
+			Text = color3_82,
+			SubText = color3_83,
+			Border = color3_84,
+			ToggleOn = color3_85,
+			ToggleOff = color3_86
+		}
+    end
+
+    local t14, t15
+
+    do
+        local color3 = Color3.fromRGB(28, 13, 26)
+        local color3_87 = Color3.fromRGB(41, 18, 38)
+        local color3_88 = Color3.fromRGB(56, 24, 51)
+        local color3_89 = Color3.fromRGB(244, 63, 94)
+        local color3_90 = Color3.fromRGB(255, 241, 242)
+        local color3_91 = Color3.fromRGB(244, 114, 182)
+        local color3_92 = Color3.fromRGB(76, 29, 69)
+        local color3_93 = Color3.fromRGB(244, 63, 94)
+        local color3_94 = Color3.fromRGB(43, 19, 39)
+
+        t14 = {
+			Background = color3,
+			Sidebar = color3_87,
+			ElementBg = color3_88,
+			Accent = color3_89,
+			Text = color3_90,
+			SubText = color3_91,
+			Border = color3_92,
+			ToggleOn = color3_93,
+			ToggleOff = color3_94
+		}
+
+        local color3_95 = Color3.fromRGB(8, 8, 12)
+        local color3_96 = Color3.fromRGB(14, 14, 20)
+        local color3_97 = Color3.fromRGB(21, 21, 30)
+        local color3_98 = Color3.fromRGB(190, 24, 74)
+        local color3_99 = Color3.fromRGB(253, 244, 245)
+        local color3_100 = Color3.fromRGB(156, 163, 175)
+        local color3_101 = Color3.fromRGB(31, 41, 55)
+        local color3_102 = Color3.fromRGB(190, 24, 74)
+        local color3_103 = Color3.fromRGB(28, 28, 38)
+
+        t15 = {
+			Background = color3_95,
+			Sidebar = color3_96,
+			ElementBg = color3_97,
+			Accent = color3_98,
+			Text = color3_99,
+			SubText = color3_100,
+			Border = color3_101,
+			ToggleOn = color3_102,
+			ToggleOff = color3_103
+		}
+    end
+
+    local t16, t17
+
+    do
+        local color3 = Color3.fromRGB(24, 10, 6)
+        local color3_104 = Color3.fromRGB(38, 15, 9)
+        local color3_105 = Color3.fromRGB(54, 21, 12)
+        local color3_106 = Color3.fromRGB(249, 115, 22)
+        local color3_107 = Color3.fromRGB(255, 247, 237)
+        local color3_108 = Color3.fromRGB(253, 186, 116)
+        local color3_109 = Color3.fromRGB(79, 26, 14)
+        local color3_110 = Color3.fromRGB(249, 115, 22)
+        local color3_111 = Color3.fromRGB(43, 17, 10)
+
+        t16 = {
+			Background = color3,
+			Sidebar = color3_104,
+			ElementBg = color3_105,
+			Accent = color3_106,
+			Text = color3_107,
+			SubText = color3_108,
+			Border = color3_109,
+			ToggleOn = color3_110,
+			ToggleOff = color3_111
+		}
+
+        local color3_112 = Color3.fromRGB(20, 8, 10)
+        local color3_113 = Color3.fromRGB(31, 11, 14)
+        local color3_114 = Color3.fromRGB(46, 16, 20)
+        local color3_115 = Color3.fromRGB(225, 29, 72)
+        local color3_116 = Color3.fromRGB(255, 241, 242)
+        local color3_117 = Color3.fromRGB(251, 113, 133)
+        local color3_118 = Color3.fromRGB(64, 15, 22)
+        local color3_119 = Color3.fromRGB(225, 29, 72)
+        local color3_120 = Color3.fromRGB(36, 13, 16)
+
+        t17 = {
+			Background = color3_112,
+			Sidebar = color3_113,
+			ElementBg = color3_114,
+			Accent = color3_115,
+			Text = color3_116,
+			SubText = color3_117,
+			Border = color3_118,
+			ToggleOn = color3_119,
+			ToggleOff = color3_120
+		}
+    end
+
+    local t18, t19
+
+    do
+        local color3 = Color3.fromRGB(26, 10, 15)
+        local color3_121 = Color3.fromRGB(41, 15, 23)
+        local color3_122 = Color3.fromRGB(56, 20, 31)
+        local color3_123 = Color3.fromRGB(219, 39, 119)
+        local color3_124 = Color3.fromRGB(253, 244, 245)
+        local color3_125 = Color3.fromRGB(244, 114, 182)
+        local color3_126 = Color3.fromRGB(83, 24, 43)
+        local color3_127 = Color3.fromRGB(219, 39, 119)
+        local color3_128 = Color3.fromRGB(43, 15, 22)
+
+        t18 = {
+			Background = color3,
+			Sidebar = color3_121,
+			ElementBg = color3_122,
+			Accent = color3_123,
+			Text = color3_124,
+			SubText = color3_125,
+			Border = color3_126,
+			ToggleOn = color3_127,
+			ToggleOff = color3_128
+		}
+
+        local color3_129 = Color3.fromRGB(25, 12, 16)
+        local color3_130 = Color3.fromRGB(40, 18, 25)
+        local color3_131 = Color3.fromRGB(55, 25, 34)
+        local color3_132 = Color3.fromRGB(244, 63, 128)
+        local color3_133 = Color3.fromRGB(254, 242, 244)
+        local color3_134 = Color3.fromRGB(249, 168, 192)
+        local color3_135 = Color3.fromRGB(78, 30, 46)
+        local color3_136 = Color3.fromRGB(244, 63, 128)
+        local color3_137 = Color3.fromRGB(42, 19, 26)
+
+        t19 = {
+			Background = color3_129,
+			Sidebar = color3_130,
+			ElementBg = color3_131,
+			Accent = color3_132,
+			Text = color3_133,
+			SubText = color3_134,
+			Border = color3_135,
+			ToggleOn = color3_136,
+			ToggleOff = color3_137
+		}
+    end
+
+    local t20, t21
+
+    do
+        local color3 = Color3.fromRGB(28, 10, 10)
+        local color3_138 = Color3.fromRGB(43, 14, 14)
+        local color3_139 = Color3.fromRGB(58, 20, 20)
+        local color3_140 = Color3.fromRGB(239, 68, 68)
+        local color3_141 = Color3.fromRGB(254, 242, 242)
+        local color3_142 = Color3.fromRGB(252, 165, 165)
+        local color3_143 = Color3.fromRGB(82, 24, 24)
+        local color3_144 = Color3.fromRGB(239, 68, 68)
+        local color3_145 = Color3.fromRGB(45, 15, 15)
+
+        t20 = {
+			Background = color3,
+			Sidebar = color3_138,
+			ElementBg = color3_139,
+			Accent = color3_140,
+			Text = color3_141,
+			SubText = color3_142,
+			Border = color3_143,
+			ToggleOn = color3_144,
+			ToggleOff = color3_145
+		}
+
+        local color3_146 = Color3.fromRGB(15, 6, 6)
+        local color3_147 = Color3.fromRGB(26, 9, 9)
+        local color3_148 = Color3.fromRGB(38, 12, 12)
+        local color3_149 = Color3.fromRGB(220, 38, 38)
+        local color3_150 = Color3.fromRGB(254, 242, 242)
+        local color3_151 = Color3.fromRGB(248, 113, 113)
+        local color3_152 = Color3.fromRGB(56, 14, 14)
+        local color3_153 = Color3.fromRGB(220, 38, 38)
+        local color3_154 = Color3.fromRGB(28, 9, 9)
+
+        t21 = {
+			Background = color3_146,
+			Sidebar = color3_147,
+			ElementBg = color3_148,
+			Accent = color3_149,
+			Text = color3_150,
+			SubText = color3_151,
+			Border = color3_152,
+			ToggleOn = color3_153,
+			ToggleOff = color3_154
+		}
+    end
+
+    local t22, t23
+
+    do
+        local color3 = Color3.fromRGB(26, 15, 15)
+        local color3_155 = Color3.fromRGB(38, 20, 18)
+        local color3_156 = Color3.fromRGB(52, 27, 24)
+        local color3_157 = Color3.fromRGB(249, 115, 22)
+        local color3_158 = Color3.fromRGB(255, 247, 237)
+        local color3_159 = Color3.fromRGB(253, 186, 116)
+        local color3_160 = Color3.fromRGB(73, 35, 30)
+        local color3_161 = Color3.fromRGB(249, 115, 22)
+        local color3_162 = Color3.fromRGB(42, 21, 19)
+
+        t22 = {
+			Background = color3,
+			Sidebar = color3_155,
+			ElementBg = color3_156,
+			Accent = color3_157,
+			Text = color3_158,
+			SubText = color3_159,
+			Border = color3_160,
+			ToggleOn = color3_161,
+			ToggleOff = color3_162
+		}
+
+        local color3_163 = Color3.fromRGB(10, 20, 18)
+        local color3_164 = Color3.fromRGB(15, 32, 28)
+        local color3_165 = Color3.fromRGB(21, 44, 38)
+        local color3_166 = Color3.fromRGB(52, 211, 153)
+        local color3_167 = Color3.fromRGB(240, 253, 250)
+        local color3_168 = Color3.fromRGB(110, 231, 183)
+        local color3_169 = Color3.fromRGB(30, 60, 52)
+        local color3_170 = Color3.fromRGB(52, 211, 153)
+        local color3_171 = Color3.fromRGB(16, 34, 30)
+
+        t23 = {
+			Background = color3_163,
+			Sidebar = color3_164,
+			ElementBg = color3_165,
+			Accent = color3_166,
+			Text = color3_167,
+			SubText = color3_168,
+			Border = color3_169,
+			ToggleOn = color3_170,
+			ToggleOff = color3_171
+		}
+    end
+
+    local t24, t25
+
+    do
+        local color3 = Color3.fromRGB(10, 20, 12)
+        local color3_172 = Color3.fromRGB(15, 30, 18)
+        local color3_173 = Color3.fromRGB(21, 42, 25)
+        local color3_174 = Color3.fromRGB(34, 197, 94)
+        local color3_175 = Color3.fromRGB(240, 253, 244)
+        local color3_176 = Color3.fromRGB(134, 239, 172)
+        local color3_177 = Color3.fromRGB(30, 58, 35)
+        local color3_178 = Color3.fromRGB(34, 197, 94)
+        local color3_179 = Color3.fromRGB(16, 32, 20)
+
+        t24 = {
+			Background = color3,
+			Sidebar = color3_172,
+			ElementBg = color3_173,
+			Accent = color3_174,
+			Text = color3_175,
+			SubText = color3_176,
+			Border = color3_177,
+			ToggleOn = color3_178,
+			ToggleOff = color3_179
+		}
+
+        local color3_180 = Color3.fromRGB(18, 22, 15)
+        local color3_181 = Color3.fromRGB(26, 32, 22)
+        local color3_182 = Color3.fromRGB(35, 43, 30)
+        local color3_183 = Color3.fromRGB(163, 230, 53)
+        local color3_184 = Color3.fromRGB(247, 254, 231)
+        local color3_185 = Color3.fromRGB(190, 242, 75)
+        local color3_186 = Color3.fromRGB(48, 59, 41)
+        local color3_187 = Color3.fromRGB(163, 230, 53)
+        local color3_188 = Color3.fromRGB(27, 33, 23)
+
+        t25 = {
+			Background = color3_180,
+			Sidebar = color3_181,
+			ElementBg = color3_182,
+			Accent = color3_183,
+			Text = color3_184,
+			SubText = color3_185,
+			Border = color3_186,
+			ToggleOn = color3_187,
+			ToggleOff = color3_188
+		}
+    end
+
+    local t26, t27
+
+    do
+        local color3 = Color3.fromRGB(19, 20, 13)
+        local color3_189 = Color3.fromRGB(28, 30, 19)
+        local color3_190 = Color3.fromRGB(38, 40, 25)
+        local color3_191 = Color3.fromRGB(132, 204, 22)
+        local color3_192 = Color3.fromRGB(250, 252, 242)
+        local color3_193 = Color3.fromRGB(163, 230, 53)
+        local color3_194 = Color3.fromRGB(53, 56, 35)
+        local color3_195 = Color3.fromRGB(132, 204, 22)
+        local color3_196 = Color3.fromRGB(29, 31, 19)
+
+        t26 = {
+			Background = color3,
+			Sidebar = color3_189,
+			ElementBg = color3_190,
+			Accent = color3_191,
+			Text = color3_192,
+			SubText = color3_193,
+			Border = color3_194,
+			ToggleOn = color3_195,
+			ToggleOff = color3_196
+		}
+
+        local color3_197 = Color3.fromRGB(8, 22, 16)
+        local color3_198 = Color3.fromRGB(12, 34, 24)
+        local color3_199 = Color3.fromRGB(17, 47, 33)
+        local color3_200 = Color3.fromRGB(16, 185, 129)
+        local color3_201 = Color3.fromRGB(236, 253, 245)
+        local color3_202 = Color3.fromRGB(110, 231, 183)
+        local color3_203 = Color3.fromRGB(24, 67, 47)
+        local color3_204 = Color3.fromRGB(16, 185, 129)
+        local color3_205 = Color3.fromRGB(13, 37, 26)
+
+        t27 = {
+			Background = color3_197,
+			Sidebar = color3_198,
+			ElementBg = color3_199,
+			Accent = color3_200,
+			Text = color3_201,
+			SubText = color3_202,
+			Border = color3_203,
+			ToggleOn = color3_204,
+			ToggleOff = color3_205
+		}
+    end
+
+    local t28, t29
+
+    do
+        local color3 = Color3.fromRGB(12, 24, 20)
+        local color3_206 = Color3.fromRGB(18, 36, 30)
+        local color3_207 = Color3.fromRGB(25, 49, 41)
+        local color3_208 = Color3.fromRGB(5, 150, 105)
+        local color3_209 = Color3.fromRGB(236, 253, 245)
+        local color3_210 = Color3.fromRGB(52, 211, 153)
+        local color3_211 = Color3.fromRGB(35, 68, 57)
+        local color3_212 = Color3.fromRGB(5, 150, 105)
+        local color3_213 = Color3.fromRGB(19, 37, 31)
+
+        t28 = {
+			Background = color3,
+			Sidebar = color3_206,
+			ElementBg = color3_207,
+			Accent = color3_208,
+			Text = color3_209,
+			SubText = color3_210,
+			Border = color3_211,
+			ToggleOn = color3_212,
+			ToggleOff = color3_213
+		}
+
+        local color3_214 = Color3.fromRGB(12, 20, 30)
+        local color3_215 = Color3.fromRGB(17, 29, 44)
+        local color3_216 = Color3.fromRGB(23, 39, 59)
+        local color3_217 = Color3.fromRGB(14, 165, 233)
+        local color3_218 = Color3.fromRGB(240, 249, 255)
+        local color3_219 = Color3.fromRGB(125, 211, 252)
+        local color3_220 = Color3.fromRGB(32, 54, 82)
+        local color3_221 = Color3.fromRGB(14, 165, 233)
+        local color3_222 = Color3.fromRGB(18, 30, 45)
+
+        t29 = {
+			Background = color3_214,
+			Sidebar = color3_215,
+			ElementBg = color3_216,
+			Accent = color3_217,
+			Text = color3_218,
+			SubText = color3_219,
+			Border = color3_220,
+			ToggleOn = color3_221,
+			ToggleOff = color3_222
+		}
+    end
+
+    local t30, t31
+
+    do
+        local color3 = Color3.fromRGB(5, 8, 14)
+        local color3_223 = Color3.fromRGB(8, 13, 24)
+        local color3_224 = Color3.fromRGB(12, 19, 34)
+        local color3_225 = Color3.fromRGB(37, 99, 235)
+        local color3_226 = Color3.fromRGB(242, 247, 255)
+        local color3_227 = Color3.fromRGB(147, 197, 253)
+        local color3_228 = Color3.fromRGB(18, 29, 52)
+        local color3_229 = Color3.fromRGB(37, 99, 235)
+        local color3_230 = Color3.fromRGB(9, 14, 26)
+
+        t30 = {
+			Background = color3,
+			Sidebar = color3_223,
+			ElementBg = color3_224,
+			Accent = color3_225,
+			Text = color3_226,
+			SubText = color3_227,
+			Border = color3_228,
+			ToggleOn = color3_229,
+			ToggleOff = color3_230
+		}
+
+        local color3_231 = Color3.fromRGB(10, 18, 31)
+        local color3_232 = Color3.fromRGB(15, 27, 46)
+        local color3_233 = Color3.fromRGB(20, 37, 63)
+        local color3_234 = Color3.fromRGB(29, 78, 216)
+        local color3_235 = Color3.fromRGB(240, 245, 255)
+        local color3_236 = Color3.fromRGB(147, 197, 253)
+        local color3_237 = Color3.fromRGB(28, 52, 89)
+        local color3_238 = Color3.fromRGB(29, 78, 216)
+        local color3_239 = Color3.fromRGB(16, 29, 49)
+
+        t31 = {
+			Background = color3_231,
+			Sidebar = color3_232,
+			ElementBg = color3_233,
+			Accent = color3_234,
+			Text = color3_235,
+			SubText = color3_236,
+			Border = color3_237,
+			ToggleOn = color3_238,
+			ToggleOff = color3_239
+		}
+    end
+
+    local t32, t33
+
+    do
+        local color3 = Color3.fromRGB(14, 16, 26)
+        local color3_240 = Color3.fromRGB(21, 24, 39)
+        local color3_241 = Color3.fromRGB(29, 33, 54)
+        local color3_242 = Color3.fromRGB(59, 130, 246)
+        local color3_243 = Color3.fromRGB(243, 244, 246)
+        local color3_244 = Color3.fromRGB(147, 197, 253)
+        local color3_245 = Color3.fromRGB(41, 46, 75)
+        local color3_246 = Color3.fromRGB(59, 130, 246)
+        local color3_247 = Color3.fromRGB(22, 25, 41)
+
+        t32 = {
+			Background = color3,
+			Sidebar = color3_240,
+			ElementBg = color3_241,
+			Accent = color3_242,
+			Text = color3_243,
+			SubText = color3_244,
+			Border = color3_245,
+			ToggleOn = color3_246,
+			ToggleOff = color3_247
+		}
+
+        local color3_248 = Color3.fromRGB(11, 21, 31)
+        local color3_249 = Color3.fromRGB(16, 31, 46)
+        local color3_250 = Color3.fromRGB(22, 43, 64)
+        local color3_251 = Color3.fromRGB(0, 140, 255)
+        local color3_252 = Color3.fromRGB(240, 248, 255)
+        local color3_253 = Color3.fromRGB(135, 206, 250)
+        local color3_254 = Color3.fromRGB(31, 60, 89)
+        local color3_255 = Color3.fromRGB(0, 140, 255)
+        local color3_256 = Color3.fromRGB(17, 33, 49)
+
+        t33 = {
+			Background = color3_248,
+			Sidebar = color3_249,
+			ElementBg = color3_250,
+			Accent = color3_251,
+			Text = color3_252,
+			SubText = color3_253,
+			Border = color3_254,
+			ToggleOn = color3_255,
+			ToggleOff = color3_256
+		}
+    end
+
+    local t34, t35
+
+    do
+        local color3 = Color3.fromRGB(15, 15, 28)
+        local color3_257 = Color3.fromRGB(22, 22, 41)
+        local color3_258 = Color3.fromRGB(30, 30, 56)
+        local color3_259 = Color3.fromRGB(99, 102, 241)
+        local color3_260 = Color3.fromRGB(244, 245, 254)
+        local color3_261 = Color3.fromRGB(165, 180, 252)
+        local color3_262 = Color3.fromRGB(42, 42, 78)
+        local color3_263 = Color3.fromRGB(99, 102, 241)
+        local color3_264 = Color3.fromRGB(23, 23, 43)
+
+        t34 = {
+			Background = color3,
+			Sidebar = color3_257,
+			ElementBg = color3_258,
+			Accent = color3_259,
+			Text = color3_260,
+			SubText = color3_261,
+			Border = color3_262,
+			ToggleOn = color3_263,
+			ToggleOff = color3_264
+		}
+
+        local color3_265 = Color3.fromRGB(19, 14, 28)
+        local color3_266 = Color3.fromRGB(28, 21, 41)
+        local color3_267 = Color3.fromRGB(38, 29, 56)
+        local color3_268 = Color3.fromRGB(139, 92, 246)
+        local color3_269 = Color3.fromRGB(245, 243, 255)
+        local color3_270 = Color3.fromRGB(196, 181, 253)
+        local color3_271 = Color3.fromRGB(53, 41, 78)
+        local color3_272 = Color3.fromRGB(139, 92, 246)
+        local color3_273 = Color3.fromRGB(29, 22, 43)
+
+        t35 = {
+			Background = color3_265,
+			Sidebar = color3_266,
+			ElementBg = color3_267,
+			Accent = color3_268,
+			Text = color3_269,
+			SubText = color3_270,
+			Border = color3_271,
+			ToggleOn = color3_272,
+			ToggleOff = color3_273
+		}
+    end
+
+    local t36, t37
+
+    do
+        local color3 = Color3.fromRGB(22, 18, 31)
+        local color3_274 = Color3.fromRGB(32, 26, 45)
+        local color3_275 = Color3.fromRGB(44, 36, 61)
+        local color3_276 = Color3.fromRGB(167, 139, 250)
+        local color3_277 = Color3.fromRGB(245, 243, 255)
+        local color3_278 = Color3.fromRGB(196, 181, 253)
+        local color3_279 = Color3.fromRGB(61, 50, 85)
+        local color3_280 = Color3.fromRGB(167, 139, 250)
+        local color3_281 = Color3.fromRGB(33, 27, 46)
+
+        t36 = {
+			Background = color3,
+			Sidebar = color3_274,
+			ElementBg = color3_275,
+			Accent = color3_276,
+			Text = color3_277,
+			SubText = color3_278,
+			Border = color3_279,
+			ToggleOn = color3_280,
+			ToggleOff = color3_281
+		}
+
+        local color3_282 = Color3.fromRGB(25, 14, 25)
+        local color3_283 = Color3.fromRGB(37, 21, 37)
+        local color3_284 = Color3.fromRGB(51, 29, 51)
+        local color3_285 = Color3.fromRGB(217, 70, 239)
+        local color3_286 = Color3.fromRGB(253, 242, 253)
+        local color3_287 = Color3.fromRGB(240, 171, 252)
+        local color3_288 = Color3.fromRGB(71, 40, 71)
+        local color3_289 = Color3.fromRGB(217, 70, 239)
+        local color3_290 = Color3.fromRGB(39, 22, 39)
+
+        t37 = {
+			Background = color3_282,
+			Sidebar = color3_283,
+			ElementBg = color3_284,
+			Accent = color3_285,
+			Text = color3_286,
+			SubText = color3_287,
+			Border = color3_288,
+			ToggleOn = color3_289,
+			ToggleOff = color3_290
+		}
+    end
+
+    local t38, t39
+
+    do
+        local color3 = Color3.fromRGB(13, 13, 31)
+        local color3_291 = Color3.fromRGB(19, 19, 46)
+        local color3_292 = Color3.fromRGB(26, 26, 63)
+        local color3_293 = Color3.fromRGB(67, 56, 202)
+        local color3_294 = Color3.fromRGB(238, 242, 255)
+        local color3_295 = Color3.fromRGB(180, 198, 252)
+        local color3_296 = Color3.fromRGB(36, 36, 88)
+        local color3_297 = Color3.fromRGB(67, 56, 202)
+        local color3_298 = Color3.fromRGB(19, 19, 45)
+
+        t38 = {
+			Background = color3,
+			Sidebar = color3_291,
+			ElementBg = color3_292,
+			Accent = color3_293,
+			Text = color3_294,
+			SubText = color3_295,
+			Border = color3_296,
+			ToggleOn = color3_297,
+			ToggleOff = color3_298
+		}
+
+        local color3_299 = Color3.fromRGB(20, 12, 28)
+        local color3_300 = Color3.fromRGB(30, 18, 42)
+        local color3_301 = Color3.fromRGB(41, 25, 57)
+        local color3_302 = Color3.fromRGB(168, 85, 247)
+        local color3_303 = Color3.fromRGB(250, 245, 255)
+        local color3_304 = Color3.fromRGB(216, 180, 254)
+        local color3_305 = Color3.fromRGB(57, 35, 80)
+        local color3_306 = Color3.fromRGB(168, 85, 247)
+        local color3_307 = Color3.fromRGB(31, 19, 43)
+
+        t39 = {
+			Background = color3_299,
+			Sidebar = color3_300,
+			ElementBg = color3_301,
+			Accent = color3_302,
+			Text = color3_303,
+			SubText = color3_304,
+			Border = color3_305,
+			ToggleOn = color3_306,
+			ToggleOff = color3_307
+		}
+    end
+
+    local t40, t41
+
+    do
+        local color3 = Color3.fromRGB(10, 10, 15)
+        local color3_308 = Color3.fromRGB(16, 16, 24)
+        local color3_309 = Color3.fromRGB(22, 22, 33)
+        local color3_310 = Color3.fromRGB(0, 255, 170)
+        local color3_311 = Color3.fromRGB(255, 255, 255)
+        local color3_312 = Color3.fromRGB(0, 180, 255)
+        local color3_313 = Color3.fromRGB(0, 120, 255)
+        local color3_314 = Color3.fromRGB(0, 255, 170)
+        local color3_315 = Color3.fromRGB(30, 30, 45)
+
+        t40 = {
+			Background = color3,
+			Sidebar = color3_308,
+			ElementBg = color3_309,
+			Accent = color3_310,
+			Text = color3_311,
+			SubText = color3_312,
+			Border = color3_313,
+			ToggleOn = color3_314,
+			ToggleOff = color3_315
+		}
+
+        local color3_316 = Color3.fromRGB(12, 12, 12)
+        local color3_317 = Color3.fromRGB(18, 18, 18)
+        local color3_318 = Color3.fromRGB(24, 24, 24)
+        local color3_319 = Color3.fromRGB(239, 68, 68)
+        local color3_320 = Color3.fromRGB(255, 255, 255)
+        local color3_321 = Color3.fromRGB(163, 230, 53)
+        local color3_322 = Color3.fromRGB(59, 130, 246)
+        local color3_323 = Color3.fromRGB(239, 68, 68)
+        local color3_324 = Color3.fromRGB(30, 30, 30)
+
+        t41 = {
+			Background = color3_316,
+			Sidebar = color3_317,
+			ElementBg = color3_318,
+			Accent = color3_319,
+			Text = color3_320,
+			SubText = color3_321,
+			Border = color3_322,
+			ToggleOn = color3_323,
+			ToggleOff = color3_324
+		}
+    end
+
+    local t42, t43
+
+    do
+        local color3 = Color3.fromRGB(5, 12, 6)
+        local color3_325 = Color3.fromRGB(8, 18, 9)
+        local color3_326 = Color3.fromRGB(11, 25, 13)
+        local color3_327 = Color3.fromRGB(34, 197, 94)
+        local color3_328 = Color3.fromRGB(220, 252, 231)
+        local color3_329 = Color3.fromRGB(74, 222, 128)
+        local color3_330 = Color3.fromRGB(21, 48, 25)
+        local color3_331 = Color3.fromRGB(34, 197, 94)
+        local color3_332 = Color3.fromRGB(9, 20, 10)
+
+        t42 = {
+			Background = color3,
+			Sidebar = color3_325,
+			ElementBg = color3_326,
+			Accent = color3_327,
+			Text = color3_328,
+			SubText = color3_329,
+			Border = color3_330,
+			ToggleOn = color3_331,
+			ToggleOff = color3_332
+		}
+
+        local color3_333 = Color3.fromRGB(10, 12, 10)
+        local color3_334 = Color3.fromRGB(15, 18, 15)
+        local color3_335 = Color3.fromRGB(20, 24, 20)
+        local color3_336 = Color3.fromRGB(242, 252, 30)
+        local color3_337 = Color3.fromRGB(240, 255, 240)
+        local color3_338 = Color3.fromRGB(140, 200, 140)
+        local color3_339 = Color3.fromRGB(30, 45, 30)
+        local color3_340 = Color3.fromRGB(242, 252, 30)
+        local color3_341 = Color3.fromRGB(25, 30, 25)
+
+        t43 = {
+			Background = color3_333,
+			Sidebar = color3_334,
+			ElementBg = color3_335,
+			Accent = color3_336,
+			Text = color3_337,
+			SubText = color3_338,
+			Border = color3_339,
+			ToggleOn = color3_340,
+			ToggleOff = color3_341
+		}
+    end
+
+    local t44, t45
+
+    do
+        local color3 = Color3.fromRGB(28, 28, 30)
+        local color3_342 = Color3.fromRGB(44, 44, 46)
+        local color3_343 = Color3.fromRGB(63, 63, 66)
+        local color3_344 = Color3.fromRGB(142, 142, 147)
+        local color3_345 = Color3.fromRGB(255, 255, 255)
+        local color3_346 = Color3.fromRGB(174, 174, 178)
+        local color3_347 = Color3.fromRGB(72, 72, 74)
+        local color3_348 = Color3.fromRGB(142, 142, 147)
+        local color3_349 = Color3.fromRGB(48, 48, 50)
+
+        t44 = {
+			Background = color3,
+			Sidebar = color3_342,
+			ElementBg = color3_343,
+			Accent = color3_344,
+			Text = color3_345,
+			SubText = color3_346,
+			Border = color3_347,
+			ToggleOn = color3_348,
+			ToggleOff = color3_349
+		}
+
+        local color3_350 = Color3.fromRGB(20, 24, 28)
+        local color3_351 = Color3.fromRGB(29, 35, 41)
+        local color3_352 = Color3.fromRGB(39, 47, 55)
+        local color3_353 = Color3.fromRGB(148, 163, 184)
+        local color3_354 = Color3.fromRGB(241, 245, 249)
+        local color3_355 = Color3.fromRGB(148, 163, 184)
+        local color3_356 = Color3.fromRGB(51, 65, 85)
+        local color3_357 = Color3.fromRGB(148, 163, 184)
+        local color3_358 = Color3.fromRGB(31, 38, 44)
+
+        t45 = {
+			Background = color3_350,
+			Sidebar = color3_351,
+			ElementBg = color3_352,
+			Accent = color3_353,
+			Text = color3_354,
+			SubText = color3_355,
+			Border = color3_356,
+			ToggleOn = color3_357,
+			ToggleOff = color3_358
+		}
+    end
+
+    local t46, t47
+
+    do
+        local color3 = Color3.fromRGB(24, 26, 27)
+        local color3_359 = Color3.fromRGB(36, 39, 41)
+        local color3_360 = Color3.fromRGB(49, 53, 56)
+        local color3_361 = Color3.fromRGB(203, 213, 225)
+        local color3_362 = Color3.fromRGB(248, 250, 252)
+        local color3_363 = Color3.fromRGB(148, 163, 184)
+        local color3_364 = Color3.fromRGB(64, 69, 73)
+        local color3_365 = Color3.fromRGB(203, 213, 225)
+        local color3_366 = Color3.fromRGB(38, 41, 43)
+
+        t46 = {
+			Background = color3,
+			Sidebar = color3_359,
+			ElementBg = color3_360,
+			Accent = color3_361,
+			Text = color3_362,
+			SubText = color3_363,
+			Border = color3_364,
+			ToggleOn = color3_365,
+			ToggleOff = color3_366
+		}
+
+        local color3_367 = Color3.fromRGB(245, 245, 247)
+        local color3_368 = Color3.fromRGB(229, 229, 234)
+        local color3_369 = Color3.fromRGB(209, 209, 214)
+        local color3_370 = Color3.fromRGB(0, 122, 255)
+        local color3_371 = Color3.fromRGB(29, 29, 31)
+        local color3_372 = Color3.fromRGB(142, 142, 147)
+        local color3_373 = Color3.fromRGB(199, 199, 204)
+        local color3_374 = Color3.fromRGB(0, 122, 255)
+        local color3_375 = Color3.fromRGB(180, 180, 185)
+
+        t47 = {
+			Background = color3_367,
+			Sidebar = color3_368,
+			ElementBg = color3_369,
+			Accent = color3_370,
+			Text = color3_371,
+			SubText = color3_372,
+			Border = color3_373,
+			ToggleOn = color3_374,
+			ToggleOff = color3_375
+		}
+    end
+
+    local t48, t49
+
+    do
+        local color3 = Color3.fromRGB(250, 247, 242)
+        local color3_376 = Color3.fromRGB(235, 228, 216)
+        local color3_377 = Color3.fromRGB(215, 204, 186)
+        local color3_378 = Color3.fromRGB(180, 140, 90)
+        local color3_379 = Color3.fromRGB(60, 50, 40)
+        local color3_380 = Color3.fromRGB(130, 115, 95)
+        local color3_381 = Color3.fromRGB(190, 175, 150)
+        local color3_382 = Color3.fromRGB(180, 140, 90)
+        local color3_383 = Color3.fromRGB(195, 185, 170)
+
+        t48 = {
+			Background = color3,
+			Sidebar = color3_376,
+			ElementBg = color3_377,
+			Accent = color3_378,
+			Text = color3_379,
+			SubText = color3_380,
+			Border = color3_381,
+			ToggleOn = color3_382,
+			ToggleOff = color3_383
+		}
+
+        local color3_384 = Color3.fromRGB(28, 20, 14)
+        local color3_385 = Color3.fromRGB(41, 29, 20)
+        local color3_386 = Color3.fromRGB(56, 40, 27)
+        local color3_387 = Color3.fromRGB(245, 158, 11)
+        local color3_388 = Color3.fromRGB(254, 243, 199)
+        local color3_389 = Color3.fromRGB(251, 191, 36)
+        local color3_390 = Color3.fromRGB(78, 55, 38)
+        local color3_391 = Color3.fromRGB(245, 158, 11)
+        local color3_392 = Color3.fromRGB(43, 30, 21)
+
+        t49 = {
+			Background = color3_384,
+			Sidebar = color3_385,
+			ElementBg = color3_386,
+			Accent = color3_387,
+			Text = color3_388,
+			SubText = color3_389,
+			Border = color3_390,
+			ToggleOn = color3_391,
+			ToggleOff = color3_392
+		}
+    end
+
+    local t50, t51
+
+    do
+        local color3 = Color3.fromRGB(21, 16, 14)
+        local color3_393 = Color3.fromRGB(31, 24, 21)
+        local color3_394 = Color3.fromRGB(42, 33, 29)
+        local color3_395 = Color3.fromRGB(180, 130, 100)
+        local color3_396 = Color3.fromRGB(245, 240, 235)
+        local color3_397 = Color3.fromRGB(160, 140, 130)
+        local color3_398 = Color3.fromRGB(58, 46, 40)
+        local color3_399 = Color3.fromRGB(180, 130, 100)
+        local color3_400 = Color3.fromRGB(32, 25, 22)
+
+        t50 = {
+			Background = color3,
+			Sidebar = color3_393,
+			ElementBg = color3_394,
+			Accent = color3_395,
+			Text = color3_396,
+			SubText = color3_397,
+			Border = color3_398,
+			ToggleOn = color3_399,
+			ToggleOff = color3_400
+		}
+
+        local color3_401 = Color3.fromRGB(15, 11, 9)
+        local color3_402 = Color3.fromRGB(24, 18, 15)
+        local color3_403 = Color3.fromRGB(34, 26, 22)
+        local color3_404 = Color3.fromRGB(214, 170, 131)
+        local color3_405 = Color3.fromRGB(249, 246, 244)
+        local color3_406 = Color3.fromRGB(176, 150, 133)
+        local color3_407 = Color3.fromRGB(48, 37, 31)
+        local color3_408 = Color3.fromRGB(214, 170, 131)
+        local color3_409 = Color3.fromRGB(26, 20, 17)
+
+        t51 = {
+			Background = color3_401,
+			Sidebar = color3_402,
+			ElementBg = color3_403,
+			Accent = color3_404,
+			Text = color3_405,
+			SubText = color3_406,
+			Border = color3_407,
+			ToggleOn = color3_408,
+			ToggleOff = color3_409
+		}
+    end
+
+    local t52, t53
+
+    do
+        local color3 = Color3.fromRGB(12, 8, 6)
+        local color3_410 = Color3.fromRGB(20, 13, 10)
+        local color3_411 = Color3.fromRGB(28, 18, 14)
+        local color3_412 = Color3.fromRGB(145, 90, 60)
+        local color3_413 = Color3.fromRGB(250, 242, 238)
+        local color3_414 = Color3.fromRGB(175, 145, 130)
+        local color3_415 = Color3.fromRGB(40, 26, 20)
+        local color3_416 = Color3.fromRGB(145, 90, 60)
+        local color3_417 = Color3.fromRGB(22, 14, 11)
+
+        t52 = {
+			Background = color3,
+			Sidebar = color3_410,
+			ElementBg = color3_411,
+			Accent = color3_412,
+			Text = color3_413,
+			SubText = color3_414,
+			Border = color3_415,
+			ToggleOn = color3_416,
+			ToggleOff = color3_417
+		}
+
+        local color3_418 = Color3.fromRGB(26, 18, 20)
+        local color3_419 = Color3.fromRGB(38, 26, 29)
+        local color3_420 = Color3.fromRGB(51, 35, 39)
+        local color3_421 = Color3.fromRGB(244, 172, 183)
+        local color3_422 = Color3.fromRGB(255, 245, 247)
+        local color3_423 = Color3.fromRGB(224, 141, 156)
+        local color3_424 = Color3.fromRGB(71, 49, 54)
+        local color3_425 = Color3.fromRGB(244, 172, 183)
+        local color3_426 = Color3.fromRGB(41, 28, 31)
+
+        t53 = {
+			Background = color3_418,
+			Sidebar = color3_419,
+			ElementBg = color3_420,
+			Accent = color3_421,
+			Text = color3_422,
+			SubText = color3_423,
+			Border = color3_424,
+			ToggleOn = color3_425,
+			ToggleOff = color3_426
+		}
+    end
+
+    local t54, t55
+
+    do
+        local color3 = Color3.fromRGB(22, 13, 10)
+        local color3_427 = Color3.fromRGB(33, 19, 15)
+        local color3_428 = Color3.fromRGB(46, 26, 21)
+        local color3_429 = Color3.fromRGB(230, 110, 75)
+        local color3_430 = Color3.fromRGB(255, 243, 240)
+        local color3_431 = Color3.fromRGB(220, 160, 140)
+        local color3_432 = Color3.fromRGB(64, 36, 29)
+        local color3_433 = Color3.fromRGB(230, 110, 75)
+        local color3_434 = Color3.fromRGB(35, 20, 16)
+
+        t54 = {
+			Background = color3,
+			Sidebar = color3_427,
+			ElementBg = color3_428,
+			Accent = color3_429,
+			Text = color3_430,
+			SubText = color3_431,
+			Border = color3_432,
+			ToggleOn = color3_433,
+			ToggleOff = color3_434
+		}
+
+        local color3_435 = Color3.fromRGB(248, 249, 250)
+        local color3_436 = Color3.fromRGB(233, 236, 239)
+        local color3_437 = Color3.fromRGB(218, 224, 230)
+        local color3_438 = Color3.fromRGB(200, 180, 195)
+        local color3_439 = Color3.fromRGB(33, 37, 41)
+        local color3_440 = Color3.fromRGB(108, 117, 125)
+        local color3_441 = Color3.fromRGB(173, 181, 189)
+        local color3_442 = Color3.fromRGB(200, 180, 195)
+        local color3_443 = Color3.fromRGB(195, 200, 205)
+
+        t55 = {
+			Background = color3_435,
+			Sidebar = color3_436,
+			ElementBg = color3_437,
+			Accent = color3_438,
+			Text = color3_439,
+			SubText = color3_440,
+			Border = color3_441,
+			ToggleOn = color3_442,
+			ToggleOff = color3_443
+		}
+    end
+
+    local t56, t57
+
+    do
+        local color3 = Color3.fromRGB(254, 253, 250)
+        local color3_444 = Color3.fromRGB(245, 242, 232)
+        local color3_445 = Color3.fromRGB(232, 227, 211)
+        local color3_446 = Color3.fromRGB(175, 160, 120)
+        local color3_447 = Color3.fromRGB(50, 48, 42)
+        local color3_448 = Color3.fromRGB(120, 115, 95)
+        local color3_449 = Color3.fromRGB(204, 197, 175)
+        local color3_450 = Color3.fromRGB(175, 160, 120)
+        local color3_451 = Color3.fromRGB(215, 210, 195)
+
+        t56 = {
+			Background = color3,
+			Sidebar = color3_444,
+			ElementBg = color3_445,
+			Accent = color3_446,
+			Text = color3_447,
+			SubText = color3_448,
+			Border = color3_449,
+			ToggleOn = color3_450,
+			ToggleOff = color3_451
+		}
+
+        local color3_452 = Color3.fromRGB(255, 255, 255)
+        local color3_453 = Color3.fromRGB(240, 244, 248)
+        local color3_454 = Color3.fromRGB(225, 232, 240)
+        local color3_455 = Color3.fromRGB(100, 150, 200)
+        local color3_456 = Color3.fromRGB(30, 41, 59)
+        local color3_457 = Color3.fromRGB(100, 116, 139)
+        local color3_458 = Color3.fromRGB(200, 210, 220)
+        local color3_459 = Color3.fromRGB(100, 150, 200)
+        local color3_460 = Color3.fromRGB(210, 215, 220)
+
+        t57 = {
+			Background = color3_452,
+			Sidebar = color3_453,
+			ElementBg = color3_454,
+			Accent = color3_455,
+			Text = color3_456,
+			SubText = color3_457,
+			Border = color3_458,
+			ToggleOn = color3_459,
+			ToggleOff = color3_460
+		}
+    end
+
+    local t58, t59
+
+    do
+        local color3 = Color3.fromRGB(12, 24, 21)
+        local color3_461 = Color3.fromRGB(18, 36, 31)
+        local color3_462 = Color3.fromRGB(25, 49, 42)
+        local color3_463 = Color3.fromRGB(52, 211, 153)
+        local color3_464 = Color3.fromRGB(236, 253, 245)
+        local color3_465 = Color3.fromRGB(110, 231, 183)
+        local color3_466 = Color3.fromRGB(35, 68, 58)
+        local color3_467 = Color3.fromRGB(52, 211, 153)
+        local color3_468 = Color3.fromRGB(19, 37, 32)
+
+        t58 = {
+			Background = color3,
+			Sidebar = color3_461,
+			ElementBg = color3_462,
+			Accent = color3_463,
+			Text = color3_464,
+			SubText = color3_465,
+			Border = color3_466,
+			ToggleOn = color3_467,
+			ToggleOff = color3_468
+		}
+
+        local color3_469 = Color3.fromRGB(8, 20, 24)
+        local color3_470 = Color3.fromRGB(12, 30, 36)
+        local color3_471 = Color3.fromRGB(17, 42, 51)
+        local color3_472 = Color3.fromRGB(45, 212, 191)
+        local color3_473 = Color3.fromRGB(240, 253, 250)
+        local color3_474 = Color3.fromRGB(94, 234, 212)
+        local color3_475 = Color3.fromRGB(24, 60, 73)
+        local color3_476 = Color3.fromRGB(45, 212, 191)
+        local color3_477 = Color3.fromRGB(13, 31, 38)
+
+        t59 = {
+			Background = color3_469,
+			Sidebar = color3_470,
+			ElementBg = color3_471,
+			Accent = color3_472,
+			Text = color3_473,
+			SubText = color3_474,
+			Border = color3_475,
+			ToggleOn = color3_476,
+			ToggleOff = color3_477
+		}
+    end
+
+    local t60, t61
+
+    do
+        local color3 = Color3.fromRGB(8, 14, 24)
+        local color3_478 = Color3.fromRGB(12, 21, 36)
+        local color3_479 = Color3.fromRGB(17, 29, 50)
+        local color3_480 = Color3.fromRGB(14, 165, 233)
+        local color3_481 = Color3.fromRGB(240, 249, 255)
+        local color3_482 = Color3.fromRGB(125, 211, 252)
+        local color3_483 = Color3.fromRGB(24, 41, 71)
+        local color3_484 = Color3.fromRGB(14, 165, 233)
+        local color3_485 = Color3.fromRGB(13, 22, 38)
+
+        t60 = {
+			Background = color3,
+			Sidebar = color3_478,
+			ElementBg = color3_479,
+			Accent = color3_480,
+			Text = color3_481,
+			SubText = color3_482,
+			Border = color3_483,
+			ToggleOn = color3_484,
+			ToggleOff = color3_485
+		}
+
+        local color3_486 = Color3.fromRGB(14, 18, 24)
+        local color3_487 = Color3.fromRGB(21, 27, 36)
+        local color3_488 = Color3.fromRGB(29, 37, 50)
+        local color3_489 = Color3.fromRGB(96, 165, 250)
+        local color3_490 = Color3.fromRGB(248, 250, 252)
+        local color3_491 = Color3.fromRGB(148, 163, 184)
+        local color3_492 = Color3.fromRGB(41, 52, 71)
+        local color3_493 = Color3.fromRGB(96, 165, 250)
+        local color3_494 = Color3.fromRGB(22, 28, 38)
+
+        t61 = {
+			Background = color3_486,
+			Sidebar = color3_487,
+			ElementBg = color3_488,
+			Accent = color3_489,
+			Text = color3_490,
+			SubText = color3_491,
+			Border = color3_492,
+			ToggleOn = color3_493,
+			ToggleOff = color3_494
+		}
+    end
+
+    local color3 = Color3.fromRGB(14, 12, 20)
+    local color3_495 = Color3.fromRGB(21, 18, 30)
+    local color3_496 = Color3.fromRGB(29, 25, 41)
+    local color3_497 = Color3.fromRGB(234, 179, 8)
+    local color3_498 = Color3.fromRGB(254, 252, 242)
+    local color3_499 = Color3.fromRGB(216, 180, 254)
+    local color3_500 = Color3.fromRGB(41, 35, 58)
+    local color3_501 = Color3.fromRGB(234, 179, 8)
+    local color3_502 = Color3.fromRGB(22, 19, 31)
+    local t62 = {
+		Background = color3,
+		Sidebar = color3_495,
+		ElementBg = color3_496,
+		Accent = color3_497,
+		Text = color3_498,
+		SubText = color3_499,
+		Border = color3_500,
+		ToggleOn = color3_501,
+		ToggleOff = color3_502
+	}
+    local color3_503 = Color3.fromRGB(12, 10, 16)
+    local color3_504 = Color3.fromRGB(19, 16, 26)
+    local color3_505 = Color3.fromRGB(27, 23, 37)
+    local color3_506 = Color3.fromRGB(168, 85, 247)
+    local color3_507 = Color3.fromRGB(250, 245, 255)
+    local color3_508 = Color3.fromRGB(140, 120, 160)
+    local color3_509 = Color3.fromRGB(40, 34, 55)
+    local color3_510 = Color3.fromRGB(168, 85, 247)
+    local color3_511 = Color3.fromRGB(20, 17, 28)
+    local t63 = {
+		Background = color3_503,
+		Sidebar = color3_504,
+		ElementBg = color3_505,
+		Accent = color3_506,
+		Text = color3_507,
+		SubText = color3_508,
+		Border = color3_509,
+		ToggleOn = color3_510,
+		ToggleOff = color3_511
+	}
+
+    t64 = {
+		Midnight = t4,
+		Carbon = t5,
+		Onyx = t6,
+		Obsidian = t7,
+		Slate = t8,
+		Arctic = t9,
+		Frost = t10,
+		Glacier = t11,
+		Iceberg = t12,
+		Nimbus = t13,
+		Horizon = t14,
+		Eclipse = t15,
+		Ember = t16,
+		Crimson = t17,
+		Ruby = t18,
+		Cherry = t19,
+		Scarlet = t20,
+		Inferno = t21,
+		Sunset = t22,
+		Aurora = t23,
+		Forest = t24,
+		Moss = t25,
+		Olive = t26,
+		Emerald = t27,
+		Jade = t28,
+		Ocean = t29,
+		Abyss = t30,
+		Sapphire = t31,
+		Cobalt = t32,
+		Azure = t33,
+		Indigo = t34,
+		Violet = t35,
+		Lavender = t36,
+		Orchid = t37,
+		Royal = t38,
+		Amethyst = t39,
+		Cyber = t40,
+		Neon = t41,
+		Matrix = t42,
+		Terminal = t43,
+		Graphite = t44,
+		Steel = t45,
+		Titanium = t46,
+		Platinum = t47,
+		Sand = t48,
+		Desert = t49,
+		Mocha = t50,
+		Coffee = t51,
+		Chocolate = t52,
+		["Rose Gold"] = t53,
+		Copper = t54,
+		Pearl = t55,
+		Ivory = t56,
+		Snow = t57,
+		Mint = t58,
+		Aqua = t59,
+		["Deep Sea"] = t60,
+		Storm = t61,
+		Thunder = t62,
+		Phantom = t63
+	}
+end
+local u644
+local Midnight = t64.Midnight
+local n1 = 0
+local s1 = "EN"
+local t65 = {}
+local t66 = {}
+local t67 = {}
+local t68 = {}
+local u652
+local Frame
+local u654
+game:GetService("UserInputService").InputBegan:Connect(function(input, _)
+    if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and (u652 and (u652.IsOutside and u652.IsOutside(input.Position))) then
+        u652:Close()
+    end
+end)
+local HttpService = game:GetService("HttpService")
+local v656 = "FractureHub/UI/config" .. "/settings.json"
+local t69 = {}
+local t70 = {}
+local function v659(p4)
+    if not t64[p4] then
+        return
+    end
+    u644 = p4
+    Midnight = t64[p4]
+    for k, v in pairs(t65) do
+        local v677 = k
+
+        if v677 and v677.Parent then
+            local t71 = {}
+            for k2, v2 in pairs(v) do
+                local v681 = k2
+
+                if type(v2) == "function" then
+                    t71[v681] = v2()
+                else
+                    t71[v681] = Midnight[v2]
+                end
+            end
+            local v682
+            if v677 == nil or (v677 == nil or v677 == nil) then
+                v682 = n1
+            end
+            local t71TextColor3 = t71.TextColor3
+            local t71BackgroundColor3 = t71.BackgroundColor3
+            local t71Color = t71.Color
+            local t71ImageColor3 = t71.ImageColor3
+            local t72 = {
+				TextColor3 = t71TextColor3,
+				BackgroundColor3 = t71BackgroundColor3,
+				Color = t71Color,
+				ImageColor3 = t71ImageColor3
+			}
+            if v682 then
+                t72.BackgroundTransparency = v682
+            end
+            TweenService:Create(v677, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), t72):Play()
+        else
+            t65[v677] = nil
+        end
+    end
+    for v690, v691 in pairs(t66) do
+
+        if v690 and v690.Parent then
+            local v692 = v691.GetToggled() and Midnight.ToggleOn or Midnight.ToggleOff
+
+            TweenService:Create(v690, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+				BackgroundColor3 = v692
+			}):Play()
+
+            local Thumb = v690:FindFirstChild("Thumb")
+
+            if Thumb then
+                TweenService:Create(Thumb, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+					BackgroundColor3 = v691.GetToggled() and Color3.fromRGB(255, 255, 255) or Midnight.SubText
+				}):Play()
+            end
+        else
+            t66[v690] = nil
+        end
+    end
+    for k, _ in pairs(t67) do
+        local v696 = k
+
+        if v696 and v696.Parent then
+            v696.BackgroundColor3 = Midnight.ElementBg
+
+            local UIStroke = v696:FindFirstChildOfClass("UIStroke")
+
+            if UIStroke then
+                UIStroke.Color = Midnight.Border
+            end
+        else
+            t67[v696] = nil
+        end
+    end
+end
+local function v660(p5)
+    n1 = p5
+end
+local function v661(p6, p7, p8)
+    if not t65[p6] then
+        t65[p6] = {}
+    end
+
+    t65[p6][p7] = p8
+
+    if type(p8) == "function" then
+        p6[p7] = p8()
+
+        return
+    end
+
+    p6[p7] = Midnight[p8]
+end
+local function v662(p9)
+    if not t2[p9] then
+        return
+    end
+
+    u39 = p9
+    u40 = t2[p9]
+
+    for k, _ in pairs(t3) do
+        if k and k.Parent then
+            if not pcall(function()
+                k.FontFace = u40
+            end) then
+                pcall(function()
+                    k.FontFace = font
+                end)
+            end
+        else
+            t3[k] = nil
+        end
+    end
+end
+function t1.AddTranslation(_, p11, p12)
+    t1.Translations[p11] = p12
+end
+local function v663(p13, p14, p15)
+    t68[p13] = {
+		Key = p14,
+		Upper = p15
+	}
+
+    local v714 = t1.Translations[p14]
+
+    p13.Text = v714 and v714[s1] or p14
+end
+local function v664(p16)
+    s1 = p16
+
+    for k, v in pairs(t68) do
+        local v718 = k
+
+        if v718 and v718.Parent then
+            local v719 = t1.Translations[v.Key]
+            local v720 = v719 and v719[p16] or v.Key
+
+            v718.Text = v.Upper and v720:upper() or v720
+        else
+            t68[v718] = nil
+        end
+    end
+end
+local function v665()
+    pcall(function()
+        if not isfolder("FractureHub") then
+            makefolder("FractureHub")
+        end
+
+        if not isfolder("FractureHub/UI") then
+            makefolder("FractureHub/UI")
+        end
+
+        if not isfolder("FractureHub/UI/config") then
+            makefolder("FractureHub/UI/config")
+        end
+    end)
+end;
+(function()
+    v665()
+
+    local ok, result = pcall(function()
+        if isfile and isfile(v656) then
+            local v870 = HttpService
+            local t73 = { readfile(v656) }
+
+            return v870:JSONDecode(v1(t73))
+        end
+
+        return nil
+    end)
+
+    if ok then
+        ok = type(result) == "table"
+    end
+
+    if ok then
+        t69 = result
+
+        if type(result.Toggles) == "table" then
+            t70 = result.Toggles
+        end
+    end
+end)()
+local function v666(p17)
+    local u709
+    local u710
+    p17.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            u709 = true
+
+            local _ = input.Position
+            local _ = p17.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    u709 = false
+                end
+            end)
+        end
+    end)
+    p17.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            u710 = input
+        end
+    end)
+    UserInputService.InputChanged:Connect(function(input)
+        if input == u710 and u709 then
+            local v869 = input.Position - nil
+
+            p17.Position = UDim2.new((nil).X.Scale, (nil).X.Offset + v869.X, (nil).Y.Scale, (nil).Y.Offset + v869.Y)
+        end
+    end)
+end
+local function v667(p18)
+    if Frame then
+        return
+    end
+
+    Frame = Instance.new("Frame")
+    Frame.Name = "NotificationHolder"
+    Frame.Size = UDim2.new(0, 300, 1, -20)
+    Frame.Position = UDim2.new(1, -310, 0, 10)
+    Frame.BackgroundTransparency = 1
+    Frame.ZIndex = 99999
+    Frame.Parent = p18
+
+    local UIListLayout = Instance.new("UIListLayout")
+
+    UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Bottom
+    UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
+    UIListLayout.Padding = UDim.new(0, 8)
+    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    UIListLayout.Parent = Frame
+end
+function t1.Notify(_, p20)
+    local v725 = p20.Title or "Notification"
+    local v726 = p20.Content or "Description"
+    local v727 = p20.Image or "rbxassetid://10734952479"
+    local v728 = p20.Duration or 5
+
+    if not Frame then
+        return
+    end
+
+    local Frame2 = Instance.new("Frame")
+
+    Frame2.Size = UDim2.new(0, 280, 0, 68)
+    Frame2.BackgroundTransparency = 0.05
+    Frame2.Position = UDim2.new(1.5, 0, 0, 0)
+    Frame2.ZIndex = 100000
+    Frame2.Parent = Frame
+    v661(Frame2, "BackgroundColor3", "ElementBg")
+
+    local UICorner = Instance.new("UICorner")
+
+    UICorner.CornerRadius = UDim.new(0, 10)
+    UICorner.Parent = Frame2
+
+    local UIStroke = Instance.new("UIStroke")
+
+    UIStroke.Thickness = 1
+    UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    UIStroke.Parent = Frame2
+    v661(UIStroke, "Color", "Border")
+
+    local ImageLabel = Instance.new("ImageLabel")
+
+    ImageLabel.Size = UDim2.new(0, 36, 0, 36)
+    ImageLabel.Position = UDim2.new(0, 12, 0.5, -18)
+    ImageLabel.BackgroundTransparency = 1
+    ImageLabel.Image = v727
+    ImageLabel.ZIndex = 100001
+    ImageLabel.Parent = Frame2
+
+    local TextLabel = Instance.new("TextLabel")
+
+    TextLabel.Size = UDim2.new(1, -70, 0, 18)
+    TextLabel.Position = UDim2.new(0, 58, 0, 12)
+    TextLabel.Text = v725
+    TextLabel.TextSize = 13
+    v42(TextLabel, "Bold")
+    TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+    TextLabel.TextTruncate = Enum.TextTruncate.AtEnd
+    TextLabel.BackgroundTransparency = 1
+    TextLabel.ZIndex = 100001
+    TextLabel.AutoLocalize = false
+    TextLabel.Parent = Frame2
+    v661(TextLabel, "TextColor3", "Text")
+
+    local TextLabel2 = Instance.new("TextLabel")
+
+    TextLabel2.Size = UDim2.new(1, -70, 0, 26)
+    TextLabel2.Position = UDim2.new(0, 58, 0, 30)
+    TextLabel2.Text = v726
+    TextLabel2.TextSize = 11
+    v42(TextLabel2, "Regular")
+    TextLabel2.TextXAlignment = Enum.TextXAlignment.Left
+    TextLabel2.TextWrapped = true
+    TextLabel2.BackgroundTransparency = 1
+    TextLabel2.ZIndex = 100001
+    TextLabel2.AutoLocalize = false
+    TextLabel2.Parent = Frame2
+    v661(TextLabel2, "TextColor3", "SubText")
+    TweenService:Create(Frame2, TweenInfo.new(0.4, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {
+		Position = UDim2.new(0, 0, 0, 0)
+	}):Play()
+    task.delay(v728, function()
+        if Frame2 and Frame2.Parent then
+            local tween = TweenService:Create(Frame2, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {
+				Position = UDim2.new(1.5, 0, 0, 0)
+			})
+
+            tween:Play()
+            tween.Completed:Connect(function()
+                Frame2:Destroy()
+            end)
+        end
+    end)
+end
+function t1.CreateWindow(_, p22)
+    local v737 = p22.Title or "Fracture Hub"
+    local v738 = p22.Size or UDim2.fromOffset(580, 420)
+    local u739 = t69.MinimizeKey and Enum.KeyCode[t69.MinimizeKey] or (p22.MinimizeKey or Enum.KeyCode.LeftControl)
+    local v740 = p22.SubTitle or ""
+    local v741 = if not p22.TitleLink then t69.Theme or (p22.Theme or "Midnight") else t69.Theme or (p22.Theme or "Midnight")
+    local v742 = t69.Font or "Gotham"
+    local v743 = t69.Language or "EN"
+    local u744 = t69.ProfileLook ~= nil and t69.ProfileLook or p22.Look ~= false
+    local u745 = t69.FloatingIcon or (p22.Logo or "rbxassetid://83542549106889")
+    if t69.ProfileEnabled ~= nil then
+        local _ = t69.ProfileEnabled
+    end
+    local u747 = t69.CustomWidth or v738.X.Offset
+    local u748 = t69.CustomHeight or v738.Y.Offset
+    local uDim2 = UDim2.fromOffset(u747, u748)
+    local ViewportSize = CurrentCamera.ViewportSize
+    local v751 = math.min(uDim2.X.Offset, ViewportSize.X - 20)
+    local v752 = math.min(uDim2.Y.Offset, ViewportSize.Y - 20)
+    local uDim2_2 = UDim2.fromOffset(v751, v752)
+    local FracturePremiumLib = PlayerGui:FindFirstChild("FracturePremiumLib")
+    if FracturePremiumLib then
+        FracturePremiumLib:Destroy()
+    end
+    local ScreenGui = Instance.new("ScreenGui")
+    ScreenGui.Name = "FracturePremiumLib"
+    ScreenGui.ResetOnSpawn = false
+    ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    ScreenGui.DisplayOrder = 999999
+    ScreenGui.AutoLocalize = false
+    ScreenGui.Parent = PlayerGui
+    u654 = ScreenGui
+    v667(ScreenGui)
+    local Frame3 = Instance.new("Frame")
+    Frame3.Name = "MainFrame"
+    Frame3.AnchorPoint = Vector2.new(0.5, 0.5)
+    Frame3.Size = uDim2_2
+    Frame3.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Frame3.BorderSizePixel = 0
+    Frame3.Active = true
+    Frame3.ZIndex = 10
+    Frame3.Parent = ScreenGui
+    v661(Frame3, "BackgroundColor3", "Background")
+    local UICorner = Instance.new("UICorner")
+    UICorner.CornerRadius = UDim.new(0, 12)
+    UICorner.Parent = Frame3
+    local UIStroke = Instance.new("UIStroke")
+    UIStroke.Thickness = 1.5
+    UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    UIStroke.Parent = Frame3
+    v661(UIStroke, "Color", "Border")
+    v666(Frame3)
+    local v759 = math.min(p22.TabWidth or 160, v751 * 0.35)
+    local Frame4 = Instance.new("Frame")
+    Frame4.Name = "Sidebar"
+    Frame4.Size = UDim2.new(0, v759, 1, 0)
+    Frame4.Position = UDim2.new(0, 0, 0, 0)
+    Frame4.BorderSizePixel = 0
+    Frame4.ZIndex = 11
+    Frame4.Parent = Frame3
+    v661(Frame4, "BackgroundColor3", "Sidebar")
+    local UICorner2 = Instance.new("UICorner")
+    UICorner2.CornerRadius = UDim.new(0, 12)
+    UICorner2.Parent = Frame4
+    local Frame5 = Instance.new("Frame")
+    Frame5.Size = UDim2.new(0, 20, 1, 0)
+    Frame5.Position = UDim2.new(1, -20, 0, 0)
+    Frame5.BorderSizePixel = 0
+    Frame5.ZIndex = 11
+    Frame5.Parent = Frame4
+    v661(Frame5, "BackgroundColor3", "Sidebar")
+    local u763 = t69.HubImage or u745
+    local TextLabel = Instance.new("TextLabel")
+    TextLabel.Name = "WindowTitle"
+    TextLabel.Size = UDim2.new(1, -16, 0, 16)
+    TextLabel.Position = UDim2.new(0, 8, 0, 8)
+    TextLabel.Text = v737
+    TextLabel.TextSize = 13
+    v42(TextLabel, "Bold")
+    TextLabel.TextXAlignment = Enum.TextXAlignment.Center
+    TextLabel.TextTruncate = Enum.TextTruncate.AtEnd
+    TextLabel.BackgroundTransparency = 1
+    TextLabel.ZIndex = 13
+    TextLabel.AutoLocalize = false
+    TextLabel.Parent = Frame4
+    v661(TextLabel, "TextColor3", "Text")
+    local TextLabel3 = Instance.new("TextLabel")
+    TextLabel3.Name = "WindowSubTitle"
+    TextLabel3.Size = UDim2.new(1, -16, 0, 12)
+    TextLabel3.Position = UDim2.new(0, 8, 0, 26)
+    TextLabel3.Text = v740 ~= "" and v740 or "Universal Script System"
+    TextLabel3.TextSize = 10
+    v42(TextLabel3, "Regular")
+    TextLabel3.TextXAlignment = Enum.TextXAlignment.Center
+    TextLabel3.TextTruncate = Enum.TextTruncate.AtEnd
+    TextLabel3.BackgroundTransparency = 1
+    TextLabel3.ZIndex = 13
+    TextLabel3.AutoLocalize = false
+    TextLabel3.Parent = Frame4
+    v661(TextLabel3, "TextColor3", "SubText")
+    local Frame6 = Instance.new("Frame")
+    Frame6.Name = "ProfileCard"
+    Frame6.Size = UDim2.new(1, -16, 0, 138)
+    Frame6.Position = UDim2.new(0, 8, 0, 44)
+    Frame6.BackgroundTransparency = 0.4
+    Frame6.ZIndex = 12
+    Frame6.Visible = true
+    Frame6.ClipsDescendants = true
+    Frame6.Parent = Frame4
+    v661(Frame6, "BackgroundColor3", "ElementBg")
+    local UICorner3 = Instance.new("UICorner")
+    UICorner3.CornerRadius = UDim.new(0, 12)
+    UICorner3.Parent = Frame6
+    local UIStroke2 = Instance.new("UIStroke")
+    UIStroke2.Thickness = 1
+    UIStroke2.Parent = Frame6
+    v661(UIStroke2, "Color", "Border")
+    local ImageLabel = Instance.new("ImageLabel")
+    ImageLabel.Name = "HubImage"
+    ImageLabel.Size = UDim2.new(0, 60, 0, 60)
+    ImageLabel.AnchorPoint = Vector2.new(0.5, 0)
+    ImageLabel.Position = UDim2.new(0.5, 0, 0, 8)
+    ImageLabel.Image = u763
+    ImageLabel.ScaleType = Enum.ScaleType.Fit
+    ImageLabel.BackgroundTransparency = 1
+    ImageLabel.ZIndex = 13
+    ImageLabel.Parent = Frame6
+    local UICorner4 = Instance.new("UICorner")
+    UICorner4.CornerRadius = UDim.new(0, 10)
+    UICorner4.Parent = ImageLabel
+    local TextLabel4 = Instance.new("TextLabel")
+    TextLabel4.Name = "HubName"
+    TextLabel4.Size = UDim2.new(1, -12, 0, 18)
+    TextLabel4.Position = UDim2.new(0, 6, 0, 72)
+    TextLabel4.Text = v737
+    TextLabel4.TextSize = 13
+    v42(TextLabel4, "Bold")
+    TextLabel4.TextXAlignment = Enum.TextXAlignment.Center
+    TextLabel4.TextTruncate = Enum.TextTruncate.AtEnd
+    TextLabel4.BackgroundTransparency = 1
+    TextLabel4.ZIndex = 13
+    TextLabel4.AutoLocalize = false
+    TextLabel4.Parent = Frame6
+    v661(TextLabel4, "TextColor3", "Text")
+    local TextLabel5 = Instance.new("TextLabel")
+    TextLabel5.Name = "HubSubTitle"
+    TextLabel5.Size = UDim2.new(1, -12, 0, 13)
+    TextLabel5.Position = UDim2.new(0, 6, 0, 92)
+    TextLabel5.Text = v740 ~= "" and v740 or "Universal Script System"
+    TextLabel5.TextSize = 10
+    v42(TextLabel5, "Medium")
+    TextLabel5.TextXAlignment = Enum.TextXAlignment.Center
+    TextLabel5.TextTruncate = Enum.TextTruncate.AtEnd
+    TextLabel5.BackgroundTransparency = 1
+    TextLabel5.ZIndex = 13
+    TextLabel5.AutoLocalize = false
+    TextLabel5.Parent = Frame6
+    v661(TextLabel5, "TextColor3", "SubText")
+    local Frame7 = Instance.new("Frame")
+    Frame7.Name = "StatsContainer"
+    Frame7.Size = UDim2.new(1, -16, 0, 22)
+    Frame7.Position = UDim2.new(0, 8, 0, 110)
+    Frame7.BackgroundTransparency = 0.6
+    Frame7.ZIndex = 13
+    Frame7.Parent = Frame6
+    v661(Frame7, "BackgroundColor3", "Background")
+    local UICorner5 = Instance.new("UICorner")
+    UICorner5.CornerRadius = UDim.new(0, 6)
+    UICorner5.Parent = Frame7
+    local TextLabel6 = Instance.new("TextLabel")
+    TextLabel6.Name = "StatsLabel"
+    TextLabel6.Size = UDim2.new(1, -8, 1, -4)
+    TextLabel6.Position = UDim2.new(0, 4, 0, 2)
+    TextLabel6.Text = "FPS: ... | PING: ... | TIME: ..."
+    TextLabel6.TextSize = 9
+    TextLabel6.TextScaled = true
+    v42(TextLabel6, "Bold")
+    TextLabel6.TextXAlignment = Enum.TextXAlignment.Center
+    TextLabel6.BackgroundTransparency = 1
+    TextLabel6.RichText = true
+    TextLabel6.ZIndex = 14
+    TextLabel6.AutoLocalize = false
+    TextLabel6.Parent = Frame7
+    v661(TextLabel6, "TextColor3", "Text")
+    local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
+    UITextSizeConstraint.MaxTextSize = 11
+    UITextSizeConstraint.MinTextSize = 5
+    UITextSizeConstraint.Parent = TextLabel6
+    local TextLabel7 = Instance.new("TextLabel")
+    TextLabel7.Name = "PlayerName"
+    TextLabel7.Size = UDim2.new(0, 0, 0, 0)
+    TextLabel7.BackgroundTransparency = 1
+    TextLabel7.ZIndex = 1
+    TextLabel7.AutoLocalize = false
+    TextLabel7.Parent = Frame6
+    local TextLabel8 = Instance.new("TextLabel")
+    TextLabel8.Name = "DisplayName"
+    TextLabel8.Size = UDim2.new(0, 0, 0, 0)
+    TextLabel8.BackgroundTransparency = 1
+    TextLabel8.ZIndex = 1
+    TextLabel8.AutoLocalize = false
+    TextLabel8.Parent = Frame6
+    local TextButton = Instance.new("TextButton")
+    TextButton.Size = UDim2.new(0, 0, 0, 0)
+    TextButton.BackgroundTransparency = 1
+    TextButton.Text = ""
+    TextButton.ZIndex = 1
+    TextButton.AutoLocalize = false
+    TextButton.Parent = Frame6
+    t69.ProfileLook = u744
+    t69.Toggles = t70
+    pcall(function()
+        v665()
+        writefile(v656, HttpService:JSONEncode(t69))
+    end)
+    TextButton.MouseButton1Click:Connect(function()
+        u744 = not u744
+        t69.ProfileLook = u744
+        t69.Toggles = t70
+        pcall(function()
+            v665()
+            writefile(v656, HttpService:JSONEncode(t69))
+        end)
+    end)
+    local ScrollingFrame = Instance.new("ScrollingFrame")
+    ScrollingFrame.Name = "NavScroll"
+    ScrollingFrame.Size = UDim2.new(1, -12, 1, -198)
+    ScrollingFrame.Position = UDim2.new(0, 6, 0, 190)
+    ScrollingFrame.BackgroundTransparency = 1
+    ScrollingFrame.BorderSizePixel = 0
+    ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+    ScrollingFrame.ScrollBarThickness = 0
+    ScrollingFrame.Active = true
+    ScrollingFrame.ScrollingDirection = Enum.ScrollingDirection.Y
+    ScrollingFrame.ZIndex = 12
+    ScrollingFrame.Parent = Frame4
+    local UIListLayout = Instance.new("UIListLayout")
+    UIListLayout.Padding = UDim.new(0, 6)
+    UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    UIListLayout.Parent = ScrollingFrame
+    UIListLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+        ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y + 20)
+    end)
+    local u782
+    local Frame8 = Instance.new("Frame")
+    Frame8.Name = "Header"
+    Frame8.Size = UDim2.new(1, -v759, 0, 56)
+    Frame8.Position = UDim2.new(0, v759, 0, 0)
+    Frame8.BackgroundTransparency = 1
+    Frame8.ZIndex = 11
+    Frame8.Parent = Frame3
+    task.spawn(function()
+        local elapsed = os.clock()
+        local elapsed2 = os.clock()
+        local n2 = 0
+        local n3 = 0
+        local connection
+        connection = game:GetService("RunService").RenderStepped:Connect(function(dt)
+            if not TextLabel6 or not TextLabel6.Parent then
+                connection:Disconnect()
+
+                return
+            end
+
+            n3 += 1
+            n2 += 1 / dt
+
+            local elapsed3 = os.clock()
+
+            if elapsed3 - elapsed2 >= 0.3 then
+                local v947 = math.round(n2 / n3)
+                local n4 = 0
+
+                pcall(function()
+                    n4 = math.round((Stats:GetNetworkMetricResult(Enum.NetworkMetricType.Ping, Enum.NetworkMetricDataType.Average)))
+                end)
+
+                if n4 <= 0 then
+                    pcall(function()
+                        n4 = math.round(LocalPlayer:GetNetworkPing() * 1000)
+                    end)
+                end
+
+                local v949 = math.floor(elapsed3 - elapsed)
+                local v950 = math.floor(v949 / 3600)
+                local v951 = math.floor(v949 % 3600 / 60)
+                local v952 = v949 % 60
+                local v953 = v950 > 0 and string.format("%02d:%02d:%02d", v950, v951, v952) or string.format("%02d:%02d", v951, v952)
+                local v954 = if not (v947 >= 50) then not (v947 >= 30) and "#ef4444" or "#f59e0b" else "#10b981"
+                local v955 = if not (n4 <= 80) then not (n4 <= 150) and "#ef4444" or "#f59e0b" else "#10b981"
+
+                TextLabel6.Text = string.format("<b><font color=\"%s\">FPS:</font> %d | <font color=\"%s\">PING:</font> %d ms | TIME: %s</b>", v954, math.clamp(v947, 1, 999), v955, n4, v953)
+            end
+        end)
+    end)
+    local Frame9 = Instance.new("Frame")
+    Frame9.Name = "CloseConfirmFrame"
+    Frame9.Size = UDim2.new(1, 0, 1, 0)
+    Frame9.BackgroundTransparency = 1
+    Frame9.Active = true
+    Frame9.Visible = false
+    Frame9.ZIndex = 1000100
+    Frame9.Parent = u654
+    local Frame10 = Instance.new("Frame")
+    Frame10.AnchorPoint = Vector2.new(0.5, 0.5)
+    Frame10.Size = UDim2.fromOffset(260, 120)
+    Frame10.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Frame10.ZIndex = 1000101
+    Frame10.Parent = Frame9
+    v661(Frame10, "BackgroundColor3", "ElementBg")
+    local function v786()
+        local ViewportSize2 = CurrentCamera.ViewportSize
+        local v879 = math.min(260, ViewportSize2.X - 32)
+        local v880 = math.min(120, ViewportSize2.Y - 32)
+
+        Frame10.Size = UDim2.fromOffset(v879, v880)
+    end
+    v786()
+    CurrentCamera:GetPropertyChangedSignal("ViewportSize"):Connect(v786)
+    local UICorner6 = Instance.new("UICorner")
+    UICorner6.CornerRadius = UDim.new(0, 10)
+    UICorner6.Parent = Frame10
+    local UIStroke3 = Instance.new("UIStroke")
+    UIStroke3.Thickness = 1
+    UIStroke3.Parent = Frame10
+    v661(UIStroke3, "Color", "Border")
+    local TextLabel9 = Instance.new("TextLabel")
+    TextLabel9.Size = UDim2.new(1, -24, 0, 40)
+    TextLabel9.Position = UDim2.new(0, 12, 0, 15)
+    TextLabel9.Text = "Are you sure you want to close?"
+    TextLabel9.TextSize = 13
+    v42(TextLabel9, "Bold")
+    TextLabel9.TextWrapped = true
+    TextLabel9.BackgroundTransparency = 1
+    TextLabel9.ZIndex = 1000102
+    TextLabel9.AutoLocalize = false
+    TextLabel9.Parent = Frame10
+    v661(TextLabel9, "TextColor3", "Text")
+    local TextButton2 = Instance.new("TextButton")
+    TextButton2.Size = UDim2.new(0.5, -18, 0, 32)
+    TextButton2.Position = UDim2.new(0, 12, 1, -44)
+    TextButton2.Text = "Confirm"
+    TextButton2.TextSize = 12
+    v42(TextButton2, "Bold")
+    TextButton2.AutoButtonColor = false
+    TextButton2.ZIndex = 1000102
+    TextButton2.AutoLocalize = false
+    TextButton2.Parent = Frame10
+    v661(TextButton2, "BackgroundColor3", "Accent")
+    TextButton2.TextColor3 = Color3.fromRGB(255, 255, 255)
+    local UICorner7 = Instance.new("UICorner")
+    UICorner7.CornerRadius = UDim.new(0, 6)
+    UICorner7.Parent = TextButton2
+    local TextButton3 = Instance.new("TextButton")
+    TextButton3.Size = UDim2.new(0.5, -18, 0, 32)
+    TextButton3.Position = UDim2.new(0.5, 6, 1, -44)
+    TextButton3.Text = "Cancel"
+    TextButton3.TextSize = 12
+    v42(TextButton3, "Bold")
+    TextButton3.AutoButtonColor = false
+    TextButton3.ZIndex = 1000102
+    TextButton3.AutoLocalize = false
+    TextButton3.Parent = Frame10
+    v661(TextButton3, "BackgroundColor3", "Background")
+    v661(TextButton3, "TextColor3", "Text")
+    local UICorner8 = Instance.new("UICorner")
+    UICorner8.CornerRadius = UDim.new(0, 6)
+    UICorner8.Parent = TextButton3
+    local UIStroke4 = Instance.new("UIStroke")
+    UIStroke4.Thickness = 1
+    UIStroke4.Parent = TextButton3
+    v661(UIStroke4, "Color", "Border")
+    TextButton2.MouseButton1Click:Connect(function()
+        u654:Destroy()
+    end)
+    TextButton3.MouseButton1Click:Connect(function()
+        Frame9.Visible = false
+    end)
+    local TextButton4 = Instance.new("TextButton")
+    TextButton4.Name = "CloseBtn"
+    TextButton4.Size = UDim2.new(0, 26, 0, 26)
+    TextButton4.Position = UDim2.new(1, -38, 0, 15)
+    TextButton4.Text = "X"
+    TextButton4.TextSize = 13
+    v42(TextButton4, "Bold")
+    TextButton4.AutoButtonColor = false
+    TextButton4.ZIndex = 12
+    TextButton4.AutoLocalize = false
+    TextButton4.Parent = Frame8
+    v661(TextButton4, "BackgroundColor3", "ElementBg")
+    v661(TextButton4, "TextColor3", "SubText")
+    local UICorner9 = Instance.new("UICorner")
+    UICorner9.CornerRadius = UDim.new(0, 6)
+    UICorner9.Parent = TextButton4
+    local UIStroke5 = Instance.new("UIStroke")
+    UIStroke5.Thickness = 1
+    UIStroke5.Parent = TextButton4
+    v661(UIStroke5, "Color", "Border")
+    TextButton4.MouseButton1Click:Connect(function()
+        Frame9.Visible = true
+    end)
+    local TextButton5 = Instance.new("TextButton")
+    TextButton5.Name = "MinimizeBtn"
+    TextButton5.Size = UDim2.new(0, 26, 0, 26)
+    TextButton5.Position = UDim2.new(1, -68, 0, 15)
+    TextButton5.Text = "-"
+    TextButton5.TextSize = 18
+    v42(TextButton5, "Bold")
+    TextButton5.AutoButtonColor = false
+    TextButton5.ZIndex = 12
+    TextButton5.AutoLocalize = false
+    TextButton5.Parent = Frame8
+    v661(TextButton5, "BackgroundColor3", "ElementBg")
+    v661(TextButton5, "TextColor3", "SubText")
+    local UICorner10 = Instance.new("UICorner")
+    UICorner10.CornerRadius = UDim.new(0, 6)
+    UICorner10.Parent = TextButton5
+    local UIStroke6 = Instance.new("UIStroke")
+    UIStroke6.Thickness = 1
+    UIStroke6.Parent = TextButton5
+    v661(UIStroke6, "Color", "Border")
+    TextButton5.MouseButton1Click:Connect(function()
+        if u782 then
+            u782()
+        end
+    end)
+    if PlayerGui:FindFirstChild("FractureScreenGui") then
+        PlayerGui.FractureScreenGui:Destroy()
+    end
+    local ScreenGui2 = Instance.new("ScreenGui")
+    ScreenGui2.Name = "FractureScreenGui"
+    ScreenGui2.ResetOnSpawn = false
+    ScreenGui2.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    ScreenGui2.DisplayOrder = 999999
+    ScreenGui2.AutoLocalize = false
+    ScreenGui2.Enabled = true
+    ScreenGui2.Parent = PlayerGui
+    local Frame11 = Instance.new("Frame")
+    Frame11.Name = "FractureFrame"
+    Frame11.Size = UDim2.fromOffset(55, 55)
+    Frame11.Position = UDim2.new(0.5, 0, 0.12, 0)
+    Frame11.AnchorPoint = Vector2.new(0.5, 0.5)
+    Frame11.BackgroundTransparency = 1
+    Frame11.Parent = ScreenGui2
+    local ImageButton = Instance.new("ImageButton")
+    ImageButton.Name = "FractureButton"
+    ImageButton.Size = UDim2.fromOffset(55, 55)
+    ImageButton.Position = UDim2.new(0.5, 0, 0.5, 0)
+    ImageButton.AnchorPoint = Vector2.new(0.5, 0.5)
+    ImageButton.Image = u745
+    ImageButton.ScaleType = Enum.ScaleType.Fit
+    ImageButton.AutoButtonColor = false
+    ImageButton.ZIndex = 1
+    ImageButton.Parent = Frame11
+    v661(ImageButton, "BackgroundColor3", "ElementBg")
+    local UICorner11 = Instance.new("UICorner")
+    UICorner11.CornerRadius = UDim.new(0, 16)
+    UICorner11.Parent = ImageButton
+    local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+    ImageButton.MouseEnter:Connect(function()
+        TweenService:Create(ImageButton, tweenInfo, {
+			Size = UDim2.fromOffset(60, 60)
+		}):Play()
+    end)
+    ImageButton.MouseLeave:Connect(function()
+        TweenService:Create(ImageButton, tweenInfo, {
+			Size = UDim2.fromOffset(55, 55)
+		}):Play()
+    end)
+    ImageButton.MouseButton1Down:Connect(function()
+        TweenService:Create(ImageButton, tweenInfo, {
+			Size = UDim2.fromOffset(50, 50)
+		}):Play()
+    end)
+    ImageButton.MouseButton1Up:Connect(function()
+        TweenService:Create(ImageButton, tweenInfo, {
+			Size = UDim2.fromOffset(60, 60)
+		}):Play()
+    end)
+    local u806 = false
+    local u807
+    local inputPosition
+    local Frame11Position
+    local u810 = false
+    ImageButton.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            u806 = true
+            u807 = input
+            inputPosition = input.Position
+            Frame11Position = Frame11.Position
+            u810 = false
+        end
+    end)
+    UserInputService.InputChanged:Connect(function(input)
+        if u806 and input == u807 then
+            local v883 = input.Position - inputPosition
+
+            if v883.Magnitude > 6 then
+                u810 = true
+            end
+
+            Frame11.Position = UDim2.new(Frame11Position.X.Scale, Frame11Position.X.Offset + v883.X, Frame11Position.Y.Scale, Frame11Position.Y.Offset + v883.Y)
+        end
+    end)
+    UserInputService.InputEnded:Connect(function(input)
+        if input ~= u807 then
+        end
+    end)
+    ImageButton.MouseButton1Click:Connect(function()
+        if not u810 then
+            u782()
+        end
+    end)
+    UserInputService.InputBegan:Connect(function(input, gameProcessed)
+        if not gameProcessed and input.KeyCode == u739 then
+            u782()
+        end
+    end)
+    local Frame12 = Instance.new("Frame")
+    Frame12.Name = "Container"
+    Frame12.Size = UDim2.new(1, -v759 - 20, 1, -76)
+    Frame12.Position = UDim2.new(0, v759 + 10, 0, 64)
+    Frame12.BackgroundTransparency = 1
+    Frame12.ZIndex = 11
+    Frame12.Parent = Frame3
+    local Frame13 = Instance.new("Frame")
+    Frame13.Size = UDim2.new(0, 280, 0, 310)
+    Frame13.Position = UDim2.new(0.5, -140, 0.5, -155)
+    Frame13.ZIndex = 1000050
+    Frame13.Visible = false
+    Frame13.Parent = u654
+    v661(Frame13, "BackgroundColor3", "ElementBg")
+    local UICorner12 = Instance.new("UICorner")
+    UICorner12.CornerRadius = UDim.new(0, 10)
+    UICorner12.Parent = Frame13
+    local UIStroke7 = Instance.new("UIStroke")
+    UIStroke7.Thickness = 1
+    UIStroke7.Parent = Frame13
+    v661(UIStroke7, "Color", "Border")
+    v666(Frame13)
+    local TextLabel10 = Instance.new("TextLabel")
+    TextLabel10.Size = UDim2.new(1, -30, 0, 30)
+    TextLabel10.Position = UDim2.new(0, 15, 0, 5)
+    TextLabel10.Text = "Colorpicker 3"
+    TextLabel10.TextSize = 14
+    v42(TextLabel10, "Bold")
+    TextLabel10.TextXAlignment = Enum.TextXAlignment.Left
+    TextLabel10.BackgroundTransparency = 1
+    TextLabel10.ZIndex = 1000051
+    TextLabel10.AutoLocalize = false
+    TextLabel10.Parent = Frame13
+    v661(TextLabel10, "TextColor3", "Text")
+    local ImageLabel2 = Instance.new("ImageLabel")
+    ImageLabel2.Size = UDim2.new(0, 140, 0, 140)
+    ImageLabel2.Position = UDim2.new(0, 15, 0, 40)
+    ImageLabel2.Image = "rbxassetid://4155801252"
+    ImageLabel2.ZIndex = 1000051
+    ImageLabel2.Active = true
+    ImageLabel2.Parent = Frame13
+    local UICorner13 = Instance.new("UICorner")
+    UICorner13.CornerRadius = UDim.new(0, 6)
+    UICorner13.Parent = ImageLabel2
+    local Frame14 = Instance.new("Frame")
+    Frame14.Size = UDim2.new(0, 10, 0, 10)
+    Frame14.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Frame14.AnchorPoint = Vector2.new(0.5, 0.5)
+    Frame14.ZIndex = 1000052
+    Frame14.Parent = ImageLabel2
+    local UICorner14 = Instance.new("UICorner")
+    UICorner14.CornerRadius = UDim.new(1, 0)
+    UICorner14.Parent = Frame14
+    local UIStroke8 = Instance.new("UIStroke")
+    UIStroke8.Thickness = 2
+    UIStroke8.Color = Color3.fromRGB(0, 0, 0)
+    UIStroke8.Parent = Frame14
+    local Frame15 = Instance.new("Frame")
+    Frame15.Size = UDim2.new(0, 12, 0, 140)
+    Frame15.Position = UDim2.new(0, 165, 0, 40)
+    Frame15.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Frame15.ZIndex = 1000051
+    Frame15.Active = true
+    Frame15.Parent = Frame13
+    local UICorner15 = Instance.new("UICorner")
+    UICorner15.CornerRadius = UDim.new(0, 6)
+    UICorner15.Parent = Frame15
+    local UIGradient = Instance.new("UIGradient")
+    UIGradient.Rotation = 90
+    UIGradient.Color = ColorSequence.new({
+		ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+		ColorSequenceKeypoint.new(0.167, Color3.fromRGB(255, 255, 0)),
+		ColorSequenceKeypoint.new(0.333, Color3.fromRGB(0, 255, 0)),
+		ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 255)),
+		ColorSequenceKeypoint.new(0.667, Color3.fromRGB(0, 0, 255)),
+		ColorSequenceKeypoint.new(0.833, Color3.fromRGB(255, 0, 255)),
+		ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 0, 0))
+	})
+    UIGradient.Parent = Frame15
+    local Frame16 = Instance.new("Frame")
+    Frame16.Size = UDim2.new(0, 16, 0, 16)
+    Frame16.Position = UDim2.new(0.5, 0, 0, 0)
+    Frame16.AnchorPoint = Vector2.new(0.5, 0.5)
+    Frame16.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Frame16.ZIndex = 1000052
+    Frame16.Parent = Frame15
+    local UICorner16 = Instance.new("UICorner")
+    UICorner16.CornerRadius = UDim.new(1, 0)
+    UICorner16.Parent = Frame16
+    local UIStroke9 = Instance.new("UIStroke")
+    UIStroke9.Thickness = 2
+    UIStroke9.Color = Color3.fromRGB(0, 0, 0)
+    UIStroke9.Parent = Frame16
+    local Frame17 = Instance.new("Frame")
+    Frame17.Size = UDim2.new(0, 80, 0, 140)
+    Frame17.Position = UDim2.new(0, 185, 0, 40)
+    Frame17.BackgroundTransparency = 1
+    Frame17.ZIndex = 1000051
+    Frame17.Parent = Frame13
+    local UIListLayout2 = Instance.new("UIListLayout")
+    UIListLayout2.SortOrder = Enum.SortOrder.LayoutOrder
+    UIListLayout2.Padding = UDim.new(0, 8)
+    UIListLayout2.Parent = Frame17
+    local function v829(p23, _)
+        local Frame18 = Instance.new("Frame")
+
+        Frame18.Size = UDim2.new(1, 0, 0, 26)
+        Frame18.BackgroundTransparency = 1
+        Frame18.Parent = Frame17
+        Frame18.ZIndex = 1000051
+
+        local TextBox = Instance.new("TextBox")
+
+        TextBox.Size = UDim2.new(0.6, 0, 1, 0)
+        TextBox.Position = UDim2.new(0, 0, 0, 0)
+        TextBox.Text = ""
+        TextBox.TextSize = 11
+        v42(TextBox, "Medium")
+        TextBox.ClearTextOnFocus = false
+        TextBox.ZIndex = 1000052
+        TextBox.AutoLocalize = false
+        TextBox.Parent = Frame18
+        v661(TextBox, "BackgroundColor3", "Background")
+        v661(TextBox, "TextColor3", "Text")
+
+        local UICorner17 = Instance.new("UICorner")
+
+        UICorner17.CornerRadius = UDim.new(0, 4)
+        UICorner17.Parent = TextBox
+
+        local UIStroke10 = Instance.new("UIStroke")
+
+        UIStroke10.Thickness = 1
+        UIStroke10.Parent = TextBox
+        v661(UIStroke10, "Color", "Border")
+
+        local TextLabel11 = Instance.new("TextLabel")
+
+        TextLabel11.Size = UDim2.new(0.35, 0, 1, 0)
+        TextLabel11.Position = UDim2.new(0.65, 0, 0, 0)
+        TextLabel11.Text = p23
+        TextLabel11.TextSize = 10
+        v42(TextLabel11, "Regular")
+        TextLabel11.TextXAlignment = Enum.TextXAlignment.Right
+        TextLabel11.BackgroundTransparency = 1
+        TextLabel11.ZIndex = 1000052
+        TextLabel11.AutoLocalize = false
+        TextLabel11.Parent = Frame18
+        v661(TextLabel11, "TextColor3", "SubText")
+
+        return TextBox
+    end
+    local v830 = v829("Hex", 0)
+    local v831 = v829("Red", 34)
+    local v832 = v829("Green", 68)
+    local v833 = v829("Blue", 102)
+    local ScrollingFrame2 = Instance.new("ScrollingFrame")
+    ScrollingFrame2.Size = UDim2.new(1, -30, 0, 36)
+    ScrollingFrame2.Position = UDim2.new(0, 15, 0, 195)
+    ScrollingFrame2.BackgroundTransparency = 1
+    ScrollingFrame2.ScrollBarThickness = 2
+    ScrollingFrame2.CanvasSize = UDim2.new(0, 0, 0, 0)
+    ScrollingFrame2.ZIndex = 1000051
+    ScrollingFrame2.Parent = Frame13
+    v661(ScrollingFrame2, "ScrollBarImageColor3", "Border")
+    local UIListLayout3 = Instance.new("UIListLayout")
+    UIListLayout3.FillDirection = Enum.FillDirection.Horizontal
+    UIListLayout3.SortOrder = Enum.SortOrder.LayoutOrder
+    UIListLayout3.Padding = UDim.new(0, 6)
+    UIListLayout3.Parent = ScrollingFrame2
+    local TextButton6 = Instance.new("TextButton")
+    TextButton6.Size = UDim2.new(0, 115, 0, 34)
+    TextButton6.Position = UDim2.new(0, 15, 0, 250)
+    TextButton6.Text = "Cancel"
+    TextButton6.TextSize = 12
+    v42(TextButton6, "Bold")
+    TextButton6.AutoButtonColor = false
+    TextButton6.ZIndex = 1000052
+    TextButton6.AutoLocalize = false
+    TextButton6.Parent = Frame13
+    v661(TextButton6, "BackgroundColor3", "Background")
+    v661(TextButton6, "TextColor3", "Text")
+    local UICorner18 = Instance.new("UICorner")
+    UICorner18.CornerRadius = UDim.new(0, 6)
+    UICorner18.Parent = TextButton6
+    local UIStroke11 = Instance.new("UIStroke")
+    UIStroke11.Thickness = 1
+    UIStroke11.Parent = TextButton6
+    v661(UIStroke11, "Color", "Border")
+    local TextButton7 = Instance.new("TextButton")
+    TextButton7.Size = UDim2.new(0, 115, 0, 34)
+    TextButton7.Position = UDim2.new(0, 150, 0, 250)
+    TextButton7.Text = "Apply"
+    TextButton7.TextSize = 12
+    v42(TextButton7, "Bold")
+    TextButton7.AutoButtonColor = false
+    TextButton7.ZIndex = 1000052
+    TextButton7.AutoLocalize = false
+    TextButton7.Parent = Frame13
+    v661(TextButton7, "BackgroundColor3", "Accent")
+    TextButton7.TextColor3 = Color3.fromRGB(255, 255, 255)
+    local UICorner19 = Instance.new("UICorner")
+    UICorner19.CornerRadius = UDim.new(0, 6)
+    UICorner19.Parent = TextButton7
+    local color3 = Color3.new(1, 1, 1)
+    local n5 = 0
+    local n6 = 0
+    local n7 = 1
+    local u845
+    local function u846(p25)
+        color3 = Color3.fromHSV(n5, n6, n7)
+        ImageLabel2.BackgroundColor3 = Color3.fromHSV(n5, 1, 1)
+        Frame14.Position = UDim2.new(n6, 0, 1 - n7, 0)
+        Frame16.Position = UDim2.new(0.5, 0, n5, 0)
+
+        if p25 then
+            local v899 = math.floor(color3.R * 255)
+            local v900 = math.floor(color3.G * 255)
+            local v901 = math.floor(color3.B * 255)
+
+            v830.Text = string.format("#%02X%02X%02X", v899, v900, v901)
+            v831.Text = tostring(v899)
+            v832.Text = tostring(v900)
+            v833.Text = tostring(v901)
+        end
+    end
+    local function v847(p26)
+        local v895, v896, v897 = p26:ToHSV()
+
+        n5 = v895
+        n6 = v896
+        n7 = v897
+        u846(true)
+    end
+    local t74 = {
+		Color3.fromRGB(255, 0, 0),
+		Color3.fromRGB(0, 255, 0),
+		Color3.fromRGB(0, 0, 255),
+		Color3.fromRGB(255, 255, 0),
+		Color3.fromRGB(0, 255, 255),
+		Color3.fromRGB(255, 0, 255),
+		Color3.fromRGB(255, 255, 255),
+		Color3.fromRGB(0, 0, 0),
+		Color3.fromRGB(255, 128, 0),
+		Color3.fromRGB(128, 0, 255),
+		Color3.fromRGB(128, 255, 0),
+		Color3.fromRGB(255, 0, 128)
+	}
+    for _, v in ipairs(t74) do
+        local v851 = v
+        local TextButton8 = Instance.new("TextButton")
+
+        TextButton8.Size = UDim2.new(0, 26, 0, 26)
+        TextButton8.BackgroundColor3 = v851
+        TextButton8.Text = ""
+        TextButton8.ZIndex = 1000052
+        TextButton8.AutoLocalize = false
+        TextButton8.Parent = ScrollingFrame2
+
+        local UICorner20 = Instance.new("UICorner")
+
+        UICorner20.CornerRadius = UDim.new(0, 4)
+        UICorner20.Parent = TextButton8
+
+        local UIStroke12 = Instance.new("UIStroke")
+
+        UIStroke12.Thickness = 1
+        UIStroke12.Parent = TextButton8
+        v661(UIStroke12, "Color", "Border")
+        TextButton8.MouseButton1Click:Connect(function()
+            v847(v851)
+        end)
+    end
+    ScrollingFrame2.CanvasSize = UDim2.new(0, #t74 * 32, 0, 0)
+    local u855 = false
+    local u856 = false
+    ImageLabel2.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            u855 = true
+            math.clamp((input.Position.X - ImageLabel2.AbsolutePosition.X) / ImageLabel2.AbsoluteSize.X, 0, 1)
+
+            local _ = 1 - math.clamp((input.Position.Y - ImageLabel2.AbsolutePosition.Y) / ImageLabel2.AbsoluteSize.Y, 0, 1)
+
+            u846(true)
+        end
+    end)
+    Frame15.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            u856 = true
+            math.clamp((input.Position.Y - Frame15.AbsolutePosition.Y) / Frame15.AbsoluteSize.Y, 0, 1)
+            u846(true)
+        end
+    end)
+    UserInputService.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            if u855 then
+                math.clamp((input.Position.X - ImageLabel2.AbsolutePosition.X) / ImageLabel2.AbsoluteSize.X, 0, 1)
+
+                local _ = 1 - math.clamp((input.Position.Y - ImageLabel2.AbsolutePosition.Y) / ImageLabel2.AbsoluteSize.Y, 0, 1)
+
+                u846(true)
+            end
+
+            if u856 then
+                math.clamp((input.Position.Y - Frame15.AbsolutePosition.Y) / Frame15.AbsoluteSize.Y, 0, 1)
+                u846(true)
+            end
+        end
+    end)
+    UserInputService.InputEnded:Connect(function(input)
+        if not (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
+        end
+    end)
+    TextButton6.MouseButton1Click:Connect(function()
+        Frame13.Visible = false
+    end)
+    TextButton7.MouseButton1Click:Connect(function()
+        if u845 then
+            u845(color3)
+        end
+
+        Frame13.Visible = false
+    end)
+    local t75 = {}
+    local t76 = {}
+    local u857
+    local function v860()
+        for _, child in ipairs(ScrollingFrame:GetChildren()) do
+            if child:IsA("TextButton") then
+                local v912 = u857 ~= nil and child == t76[u857]
+                local AccentBar = child:FindFirstChild("AccentBar")
+                local TabContent = child:FindFirstChild("TabContent")
+                local v915 = TabContent and TabContent:FindFirstChildOfClass("TextLabel")
+                local v916 = TabContent and TabContent:FindFirstChildOfClass("ImageLabel")
+                local v917 = TabContent and TabContent:FindFirstChild("EmojiLabel")
+
+                if v912 then
+                    TweenService:Create(child, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+						BackgroundTransparency = 0
+					}):Play()
+
+                    if AccentBar then
+                        TweenService:Create(AccentBar, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+							Size = UDim2.new(0, 4, 0.6, 0)
+						}):Play()
+                    end
+
+                    if v915 then
+                        TweenService:Create(v915, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+							TextColor3 = Midnight.Accent
+						}):Play()
+                    end
+
+                    if v916 then
+                        TweenService:Create(v916, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+							ImageColor3 = Midnight.Accent
+						}):Play()
+                    end
+
+                    if v917 then
+                        TweenService:Create(v917, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+							TextColor3 = Midnight.Accent
+						}):Play()
+                    end
+                else
+                    TweenService:Create(child, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+						BackgroundTransparency = 1
+					}):Play()
+
+                    if AccentBar then
+                        TweenService:Create(AccentBar, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+							Size = UDim2.new(0, 0, 0.6, 0)
+						}):Play()
+                    end
+
+                    if v915 then
+                        TweenService:Create(v915, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+							TextColor3 = Midnight.SubText
+						}):Play()
+                    end
+
+                    if v916 then
+                        TweenService:Create(v916, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+							ImageColor3 = Midnight.SubText
+						}):Play()
+                    end
+
+                    if v917 then
+                        TweenService:Create(v917, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+							TextColor3 = Midnight.SubText
+						}):Play()
+                    end
+                end
+            end
+        end
+    end
+    function u782()
+        local Frame3Visible = Frame3.Visible
+        local v919 = not Frame3Visible and 0.85 or 1
+        local v920 = not Frame3Visible and 1 or 0.85
+
+        if not Frame3Visible then
+            Frame3.Size = UDim2.fromOffset(uDim2_2.X.Offset * v919, uDim2_2.Y.Offset * v919)
+            Frame3.Visible = true
+        end
+
+        local tween = TweenService:Create(Frame3, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+			Size = UDim2.fromOffset(uDim2_2.X.Offset * v920, uDim2_2.Y.Offset * v920)
+		})
+
+        tween:Play()
+        tween.Completed:Connect(function()
+            if Frame3Visible then
+                Frame3.Visible = false
+
+                if u652 then
+                    u652:Close()
+                end
+            end
+        end)
+    end
+    UserInputService.InputBegan:Connect(function(input, gameProcessed)
+        if not gameProcessed and input.KeyCode == u739 then
+            u782()
+        end
+    end)
+    local t83 = {
+		AddTab = function(_, p28)
+        local v926 = p28.Title or "Tab"
+        local v927 = p28.Icon or "⚔\239\184\143"
+        local TextButton9 = Instance.new("TextButton")
+
+        TextButton9.Name = v926 .. "Tab"
+        TextButton9.Size = UDim2.new(1, -8, 0, 36)
+        TextButton9.BackgroundTransparency = 1
+        TextButton9.Text = ""
+        TextButton9.AutoButtonColor = false
+        TextButton9.ZIndex = 13
+        TextButton9.AutoLocalize = false
+        TextButton9.Parent = ScrollingFrame
+        v661(TextButton9, "BackgroundColor3", "ElementBg")
+
+        local UICorner21 = Instance.new("UICorner")
+
+        UICorner21.CornerRadius = UDim.new(0, 6)
+        UICorner21.Parent = TextButton9
+
+        local Frame19 = Instance.new("Frame")
+
+        Frame19.Name = "AccentBar"
+        Frame19.Size = UDim2.new(0, 0, 0.6, 0)
+        Frame19.Position = UDim2.new(0, 4, 0.2, 0)
+        Frame19.BorderSizePixel = 0
+        Frame19.ZIndex = 14
+        Frame19.Parent = TextButton9
+        v661(Frame19, "BackgroundColor3", "Accent")
+
+        local UICorner22 = Instance.new("UICorner")
+
+        UICorner22.CornerRadius = UDim.new(1, 0)
+        UICorner22.Parent = Frame19
+
+        local Frame20 = Instance.new("Frame")
+
+        Frame20.Name = "TabContent"
+        Frame20.Size = UDim2.new(1, -16, 1, 0)
+        Frame20.Position = UDim2.new(0, 12, 0, 0)
+        Frame20.BackgroundTransparency = 1
+        Frame20.ZIndex = 14
+        Frame20.Parent = TextButton9
+
+        local UIListLayout4 = Instance.new("UIListLayout")
+
+        UIListLayout4.FillDirection = Enum.FillDirection.Horizontal
+        UIListLayout4.VerticalAlignment = Enum.VerticalAlignment.Center
+        UIListLayout4.Padding = UDim.new(0, 8)
+        UIListLayout4.Parent = Frame20
+
+        if v927:match("^rbxassetid") or v927:match("^rbxtemp") then
+            local ImageLabel3 = Instance.new("ImageLabel")
+
+            ImageLabel3.Size = UDim2.new(0, 20, 0, 20)
+            ImageLabel3.Image = v927
+            ImageLabel3.BackgroundTransparency = 1
+            ImageLabel3.ZIndex = 15
+            ImageLabel3.Parent = Frame20
+            v661(ImageLabel3, "ImageColor3", "SubText")
+        else
+            local TextLabel12 = Instance.new("TextLabel")
+
+            TextLabel12.Name = "EmojiLabel"
+            TextLabel12.Size = UDim2.new(0, 20, 0, 20)
+            TextLabel12.Text = v927
+            TextLabel12.TextSize = 16
+            v42(TextLabel12, "Bold")
+            TextLabel12.BackgroundTransparency = 1
+            TextLabel12.ZIndex = 15
+            TextLabel12.AutoLocalize = false
+            TextLabel12.Parent = Frame20
+            v661(TextLabel12, "TextColor3", "SubText")
+        end
+
+        local TextLabel13 = Instance.new("TextLabel")
+
+        TextLabel13.Size = UDim2.new(1, -28, 1, 0)
+        TextLabel13.TextSize = 14
+        v42(TextLabel13, "Bold")
+        TextLabel13.TextXAlignment = Enum.TextXAlignment.Left
+        TextLabel13.BackgroundTransparency = 1
+        TextLabel13.ZIndex = 15
+        TextLabel13.AutoLocalize = false
+        TextLabel13.Parent = Frame20
+        v661(TextLabel13, "TextColor3", "SubText")
+        v663(TextLabel13, v926)
+
+        local ScrollingFrame3 = Instance.new("ScrollingFrame")
+
+        ScrollingFrame3.Name = v926 .. "Page"
+        ScrollingFrame3.Size = UDim2.new(1, 0, 1, 0)
+        ScrollingFrame3.BackgroundTransparency = 1
+        ScrollingFrame3.BorderSizePixel = 0
+        ScrollingFrame3.Visible = false
+        ScrollingFrame3.CanvasSize = UDim2.new(0, 0, 0, 0)
+        ScrollingFrame3.ScrollBarThickness = 3
+        ScrollingFrame3.ZIndex = 12
+        ScrollingFrame3.Parent = Frame12
+        v661(ScrollingFrame3, "ScrollBarImageColor3", "Border")
+
+        local UIListLayout5 = Instance.new("UIListLayout")
+
+        UIListLayout5.Padding = UDim.new(0, 6)
+        UIListLayout5.HorizontalAlignment = Enum.HorizontalAlignment.Center
+        UIListLayout5.SortOrder = Enum.SortOrder.LayoutOrder
+        UIListLayout5.Parent = ScrollingFrame3
+
+        local UIPadding = Instance.new("UIPadding")
+
+        UIPadding.PaddingTop = UDim.new(0, 4)
+        UIPadding.PaddingBottom = UDim.new(0, 10)
+        UIPadding.Parent = ScrollingFrame3
+        UIListLayout5:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+            ScrollingFrame3.CanvasSize = UDim2.new(0, 0, 0, UIListLayout5.AbsoluteContentSize.Y + 20)
+        end)
+        t76[ScrollingFrame3] = TextButton9
+
+        local function v940()
+            if u857 == ScrollingFrame3 then
+                return
+            end
+
+            for _, child in ipairs(Frame12:GetChildren()) do
+                if child:IsA("ScrollingFrame") then
+                    child.Visible = false
+                end
+            end
+
+            if u652 then
+                u652:Close()
+            end
+
+            u857 = ScrollingFrame3
+            ScrollingFrame3.Visible = true
+            v860()
+        end
+
+        TextButton9.MouseButton1Click:Connect(v940)
+        t75[v926] = v940
+
+        if not u857 then
+            v940()
+        end
+
+        local t77 = {}
+
+        local function v942(p29)
+            local v959 = false
+
+            if type(p29) == "table" then
+                v959 = p29[1] == true
+
+                if type(p29[2]) == "string" and p29[2] ~= "" then
+                    return v959, p29[2]
+                end
+            elseif type(p29) == "boolean" then
+                v959 = p29
+            end
+
+            return v959, "This element is locked"
+        end
+        local function v943(p30, p31, p32)
+            if not p31 then
+                return
+            end
+
+            local v963 = p32 or "This element is locked"
+            local TextButton10 = Instance.new("TextButton")
+
+            TextButton10.Size = UDim2.new(1, 0, 1, 0)
+            TextButton10.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+            TextButton10.BackgroundTransparency = 0.5
+            TextButton10.Text = ""
+            TextButton10.AutoButtonColor = false
+            TextButton10.ZIndex = 50
+            TextButton10.AutoLocalize = false
+            TextButton10.Parent = p30
+
+            local UICorner23 = Instance.new("UICorner")
+
+            UICorner23.CornerRadius = UDim.new(0, 8)
+            UICorner23.Parent = TextButton10
+
+            local Frame21 = Instance.new("Frame")
+
+            Frame21.Size = UDim2.new(1, -24, 0, 18)
+            Frame21.Position = UDim2.new(0.5, 0, 0.5, 0)
+            Frame21.AnchorPoint = Vector2.new(0.5, 0.5)
+            Frame21.BackgroundTransparency = 1
+            Frame21.ZIndex = 51
+            Frame21.Parent = TextButton10
+
+            local UIListLayout6 = Instance.new("UIListLayout")
+
+            UIListLayout6.FillDirection = Enum.FillDirection.Horizontal
+            UIListLayout6.HorizontalAlignment = Enum.HorizontalAlignment.Center
+            UIListLayout6.VerticalAlignment = Enum.VerticalAlignment.Center
+            UIListLayout6.Padding = UDim.new(0, 6)
+            UIListLayout6.Parent = Frame21
+
+            local TextLabel14 = Instance.new("TextLabel")
+
+            TextLabel14.Size = UDim2.new(0, 16, 0, 16)
+            TextLabel14.BackgroundTransparency = 1
+            TextLabel14.Text = "🔒"
+            TextLabel14.TextSize = 14
+            TextLabel14.ZIndex = 51
+            TextLabel14.LayoutOrder = 1
+            TextLabel14.AutoLocalize = false
+            TextLabel14.Parent = Frame21
+
+            local TextLabel15 = Instance.new("TextLabel")
+
+            TextLabel15.Size = UDim2.new(0, 0, 1, 0)
+            TextLabel15.AutomaticSize = Enum.AutomaticSize.X
+            TextLabel15.Text = v963
+            TextLabel15.TextSize = 12
+            v42(TextLabel15, "Medium")
+            TextLabel15.TextColor3 = Color3.fromRGB(255, 255, 255)
+            TextLabel15.TextXAlignment = Enum.TextXAlignment.Left
+            TextLabel15.BackgroundTransparency = 1
+            TextLabel15.TextTruncate = Enum.TextTruncate.AtEnd
+            TextLabel15.ZIndex = 51
+            TextLabel15.LayoutOrder = 2
+            TextLabel15.AutoLocalize = false
+            TextLabel15.Parent = Frame21
+        end
+        local function v944(p33, p34, p35, p36, p37, p38)
+            if p34 and (p35 and p35 ~= "") then
+                p33 += 14
+            end
+            local Frame22 = Instance.new("Frame")
+            Frame22.Size = UDim2.new(1, -20, 0, p33)
+            Frame22.ZIndex = 13
+            Frame22.Parent = ScrollingFrame3
+            v661(Frame22, "BackgroundColor3", "ElementBg")
+            local UICorner24 = Instance.new("UICorner")
+            UICorner24.CornerRadius = UDim.new(0, 8)
+            UICorner24.Parent = Frame22
+            local UIStroke13 = Instance.new("UIStroke")
+            UIStroke13.Thickness = 1.5
+            UIStroke13.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+            UIStroke13.Transparency = 0.2
+            UIStroke13.Parent = Frame22
+            v661(UIStroke13, "Color", "Border")
+            local TextLabel16 = Instance.new("TextLabel")
+            TextLabel16.Size = UDim2.new(0.5, 0, 0, 20)
+            TextLabel16.Position = UDim2.new(0, 14, 0, 6)
+            TextLabel16.TextSize = 13
+            v42(TextLabel16, "Medium")
+            TextLabel16.TextXAlignment = Enum.TextXAlignment.Left
+            TextLabel16.BackgroundTransparency = 1
+            TextLabel16.ZIndex = 14
+            TextLabel16.RichText = true
+            TextLabel16.AutoLocalize = false
+            TextLabel16.Parent = Frame22
+            v661(TextLabel16, "TextColor3", "Text")
+            v663(TextLabel16, p36 or "Control")
+            local TextLabel17
+            if p34 and (p35 and p35 ~= "") then
+                TextLabel17 = Instance.new("TextLabel")
+                TextLabel17.Size = UDim2.new(1, -28, 0, 14)
+                TextLabel17.Position = UDim2.new(0, 14, 0, 25)
+                TextLabel17.Text = p35
+                TextLabel17.TextSize = 9
+                v42(TextLabel17, "Regular")
+                TextLabel17.TextXAlignment = Enum.TextXAlignment.Left
+                TextLabel17.BackgroundTransparency = 1
+                TextLabel17.ZIndex = 14
+                TextLabel17.RichText = true
+                TextLabel17.AutoLocalize = false
+                TextLabel17.Parent = Frame22
+                v661(TextLabel17, "TextColor3", "SubText")
+            end
+            v943(Frame22, p37, p38)
+
+            return Frame22, TextLabel16, TextLabel17
+        end
+
+        function t77.Paragraph(_, p40)
+            local v983 = p40.Title or "Paragraph"
+            local v984 = p40.Content or (p40.Description or "Information body goes here.")
+            local p40Locked = p40.Locked
+            local v986 = false
+            local s2 = "This element is locked"
+
+            if type(p40Locked) == "table" then
+                v986 = p40Locked[1] == true
+
+                if type(p40Locked[2]) == "string" and p40Locked[2] ~= "" then
+                    s2 = p40Locked[2]
+                end
+            elseif type(p40Locked) == "boolean" then
+                v986 = p40Locked
+            end
+
+            local Frame23 = Instance.new("Frame")
+
+            Frame23.Size = UDim2.new(1, -20, 0, 0)
+            Frame23.AutomaticSize = Enum.AutomaticSize.Y
+            Frame23.ZIndex = 13
+            Frame23.Parent = ScrollingFrame3
+            v661(Frame23, "BackgroundColor3", "ElementBg")
+
+            local UICorner25 = Instance.new("UICorner")
+
+            UICorner25.CornerRadius = UDim.new(0, 8)
+            UICorner25.Parent = Frame23
+
+            local UIStroke14 = Instance.new("UIStroke")
+
+            UIStroke14.Thickness = 1
+            UIStroke14.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+            UIStroke14.Parent = Frame23
+            v661(UIStroke14, "Color", "Border")
+
+            local UIListLayout7 = Instance.new("UIListLayout")
+
+            UIListLayout7.Padding = UDim.new(0, 4)
+            UIListLayout7.SortOrder = Enum.SortOrder.LayoutOrder
+            UIListLayout7.Parent = Frame23
+
+            local UIPadding2 = Instance.new("UIPadding")
+
+            UIPadding2.PaddingTop = UDim.new(0, 10)
+            UIPadding2.PaddingBottom = UDim.new(0, 10)
+            UIPadding2.PaddingLeft = UDim.new(0, 14)
+            UIPadding2.PaddingRight = UDim.new(0, 14)
+            UIPadding2.Parent = Frame23
+
+            local TextLabel18 = Instance.new("TextLabel")
+
+            TextLabel18.Size = UDim2.new(1, 0, 0, 0)
+            TextLabel18.AutomaticSize = Enum.AutomaticSize.Y
+            TextLabel18.Text = v983
+            TextLabel18.TextSize = 12
+            v42(TextLabel18, "Bold")
+            TextLabel18.TextXAlignment = Enum.TextXAlignment.Left
+            TextLabel18.TextWrapped = true
+            TextLabel18.BackgroundTransparency = 1
+            TextLabel18.ZIndex = 14
+            TextLabel18.RichText = true
+            TextLabel18.LayoutOrder = 1
+            TextLabel18.AutoLocalize = false
+            TextLabel18.Parent = Frame23
+            v661(TextLabel18, "TextColor3", "Text")
+
+            local TextLabel19 = Instance.new("TextLabel")
+
+            TextLabel19.Size = UDim2.new(1, 0, 0, 0)
+            TextLabel19.AutomaticSize = Enum.AutomaticSize.Y
+            TextLabel19.Text = v984
+            TextLabel19.TextSize = 10.5
+            v42(TextLabel19, "Regular")
+            TextLabel19.TextXAlignment = Enum.TextXAlignment.Left
+            TextLabel19.TextWrapped = true
+            TextLabel19.BackgroundTransparency = 1
+            TextLabel19.ZIndex = 14
+            TextLabel19.RichText = true
+            TextLabel19.LayoutOrder = 2
+            TextLabel19.AutoLocalize = false
+            TextLabel19.Parent = Frame23
+            v661(TextLabel19, "TextColor3", "SubText")
+            v943(Frame23, v986, s2)
+
+            return {
+					SetTitle = function(_, p42)
+                TextLabel18.Text = p42
+            end,
+					SetContent = function(_, p44)
+                TextLabel19.Text = p44
+            end,
+					SetDesc = function(_, p46)
+                TextLabel19.Text = p46
+            end,
+					AddTranslation = function(_, p48, p49)
+                t1:AddTranslation(p48, p49)
+
+                if p48 == v983 then
+                    v663(TextLabel18, p48)
+
+                    return
+                end
+
+                if p48 == v984 then
+                    v663(TextLabel19, p48)
+                end
+            end
+				}
+        end
+        function t77.Input(_, p51)
+            local v997 = p51.Title or "Input Field"
+            local Description = p51.Description
+            local v999 = p51.Placeholder or "Type here..."
+            local v1000 = p51.Default or ""
+            local p51Locked = p51.Locked
+            local v1002 = false
+            local s3 = "This element is locked"
+
+            if type(p51Locked) == "table" then
+                v1002 = p51Locked[1] == true
+
+                if type(p51Locked[2]) == "string" and p51Locked[2] ~= "" then
+                    s3 = p51Locked[2]
+                end
+            elseif type(p51Locked) == "boolean" then
+                v1002 = p51Locked
+            end
+
+            local v1004 = v1002
+            local v1005 = p51.Callback or function()
+            end
+            local v1006 = Description ~= nil and Description ~= ""
+            local v1007, v1008 = v944(38, v1006, Description, v997, v1004, s3)
+
+            v1008.Position = UDim2.new(0, 14, 0.5, not v1006 and -10 or -18)
+
+            local Frame24 = Instance.new("Frame")
+
+            Frame24.Size = UDim2.new(0, 150, 0, 26)
+            Frame24.Position = UDim2.new(1, -164, 0.5, -13)
+            Frame24.ZIndex = 14
+            Frame24.Parent = v1007
+            v661(Frame24, "BackgroundColor3", "Background")
+
+            local UICorner26 = Instance.new("UICorner")
+
+            UICorner26.CornerRadius = UDim.new(0, 6)
+            UICorner26.Parent = Frame24
+
+            local UIStroke15 = Instance.new("UIStroke")
+
+            UIStroke15.Thickness = 1
+            UIStroke15.Parent = Frame24
+            v661(UIStroke15, "Color", "Border")
+
+            local TextBox = Instance.new("TextBox")
+
+            TextBox.Size = UDim2.new(1, -16, 1, 0)
+            TextBox.Position = UDim2.new(0, 8, 0, 0)
+            TextBox.BackgroundTransparency = 1
+            TextBox.Text = v1000
+            TextBox.PlaceholderText = v999
+            TextBox.TextSize = 11
+            TextBox.ClipsDescendants = true
+            v42(TextBox, "Medium")
+            TextBox.TextXAlignment = Enum.TextXAlignment.Left
+            TextBox.ClearTextOnFocus = false
+            TextBox.ZIndex = 15
+            TextBox.AutoLocalize = false
+            TextBox.Parent = Frame24
+            v661(TextBox, "TextColor3", "Text")
+            v661(TextBox, "PlaceholderColor3", "SubText")
+            TextBox.Focused:Connect(function()
+                if v1004 then
+                    return
+                end
+
+                TweenService:Create(UIStroke15, TweenInfo.new(0.2), {
+						Color = Midnight.Accent
+					}):Play()
+            end)
+            TextBox.FocusLost:Connect(function(enterPressed)
+                if v1004 then
+                    return
+                end
+
+                TweenService:Create(UIStroke15, TweenInfo.new(0.2), {
+						Color = Midnight.Border
+					}):Play()
+                v1005(TextBox.Text, enterPressed)
+            end)
+
+            return {
+					SetValue = function(_, p53)
+                TextBox.Text = tostring(p53)
+                v1005(tostring(p53), false)
+            end
+				}
+        end
+        function t77.ColorPicker(_, p55)
+            local v1015 = p55.Title or "Color Picker"
+            local Description = p55.Description
+            local v1017 = p55.Default or Color3.fromRGB(255, 255, 255)
+            local v1018, v1019 = v942(p55.Locked)
+            local v1020 = v1018
+            local v1021 = p55.Callback or function()
+            end
+            local v1022 = Description ~= nil and Description ~= ""
+            local v1023, v1024 = v944(38, v1022, Description, v1015, v1020, v1019)
+
+            v1024.Position = UDim2.new(0, 14, 0.5, not v1022 and -10 or -18)
+
+            local TextButton11 = Instance.new("TextButton")
+
+            TextButton11.Size = UDim2.new(0, 26, 0, 26)
+            TextButton11.Position = UDim2.new(1, -40, 0.5, -13)
+            TextButton11.BackgroundColor3 = v1017
+            TextButton11.Text = ""
+            TextButton11.ZIndex = 15
+            TextButton11.AutoButtonColor = false
+            TextButton11.AutoLocalize = false
+            TextButton11.Parent = v1023
+
+            local UICorner27 = Instance.new("UICorner")
+
+            UICorner27.CornerRadius = UDim.new(0, 6)
+            UICorner27.Parent = TextButton11
+
+            local UIStroke16 = Instance.new("UIStroke")
+
+            UIStroke16.Thickness = 1.5
+            UIStroke16.Parent = TextButton11
+            v661(UIStroke16, "Color", "Border")
+            TextButton11.MouseButton1Click:Connect(function()
+                if v1020 then
+                    return
+                end
+
+                local TextButton11BackgroundColor3 = TextButton11.BackgroundColor3
+
+                v847(TextButton11BackgroundColor3)
+
+                function u845(p56)
+                    TextButton11.BackgroundColor3 = p56
+                    v1021(p56)
+                end
+
+                Frame13.Visible = true
+            end)
+        end
+        function t77.Keybind(_, p58)
+            local v1030 = p58.Title or "Keybind"
+            local Description = p58.Description
+            local v1032 = p58.Default or Enum.KeyCode.RightShift
+            local v1033, v1034 = v942(p58.Locked)
+            local v1035 = v1033
+            local v1036 = p58.Callback or function()
+            end
+            local u1037 = v1032
+            local v1038 = Description ~= nil and Description ~= ""
+            local v1039, v1040 = v944(38, v1038, Description, v1030, v1035, v1034)
+
+            v1040.Position = UDim2.new(0, 14, 0.5, not v1038 and -10 or -18)
+
+            local TextButton12 = Instance.new("TextButton")
+
+            TextButton12.Size = UDim2.new(0, 90, 0, 26)
+            TextButton12.Position = UDim2.new(1, -104, 0.5, -13)
+            TextButton12.Text = u1037.Name
+            TextButton12.TextSize = 11
+            v42(TextButton12, "Medium")
+            TextButton12.ZIndex = 15
+            TextButton12.AutoButtonColor = false
+            TextButton12.AutoLocalize = false
+            TextButton12.Parent = v1039
+            v661(TextButton12, "BackgroundColor3", "Background")
+            v661(TextButton12, "TextColor3", "Accent")
+
+            local UICorner28 = Instance.new("UICorner")
+
+            UICorner28.CornerRadius = UDim.new(0, 6)
+            UICorner28.Parent = TextButton12
+
+            local UIStroke17 = Instance.new("UIStroke")
+
+            UIStroke17.Thickness = 1
+            UIStroke17.Parent = TextButton12
+            v661(UIStroke17, "Color", "Border")
+            TextButton12.MouseButton1Click:Connect(function()
+                if v1035 or false then
+                    return
+                end
+                TextButton12.Text = "..."
+                local connection
+                connection = UserInputService.InputBegan:Connect(function(input)
+                    if input.UserInputType == Enum.UserInputType.Keyboard then
+                        connection:Disconnect()
+                        u1037 = input.KeyCode
+                        TextButton12.Text = u1037.Name
+                        v1036(u1037)
+                    end
+                end)
+            end)
+        end
+        function t77.Button(_, p60)
+            local v1046 = p60.Title or "Button"
+            local Description = p60.Description
+            local p60Locked = p60.Locked
+            local v1049 = false
+            local s4 = "This element is locked"
+
+            if type(p60Locked) == "table" then
+                v1049 = p60Locked[1] == true
+
+                if type(p60Locked[2]) == "string" and p60Locked[2] ~= "" then
+                    s4 = p60Locked[2]
+                end
+            elseif type(p60Locked) == "boolean" then
+                v1049 = p60Locked
+            end
+
+            local v1051 = v1049
+            local v1052 = p60.Callback or function()
+            end
+            local v1053 = Description ~= nil and Description ~= ""
+            local v1054, v1055 = v944(34, v1053, Description, v1046, v1051, s4)
+            local v1056 = v1054
+
+            v1055.Position = UDim2.new(0, 14, 0.5, not v1053 and -10 or -18)
+
+            local TextButton13 = Instance.new("TextButton")
+
+            TextButton13.Size = UDim2.new(1, 0, 1, 0)
+            TextButton13.BackgroundTransparency = 1
+            TextButton13.Text = ""
+            TextButton13.ZIndex = 15
+            TextButton13.AutoButtonColor = false
+            TextButton13.AutoLocalize = false
+            TextButton13.Parent = v1056
+
+            local Frame25 = Instance.new("Frame")
+
+            Frame25.Size = UDim2.new(0, 0, 1, 0)
+            Frame25.Position = UDim2.new(0, 0, 0, 0)
+            Frame25.BackgroundTransparency = 0.96
+            Frame25.ZIndex = 14
+            Frame25.Parent = v1056
+            v661(Frame25, "BackgroundColor3", "Accent")
+
+            local UICorner29 = Instance.new("UICorner")
+
+            UICorner29.CornerRadius = UDim.new(0, 8)
+            UICorner29.Parent = Frame25
+            TextButton13.MouseEnter:Connect(function()
+                if v1051 then
+                    return
+                end
+
+                TweenService:Create(Frame25, TweenInfo.new(0.2), {
+						Size = UDim2.new(1, 0, 1, 0)
+					}):Play()
+            end)
+            TextButton13.MouseLeave:Connect(function()
+                TweenService:Create(Frame25, TweenInfo.new(0.2), {
+						Size = UDim2.new(0, 0, 1, 0)
+					}):Play()
+            end)
+            TextButton13.MouseButton1Click:Connect(function()
+                if v1051 then
+                    return
+                end
+
+                local Size = v1056.Size
+
+                TweenService:Create(v1056, TweenInfo.new(0.08), {
+						Size = UDim2.new(1, -24, 0, Size.Y.Offset - 2)
+					}):Play()
+                task.wait(0.08)
+                TweenService:Create(v1056, TweenInfo.new(0.08), {
+						Size = Size
+					}):Play()
+                v1052()
+            end)
+        end
+        function t77.Toggle(_, p62, p63)
+            local Description = p63.Description
+            local v1064 = p63.Default or false
+            local p63Locked = p63.Locked
+            local v1066 = false
+            local s5 = "This element is locked"
+
+            if type(p63Locked) == "table" then
+                v1066 = p63Locked[1] == true
+
+                if type(p63Locked[2]) == "string" and p63Locked[2] ~= "" then
+                    s5 = p63Locked[2]
+                end
+            elseif type(p63Locked) == "boolean" then
+                v1066 = p63Locked
+            end
+
+            local v1068 = v1066
+            local v1069 = p63.Callback or function()
+            end
+            local v1070 = p63.Flag or p62
+            local v1071 = t70[v1070]
+            local u1072 = v1064
+
+            if v1071 ~= nil then
+                u1072 = v1071
+            end
+
+            local v1073 = Description ~= nil and Description ~= ""
+            local v1074, v1075 = v944(38, v1073, Description, p62, v1068, s5)
+
+            v1075.Position = UDim2.new(0, 14, 0.5, not v1073 and -10 or -18)
+
+            local Frame26 = Instance.new("Frame")
+
+            Frame26.Name = "SwitchFrame"
+            Frame26.Size = UDim2.new(0, 42, 0, 22)
+            Frame26.Position = UDim2.new(1, -56, 0.5, -11)
+            Frame26.ZIndex = 15
+            Frame26.Parent = v1074
+            Frame26.BackgroundColor3 = u1072 and Midnight.ToggleOn or Midnight.ToggleOff
+
+            local UICorner30 = Instance.new("UICorner")
+
+            UICorner30.CornerRadius = UDim.new(1, 0)
+            UICorner30.Parent = Frame26
+
+            local Frame27 = Instance.new("Frame")
+
+            Frame27.Name = "Thumb"
+            Frame27.Size = UDim2.new(0, 16, 0, 16)
+            Frame27.Position = u1072 and UDim2.new(1, -19, 0.5, -8) or UDim2.new(0, 3, 0.5, -8)
+            Frame27.BackgroundColor3 = u1072 and Color3.fromRGB(255, 255, 255) or Midnight.SubText
+            Frame27.ZIndex = 16
+            Frame27.Parent = Frame26
+
+            local UICorner31 = Instance.new("UICorner")
+
+            UICorner31.CornerRadius = UDim.new(1, 0)
+            UICorner31.Parent = Frame27
+
+            local TextButton14 = Instance.new("TextButton")
+
+            TextButton14.Size = UDim2.new(1, 0, 1, 0)
+            TextButton14.BackgroundTransparency = 1
+            TextButton14.Text = ""
+            TextButton14.ZIndex = 17
+            TextButton14.AutoLocalize = false
+            TextButton14.Parent = v1074
+            t66[Frame26] = {
+					GetToggled = function()
+                return u1072
+            end
+				}
+            TextButton14.MouseButton1Click:Connect(function()
+                if v1068 then
+                    return
+                end
+
+                u1072 = not u1072
+
+                local v1199 = u1072 and UDim2.new(1, -19, 0.5, -8) or UDim2.new(0, 3, 0.5, -8)
+                local v1200 = u1072 and Midnight.ToggleOn or Midnight.ToggleOff
+                local v1201 = u1072 and Color3.fromRGB(255, 255, 255) or Midnight.SubText
+
+                TweenService:Create(Frame27, TweenInfo.new(0.2, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {
+						Position = v1199,
+						BackgroundColor3 = v1201
+					}):Play()
+                TweenService:Create(Frame26, TweenInfo.new(0.15), {
+						BackgroundColor3 = v1200
+					}):Play()
+                v1069(u1072)
+
+                local v1202 = u1072
+
+                t70[v1070] = v1202
+                t69.Toggles = t70
+                pcall(function()
+                    v665()
+                    writefile(v656, HttpService:JSONEncode(t69))
+                end)
+            end)
+
+            if v1071 ~= nil then
+                task.defer(v1069, u1072)
+            end
+        end
+        function t77.Slider(_, p65, p66)
+            local Description = p66.Description
+            local v1085 = p66.Min or 0
+            local v1086 = p66.Max or 100
+            local v1087 = p66.Default or v1085
+            local v1088 = p66.Rounding or 1
+            local p66Locked = p66.Locked
+            local v1090 = false
+            local s6 = "This element is locked"
+
+            if type(p66Locked) == "table" then
+                v1090 = p66Locked[1] == true
+
+                if type(p66Locked[2]) == "string" and p66Locked[2] ~= "" then
+                    s6 = p66Locked[2]
+                end
+            elseif type(p66Locked) == "boolean" then
+                v1090 = p66Locked
+            end
+
+            local v1092 = v1090
+            local v1093 = p66.Callback or function()
+            end
+            local v1094 = Description ~= nil and Description ~= ""
+            local v1095, _ = v944(46, v1094, Description, p65, v1092, s6)
+            local TextBox = Instance.new("TextBox")
+
+            TextBox.Size = UDim2.new(0, 52, 0, 18)
+            TextBox.Position = UDim2.new(1, -66, 0, 6)
+            TextBox.Text = tostring(v1087)
+            TextBox.TextSize = 11
+            v42(TextBox, "Bold")
+            TextBox.TextXAlignment = Enum.TextXAlignment.Center
+            TextBox.ClearTextOnFocus = false
+            TextBox.ZIndex = 15
+            TextBox.AutoLocalize = false
+            TextBox.Parent = v1095
+            v661(TextBox, "BackgroundColor3", "Background")
+            v661(TextBox, "TextColor3", "Accent")
+
+            local UICorner32 = Instance.new("UICorner")
+
+            UICorner32.CornerRadius = UDim.new(0, 4)
+            UICorner32.Parent = TextBox
+
+            local UIStroke18 = Instance.new("UIStroke")
+
+            UIStroke18.Thickness = 1
+            UIStroke18.Parent = TextBox
+            v661(UIStroke18, "Color", "Border")
+
+            local Frame28 = Instance.new("Frame")
+
+            Frame28.Size = UDim2.new(1, -28, 0, 4)
+            Frame28.Position = UDim2.new(0, 14, 1, -12)
+            Frame28.BorderSizePixel = 0
+            Frame28.ZIndex = 14
+            Frame28.Parent = v1095
+            v661(Frame28, "BackgroundColor3", "Background")
+
+            local UICorner33 = Instance.new("UICorner")
+
+            UICorner33.CornerRadius = UDim.new(1, 0)
+            UICorner33.Parent = Frame28
+
+            local Frame29 = Instance.new("Frame")
+            local v1103 = math.clamp((v1087 - v1085) / (v1086 - v1085), 0, 1)
+
+            Frame29.Size = UDim2.new(v1103, 0, 1, 0)
+            Frame29.BorderSizePixel = 0
+            Frame29.ZIndex = 15
+            Frame29.Parent = Frame28
+            v661(Frame29, "BackgroundColor3", "Accent")
+
+            local UICorner34 = Instance.new("UICorner")
+
+            UICorner34.CornerRadius = UDim.new(1, 0)
+            UICorner34.Parent = Frame29
+
+            local TextButton15 = Instance.new("TextButton")
+
+            TextButton15.Size = UDim2.new(0, 14, 0, 14)
+            TextButton15.Position = UDim2.new(v1103, -7, 0.5, -7)
+            TextButton15.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            TextButton15.Text = ""
+            TextButton15.AutoButtonColor = false
+            TextButton15.ZIndex = 16
+            TextButton15.AutoLocalize = false
+            TextButton15.Parent = Frame28
+
+            local UICorner35 = Instance.new("UICorner")
+
+            UICorner35.CornerRadius = UDim.new(1, 0)
+            UICorner35.Parent = TextButton15
+
+            local UIStroke19 = Instance.new("UIStroke")
+
+            UIStroke19.Thickness = 1
+            UIStroke19.Color = Color3.fromRGB(180, 180, 180)
+            UIStroke19.Parent = TextButton15
+
+            local u1108 = false
+
+            local function v1109(p67)
+                local v1204 = math.clamp((p67 - v1085) / (v1086 - v1085), 0, 1)
+
+                Frame29.Size = UDim2.new(v1204, 0, 1, 0)
+                TextButton15.Position = UDim2.new(v1204, -7, 0.5, -7)
+                TextBox.Text = tostring(p67)
+            end
+            local function v1110(p68)
+                local PositionX = p68.Position.X
+                local AbsolutePositionX = Frame28.AbsolutePosition.X
+                local AbsoluteSizeX = Frame28.AbsoluteSize.X
+                local v1209 = math.clamp((PositionX - AbsolutePositionX) / AbsoluteSizeX, 0, 1)
+                local _math = math
+                local v1211 = v1085 + (v1086 - v1085) * v1209
+                local v1212 = math.clamp(_math.round(v1211 / v1088) * v1088, v1085, v1086)
+
+                v1109(v1212)
+                v1093(v1212)
+            end
+
+            TextButton15.InputBegan:Connect(function(input)
+                if v1092 then
+                    return
+                end
+
+                if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                    u1108 = true
+                    ScrollingFrame3.ScrollingEnabled = false
+                    v1110(input)
+                end
+            end)
+            UserInputService.InputChanged:Connect(function(input)
+                if v1092 then
+                    return
+                end
+
+                if u1108 and input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+                    v1110(input)
+                end
+            end)
+            UserInputService.InputEnded:Connect(function(input)
+                if v1092 then
+                    return
+                end
+
+                if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                    ScrollingFrame3.ScrollingEnabled = true
+                end
+            end)
+        end
+        function t77.Dropdown(_, p70, p71)
+            local u1114 = p71.Values or {}
+            local Description = p71.Description
+            local v1116 = p71.Default or 1
+            local p71Locked = p71.Locked
+            local v1118 = false
+            local s7 = "This element is locked"
+
+            if type(p71Locked) == "table" then
+                v1118 = p71Locked[1] == true
+
+                if type(p71Locked[2]) == "string" and p71Locked[2] ~= "" then
+                    s7 = p71Locked[2]
+                end
+            elseif type(p71Locked) == "boolean" then
+                v1118 = p71Locked
+            end
+
+            local v1120 = v1118
+            local v1121 = p71.Callback or function()
+            end
+            local v1122 = p71.Multi or false
+            local u1123 = false
+            local s8 = ""
+
+            if not v1122 then
+                s8 = u1114[v1116] or ""
+            end
+
+            local t78 = {}
+
+            if v1122 then
+                if type(p71.Default) == "table" then
+                    for _, v in ipairs(p71.Default) do
+                        if u1114[v] then
+                            t78[u1114[v]] = true
+                        end
+                    end
+                elseif type(p71.Default) == "number" and u1114[p71.Default] then
+                    t78[u1114[p71.Default]] = true
+                end
+            end
+
+            local v1128 = Description ~= nil and Description ~= ""
+            local v1129, v1130 = v944(42, v1128, Description, p70, v1120, s7)
+
+            v1130.Position = UDim2.new(0, 14, 0.5, not v1128 and -10 or -18)
+
+            local function v1131()
+                local v1219
+
+                if v1122 then
+                    local t79 = {}
+
+                    for k, v in pairs(t78) do
+                        if v then
+                            table.insert(t79, k)
+                        end
+                    end
+
+                    v1219 = if #t79 ~= 0 then table.concat(t79, ", ") else ""
+                else
+                    v1219 = s8 ~= "" and s8 or "Select Option"
+                end
+
+                if string.len(v1219) > 16 then
+                    v1219 = string.sub(v1219, 1, 16) .. "..."
+                end
+
+                return v1219
+            end
+
+            local TextButton16 = Instance.new("TextButton")
+
+            TextButton16.Name = "DropRowButton"
+            TextButton16.Size = UDim2.new(1, 0, 1, 0)
+            TextButton16.BackgroundTransparency = 1
+            TextButton16.Text = ""
+            TextButton16.AutoButtonColor = false
+            TextButton16.ZIndex = 14
+            TextButton16.AutoLocalize = false
+            TextButton16.Parent = v1129
+
+            local TextButton17 = Instance.new("TextButton")
+
+            TextButton17.Size = UDim2.new(0, 160, 1, 0)
+            TextButton17.Position = UDim2.new(1, -194, 0, 0)
+            TextButton17.RichText = true
+            TextButton17.Text = v1131()
+            TextButton17.TextSize = 13
+            v42(TextButton17, "Medium")
+            TextButton17.AutoButtonColor = false
+            TextButton17.BackgroundTransparency = 1
+            TextButton17.TextXAlignment = Enum.TextXAlignment.Right
+            TextButton17.ZIndex = 15
+            TextButton17.AutoLocalize = false
+            TextButton17.Parent = v1129
+            v661(TextButton17, "TextColor3", "Text")
+
+            local ImageLabel4 = Instance.new("ImageLabel")
+
+            ImageLabel4.Name = "DropIcon"
+            ImageLabel4.Size = UDim2.new(0, 12, 0, 12)
+            ImageLabel4.AnchorPoint = Vector2.new(0, 0.5)
+            ImageLabel4.Position = UDim2.new(1, -18, 0.5, 0)
+            ImageLabel4.Image = "rbxassetid://10709790948"
+            ImageLabel4.BackgroundTransparency = 1
+            ImageLabel4.ZIndex = 15
+            ImageLabel4.Parent = v1129
+            v661(ImageLabel4, "ImageColor3", "SubText")
+
+            local TextButton18 = Instance.new("TextButton")
+
+            TextButton18.Name = "DropBackdrop"
+            TextButton18.Size = UDim2.new(1, 0, 1, 0)
+            TextButton18.Position = UDim2.new(0, 0, 0, 0)
+            TextButton18.BackgroundTransparency = 1
+            TextButton18.Text = ""
+            TextButton18.AutoButtonColor = false
+            TextButton18.ZIndex = 999999
+            TextButton18.Visible = false
+            TextButton18.AutoLocalize = false
+            TextButton18.Parent = u654
+
+            local Frame30 = Instance.new("Frame")
+
+            Frame30.Name = "DropMenu"
+            Frame30.Size = UDim2.fromOffset(240, 0)
+            Frame30.AnchorPoint = Vector2.new(0.5, 0.5)
+            Frame30.ClipsDescendants = true
+            Frame30.Visible = false
+            Frame30.ZIndex = 1000000
+            Frame30.BackgroundColor3 = Midnight.ElementBg
+            Frame30.Parent = u654
+            t67[Frame30] = true
+
+            local UICorner36 = Instance.new("UICorner")
+
+            UICorner36.CornerRadius = UDim.new(0, 8)
+            UICorner36.Parent = Frame30
+
+            local UIStroke20 = Instance.new("UIStroke")
+
+            UIStroke20.Thickness = 1
+            UIStroke20.Parent = Frame30
+            v661(UIStroke20, "Color", "Border")
+
+            local TextBox = Instance.new("TextBox")
+
+            TextBox.Size = UDim2.new(1, -16, 0, 30)
+            TextBox.Position = UDim2.new(0, 8, 0, 8)
+            TextBox.PlaceholderText = "Search... 🔍"
+            TextBox.Text = ""
+            TextBox.TextSize = 13
+            v42(TextBox, "Regular")
+            TextBox.ZIndex = 1000001
+            TextBox.AutoLocalize = false
+            TextBox.Parent = Frame30
+            v661(TextBox, "BackgroundColor3", "Background")
+            v661(TextBox, "TextColor3", "Text")
+            v661(TextBox, "PlaceholderColor3", "SubText")
+
+            local UICorner37 = Instance.new("UICorner")
+
+            UICorner37.CornerRadius = UDim.new(0, 6)
+            UICorner37.Parent = TextBox
+
+            local ScrollingFrame4 = Instance.new("ScrollingFrame")
+
+            ScrollingFrame4.Size = UDim2.new(1, 0, 1, -46)
+            ScrollingFrame4.Position = UDim2.new(0, 0, 0, 42)
+            ScrollingFrame4.BackgroundTransparency = 1
+            ScrollingFrame4.BorderSizePixel = 0
+            ScrollingFrame4.ZIndex = 1000001
+            ScrollingFrame4.Parent = Frame30
+            ScrollingFrame4.ScrollBarThickness = 3
+            ScrollingFrame4.ScrollingDirection = Enum.ScrollingDirection.Y
+            ScrollingFrame4.AutomaticCanvasSize = Enum.AutomaticSize.Y
+            ScrollingFrame4.CanvasSize = UDim2.new(0, 0, 0, 0)
+            v661(ScrollingFrame4, "ScrollBarImageColor3", "Accent")
+
+            local UIListLayout8 = Instance.new("UIListLayout")
+
+            UIListLayout8.Padding = UDim.new(0, 4)
+            UIListLayout8.SortOrder = Enum.SortOrder.LayoutOrder
+            UIListLayout8.Parent = ScrollingFrame4
+
+            local UIPadding3 = Instance.new("UIPadding")
+
+            UIPadding3.PaddingLeft = UDim.new(0, 8)
+            UIPadding3.PaddingRight = UDim.new(0, 8)
+            UIPadding3.PaddingBottom = UDim.new(0, 6)
+            UIPadding3.Parent = ScrollingFrame4
+
+            local t80 = {}
+            local vector2 = Vector2.new(0, 0)
+
+            function t80.IsOutside(p72)
+                if not u1123 then
+                    return false
+                end
+
+                local AbsolutePosition = Frame30.AbsolutePosition
+                local AbsoluteSize = Frame30.AbsoluteSize
+                local v1223 = p72.X >= AbsolutePosition.X
+
+                if v1223 then
+                    v1223 = p72.X <= AbsolutePosition.X + AbsoluteSize.X and (p72.Y >= AbsolutePosition.Y and p72.Y <= AbsolutePosition.Y + AbsoluteSize.Y)
+                end
+
+                local AbsolutePosition2 = TextButton17.AbsolutePosition
+                local AbsoluteSize2 = TextButton17.AbsoluteSize
+                local v1226 = p72.X >= AbsolutePosition2.X
+
+                if v1226 then
+                    v1226 = p72.X <= AbsolutePosition2.X + AbsoluteSize2.X and (p72.Y >= AbsolutePosition2.Y and p72.Y <= AbsolutePosition2.Y + AbsoluteSize2.Y)
+                end
+
+                return not (v1223 or v1226)
+            end
+
+            local function v1146()
+                local ViewportSize3 = CurrentCamera.ViewportSize
+                local n8 = 0
+                local v1229 = string.lower(TextBox.Text)
+
+                for _, v in ipairs(u1114) do
+                    if v1229 == "" or string.find(string.lower(v), v1229) then
+                        n8 += 1
+                    end
+                end
+
+                local v1232 = math.min(240, ViewportSize3.X - 40)
+                local v1233 = math.min(320, ViewportSize3.Y - 40)
+                local v1234 = math.clamp(n8 * 34 + 52, 86, v1233)
+
+                Frame30.Position = UDim2.new(0.5, 0, 0.5, 0)
+
+                return v1234, v1232
+            end
+            local function u1147(p73)
+
+                for v1238, v1239 in ipairs(ScrollingFrame4:GetChildren()) do
+
+                    if v1239:IsA("TextButton") then
+                        v1239:Destroy()
+                    end
+                end
+                for v1242, v1243 in ipairs(u1114) do
+
+                    local v1244 = v1243
+
+                    if p73 == "" or string.find(string.lower(v1244), string.lower(p73)) then
+                        local v1245 = if not v1122 then v1244 == s8 else t78[v1244] == true
+                        local TextButton19 = Instance.new("TextButton")
+
+                        TextButton19.Size = UDim2.new(1, 0, 0, 30)
+
+                        if v1122 then
+                            TextButton19.Text = v1245 and "•  " .. v1244 or "   " .. v1244
+                        else
+                            TextButton19.Text = v1245 and "•  " .. v1244 or "   " .. v1244
+                        end
+
+                        TextButton19.TextSize = 13
+
+                        if v1245 then
+                            v42(TextButton19, "Bold")
+                        else
+                            v42(TextButton19, "Medium")
+                        end
+
+                        TextButton19.TextXAlignment = Enum.TextXAlignment.Left
+                        TextButton19.AutoButtonColor = false
+                        TextButton19.ZIndex = 1000020
+                        TextButton19.AutoLocalize = false
+                        TextButton19.Parent = ScrollingFrame4
+                        TextButton19.BackgroundTransparency = 1
+                        TextButton19.TextTruncate = Enum.TextTruncate.AtEnd
+                        TextButton19.RichText = true
+                        v661(TextButton19, "TextColor3", function()
+                            return v1122 and t78[v1244] or (s8 == v1244 and Midnight.Accent or Midnight.Text)
+                        end)
+
+                        local UICorner38 = Instance.new("UICorner")
+
+                        UICorner38.CornerRadius = UDim.new(0, 6)
+                        UICorner38.Parent = TextButton19
+                        TextButton19.MouseEnter:Connect(function()
+                            local v1286 = TweenService
+                            local v1287 = TextButton19
+                            local tweenInfo2 = TweenInfo.new(0.15)
+                            local v1289 = Midnight
+                            local Create = v1286.Create
+                            local Background = v1289.Background
+
+                            Create(v1286, v1287, tweenInfo2, {
+									BackgroundTransparency = 0.92,
+									BackgroundColor3 = Background
+								}):Play()
+                        end)
+                        TextButton19.MouseLeave:Connect(function()
+                            TweenService:Create(TextButton19, TweenInfo.new(0.15), {
+									BackgroundTransparency = 1
+								}):Play()
+                        end)
+                        TextButton19.MouseButton1Click:Connect(function()
+                            if v1122 then
+                                local v1292 = t78[v1244]
+
+                                t78[v1244] = not v1292
+                                TextButton19.Text = t78[v1244] and "•  " .. v1244 or "   " .. v1244
+
+                                if t78[v1244] then
+                                    v42(TextButton19, "Bold")
+                                else
+                                    v42(TextButton19, "Medium")
+                                end
+
+                                TextButton17.Text = v1131()
+                                ImageLabel4.Rotation = not u1123 and 0 or 90
+                                v659(u644)
+                                v1121(t78)
+
+                                return
+                            end
+
+                            s8 = v1244
+                            TextButton17.Text = v1131()
+                            ImageLabel4.Rotation = not u1123 and 0 or 90
+                            u1147(p73)
+                            v659(u644)
+                            v1121(v1244)
+                        end)
+                    end
+                end
+                local n9 = 0
+                for _, child in ipairs(ScrollingFrame4:GetChildren()) do
+                    if child:IsA("TextButton") then
+                        n9 += 1
+                    end
+                end
+                ScrollingFrame4.ScrollBarThickness = not (n9 <= 5) and 3 or 0
+                task.defer(function()
+                    local v1293 = math.max(0, ScrollingFrame4.AbsoluteCanvasSize.Y - ScrollingFrame4.AbsoluteSize.Y)
+
+                    if v1293 < vector2.Y then
+                        ScrollingFrame4.CanvasPosition = Vector2.new(0, v1293)
+
+                        return
+                    end
+
+                    ScrollingFrame4.CanvasPosition = vector2
+                end)
+            end
+
+            function t80.SetValues(_, p75, p76)
+                if not p75 then
+                    p75 = {}
+                end
+
+                u1114 = p75
+
+                if v1122 then
+                    t78 = {}
+
+                    if type(p76) == "table" then
+                        for _, v in ipairs(p76) do
+                            if u1114[v] then
+                                t78[u1114[v]] = true
+                            end
+                        end
+                    end
+
+                    TextButton17.Text = v1131()
+                    ImageLabel4.Rotation = not u1123 and 0 or 90
+                else
+                    if p76 ~= nil and table.find(u1114, p76) then
+                        s8 = p76
+                    elseif table.find(u1114, s8) then
+                    end
+
+                    TextButton17.Text = v1131()
+                    ImageLabel4.Rotation = not u1123 and 0 or 90
+                end
+
+                if u1123 then
+                    u1147(TextBox.Text)
+                    v1146()
+
+                    return
+                end
+
+                u1147("")
+            end
+
+            u1147("")
+            ScrollingFrame4:GetPropertyChangedSignal("CanvasPosition"):Connect(function()
+                if u1123 then
+                    vector2 = ScrollingFrame4.CanvasPosition
+                end
+            end)
+            TextBox:GetPropertyChangedSignal("Text"):Connect(function()
+                local v1256 = vector2
+
+                u1147(TextBox.Text)
+
+                if u1123 then
+                    v1146()
+                end
+
+                vector2 = v1256
+            end)
+
+            function t80.Open(_)
+                if v1120 then
+                    return
+                end
+
+                if u652 and u652 ~= t80 then
+                    u652:Close()
+                end
+
+                u1123 = true
+                u652 = t80
+                TextButton17.Text = v1131()
+                ImageLabel4.Rotation = not u1123 and 0 or 90
+
+                local v1258, v1259 = v1146()
+
+                Frame30.Size = UDim2.fromOffset(v1259, 0)
+                Frame30.Visible = true
+
+                if TextButton18 then
+                    TextButton18.Visible = true
+                end
+
+                u1147(TextBox.Text)
+                ScrollingFrame4.CanvasPosition = vector2
+                TweenService:Create(Frame30, TweenInfo.new(0.3, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {
+						Size = UDim2.fromOffset(v1259, v1258)
+					}):Play()
+            end
+            function t80.Close(_)
+                if not u1123 then
+                    return
+                end
+
+                u1123 = false
+                TextButton17.Text = v1131()
+                ImageLabel4.Rotation = not u1123 and 0 or 90
+
+                local _ = ScrollingFrame4.CanvasPosition
+
+                if u652 == t80 then
+                    u652 = nil
+                end
+
+                if TextButton18 then
+                    TextButton18.Visible = false
+                end
+
+                local tween = TweenService:Create(Frame30, TweenInfo.new(0.22, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {
+						Size = UDim2.fromOffset(Frame30.Size.X.Offset, 0)
+					})
+
+                tween:Play()
+                tween.Completed:Connect(function()
+                    if not u1123 then
+                        Frame30.Visible = false
+                    end
+                end)
+            end
+
+            local function v1148()
+                if v1120 then
+                    return
+                end
+
+                if u1123 then
+                    t80:Close()
+
+                    return
+                end
+
+                t80:Open()
+            end
+
+            TextButton17.MouseButton1Click:Connect(v1148)
+            TextButton16.MouseButton1Click:Connect(v1148)
+            TextButton18.MouseButton1Click:Connect(function()
+                if u1123 then
+                    t80:Close()
+                end
+            end)
+
+            local connection = CurrentCamera:GetPropertyChangedSignal("ViewportSize"):Connect(function()
+                if u1123 then
+                    local v1263, v1264 = v1146()
+
+                    Frame30.Size = UDim2.fromOffset(v1264, v1263)
+                end
+            end)
+
+            Frame30.Destroying:Connect(function()
+                if u652 ~= t80 then
+                end
+
+                t67[Frame30] = nil
+
+                if connection then
+                    connection:Disconnect()
+                end
+
+                if TextButton18 and TextButton18.Parent then
+                    TextButton18:Destroy()
+                end
+            end)
+
+            return t80
+        end
+        function t77.CreateSection(_, p80)
+            local Frame31 = Instance.new("Frame")
+
+            Frame31.Size = UDim2.new(1, -20, 0, 24)
+            Frame31.BackgroundTransparency = 1
+            Frame31.ZIndex = 13
+            Frame31.Parent = ScrollingFrame3
+
+            local TextLabel20 = Instance.new("TextLabel")
+
+            TextLabel20.Size = UDim2.new(1, 0, 1, -2)
+            TextLabel20.Position = UDim2.new(0, 0, 0, 2)
+            TextLabel20.TextSize = 14
+            v42(TextLabel20, "Bold")
+            TextLabel20.TextXAlignment = Enum.TextXAlignment.Left
+            TextLabel20.BackgroundTransparency = 1
+            TextLabel20.ZIndex = 14
+            TextLabel20.RichText = true
+            TextLabel20.AutoLocalize = false
+            TextLabel20.Parent = Frame31
+            v661(TextLabel20, "TextColor3", "Accent")
+            v663(TextLabel20, p80, false)
+        end
+        function t77.SettingsUI(_)
+            t77:CreateSection("Custom Theme Settings")
+
+            local t81 = {}
+
+            for k, _ in pairs(t64) do
+                table.insert(t81, k)
+            end
+
+            table.sort(t81)
+
+            local v1158 = t77
+            local find = table.find
+            local Dropdown = v1158.Dropdown
+            local v1161 = find(t81, u644) or 1
+
+            Dropdown(v1158, "Select Theme", {
+					Description = "เลือกธีม UI",
+					Values = t81,
+					Default = v1161,
+					Multi = false,
+					Callback = function(p82)
+                v659(p82)
+                t69.Theme = p82
+                t69.Toggles = t70
+                pcall(function()
+                    v665()
+                    writefile(v656, HttpService:JSONEncode(t69))
+                end)
+            end
+				})
+
+            local v1162 = t77
+            local v1163 = math.round(n1 * 100)
+
+            v1162:Slider("UI Transparency", {
+					Description = "ความโปร่งใส UI",
+					Min = 0,
+					Max = 100,
+					Default = v1163,
+					Rounding = 1,
+					Callback = function(p83)
+                local v1267 = p83 / 100
+
+                v660(v1267)
+                t69.Transparency = v1267
+                t69.Toggles = t70
+                pcall(function()
+                    v665()
+                    writefile(v656, HttpService:JSONEncode(t69))
+                end)
+            end
+				})
+            t77:CreateSection("Size Settings")
+
+            local v1164 = t77
+            local v1165 = u747
+
+            v1164:Slider("Width Size", {
+					Description = "ปรับขนาดความกว้าง UI",
+					Min = 400,
+					Max = 1000,
+					Default = v1165,
+					Rounding = 10,
+					Callback = function(p84)
+                u747 = p84
+
+                local ViewportSize4 = CurrentCamera.ViewportSize
+                local v1270 = math.min(u747, ViewportSize4.X - 20)
+                local v1271 = math.min(u748, ViewportSize4.Y - 20)
+
+                Frame3.Size = UDim2.fromOffset(v1270, v1271)
+                t69.CustomWidth = u747
+                t69.Toggles = t70
+                pcall(function()
+                    v665()
+                    writefile(v656, HttpService:JSONEncode(t69))
+                end)
+            end
+				})
+
+            local v1166 = t77
+            local Slider = v1166.Slider
+            local v1168 = u748
+
+            Slider(v1166, "Height Size", {
+					Description = "ปรับขนาดความสูง UI",
+					Min = 300,
+					Max = 800,
+					Default = v1168,
+					Rounding = 10,
+					Callback = function(p85)
+                u748 = p85
+
+                local ViewportSize5 = CurrentCamera.ViewportSize
+                local v1274 = math.min(u747, ViewportSize5.X - 20)
+                local v1275 = math.min(u748, ViewportSize5.Y - 20)
+
+                Frame3.Size = UDim2.fromOffset(v1274, v1275)
+                t69.CustomHeight = u748
+                t69.Toggles = t70
+                pcall(function()
+                    v665()
+                    writefile(v656, HttpService:JSONEncode(t69))
+                end)
+            end
+				})
+            t77:CreateSection("Customization")
+
+            local v1169 = t77
+            local v1170 = u745
+
+            v1169:Input({
+					Title = "Floating Icon URL",
+					Placeholder = "rbxassetid://...",
+					Default = v1170,
+					Callback = function(p86, p87)
+                if p87 then
+                    p87 = p86 ~= ""
+                end
+
+                if p87 then
+                    u745 = p86
+                    ImageButton.Image = u745
+                    t69.FloatingIcon = u745
+                    t69.Toggles = t70
+                    pcall(function()
+                        v665()
+                        writefile(v656, HttpService:JSONEncode(t69))
+                    end)
+                end
+            end
+				})
+
+            local v1171 = t77
+            local v1172 = u763
+
+            v1171:Input({
+					Title = "Change Hub Image",
+					Placeholder = "rbxassetid://...",
+					Default = v1172,
+					Callback = function(p88, p89)
+                if p89 then
+                    p89 = p88 ~= ""
+                end
+
+                if p89 then
+                    u763 = p88
+                    ImageLabel.Image = u763
+                    t69.HubImage = u763
+                    t69.Toggles = t70
+                    pcall(function()
+                        v665()
+                        writefile(v656, HttpService:JSONEncode(t69))
+                    end)
+                end
+            end
+				})
+            t77:Button({
+					Title = "Reset Image",
+					Callback = function()
+                u763 = u745
+                ImageLabel.Image = u763
+                t69.HubImage = nil
+                t69.Toggles = t70
+                pcall(function()
+                    v665()
+                    writefile(v656, HttpService:JSONEncode(t69))
+                end)
+            end
+				})
+
+            local t82 = {}
+
+            for k, _ in pairs(t2) do
+                table.insert(t82, k)
+            end
+
+            table.sort(t82)
+
+            local v1176 = t77
+            local v1177 = table.find(t82, u39) or 1
+
+            v1176:Dropdown("Select Font", {
+					Description = "เลือกฟอนต์ที่ใช้ทั้ง UI",
+					Values = t82,
+					Default = v1177,
+					Multi = false,
+					Callback = function(p90)
+                v662(p90)
+                t69.Font = p90
+                t69.Toggles = t70
+                pcall(function()
+                    v665()
+                    writefile(v656, HttpService:JSONEncode(t69))
+                end)
+            end
+				})
+            t77:CreateSection("Language & Shortcuts")
+
+            local v1178 = t77
+            local Dropdown2 = v1178.Dropdown
+            local v1180 = s1 ~= "TH" and 1 or 2
+
+            Dropdown2(v1178, "Select Language", {
+					Description = "เลือกภาษาที่แสดงผล",
+					Values = {
+						"English",
+						"ไทย"
+					},
+					Default = v1180,
+					Multi = false,
+					Callback = function(p91)
+                local v1282 = p91 ~= "ไทย" and "EN" or "TH"
+
+                v664(v1282)
+                t69.Language = v1282
+                t69.Toggles = t70
+                pcall(function()
+                    v665()
+                    writefile(v656, HttpService:JSONEncode(t69))
+                end)
+            end
+				})
+
+            local v1181 = t77
+            local Keybind = v1181.Keybind
+            local v1183 = u739
+
+            Keybind(v1181, {
+					Title = "Minimize Keybind",
+					Description = "ปุ่มลัดสำหรับย่อหน้าต่าง UI",
+					Default = v1183,
+					Callback = function(p92)
+                u739 = p92
+                t69.MinimizeKey = p92.Name
+                t69.Toggles = t70
+                pcall(function()
+                    v665()
+                    writefile(v656, HttpService:JSONEncode(t69))
+                end)
+            end
+				})
+        end
+
+        return t77
+    end
+	}
+    v659(v741)
+    v662(v742)
+    v664(v743)
+    v660(t69.Transparency or 0)
+    v860()
+
+    return t83
+end
+return t1
