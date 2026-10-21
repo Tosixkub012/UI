@@ -1,4 +1,4 @@
-local IconList = {
+return {
     ["accessibility"] = "rbxassetid://10709751939",
     ["activity"] = "rbxassetid://10709752035",
     ["air-vent"] = "rbxassetid://10709752131",
