@@ -1,874 +1,5810 @@
---[[ Protected by Lua Guard ]]
+local TweenService = game:GetService("TweenService")
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+local CoreGui = game:GetService("CoreGui")
+local GuiService = game:GetService("GuiService")
+local HttpService = game:GetService("HttpService")
 
-( function (...) local TweenService = game:GetService("\084\119\101\101\110\083\101\114\118\105\099\101") local UserInputService = game:GetService("\085\115\101\114\073\110\112\117\116\083\101\114\118\105\099\101") local RunService = game:GetService("\082\117\110\083\101\114\118\105\099\101") local Players = game:GetService("\080\108\097\121\101\114\115") local _IIlIllIllI = game:GetService("\067\111\114\101\071\117\105") local GuiService = game:GetService("\071\117\105\083\101\114\118\105\099\101") local HttpService = game:GetService("\072\116\116\112\083\101\114\118\105\099\101") local _IIIIIIIlIl = { Open = "\114\098\120\097\115\115\101\116\105\100\058\047\047\049\052\048\050\048\055\056\051\055\054\056\056\051\054\057", Toggle = "\114\098\120\097\115\115\101\116\105\100\058\047\047\049\051\057\055\049\057\053\048\051\057\048\052\052\052\057", _llIIIIIIII = "\114\098\120\097\115\115\101\116\105\100\058\047\047\049\050\055\049\048\053\055\051\048\050\052\048\050\048\050", _IIIIIlllIl = "\114\098\120\097\115\115\101\116\105\100\058\047\047\056\056\052\052\050\056\051\051\053\048\057\053\051\050" } local _llIlIIIIIl = { Open = 0x5, Toggle = 0x5, _llIIIIIIII = 0x5, _IIIIIlllIl = 0x5 } local _lIllIIIIII = loadstring(game:HttpGet("\104\116\116\112\115\058\047\047\114\097\119\046\103\105\116\104\117\098\117\115\101\114\099\111\110\116\101\110\116\046\099\111\109\047\084\111\115\105\120\107\117\098\048\049\050\047\085\073\047\114\101\102\115\047\104\101\097\100\115\047\109\097\105\110\047\073\099\111\110\046\108\117\097"))() _lIllIIIIII.dashboard = _lIllIIIIII["\108\097\121\111\117\116\045\100\097\115\104\098\111\097\114\100"] _lIllIIIIII.mapPin = _lIllIIIIII["\109\097\112\045\112\105\110"] _lIllIIIIII.refresh = _lIllIIIIII["\114\101\102\114\101\115\104\045\099\119"] _lIllIIIIII.chevronRight = _lIllIIIIII["\099\104\101\118\114\111\110\045\114\105\103\104\116"] _lIllIIIIII.chevronDown = _lIllIIIIII["\099\104\101\118\114\111\110\045\100\111\119\110"] _lIllIIIIII.chevronUp = _lIllIIIIII["\099\104\101\118\114\111\110\045\117\112"] _lIllIIIIII.chevronsDown = _lIllIIIIII["\099\104\101\118\114\111\110\115\045\100\111\119\110"] local function _IIllIIIlll(name) name = string.gsub(name, "\040\037\108\041\040\037\117\041", "\037\049\045\037\050") name = string.gsub(string.lower(name), "\091\037\115\095\093\043", "\045") return name end
- local function _llllllIlll(_llIlIIIllI, _IlllIlllIl) local _lIlllIIllI = type(_llIlIIIllI) if _lIlllIIllI == "\110\117\109\098\101\114" then return "\114\098\120\097\115\115\101\116\105\100\058\047\047" .. _llIlIIIllI end
- if _lIlllIIllI == "\115\116\114\105\110\103" and _llIlIIIllI ~= "" then local _lIIIlIIllI = _lIllIIIIII[_llIlIIIllI] or _lIllIIIIII[_IIllIIIlll(_llIlIIIllI)] if _lIIIlIIllI then return _lIIIlIIllI end
- if string.find(_llIlIIIllI, "\114\098\120\097\115\115\101\116", 0x1, true) or string.find(_llIlIIIllI, "\104\116\116\112", 0x1, true) or tonumber(_llIlIIIllI) then return tonumber(_llIlIIIllI) and ("\114\098\120\097\115\115\101\116\105\100\058\047\047" .. _llIlIIIllI) or _llIlIIIllI end
- warn("\091\070\114\097\099\116\117\114\101\032\085\073\093\032\105\099\111\110\032\110\111\116\032\102\111\117\110\100\058\032" .. _llIlIIIllI) end
- return _IlllIlllIl end
- local _llIllllIIl = { Dark = { Background = Color3.fromRGB(0xA, 0xA, 0xA), BackgroundTop = Color3.fromRGB(0x16, 0x16, 0x16), _llllIIIIII = Color3.fromRGB(0x18, 0x18, 0x18), _lIlIIlllII = Color3.fromRGB(0x22, 0x22, 0x22), Outline = Color3.fromRGB(0x2E, 0x2E, 0x2E), Divider = Color3.fromRGB(0x26, 0x26, 0x26), _llllIIIIll = Color3.fromRGB(0x22, 0x6C, 0xE8), AccentGlow = Color3.fromRGB(0x56, 0x9E, 0xFF), AccentAlt = Color3.fromRGB(0x3C, 0xB0, 0xFF), _llllIIllll = Color3.fromRGB(0xEE, 0xEE, 0xEE), SubText = Color3.fromRGB(0x91, 0x91, 0x91), ToggleOff = Color3.fromRGB(0x3A, 0x3A, 0x3A), OnAccent = Color3.fromRGB(0xFF, 0xFF, 0xFF) }, Light = { Background = Color3.fromRGB(0xEE, 0xF0, 0xF5), BackgroundTop = Color3.fromRGB(0xFA, 0xFB, 0xFD), _llllIIIIII = Color3.fromRGB(0xFF, 0xFF, 0xFF), _lIlIIlllII = Color3.fromRGB(0xE6, 0xE9, 0xF2), Outline = Color3.fromRGB(0xD4, 0xD8, 0xE3), Divider = Color3.fromRGB(0xE2, 0xE5, 0xEE), _llllIIIIll = Color3.fromRGB(0x48, 0x5C, 0xE0), AccentGlow = Color3.fromRGB(0x62, 0x76, 0xF0), AccentAlt = Color3.fromRGB(0x2C, 0xAA, 0xE8), _llllIIllll = Color3.fromRGB(0x1C, 0x1F, 0x2A), SubText = Color3.fromRGB(0x6C, 0x72, 0x86), ToggleOff = Color3.fromRGB(0xC8, 0xCD, 0xDA), OnAccent = Color3.fromRGB(0xFF, 0xFF, 0xFF) }, _llllIIlllI = { Background = Color3.fromRGB(0x9, 0x10, 0x1E), BackgroundTop = Color3.fromRGB(0xF, 0x1B, 0x31), _llllIIIIII = Color3.fromRGB(0x12, 0x1F, 0x37), _lIlIIlllII = Color3.fromRGB(0x18, 0x29, 0x48), Outline = Color3.fromRGB(0x25, 0x3A, 0x5E), Divider = Color3.fromRGB(0x1E, 0x31, 0x51), _llllIIIIll = Color3.fromRGB(0x28, 0x7E, 0xF0), AccentGlow = Color3.fromRGB(0x60, 0xA8, 0xFF), AccentAlt = Color3.fromRGB(0x2E, 0xD6, 0xE8), _llllIIllll = Color3.fromRGB(0xE6, 0xF0, 0xFF), SubText = Color3.fromRGB(0x80, 0x97, 0xBB), ToggleOff = Color3.fromRGB(0x2C, 0x3F, 0x62), OnAccent = Color3.fromRGB(0xFF, 0xFF, 0xFF) }, Purple = { Background = Color3.fromRGB(0x10, 0xC, 0x1A), BackgroundTop = Color3.fromRGB(0x1B, 0x14, 0x2B), _llllIIIIII = Color3.fromRGB(0x1F, 0x18, 0x31), _lIlIIlllII = Color3.fromRGB(0x27, 0x1E, 0x3D), Outline = Color3.fromRGB(0x3B, 0x2E, 0x5C), Divider = Color3.fromRGB(0x31, 0x26, 0x4D), _llllIIIIll = Color3.fromRGB(0x88, 0x52, 0xEE), AccentGlow = Color3.fromRGB(0xAA, 0x80, 0xFF), AccentAlt = Color3.fromRGB(0xEC, 0x68, 0xC4), _llllIIllll = Color3.fromRGB(0xF0, 0xEA, 0xFC), SubText = Color3.fromRGB(0x97, 0x8B, 0xB4), ToggleOff = Color3.fromRGB(0x41, 0x35, 0x5D), OnAccent = Color3.fromRGB(0xFF, 0xFF, 0xFF) }, Rose = { Background = Color3.fromRGB(0x16, 0xC, 0x10), BackgroundTop = Color3.fromRGB(0x23, 0x14, 0x1A), _llllIIIIII = Color3.fromRGB(0x27, 0x18, 0x1F), _lIlIIlllII = Color3.fromRGB(0x31, 0x1D, 0x26), Outline = Color3.fromRGB(0x4B, 0x2D, 0x39), Divider = Color3.fromRGB(0x3D, 0x25, 0x2F), _llllIIIIll = Color3.fromRGB(0xDE, 0x44, 0x6C), AccentGlow = Color3.fromRGB(0xFF, 0x7A, 0x98), AccentAlt = Color3.fromRGB(0xFF, 0x9A, 0x60), _llllIIllll = Color3.fromRGB(0xFC, 0xEC, 0xF0), SubText = Color3.fromRGB(0xB1, 0x8D, 0x97), ToggleOff = Color3.fromRGB(0x51, 0x35, 0x3F), OnAccent = Color3.fromRGB(0xFF, 0xFF, 0xFF) } } local _llIllIIlII = { "\068\097\114\107", "\066\108\117\101", "\080\117\114\112\108\101", "\082\111\115\101", "\067\117\115\116\111\109" } local _IIlIIIIlIl = "\068\097\114\107" local _llIlllIIlI = { Background = Color3.fromRGB(0x0, 0x0, 0x0), BackgroundTop = Color3.fromRGB(0x8, 0x8, 0xA), _llllIIIIII = Color3.fromRGB(0xE, 0xE, 0x10), Outline = Color3.fromRGB(0x24, 0x24, 0x2A), Divider = Color3.fromRGB(0x18, 0x18, 0x1C), _llllIIllll = Color3.fromRGB(0xF4, 0xF4, 0xF8), SubText = Color3.fromRGB(0x8E, 0x8E, 0x98), ToggleOff = Color3.fromRGB(0x2E, 0x2E, 0x34) } local _lllIIllllI = { _lIIIllllIl = Color3.fromRGB(0xFF, 0x5F, 0x57), Yellow = Color3.fromRGB(0xFF, 0xBD, 0x2E), _IlllIIlIll = Color3.fromRGB(0x27, 0xC9, 0x3F) } for _lIlllllIll, _llIIllllII in pairs(_llIllllIIl.Dark) do _lllIIllllI[_lIlllllIll] = _llIIllllII end
- local function _IllIIIlIlI() for _llIIIIIIII, _llIIIIIlIl in pairs(_llIlllIIlI) do _lllIIllllI[_llIIIIIIII] = _llIIIIIlIl end
- _lllIIllllI.Selected = _llIlllIIlI.Card:Lerp(_lllIIllllI.Accent, 0.12) end
- _IllIIIlIlI() local _lIlIllIIlI = setmetatable({}, { __index = function (_, _lIlllllIll) return { __token = _lIlllllIll } end
- }) local _lllIllIIIl = {} local _IlllIlIlIl = {} local _IlIIllIlII = 0x0 local function _IIllIlIllI(_IlllIIIlII, property, _lIlllllIll) table.insert(_lllIllIIIl, { _IlllIIIlII, property, _lIlllllIll }) end
- local function _IllIIIIIIl(callback) _IlIIllIlII = _IlIIllIlII + 0x1 local _lIlIIIIllI = _IlIIllIlII _IlllIlIlIl[_lIlIIIIllI] = callback return function () _IlllIlIlIl[_lIlIIIIllI] = nil end
- end
- local _lllIIlIlll = { [Enum.UserInputType.MouseButton1] = true, [Enum.UserInputType.Touch] = true } local _IlIIlIIIll = "\114\098\120\097\115\115\101\116\058\047\047\102\111\110\116\115\047\102\097\109\105\108\105\101\115\047\077\111\110\116\115\101\114\114\097\116\046\106\115\111\110" local _IlIIlIIlII = {} for name, weight in pairs({ Regular = Enum.FontWeight.Regular, Medium = Enum.FontWeight.Medium, SemiBold = Enum.FontWeight.SemiBold, Bold = Enum.FontWeight.Bold }) do _IlIIlIIlII[name] = Font.new(_IlIIlIIIll, weight, Enum.FontStyle.Normal) end
- local function _IlIIIIlIlI(className, properties, children) local _IlllIIIlII = Instance.new(className) local _IIIIllIllI = _IlllIIIlII:IsA("\084\101\120\116\076\097\098\101\108") or _IlllIIIlII:IsA("\084\101\120\116\066\117\116\116\111\110") or _IlllIIIlII:IsA("\084\101\120\116\066\111\120") local _llllIIllIl = properties or {} if _IlllIIIlII:IsA("\071\117\105\079\098\106\101\099\116") then _IlllIIIlII.BorderSizePixel = 0x0 end
- if _IlllIIIlII:IsA("\071\117\105\066\117\116\116\111\110") then _IlllIIIlII.AutoButtonColor = false end
- if _IIIIllIllI then _IlllIIIlII.FontFace = _IlIIlIIlII.Regular _IlllIIIlII.TextSize = 0xC _IlllIIIlII.TextColor3 = _lllIIllllI.Text _IlllIIIlII.TextXAlignment = Enum.TextXAlignment.Left _IlllIIIlII.Text = "" if _llllIIllIl.TextColor3 == nil then _IIllIlIllI(_IlllIIIlII, "\084\101\120\116\067\111\108\111\114\051", "\084\101\120\116") end
- end
- if _IIIIllIllI or _IlllIIIlII:IsA("\073\109\097\103\101\076\097\098\101\108") or _IlllIIIlII:IsA("\073\109\097\103\101\066\117\116\116\111\110") or _IlllIIIlII:IsA("\083\099\114\111\108\108\105\110\103\070\114\097\109\101") then _IlllIIIlII.BackgroundTransparency = 0x1 end
- local _llIIlllIll for _lIlllllIll, _llIIllllII in pairs(_llllIIllIl) do if _lIlllllIll == "\080\097\114\101\110\116" then _llIIlllIll = _llIIllllII elseif _lIlllllIll == "\087\101\105\103\104\116" then _IlllIIIlII.FontFace = _IlIIlIIlII[_llIIllllII] or _IlIIlIIlII.Regular else if type(_llIIllllII) == "\116\097\098\108\101" and _llIIllllII.__token then _IIllIlIllI(_IlllIIIlII, _lIlllllIll, _llIIllllII.__token) _llIIllllII = _lllIIllllI[_llIIllllII.__token] end
- _IlllIIIlII[_lIlllllIll] = _llIIllllII end
- end
- for _, child in ipairs(children or {}) do child.Parent = _IlllIIIlII end
- if _llIIlllIll then _IlllIIIlII.Parent = _llIIlllIll end
- return _IlllIIIlII end
- local function _IIlIlIIlIl(radius, isCircle) if isCircle then return _IlIIIIlIlI("\085\073\067\111\114\110\101\114", { CornerRadius = UDim.new(0x1, 0x0) }) end
- return _IlIIIIlIlI("\085\073\067\111\114\110\101\114", { CornerRadius = UDim.new(0x0, radius or 0x8) }) end
- local function _llIlIIIlIl(color, _llIllIlllI, thickness) return _IlIIIIlIlI("\085\073\083\116\114\111\107\101", { _IIIlIIIIlI = color, Transparency = _llIllIlllI or 0x0, Thickness = thickness or 0x1, ApplyStrokeMode = Enum.ApplyStrokeMode.Border }) end
- local function _IllllIlIll(object, _IIlIllIIlI, properties, style, direction) local _IlllllIIIl = TweenService:Create( object, TweenInfo.new(_IIlIllIIlI, style or Enum.EasingStyle.Quad, direction or Enum.EasingDirection.Out), properties ) _IlllllIIIl:Play() return _IlllllIIIl end
- local function _lIIIIIllll(callback, ...) if type(callback) ~= "\102\117\110\099\116\105\111\110" then return end
- local _llIIlIIlIl, err = pcall(callback, ...) if not _llIIlIIlIl then warn("\091\070\114\097\099\116\117\114\101\032\085\073\093\032" .. tostring(err)) end
- end
- local _llllIlIlIl = {} _llllIlIlIl.__index = _llllIlIlIl _llllIlIlIl.Pool = {} _llllIlIlIl.Next = 0x0 _llllIlIlIl.Styles = { Fill = function () return ColorSequence.new(_lllIIllllI.Accent, _lllIIllllI.AccentAlt) end
- , Shade = function () return ColorSequence.new(Color3.new(0x1, 0x1, 0x1), Color3.new(0.68, 0.68, 0.74)) end
- , Haze = function () return ColorSequence.new({ ColorSequenceKeypoint.new(0x0, _lllIIllllI.Accent), ColorSequenceKeypoint.new(0.5, _lllIIllllI.AccentAlt), ColorSequenceKeypoint.new(0x1, _lllIIllllI.Accent) }) end
- , Rim = function () local _llllIIllIl = _lllIIllllI.Outline return ColorSequence.new({ ColorSequenceKeypoint.new(0x0, _llllIIllIl:Lerp(_lllIIllllI.Accent, 0.55)), ColorSequenceKeypoint.new(0.35, _llllIIllIl), ColorSequenceKeypoint.new(0.7, _llllIIllIl:Lerp(_lllIIllllI.AccentAlt, 0.55)), ColorSequenceKeypoint.new(0x1, _llllIIllIl:Lerp(_lllIIllllI.Accent, 0.55)) }) end
- } function _llllIlIlIl.Make(style, _llllIIllIl) local self = setmetatable({ Style = style }, _llllIlIlIl) self.Gradient = _IlIIIIlIlI("\085\073\071\114\097\100\105\101\110\116", _llllIIllIl or {}) self:Paint() _llllIlIlIl.Next = _llllIlIlIl.Next + 0x1 _llllIlIlIl.Pool[_llllIlIlIl.Next] = self return self.Gradient end
- function _llllIlIlIl:Paint() self.Gradient.Color = _llllIlIlIl.Styles[self.Style]() end
- function _llllIlIlIl.Sync() for _lIlIIIIllI, aura in pairs(_llllIlIlIl.Pool) do if aura.Gradient.Parent and aura.Gradient:IsDescendantOf(game) then aura:Paint() else _llllIlIlIl.Pool[_lIlIIIIllI] = nil end
- end
- end
- local _lIlllllIII = false local function _lIIllIIlll(name) local _lllIIIllIl = _llIllllIIl[name] if not _lllIIIllIl then return false end
- _IIlIIIIlIl = name for _lIlllllIll, _llIIllllII in pairs(_lllIIIllIl) do _lllIIllllI[_lIlllllIll] = _llIIllllII end
- if _lIlllllIII then _lllIIllllI.AccentAlt = _lllIIllllI.Accent _lllIIllllI.AccentGlow = _lllIIllllI.Accent end
- _IllIIIlIlI() local _lIIIlIllII = {} for _, binding in ipairs(_lllIllIIIl) do local _IlllIIIlII = binding[0x1] if _IlllIIIlII.Parent ~= nil and _IlllIIIlII:IsDescendantOf(game) then table.insert(_lIIIlIllII, binding) _IllllIlIll(_IlllIIIlII, 0.25, { [binding[0x2]] = _lllIIllllI[binding[0x3]] }) end
- end
- _lllIllIIIl = _lIIIlIllII _llllIlIlIl.Sync() for _, callback in pairs(_IlllIlIlIl) do _lIIIIIllll(callback) end
- return true end
- local _IIIIlIIlll = { "\065\099\099\101\110\116", "\065\099\099\101\110\116\065\108\116" } local _lIIIIIllII = {} for _, _llIIIIIIII in ipairs(_IIIIlIIlll) do _lIIIIIllII[_llIIIIIIII] = _llIllllIIl.Dark[_llIIIIIIII] end
- local function _lllIIllllI(_IIIlIIIIlI) return string.format("\035\037\048\050\088\037\048\050\088\037\048\050\088", math.floor(_IIIlIIIIlI.R * 0xFF + 0.5), math.floor(_IIIlIIIIlI.G * 0xFF + 0.5), math.floor(_IIIlIIIIlI.B * 0xFF + 0.5)) end
- local function _IIlIllllII(_llIIIIIlIl) local _IIllIIIIIl = typeof(_llIIIIIlIl) local _lIIllIIIII = nil if _IIllIIIIIl == "\067\111\108\111\114\051" then _lIIllIIIII = _llIIIIIlIl elseif _IIllIIIIIl == "\115\116\114\105\110\103" then local _lIIIllllIl, _IlllIIlIll, _llllIIlllI = string.match(_llIIIIIlIl, "\094\037\115\042\035\063\040\037\120\037\120\041\040\037\120\037\120\041\040\037\120\037\120\041\037\115\042\036") _lIIllIIIII = _lIIIllllIl and Color3.fromRGB(tonumber(_lIIIllllIl, 0x10), tonumber(_IlllIIlIll, 0x10), tonumber(_llllIIlllI, 0x10)) or nil elseif _IIllIIIIIl == "\116\097\098\108\101" then local _lllIIlIIll = { _llIIIIIlIl.R or _llIIIIIlIl[0x1], _llIIIIIlIl.G or _llIIIIIlIl[0x2], _llIIIIIlIl.B or _llIIIIIlIl[0x3] } _lIIllIIIII = #_lllIIlIIll == 0x3 and Color3.fromRGB(_lllIIlIIll[0x1], _lllIIlIIll[0x2], _lllIIlIIll[0x3]) or nil end
- return _lIIllIIIII end
- local function _IllllIIIII() local _lIIIIlIIII = Color3.new(0x1, 0x1, 0x1) local _llllIIIIll = _lIIIIIllII.Accent local _llllllIlII = _llllIIIIll.R * 0.299 + _llllIIIIll.G * 0.587 + _llllIIIIll.B * 0.114 return { Background = _llIlllIIlI.Background, BackgroundTop = _llIlllIIlI.BackgroundTop, _llllIIIIII = _llIlllIIlI.Card, _lIlIIlllII = _llIlllIIlI.Card:Lerp(_llllIIIIll, 0.12), Outline = _llIlllIIlI.Outline, Divider = _llIlllIIlI.Divider, _llllIIIIll = _llllIIIIll, AccentGlow = _llllIIIIll:Lerp(_lIIIIlIIII, 0.35), AccentAlt = _lIIIIIllII.AccentAlt, _llllIIllll = _llIlllIIlI.Text, SubText = _llIlllIIlI.SubText, ToggleOff = _llIlllIIlI.ToggleOff, OnAccent = _llllllIlII > 0.62 and Color3.fromRGB(0x14, 0x14, 0x18) or _lIIIIlIIII } end
- _llIllllIIl.Custom = _IllllIIIII() local function _IlIllIIIlI(Style) _lIlllllIII = Style == "\083\111\108\105\100" _lIIllIIlll(_IIlIIIIlIl) end
- local function _lIIlIlIIIl() _llIllllIIl.Custom = _IllllIIIII() _lIIllIIlll("\067\117\115\116\111\109") end
- local function _lIllllIlII() local _llIIlIIlIl, _IIlIllIIll = pcall( function () return gethui and gethui() end
- ) if _llIIlIIlIl and _IIlIllIIll then return _IIlIllIIll end
- return _IIlIllIllI end
- local function _IIIIlllIIl(_llIIIIIlIl, Fallback) local _IIIllIIIlI = { [true] = _llIIIIIlIl, [false] = Fallback } return _IIIllIIIlI[_llIIIIIlIl ~= nil] end
- local function _lIllIIllll(_IlIlIIIIIl) _IlIlIIIIIl = string.gsub(tostring(_IlIlIIIIIl), "\091\092\092\092\092\047\058\042\063\092\034\060\062\124\093", "\095") _IlIlIIIIIl = string.gsub(_IlIlIIIIIl, "\094\037\115\043", "") _IlIlIIIIIl = string.gsub(_IlIlIIIIIl, "\037\115\043\036", "") return _IlIlIIIIIl ~= "" and _IlIlIIIIIl or "\100\101\102\097\117\108\116" end
- local function _IllllIlIlI(step) local _IlllllIIlI = string.match(tostring(step), "\037\046\040\037\100\043\041") return _IlllllIIlI and #_IlllllIIlI or 0x0 end
- local _lIIIllIIll = {} _lIIIllIIll.__index = _lIIIllIIll function _lIIIllIIll.new() return setmetatable({ Tasks = {} }, _lIIIllIIll) end
- function _lIIIllIIll:Give(task) table.insert(self.Tasks, task) return task end
- function _lIIIllIIll:Destroy() for _, task in ipairs(self.Tasks) do local _lIlllIIllI = typeof(task) if _lIlllIIllI == "\082\066\088\083\099\114\105\112\116\067\111\110\110\101\099\116\105\111\110" then task:Disconnect() elseif _lIlllIIllI == "\073\110\115\116\097\110\099\101" then task:Destroy() elseif _lIlllIIllI == "\102\117\110\099\116\105\111\110" then task() end
- end
- table.clear(self.Tasks) end
- local function _llIIllIIlI(_IIIIlIllII, _lIIIllIlll, handlers) local _llIlIlllIl = false local _IIIIIllIll = false local function _IIllIlllIl(state) if state == _llIlIlllIl or not handlers.Hover then _llIlIlllIl = state return end
- _llIlIlllIl = state handlers.Hover(state) end
- local function _llIlllllIl(state) if state == _IIIIIllIll or not handlers.Press then _IIIIIllIll = state return end
- _IIIIIllIll = state handlers.Press(state) end
- _IIIIlIllII:Give(_lIIIllIlll.MouseEnter:Connect( function () _IIllIlllIl(true) end
- )) _IIIIlIllII:Give(_lIIIllIlll.MouseLeave:Connect( function () _llIlllllIl(false) _IIllIlllIl(false) end
- )) _IIIIlIllII:Give(_lIIIllIlll.InputBegan:Connect( function (input) if not _lllIIlIlll[input.UserInputType] then return end
- if input.UserInputType == Enum.UserInputType.Touch then _IIllIlllIl(true) end
- _llIlllllIl(true) end
- )) _IIIIlIllII:Give(_lIIIllIlll.InputEnded:Connect( function (input) if not _lllIIlIlll[input.UserInputType] then return end
- _llIlllllIl(false) if input.UserInputType == Enum.UserInputType.Touch then _IIllIlllIl(false) end
- end
- )) end
- local function _llIlIllIIl() local _llIIlIIlIl, inset = pcall( function () return GuiService:GetGuiInset() end
- ) return _llIIlIIlIl and inset or Vector2.zero end
- local function _IIlIIIIIll(gui, _lIIlIIIlIl, tolerant) local _IIlIIlllII = gui.AbsolutePosition local _IIlIllIlIl = _IIlIIlllII + gui.AbsoluteSize local function _IIlIIlllll(_lIllIllIlI) return _lIllIllIlI.X >= _IIlIIlllII.X and _lIllIllIlI.X <= _IIlIllIlIl.X and _lIllIllIlI.Y >= _IIlIIlllII.Y and _lIllIllIlI.Y <= _IIlIllIlIl.Y end
- local _IIlIIIIIII = Vector2.new(_lIIlIIIlIl.X, _lIIlIIIlIl.Y) if _IIlIIlllll(_IIlIIIIIII + _llIlIllIIl()) then return true end
- return tolerant == true and _IIlIIlllll(_IIlIIIIIII) end
- local function _IllIlIIIll(input, onMove, onEnd) local _lIIllIlIlI = input.UserInputType == Enum.UserInputType.Touch local _IlIlIlIlll = false local _llllllIIIl = input.Position local _IlIlllIIII = {} local function _lIllIlIIIl(cancelled) if _IlIlIlIlll then return end
- _IlIlIlIlll = true for _, connection in ipairs(_IlIlllIIII) do connection:Disconnect() end
- if onEnd then onEnd(_llllllIIIl, cancelled) end
- end
- table.insert(_IlIlllIIII, UserInputService.InputChanged:Connect( function (_lIlllllllI) local _lllIlIlIlI = _lIlllllllI == input or (_lIIllIlIlI and _lIlllllllI.UserInputType == Enum.UserInputType.Touch) or ( not _lIIllIlIlI and _lIlllllllI.UserInputType == Enum.UserInputType.MouseMovement) if _lllIlIlIlI then _llllllIIIl = _lIlllllllI.Position if onMove then onMove(_llllllIIIl) end
- end
- end
- )) table.insert(_IlIlllIIII, input.Changed:Connect( function () if input.UserInputState == Enum.UserInputState.End then _lIllIlIIIl(false) elseif input.UserInputState == Enum.UserInputState.Cancel then _lIllIlIIIl(true) end
- end
- )) table.insert(_IlIlllIIII, UserInputService.InputEnded:Connect( function (ended) if ended == input or ended.UserInputType == input.UserInputType then _lIllIlIIIl(false) end
- end
- )) return _lIllIlIIIl end
- local function _lllllIIlIl(_IIIIlIllII, _lIIIllIlll, callback) _IIIIlIllII:Give(_lIIIllIlll.InputBegan:Connect( function (input) if not _lllIIlIlll[input.UserInputType] then return end
- local _llIlllIllI = input.Position local _lIlllllllI = false _IllIlIIIll(input, function (_lIIlIIIlIl) if (_lIIlIIIlIl - _llIlllIllI).Magnitude > 0xA then _lIlllllllI = true end
- end
- , function (_lIIlIIIlIl, cancelled) if cancelled or _lIlllllllI or (_lIIlIIIlIl - _llIlllIllI).Magnitude > 0xA then return end
- if input.UserInputType == Enum.UserInputType.MouseButton1 and not _IIlIIIIIll(_lIIIllIlll, _lIIlIIIlIl, true) then return end
- callback(input) end
- ) end
- )) end
- local _lIlllIIIlI = { en = { Settings = "\083\101\116\116\105\110\103\115", SettingsDesc = "\067\111\110\102\105\103\117\114\101\032\085\073\032\112\114\101\102\101\114\101\110\099\101\115", Language = "\076\097\110\103\117\097\103\101", LanguageDesc = "\067\104\111\111\115\101\032\116\104\101\032\105\110\116\101\114\102\097\099\101\032\108\097\110\103\117\097\103\101", Interface = "\073\110\116\101\114\102\097\099\101", InterfaceDesc = "\087\105\110\100\111\119\032\111\112\116\105\111\110\115", _IllllIIIll = "\085\073\032\083\111\117\110\100\115", SoundDesc = "\080\108\097\121\032\115\111\117\110\100\115\032\111\110\032\111\112\101\110\044\032\099\108\105\099\107\115\032\097\110\100\032\116\121\112\105\110\103", Volume = "\083\111\117\110\100\032\086\111\108\117\109\101", VolumeDesc = "\065\100\106\117\115\116\032\104\111\119\032\108\111\117\100\032\116\104\101\032\085\073\032\115\111\117\110\100\115\032\097\114\101", Scale = "\085\073\032\083\099\097\108\101", ScaleDesc = "\082\101\115\105\122\101\032\116\104\101\032\119\104\111\108\101\032\119\105\110\100\111\119", Acrylic = "\065\099\114\121\108\105\099\032\069\102\102\101\099\116", AcrylicDesc = "\070\114\111\115\116\101\100\032\103\108\097\115\115\032\119\105\110\100\111\119", Transparency = "\084\114\097\110\115\112\097\114\101\110\099\121", TransparencyDesc = "\072\111\119\032\115\101\101\045\116\104\114\111\117\103\104\032\116\104\101\032\119\105\110\100\111\119\032\105\115", Blur = "\066\097\099\107\103\114\111\117\110\100\032\066\108\117\114", BlurDesc = "\066\108\117\114\032\116\104\101\032\103\097\109\101\032\098\101\104\105\110\100\032\116\104\101\032\119\105\110\100\111\119\032\040\110\101\101\100\115\032\065\099\114\121\108\105\099\032\111\110\041", AccentStyle = "\065\099\099\101\110\116\032\067\111\108\111\114\032\083\116\121\108\101", StyleGradient = "\071\114\097\100\105\101\110\116\032\077\111\100\101", StyleSolid = "\083\111\108\105\100\032\077\111\100\101", ToneTitle = "\084\111\110\101", ToneDark = "\068\097\114\107", ToneLight = "\076\105\103\104\116", QuickPalettes = "\081\117\105\099\107\032\065\099\099\101\110\116\032\080\097\108\101\116\116\101\115\032\040\079\110\101\045\084\097\112\041", PrimaryAccent = "\080\114\105\109\097\114\121\032\065\099\099\101\110\116", SecondaryAccent = "\083\101\099\111\110\100\097\114\121\032\065\099\099\101\110\116", ToggleKey = "\084\111\103\103\108\101\032\075\101\121", ToggleKeyDesc = "\075\101\121\032\116\111\032\115\104\111\119\032\111\114\032\104\105\100\101\032\116\104\101\032\119\105\110\100\111\119", ColorDone = "\068\111\110\101", ColorCancel = "\067\097\110\099\101\108", ResetAll = "\082\101\115\101\116\032\085\073\032\083\101\116\116\105\110\103\115", ResetAllDesc = "\082\101\115\116\111\114\101\032\101\118\101\114\121\032\085\073\032\115\101\116\116\105\110\103\032\116\111\032\100\101\102\097\117\108\116", Reset = "\082\101\115\101\116\032\085\073\032\080\111\115\105\116\105\111\110", ResetDesc = "\077\111\118\101\032\116\104\101\032\119\105\110\100\111\119\032\098\097\099\107\032\116\111\032\116\104\101\032\099\101\110\116\101\114", Search = "\083\101\097\114\099\104\046\046\046", None = "\078\111\110\101", Select = "\083\101\108\101\099\116\046\046\046", ManageFor = "\077\097\110\097\103\101\032\111\112\116\105\111\110\115\032\097\110\100\032\115\101\116\116\105\110\103\115\032\102\111\114\032\037\115", Appearance = "\065\112\112\101\097\114\097\110\099\101", AppearanceDesc = "\067\117\115\116\111\109\105\122\101\032\099\111\108\111\114\115", _lllIIllllI = "\084\104\101\109\101", ThemeDesc = "\080\105\099\107\032\097\032\099\111\108\111\114\032\116\104\101\109\101", ThemeDark = "\068\097\114\107", ThemeLight = "\076\105\103\104\116", ThemeBlue = "\066\108\117\101", ThemePurple = "\080\117\114\112\108\101", ThemeRose = "\082\111\115\101", ThemeCustom = "\067\117\115\116\111\109", CustomTheme = "\067\117\115\116\111\109\032\084\104\101\109\101", CustomThemeDesc = "\080\105\099\107\032\121\111\117\114\032\111\119\110\032\099\111\108\111\114\115", ColorAccent = "\065\099\099\101\110\116", ColorAccentAlt = "\065\099\099\101\110\116\032\065\108\116", ColorBackground = "\066\097\099\107\103\114\111\117\110\100", ColorCard = "\067\097\114\100", ColorText = "\084\101\120\116", ColorSubText = "\083\117\098\032\084\101\120\116", ResetColors = "\082\101\115\101\116\032\067\111\108\111\114\115", ResetColorsDesc = "\082\101\115\116\111\114\101\032\116\104\101\032\100\101\102\097\117\108\116\032\099\117\115\116\111\109\032\099\111\108\111\114\115", Notifications = "\078\111\116\105\102\105\099\097\116\105\111\110\115", NotificationsDesc = "\084\111\097\115\116\032\111\112\116\105\111\110\115", NotifyTimer = "\084\105\109\101\114\032\066\097\114", NotifyTimerDesc = "\083\104\111\119\032\116\104\101\032\099\111\117\110\116\100\111\119\110\032\108\105\110\101\032\111\110\032\110\111\116\105\102\105\099\097\116\105\111\110\115", NotifyLine = "\076\105\110\101\032\067\111\108\111\114", NotifyLineDesc = "\067\111\108\111\114\032\111\102\032\116\104\101\032\115\116\114\105\112\101\032\111\110\032\116\104\101\032\108\101\102\116\032\101\100\103\101", NotifyLineReset = "\065\117\116\111\032\076\105\110\101\032\067\111\108\111\114", NotifyLineResetDesc = "\085\115\101\032\116\104\101\032\100\101\102\097\117\108\116\032\099\111\108\111\114\032\102\111\114\032\101\097\099\104\032\116\121\112\101", NotifyTest = "\084\101\115\116\032\078\111\116\105\102\105\099\097\116\105\111\110", NotifyTestDesc = "\080\114\101\118\105\101\119\032\104\111\119\032\097\032\110\111\116\105\102\105\099\097\116\105\111\110\032\108\111\111\107\115", NotifyTestBody = "\084\104\105\115\032\105\115\032\097\032\115\097\109\112\108\101\032\110\111\116\105\102\105\099\097\116\105\111\110", Privacy = "\080\114\105\118\097\099\121", PrivacyDesc = "\072\105\100\101\032\112\101\114\115\111\110\097\108\032\105\110\102\111", HideName = "\072\105\100\101\032\078\097\109\101", HideNameDesc = "\077\097\115\107\032\121\111\117\114\032\110\097\109\101\032\111\110\032\116\104\101\032\112\114\111\102\105\108\101\032\099\097\114\100", HideProfile = "\072\105\100\101\032\080\114\111\102\105\108\101", HideProfileDesc = "\072\105\100\101\032\116\104\101\032\119\104\111\108\101\032\112\114\111\102\105\108\101\032\099\097\114\100", NoResults = "\078\111\032\114\101\115\117\108\116\115" }, th = { Settings = "\3605\3633\3657\3591\3588\3656\3634", SettingsDesc = "\3611\3619\3633\3610\3649\3605\3656\3591\3585\3634\3619\3651\3594\3657\3591\3634\3609\3648\3617\3609\3641", Language = "\3616\3634\3625\3634", LanguageDesc = "\3648\3621\3639\3629\3585\3616\3634\3625\3634\3586\3629\3591\3627\3609\3657\3634\3605\3656\3634\3591\3648\3617\3609\3641", Interface = "\3627\3609\3657\3634\3605\3634\3648\3617\3609\3641", InterfaceDesc = "\3605\3633\3657\3591\3588\3656\3634\3627\3609\3657\3634\3605\3656\3634\3591", _IllllIIIll = "\3648\3626\3637\3618\3591\3648\3617\3609\3641", SoundDesc = "\3648\3621\3656\3609\3648\3626\3637\3618\3591\3605\3629\3609\3648\3611\3636\3604\3648\3617\3609\3641\032\3585\3604\3611\3640\3656\3617\032\3649\3621\3632\3614\3636\3617\3614\3660", Volume = "\3619\3632\3604\3633\3610\3648\3626\3637\3618\3591", VolumeDesc = "\3611\3619\3633\3610\3588\3623\3634\3617\3604\3633\3591\3586\3629\3591\3648\3626\3637\3618\3591\3648\3617\3609\3641", Scale = "\3586\3609\3634\3604\3648\3617\3609\3641", ScaleDesc = "\3611\3619\3633\3610\3586\3609\3634\3604\3627\3609\3657\3634\3605\3656\3634\3591\3607\3633\3657\3591\3627\3617\3604", Acrylic = "\3648\3629\3615\3648\3615\3585\3605\3660\032\065\099\114\121\108\105\099", AcrylicDesc = "\3627\3609\3657\3634\3605\3656\3634\3591\3649\3610\3610\3585\3619\3632\3592\3585\3613\3657\3634", Transparency = "\3588\3623\3634\3617\3650\3611\3619\3656\3591\3651\3626", TransparencyDesc = "\3611\3619\3633\3610\3588\3623\3634\3617\3650\3611\3619\3656\3591\3649\3626\3591\3586\3629\3591\3627\3609\3657\3634\3605\3656\3634\3591", Blur = "\3648\3610\3621\3629\3614\3639\3657\3609\3627\3621\3633\3591", BlurDesc = "\3648\3610\3621\3629\3593\3634\3585\3648\3585\3617\3604\3657\3634\3609\3627\3621\3633\3591\3627\3609\3657\3634\3605\3656\3634\3591\032\040\3605\3657\3629\3591\3648\3611\3636\3604\032\065\099\114\121\108\105\099\041", AccentStyle = "\3626\3652\3605\3621\3660\3626\3637\3648\3609\3657\3609", StyleGradient = "\3650\3627\3617\3604\3652\3621\3656\3626\3637", StyleSolid = "\3650\3627\3617\3604\3626\3637\3648\3604\3637\3618\3623", ToneTitle = "\3650\3607\3609\3626\3637", ToneDark = "\3617\3639\3604", ToneLight = "\3626\3623\3656\3634\3591", QuickPalettes = "\3614\3634\3648\3621\3605\3626\3637\3604\3656\3623\3609\032\040\3649\3605\3632\3588\3619\3633\3657\3591\3648\3604\3637\3618\3623\041", PrimaryAccent = "\3626\3637\3648\3609\3657\3609\3627\3621\3633\3585", SecondaryAccent = "\3626\3637\3648\3609\3657\3609\3619\3629\3591", ToggleKey = "\3611\3640\3656\3617\3648\3611\3636\3604\047\3611\3636\3604\3648\3617\3609\3641", ToggleKeyDesc = "\3611\3640\3656\3617\3621\3633\3604\3626\3635\3627\3619\3633\3610\3649\3626\3604\3591\3627\3619\3639\3629\3595\3656\3629\3609\3627\3609\3657\3634\3605\3656\3634\3591", ColorDone = "\3648\3626\3619\3655\3592\3626\3636\3657\3609", ColorCancel = "\3618\3585\3648\3621\3636\3585", ResetAll = "\3619\3637\3648\3595\3655\3605\3585\3634\3619\3605\3633\3657\3591\3588\3656\3634\032\085\073", ResetAllDesc = "\3588\3639\3609\3588\3656\3634\3585\3634\3619\3605\3633\3657\3591\3588\3656\3634\032\085\073\032\3607\3633\3657\3591\3627\3617\3604\3648\3611\3655\3609\3588\3656\3634\3648\3619\3636\3656\3617\3605\3657\3609", Reset = "\3619\3637\3648\3595\3655\3605\3605\3635\3649\3627\3609\3656\3591\3648\3617\3609\3641", ResetDesc = "\3618\3657\3634\3618\3627\3609\3657\3634\3605\3656\3634\3591\3585\3621\3633\3610\3617\3634\3585\3621\3634\3591\3592\3629", Search = "\3588\3657\3609\3627\3634\046\046\046", None = "\3652\3617\3656\3617\3637", Select = "\3648\3621\3639\3629\3585\046\046\046", ManageFor = "\3592\3633\3604\3585\3634\3619\3605\3633\3623\3648\3621\3639\3629\3585\3649\3621\3632\3585\3634\3619\3605\3633\3657\3591\3588\3656\3634\3586\3629\3591\032\037\115", Appearance = "\3608\3637\3617", AppearanceDesc = "\3611\3619\3633\3610\3626\3637\3627\3609\3657\3634\3605\3634\3648\3617\3609\3641", _lllIIllllI = "\3608\3637\3617\3626\3637", ThemeDesc = "\3648\3621\3639\3629\3585\3608\3637\3617\3626\3637\3607\3637\3656\3594\3629\3610", ThemeDark = "\3617\3639\3604", ThemeLight = "\3586\3634\3623", ThemeBlue = "\3615\3657\3634", ThemePurple = "\3617\3656\3623\3591", ThemeRose = "\3594\3617\3614\3641", ThemeCustom = "\3585\3635\3627\3609\3604\3648\3629\3591", CustomTheme = "\3608\3637\3617\3585\3635\3627\3609\3604\3648\3629\3591", CustomThemeDesc = "\3648\3621\3639\3629\3585\3626\3637\3652\3604\3657\3629\3636\3626\3619\3632", ColorAccent = "\3626\3637\3627\3621\3633\3585", ColorAccentAlt = "\3626\3637\3619\3629\3591", ColorBackground = "\3626\3637\3614\3639\3657\3609\3627\3621\3633\3591", ColorCard = "\3626\3637\3585\3634\3619\3660\3604", ColorText = "\3626\3637\3605\3633\3623\3629\3633\3585\3625\3619", ColorSubText = "\3626\3637\3605\3633\3623\3629\3633\3585\3625\3619\3619\3629\3591", ResetColors = "\3619\3637\3648\3595\3655\3605\3626\3637", ResetColorsDesc = "\3588\3639\3609\3588\3656\3634\3626\3637\3585\3635\3627\3609\3604\3648\3629\3591\3648\3611\3655\3609\3588\3656\3634\3648\3619\3636\3656\3617\3605\3657\3609", Notifications = "\3585\3634\3619\3649\3592\3657\3591\3648\3605\3639\3629\3609", NotificationsDesc = "\3605\3633\3657\3591\3588\3656\3634\3649\3592\3657\3591\3648\3605\3639\3629\3609\3617\3640\3617\3592\3629", NotifyTimer = "\3648\3626\3657\3609\3609\3633\3610\3648\3623\3621\3634", NotifyTimerDesc = "\3649\3626\3604\3591\3648\3626\3657\3609\3609\3633\3610\3606\3629\3618\3627\3621\3633\3591\3651\3609\3649\3592\3657\3591\3648\3605\3639\3629\3609", NotifyLine = "\3626\3637\3648\3626\3657\3609\3586\3657\3634\3591\3627\3609\3657\3634", NotifyLineDesc = "\3626\3637\3586\3629\3591\3648\3626\3657\3609\3604\3657\3634\3609\3595\3657\3634\3618\3586\3629\3591\3649\3592\3657\3591\3648\3605\3639\3629\3609", NotifyLineReset = "\3626\3637\3648\3626\3657\3609\3629\3633\3605\3650\3609\3617\3633\3605\3636", NotifyLineResetDesc = "\3651\3594\3657\3626\3637\3605\3634\3617\3611\3619\3632\3648\3616\3607\3649\3592\3657\3591\3648\3605\3639\3629\3609", NotifyTest = "\3607\3604\3626\3629\3610\3649\3592\3657\3591\3648\3605\3639\3629\3609", NotifyTestDesc = "\3604\3641\3605\3633\3623\3629\3618\3656\3634\3591\3627\3609\3657\3634\3605\3634\3649\3592\3657\3591\3648\3605\3639\3629\3609", NotifyTestBody = "\3609\3637\3656\3588\3639\3629\3586\3657\3629\3588\3623\3634\3617\3649\3592\3657\3591\3648\3605\3639\3629\3609\3605\3633\3623\3629\3618\3656\3634\3591", Privacy = "\3588\3623\3634\3617\3648\3611\3655\3609\3626\3656\3623\3609\3605\3633\3623", PrivacyDesc = "\3595\3656\3629\3609\3586\3657\3629\3617\3641\3621\3626\3656\3623\3609\3605\3633\3623", HideName = "\3611\3636\3604\3594\3639\3656\3629", HideNameDesc = "\3595\3656\3629\3609\3594\3639\3656\3629\3651\3609\3585\3634\3619\3660\3604\3650\3611\3619\3652\3615\3621\3660", HideProfile = "\3611\3636\3604\3650\3611\3619\3652\3615\3621\3660", HideProfileDesc = "\3595\3656\3629\3609\3585\3634\3619\3660\3604\3650\3611\3619\3652\3615\3621\3660\3607\3633\3657\3591\3627\3617\3604", NoResults = "\3652\3617\3656\3614\3610\3612\3621\3621\3633\3614\3608\3660" } } local _lIllllIlll = {} _lIllllIlll.__index = _lIllllIlll function _lIllllIlll.new() return setmetatable({ Enabled = true, Prefix = "\076\058", Language = "\101\110", Default = "\101\110", Translations = {}, Names = { en = "\069\110\103\108\105\115\104", th = "\3652\3607\3618" }, Bindings = setmetatable({}, { __mode = "\107" }), Listeners = {}, NextId = 0x0 }, _lIllllIlll) end
- function _lIllllIlll:AddTranslations(translations) for _lIllIlllIl, _IlllIIIIlI in pairs(translations or {}) do local _lIIIllIlll = self.Translations[_lIllIlllIl] if not _lIIIllIlll then _lIIIllIlll = {} self.Translations[_lIllIlllIl] = _lIIIllIlll end
- for _lIlllllIll, _llIIllllII in pairs(_IlllIIIIlI) do _lIIIllIlll[_lIlllllIll] = _llIIllllII end
- end
- end
- function _lIllllIlll:Configure(config) config = config or {} if config.Enabled ~= nil then self.Enabled = config.Enabled ~= false end
- self.Prefix = config.Prefix or self.Prefix self.Default = config.DefaultLanguage or self.Default self:AddTranslations(config.Translations) if config.Language then self.Language = config.Language elseif not self.Translations[self.Language] and self.Language ~= "\101\110" and self.Language ~= "\116\104" then self.Language = self.Default end
- self:_Apply() end
- function _lIllllIlll:SetLanguage(_lIllIlllIl) if _lIllIlllIl == nil or _lIllIlllIl == self.Language then return end
- self.Language = _lIllIlllIl self:_Apply() end
- function _lIllllIlll:GetName(_lIllIlllIl) local _IlllIIIIlI = self.Translations[_lIllIlllIl] return (_IlllIIIIlI and _IlllIIIIlI.LanguageName) or self.Names[_lIllIlllIl] or _lIllIlllIl end
- function _lIllllIlll:GetCode(name) for _, _IIllIlIIII in ipairs(self:GetLanguages()) do if _IIllIlIIII.Name == name then return _IIllIlIIII.Code end
- end
- return nil end
- function _lIllllIlll:GetLanguages() local _IIlIlIlIll = {} local _IlIIIlIIll = {} local function _IlIIIIIllI(_lIllIlllIl) if not _IlIIIlIIll[_lIllIlllIl] then _IlIIIlIIll[_lIllIlllIl] = true table.insert(_IIlIlIlIll, { Code = _lIllIlllIl, _lllIllIIII = self:GetName(_lIllIlllIl) }) end
- end
- _IlIIIIIllI("\101\110") _IlIIIIIllI("\116\104") local _lIIlIIIlIl = {} for _lIllIlllIl in pairs(self.Translations) do if not _IlIIIlIIll[_lIllIlllIl] then table.insert(_lIIlIIIlIl, _lIllIlllIl) end
- end
- table.sort(_lIIlIIIlIl) for _, _lIllIlllIl in ipairs(_lIIlIIIlIl) do _IlIIIIIllI(_lIllIlllIl) end
- return _IIlIlIlIll end
- function _lIllllIlll:Translate(_IlIlIIIIIl) if not self.Enabled or type(_IlIlIIIIIl) ~= "\115\116\114\105\110\103" then return _IlIlIIIIIl end
- local _lIlIIlIlIl = #self.Prefix if string.sub(_IlIlIIIIIl, 0x1, _lIlIIlIlIl) ~= self.Prefix then return _IlIlIIIIIl end
- local _lIlllllIll = string.sub(_IlIlIIIIIl, _lIlIIlIlIl + 0x1) local _IlllIIIIlI = self.Translations[self.Language] local _llIIllllII = _IlllIIIIlI and _IlllIIIIlI[_lIlllllIll] if _llIIllllII == nil then local _IlllIlllIl = self.Translations[self.Default] _llIIllllII = _IlllIlllIl and _IlllIlllIl[_lIlllllIll] end
- return _llIIllllII or _lIlllllIll end
- function _lIllllIlll:Builtin(_lIlllllIll) local _IlllIIIIlI = self.Translations[self.Language] local _lIIllIlIlI = _IlllIIIIlI and _IlllIIIIlI["\070\114\097\099\116\117\114\101\046" .. _lIlllllIll] if _lIIllIlIlI then return _lIIllIlIlI end
- local _IlIlllIIll = _lIlllIIIlI[self.Language] if _IlIlllIIll and _IlIlllIIll[_lIlllllIll] then return _IlIlllIIll[_lIlllllIll] end
- return _lIlllIIIlI.en[_lIlllllIll] or _lIlllllIll end
- function _lIllllIlll:Resolve(_lIIllIIlIl) if type(_lIIllIIlIl) == "\102\117\110\099\116\105\111\110" then return _lIIllIIlIl() end
- if type(_lIIllIIlIl) == "\115\116\114\105\110\103" then return self:Translate(_lIIllIIlIl) end
- return tostring(_lIIllIIlIl) end
- function _lIllllIlll:IsDynamic(_lIIllIIlIl) if type(_lIIllIIlIl) == "\102\117\110\099\116\105\111\110" then return true end
- return type(_lIIllIIlIl) == "\115\116\114\105\110\103" and string.sub(_lIIllIIlIl, 0x1, #self.Prefix) == self.Prefix end
- function _lIllllIlll:Bind(object, property, _lIIllIIlIl) object[property] = self:Resolve(_lIIllIIlIl) local _lIllIlllII = self.Bindings[object] if self:IsDynamic(_lIIllIIlIl) then if not _lIllIlllII then _lIllIlllII = {} self.Bindings[object] = _lIllIlllII end
- _lIllIlllII[property] = _lIIllIIlIl elseif _lIllIlllII then _lIllIlllII[property] = nil end
- end
- function _lIllllIlll:Listen(callback) self.NextId = self.NextId + 0x1 local _lIlIIIIllI = self.NextId self.Listeners[_lIlIIIIllI] = callback return function () self.Listeners[_lIlIIIIllI] = nil end
- end
- function _lIllllIlll:_Apply() for object, properties in pairs(self.Bindings) do for property, _lIIllIIlIl in pairs(properties) do object[property] = self:Resolve(_lIIllIIlIl) end
- end
- for _, callback in pairs(self.Listeners) do _lIIIIIllll(callback) end
- end
- local _lIIlIllIlI = _lIllllIlll.new() local function _IIlllIIlII(_lIlllllIll) return function () return _lIIlIllIlI:Builtin(_lIlllllIll) end
- end
- local _lIIIIlIIlI = {} local _IlllllIlII = {} local _lIIIlIIlIl = {} _lIIIlIIlIl.__index = _lIIIlIIlIl function _lIIIlIIlIl.extend() local _llllIIIIll = {} _llllIIIIll.__index = _llllIIIIll return setmetatable(_llllIIIIll, { __index = _lIIIlIIlIl }) end
- function _lIIIlIIlIl:_Init(_IlIllIIIlI, config, defaultTitle) self.Section = _IlIllIIIlI self.Window = _IlIllIIIlI.Window self.Callback = config.Callback self.TitleSource = config.Title or config.Name or defaultTitle self.DescSource = config.Desc self.HasDesc = config.Desc ~= nil and config.Desc ~= "" self.IconSource = config.Icon self.Flag = config.Flag self.Locked = config.Locked == true or config.Disabled == true self.Hidden = config.Visible == false self.Destroyed = false self.Listeners = {} self.NextListener = 0x0 end
- function _lIIIlIIlIl:_RowHeight() return self.HasDesc and 0x3A or 0x2E end
- function _lIIIlIIlIl:_TextX() if self.IconSource ~= nil then return math.max(self.BaseTextX, 0x34) end
- return self.BaseTextX end
- function _lIIIlIIlIl:_CreateLabels(_llIIlllIll, _IlIIlIIllI, rightInset) self.BaseTextX = _IlIIlIIllI self.RightInset = rightInset self.IconImage = _IlIIIIlIlI("\073\109\097\103\101\076\097\098\101\108", { _IllIIIllll = UDim2.fromOffset(0x14, 0x14), ImageColor3 = _lIlIllIIlI.SubText, Visible = false, Parent = _llIIlllIll }) self.TitleLabel = _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { TextSize = 0xD, Weight = "\077\101\100\105\117\109", TextTruncate = Enum.TextTruncate.AtEnd, Parent = _llIIlllIll }) _lIIlIllIlI:Bind(self.TitleLabel, "\084\101\120\116", self.TitleSource) self.DescLabel = _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { TextSize = 0xB, TextColor3 = _lIlIllIIlI.SubText, TextTruncate = Enum.TextTruncate.AtEnd, Visible = false, Parent = _llIIlllIll }) _lIIlIllIlI:Bind(self.DescLabel, "\084\101\120\116", self.DescSource or "") self:_ApplyLabels() end
- function _lIIIlIIlIl:_ApplyLabels() if not self.TitleLabel then return end
- local _IlIIlIIllI = self:_TextX() local _IllIlIllII = self.HasDesc local _IIlllllIlI = -(_IlIIlIIllI + self.RightInset) self.IconImage.Visible = self.IconSource ~= nil if self.IconSource ~= nil then self.IconImage.Image = _llllllIlll(self.IconSource, "\114\098\120\097\115\115\101\116\105\100\058\047\047\054\048\050\051\052\050\054\057\049\053") self.IconImage.Position = UDim2.fromOffset(0x10, (_IllIlIllII and 0x1D or 0x17) - 0xA) end
- self.TitleLabel.Size = UDim2.new(0x1, _IIlllllIlI, 0x0, 0x10) self.TitleLabel.Position = UDim2.fromOffset(_IlIIlIIllI, _IllIlIllII and 0xC or 0xF) self.DescLabel.Visible = _IllIlIllII self.DescLabel.Size = UDim2.new(0x1, _IIlllllIlI, 0x0, 0xE) self.DescLabel.Position = UDim2.fromOffset(_IlIIlIIllI, 0x1E) end
- function _lIIIlIIlIl:_Layout() self:_ApplyLabels() if self.Head then self.Head.Frame.Size = UDim2.new(0x1, 0x0, 0x0, self:_RowHeight()) end
- end
- function _lIIIlIIlIl:_ApplyLocked() local _lllIllIIIl = self.Locked and 0.55 or 0x0 if self.TitleLabel then self.TitleLabel.TextTransparency = _lllIllIIIl self.DescLabel.TextTransparency = _lllIllIIIl self.IconImage.ImageTransparency = _lllIllIIIl end
- local _IIIlIIlIII = self._OnLocked if _IIIlIIlIII then _IIIlIIlIII(self, self.Locked) end
- end
- function _lIIIlIIlIl:_SyncFlag() if self.Flag then _lIIIIlIIlI[self.Flag] = self:Get() end
- end
- function _lIIIlIIlIl:_Emit(_llIIllllII, ...) if self.Flag then _lIIIIlIIlI[self.Flag] = _llIIllllII end
- _lIIIIIllll(self.Callback, _llIIllllII, ...) for _, listener in pairs(self.Listeners) do _lIIIIIllll(listener, _llIIllllII, ...) end
- if self.Flag and self.Window then self.Window:_QueueSave() end
- end
- function _lIIIlIIlIl:_Finish(row, _lllllIIIIl) self.Row = row if self.Flag then _IlllllIlII[self.Flag] = self self:_SyncFlag() end
- self:_ApplyLocked() self.Section:_Register(self, row, _lllllIIIIl) self.Section:_Refresh() return self end
- function _lIIIlIIlIl:SetTitle(_lIIllIIlIl) self.TitleSource = _lIIllIIlIl _lIIlIllIlI:Bind(self.TitleLabel, "\084\101\120\116", _lIIllIIlIl) self.Section:_Refresh() end
- function _lIIIlIIlIl:GetTitle() return _lIIlIllIlI:Resolve(self.TitleSource) end
- function _lIIIlIIlIl:SetDesc(_lIIllIIlIl) self.DescSource = _lIIllIIlIl self.HasDesc = _lIIllIIlIl ~= nil and _lIIllIIlIl ~= "" _lIIlIllIlI:Bind(self.DescLabel, "\084\101\120\116", _lIIllIIlIl or "") self:_Layout() end
- function _lIIIlIIlIl:GetDesc() if not self.HasDesc then return "" end
- return _lIIlIllIlI:Resolve(self.DescSource) end
- function _lIIIlIIlIl:SetIcon(_llIlIIIllI) self.IconSource = _llIlIIIllI self:_Layout() end
- function _lIIIlIIlIl:SetVisible(state) self.Hidden = state == false self.Section:_Refresh() end
- function _lIIIlIIlIl:Show() self:SetVisible(true) end
- function _lIIIlIIlIl:Hide() self:SetVisible(false) end
- function _lIIIlIIlIl:SetLocked(state) self.Locked = state == true self:_ApplyLocked() end
- function _lIIIlIIlIl:SetEnabled(state) self:SetLocked(state == false) end
- function _lIIIlIIlIl:IsLocked() return self.Locked end
- function _lIIIlIIlIl:SetCallback(callback) self.Callback = callback end
- function _lIIIlIIlIl:OnChanged(callback) self.NextListener = self.NextListener + 0x1 local _lIlIIIIllI = self.NextListener self.Listeners[_lIlIIIIllI] = callback return function () self.Listeners[_lIlIIIIllI] = nil end
- end
- function _lIIIlIIlIl:Set() end
- function _lIIIlIIlIl:Get() return nil end
- function _lIIIlIIlIl:SetValue(...) return self:Set(...) end
- function _lIIIlIIlIl:GetValue() return self:Get() end
- function _lIIIlIIlIl:Refresh() _lIIlIllIlI:Bind(self.TitleLabel, "\084\101\120\116", self.TitleSource) _lIIlIllIlI:Bind(self.DescLabel, "\084\101\120\116", self.DescSource or "") self:_Layout() end
- function _lIIIlIIlIl:Destroy() if self.Destroyed then return end
- self.Destroyed = true local _IIIlIIlIII = self._Cleanup if _IIIlIIlIII then _IIIlIIlIII(self) end
- if self.Flag and _IlllllIlII[self.Flag] == self then _IlllllIlII[self.Flag] = nil _lIIIIlIIlI[self.Flag] = nil end
- self.Section:_Unregister(self) if self.Row then self.Row:Destroy() end
- end
- function _lIIIlIIlIl:_CreateHead(_llIIlllIll, _lIIIllllII, order, mode) local _IIIIlIllII = self.Window.Maid local _lIlllIlIll = _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.new(0x1, 0x0, 0x0, _lIIIllllII), BackgroundTransparency = 0x1, ClipsDescendants = true, LayoutOrder = order, Parent = _llIIlllIll }) local _lllllIIIIl = _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.new(0x1, -0x1C, 0x0, 0x1), Position = UDim2.fromOffset(0xE, 0x0), BackgroundColor3 = _lIlIllIIlI.Divider, Parent = _lIlllIlIll }) local _lllIIIIIlI = _llIlIIIlIl(_lIlIllIIlI.AccentGlow, 0x1, 0x1) local _llIIIllIll = _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.new(0x1, -0xC, 0x1, -0x6), Position = UDim2.fromOffset(0x6, 0x3), BackgroundColor3 = _lIlIllIIlI.AccentGlow, BackgroundTransparency = 0x1, Parent = _lIlllIlIll }, { _IIlIlIIlIl(0x8), _lllIIIIIlI }) local _IlllllIlIl = mode == "\098\111\117\110\099\101" and _IlIIIIlIlI("\085\073\083\099\097\108\101", { Scale = 0x1 }) or nil local _lIIlIIlIIl = _IlIIIIlIlI("\084\101\120\116\066\117\116\116\111\110", { AnchorPoint = Vector2.new(0.5, 0.5), Position = UDim2.fromScale(0.5, 0.5), _IllIIIllll = UDim2.fromScale(0x1, 0x1), Parent = _lIlllIlIll }, _IlllllIlIl and { _IlllllIlIl } or nil) local _IIlIIIlIll = { Frame = _lIlllIlIll, Divider = _lllllIIIIl, Hit = _lIIlIIlIIl, OnHover = nil } local _llIlIlllIl = false local _IIIIIllIll = false local function _IIlIllIIlI() local _IIIIIIIllI = 0x1 local _IllIIIIlIl = 0x1 if _IIIIIllIll then _IIIIIIIllI, _IllIIIIlIl = 0.93, 0.86 elseif _llIlIlllIl then _IIIIIIIllI, _IllIIIIlIl = 0.972, 0x1 end
- _IllllIlIll(_llIIIllIll, 0.2, { BackgroundTransparency = _IIIIIIIllI }) _IllllIlIll(_lllIIIIIlI, 0.2, { Transparency = _IllIIIIlIl }) end
- _llIIllIIlI(_IIIIlIllII, _lIIlIIlIIl, mode == "\110\111\110\101" and {} or { Hover = function (state) _llIlIlllIl = state _IIlIllIIlI() if _IIlIIIlIll.OnHover then _IIlIIIlIll.OnHover(state) end
- end
- , Press = mode and function (state) _IIIIIllIll = state _IIlIllIIlI() if _IlllllIlIl then if state then _IllllIlIll(_IlllllIlIl, 0.12, { Scale = 0.983 }, Enum.EasingStyle.Sine) else _IllllIlIll(_IlllllIlIl, 0.28, { Scale = 0x1 }, Enum.EasingStyle.Back) end
- end
- end
- or nil }) self.Head = _IIlIIIlIll return _IIlIIIlIll end
- local _IIlllIIlIl = _lIIIlIIlIl.extend() function _IIlllIIlIl.new(_IlIllIIIlI, config) local self = setmetatable({}, _IIlllIIlIl) self:_Init(_IlIllIIIlI, config, "\066\117\116\116\111\110") self.ButtonTextSource = config.ButtonText local _IIIIIllIIl = self.Window local _IIlIIIlIll = self:_CreateHead(_IlIllIIIlI.Card, self:_RowHeight(), _IlIllIIIlI:NextOrder(), "\098\111\117\110\099\101") local _lIlIIlllII = self.ButtonTextSource ~= nil and self.ButtonTextSource ~= "" self:_CreateLabels(_IIlIIIlIll.Hit, 0x10, _lIlIIlllII and 0x80 or 0x34) local _IIlIlIlIll = _llIlIIIlIl(_lIlIllIIlI.AccentGlow, 0.6, 0x1) self.Pill = _IlIIIIlIlI("\070\114\097\109\101", { AnchorPoint = Vector2.new(0x1, 0.5), _IllIIIllll = UDim2.fromOffset(0x0, 0x1C), AutomaticSize = Enum.AutomaticSize.X, Position = UDim2.new(0x1, -0x10, 0.5, 0x0), BackgroundColor3 = Color3.new(0x1, 0x1, 0x1), Visible = _lIlIIlllII, Parent = _IIlIIIlIll.Hit }, { _IIlIlIIlIl(0x7), _IIlIlIlIll, _llllIlIlIl.Make("\070\105\108\108") }) self.PillText = _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { _IllIIIllll = UDim2.fromOffset(0x0, 0x1C), AutomaticSize = Enum.AutomaticSize.X, TextColor3 = _lIlIllIIlI.OnAccent, TextXAlignment = Enum.TextXAlignment.Center, Weight = "\083\101\109\105\066\111\108\100", Parent = self.Pill }, { _IlIIIIlIlI("\085\073\080\097\100\100\105\110\103", { PaddingLeft = UDim.new(0x0, 0xE), PaddingRight = UDim.new(0x0, 0xE) }) }) _lIIlIllIlI:Bind(self.PillText, "\084\101\120\116", self.ButtonTextSource or "") self.Arrow = _IlIIIIlIlI("\073\109\097\103\101\076\097\098\101\108", { AnchorPoint = Vector2.new(0x1, 0.5), _IllIIIllll = UDim2.fromOffset(0x10, 0x10), Position = UDim2.new(0x1, -0x10, 0.5, 0x0), Image = _lIllIIIIII.chevronRight, ImageColor3 = _lIlIllIIlI.SubText, Visible = not _lIlIIlllII, Parent = _IIlIIIlIll.Hit }) _IIlIIIlIll.OnHover = function (state) if self.Pill.Visible then _IllllIlIll(_IIlIlIlIll, 0.2, { Transparency = state and 0.4 or 0.6 }) _IllllIlIll(self.Pill, 0.2, { BackgroundTransparency = state and 0.14 or 0x0 }) else _IllllIlIll(self.Arrow, 0.22, { Position = state and UDim2.new(0x1, -0xD, 0.5, 0x0) or UDim2.new(0x1, -0x10, 0.5, 0x0), ImageColor3 = state and _lllIIllllI.Text or _lllIIllllI.SubText }) end
- _IllllIlIll(self.IconImage, 0.2, { ImageColor3 = state and _lllIIllllI.Text or _lllIIllllI.SubText }) end
- _lllllIIlIl(_IIIIIllIIl.Maid, _IIlIIIlIll.Hit, function () if self.Locked then return end
- _IIIIIllIIl:PlayClick("\066\117\116\116\111\110") self:Fire() end
- ) return self:_Finish(_IIlIIIlIll.Frame, _IIlIIIlIll.Divider) end
- function _IIlllIIlIl:_ApplyMode() local _lIlIIlllII = self.ButtonTextSource ~= nil and self.ButtonTextSource ~= "" self.Pill.Visible = _lIlIIlllII self.Arrow.Visible = not _lIlIIlllII self.RightInset = _lIlIIlllII and 0x80 or 0x34 _lIIlIllIlI:Bind(self.PillText, "\084\101\120\116", self.ButtonTextSource or "") self:_ApplyLabels() end
- function _IIlllIIlIl:SetButtonText(_lIIllIIlIl) self.ButtonTextSource = _lIIllIIlIl self:_ApplyMode() end
- function _IIlllIIlIl:Fire(...) _lIIIIIllll(self.Callback, ...) for _, listener in pairs(self.Listeners) do _lIIIIIllll(listener, ...) end
- end
- _IIlllIIlIl.Click = _IIlllIIlIl.Fire function _IIlllIIlIl:Refresh() _lIIIlIIlIl.Refresh(self) self:_ApplyMode() end
- local _IlIIIIIllI = _lIIIlIIlIl.extend() function _IlIIIIIllI.new(_IlIllIIIlI, config) local self = setmetatable({}, _IlIIIIIllI) self:_Init(_IlIllIIIlI, config, "\084\111\103\103\108\101") self.Value = (config.Default == true) or (config.Value == true) local _IIIIIllIIl = self.Window local _IIlIIIlIll = self:_CreateHead(_IlIllIIIlI.Card, self:_RowHeight(), _IlIllIIIlI:NextOrder(), "\116\105\110\116") self:_CreateLabels(_IIlIIIlIll.Hit, 0x10, 0x50) local _IIIIlIIlII = _llIlIIIlIl(_lIlIllIIlI.AccentGlow, 0x1, 0x1) self.Track = _IlIIIIlIlI("\070\114\097\109\101", { AnchorPoint = Vector2.new(0x1, 0.5), _IllIIIllll = UDim2.fromOffset(0x26, 0x14), Position = UDim2.new(0x1, -0x10, 0.5, 0x0), BackgroundColor3 = _lIlIllIIlI.ToggleOff, Parent = _IIlIIIlIll.Hit }, { _IIlIlIIlIl(nil, true), _IIIIlIIlII }) self.Fill = _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.fromScale(0x1, 0x1), BackgroundColor3 = Color3.new(0x1, 0x1, 0x1), BackgroundTransparency = self.Value and 0x0 or 0x1, Parent = self.Track }, { _IIlIlIIlIl(nil, true), _llllIlIlIl.Make("\070\105\108\108") }) self.Knob = _IlIIIIlIlI("\070\114\097\109\101", { AnchorPoint = Vector2.new(0x0, 0.5), _IllIIIllll = UDim2.fromOffset(0xE, 0xE), Position = self.Value and UDim2.new(0x1, -0x11, 0.5, 0x0) or UDim2.new(0x0, 0x3, 0.5, 0x0), BackgroundColor3 = Color3.fromRGB(0xFF, 0xFF, 0xFF), Parent = self.Track }, { _IIlIlIIlIl(nil, true) }) _IIlIIIlIll.OnHover = function (state) _IllllIlIll(_IIIIlIIlII, 0.2, { Transparency = state and 0.78 or 0x1 }) _IllllIlIll(self.IconImage, 0.2, { ImageColor3 = state and _lllIIllllI.Text or _lllIIllllI.SubText }) end
- _lllllIIlIl(_IIIIIllIIl.Maid, _IIlIIIlIll.Hit, function () if self.Locked then return end
- _IIIIIllIIl:PlayClick("\084\111\103\103\108\101") self:Set( not self.Value) end
- ) return self:_Finish(_IIlIIIlIll.Frame, _IIlIIIlIll.Divider) end
- function _IlIIIIIllI:_Paint() _IllllIlIll(self.Knob, 0.2, { Position = self.Value and UDim2.new(0x1, -0x11, 0.5, 0x0) or UDim2.new(0x0, 0x3, 0.5, 0x0) }, Enum.EasingStyle.Quint) _IllllIlIll(self.Fill, 0.2, { BackgroundTransparency = self.Value and 0x0 or 0x1 }) end
- function _IlIIIIIllI:Set(_llIIllllII, silent) local _IIIlllllII = _llIIllllII == true local _IlIIllIIIl = _IIIlllllII ~= self.Value self.Value = _IIIlllllII self:_Paint() self:_SyncFlag() if _IlIIllIIIl and not silent then self:_Emit(self.Value) end
- end
- function _IlIIIIIllI:Get() return self.Value end
- function _IlIIIIIllI:Toggle(silent) self:Set( not self.Value, silent) end
- function _IlIIIIIllI:Refresh() _lIIIlIIlIl.Refresh(self) self:_Paint() end
- local _lIlllIlIIl = _lIIIlIIlIl.extend() function _lIlllIlIIl.new(_IlIllIIIlI, config) local self = setmetatable({}, _lIlllIlIIl) self:_Init(_IlIllIIIlI, config, "\076\097\098\101\108") local _IIlIIIlIll = self:_CreateHead(_IlIllIIIlI.Card, self:_RowHeight(), _IlIllIIIlI:NextOrder(), "\110\111\110\101") self:_CreateLabels(_IIlIIIlIll.Hit, 0x10, 0x10) return self:_Finish(_IIlIIIlIll.Frame, _IIlIIIlIll.Divider) end
- _lIlllIlIIl.SetText = _lIIIlIIlIl.SetTitle local _IlllIIIIIl = { ColorSequenceKeypoint.new(0x0, Color3.fromHSV(0x0, 0x1, 0x1)), ColorSequenceKeypoint.new(0x1 / 0x6, Color3.fromHSV(0x1 / 0x6, 0x1, 0x1)), ColorSequenceKeypoint.new(0x2 / 0x6, Color3.fromHSV(0x2 / 0x6, 0x1, 0x1)), ColorSequenceKeypoint.new(0x3 / 0x6, Color3.fromHSV(0x3 / 0x6, 0x1, 0x1)), ColorSequenceKeypoint.new(0x4 / 0x6, Color3.fromHSV(0x4 / 0x6, 0x1, 0x1)), ColorSequenceKeypoint.new(0x5 / 0x6, Color3.fromHSV(0x5 / 0x6, 0x1, 0x1)), ColorSequenceKeypoint.new(0x1, Color3.fromHSV(0x0, 0x1, 0x1)) } local _llIIllIIll = { Color3.fromRGB(0xEF, 0x44, 0x44), Color3.fromRGB(0xF5, 0x9E, 0xB), Color3.fromRGB(0xE, 0xA5, 0xE9), Color3.fromRGB(0x10, 0xB9, 0x81), Color3.fromRGB(0x8B, 0x5C, 0xF6), Color3.fromRGB(0xF4, 0x3F, 0x5E), Color3.fromRGB(0x25, 0x63, 0xEB), Color3.fromRGB(0xF9, 0x73, 0x16), Color3.fromRGB(0x84, 0xCC, 0x16), Color3.fromRGB(0x94, 0xA3, 0xB8) } local _IlllllIIIl = _lIIIlIIlIl.extend() function _IlllllIIIl.new(_IlIllIIIlI, config) local self = setmetatable({}, _IlllllIIIl) self:_Init(_IlIllIIIlI, config, "\067\111\108\111\114\080\105\099\107\101\114") self.Value = _IIlIllllII(_IIIIlllIIl(config.Default, config.Value)) or Color3.new(0x1, 0x1, 0x1) local _llIIIIIIlI = self.Window local _llIIlIlIII = self:_CreateHead(_IlIllIIIlI.Card, self:_RowHeight(), _IlIllIIIlI:NextOrder(), "\116\105\110\116") self:_CreateLabels(_llIIlIlIII.Hit, 0x10, 0xA0) self.HexLabel = _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { AnchorPoint = Vector2.new(0x1, 0.5), Position = UDim2.new(0x1, -0x44, 0.5, 0x0), _IllIIIllll = UDim2.fromOffset(0x50, 0x12), TextSize = 0xC, Weight = "\077\101\100\105\117\109", TextColor3 = _lIlIllIIlI.SubText, TextXAlignment = Enum.TextXAlignment.Right, _llllIIllll = _lllIIllllI(self.Value), Parent = _llIIlIlIII.Hit }) self.Swatch = _IlIIIIlIlI("\070\114\097\109\101", { AnchorPoint = Vector2.new(0x1, 0.5), _IllIIIllll = UDim2.fromOffset(0x2C, 0x1A), Position = UDim2.new(0x1, -0x10, 0.5, 0x0), BackgroundColor3 = self.Value, Parent = _llIIlIlIII.Hit }, { _IIlIlIIlIl(0x8), _llIlIIIlIl(_lIlIllIIlI.Outline, 0x0, 0x1) }) _lllllIIlIl(_llIIIIIIlI.Maid, _llIIlIlIII.Hit, function () if not self.Locked then _llIIIIIIlI:PlayClick("\066\117\116\116\111\110") _llIIIIIIlI:OpenColorPicker(self) end
- end
- ) return self:_Finish(_llIIlIlIII.Frame, _llIIlIlIII.Divider) end
- function _IlllllIIIl:Set(_llIIIIIlIl, Silent) local _IIIlIIIIlI = _IIlIllllII(_llIIIIIlIl) if _IIIlIIIIlI then local _IllIlIllll = _IIIlIIIIlI ~= self.Value self.Value = _IIIlIIIIlI self.Swatch.BackgroundColor3 = _IIIlIIIIlI self.HexLabel.Text = _lllIIllllI(_IIIlIIIIlI) self:_SyncFlag() if _IllIlIllll and not Silent then self:_Emit(self.Value) end
- end
- end
- function _IlllllIIIl:Get() return self.Value end
- function _IlllllIIIl:GetHex() return _lllIIllllI(self.Value) end
- local _lllllIIIII = _lIIIlIIlIl.extend() function _lllllIIIII.new(_IlIllIIIlI, config) local self = setmetatable({}, _lllllIIIII) self:_Init(_IlIllIIIlI, config, "\083\101\103\109\101\110\116\101\100") self.Value = config.Default self.Entries = {} local _llIIIIIIlI = self.Window local _IIIllIIIlI = config.Options or {} local _llIIIIIlll = math.max(#_IIIllIIIlI, 0x1) local _IIIlIllIll = config.Title ~= nil local _llIIlIlIII = self:_CreateHead(_IlIllIIIlI.Card, _IIIlIllIll and 0x52 or 0x3A, _IlIllIIIlI:NextOrder(), nil) if _IIIlIllIll then local _IIIllIlIll = _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { Position = UDim2.fromOffset(0x10, 0xC), _IllIIIllll = UDim2.new(0x1, -0x20, 0x0, 0x12), TextSize = 0xB, Weight = "\083\101\109\105\066\111\108\100", TextColor3 = _lIlIllIIlI.SubText, TextXAlignment = Enum.TextXAlignment.Left, Parent = _llIIlIlIII.Frame }) _lIIlIllIlI:Bind(_IIIllIlIll, "\084\101\120\116", self.TitleSource) end
- local _IlIIlIlIIl = _IlIIIIlIlI("\070\114\097\109\101", { Position = UDim2.fromOffset(0x10, _IIIlIllIll and 0x24 or 0xB), _IllIIIllll = UDim2.new(0x1, -0x20, 0x0, 0x26), BackgroundTransparency = 0x1, Parent = _llIIlIlIII.Frame }, { _IlIIIIlIlI("\085\073\076\105\115\116\076\097\121\111\117\116", { FillDirection = Enum.FillDirection.Horizontal, Padding = UDim.new(0x0, 0x8), SortOrder = Enum.SortOrder.LayoutOrder }) }) for Index, Option in ipairs(_IIIllIIIlI) do local _llIIIIIIII = type(Option) == "\116\097\098\108\101" and Option.Key or Option local _llllIIllll = type(Option) == "\116\097\098\108\101" and (Option.Text or Option.Key) or Option local _IIIIIlllIl = _IlIIIIlIlI("\084\101\120\116\066\117\116\116\111\110", { _IllIIIllll = UDim2.new(0x1 / _llIIIIIlll, -0x8 * (_llIIIIIlll - 0x1) / _llIIIIIlll, 0x1, 0x0), BackgroundTransparency = 0x0, BackgroundColor3 = _lIlIllIIlI.Background, LayoutOrder = Index, Parent = _IlIIlIlIIl }, { _IIlIlIIlIl(0xC), _llIlIIIlIl(_lIlIllIIlI.Outline, 0.4, 0x1) }) local _lIlIIlllII = _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.fromScale(0x1, 0x1), BackgroundColor3 = Color3.new(0x1, 0x1, 0x1), BackgroundTransparency = 0x1, Parent = _IIIIIlllIl }, { _IIlIlIIlIl(0xC), _llllIlIlIl.Make("\070\105\108\108") }) local _IIllIIIIll = _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { _IllIIIllll = UDim2.fromScale(0x1, 0x1), TextSize = 0xD, Weight = "\083\101\109\105\066\111\108\100", TextColor3 = _lllIIllllI.SubText, TextXAlignment = Enum.TextXAlignment.Center, Parent = _IIIIIlllIl }) _lIIlIllIlI:Bind(_IIllIIIIll, "\084\101\120\116", _llllIIllll) table.insert(self.Entries, { _llIIIIIIII = _llIIIIIIII, _lIlIIlllII = _lIlIIlllII, _IIllIIIIll = _IIllIIIIll }) _lllllIIlIl(_llIIIIIIlI.Maid, _IIIIIlllIl, function () if not self.Locked then _llIIIIIIlI:PlayClick("\066\117\116\116\111\110") self:Set(_llIIIIIIII) end
- end
- ) end
- _llIIIIIIlI.Maid:Give(_IllIIIIIIl( function () self:_Render(true) end
- )) self:_Render(true) return self:_Finish(_llIIlIlIII.Frame, _llIIlIlIII.Divider) end
- function _lllllIIIII:_ApplyLabels() end
- function _lllllIIIII:_Layout() end
- function _lllllIIIII:_Render(Instant) for _, Entry in ipairs(self.Entries) do local _lIlllIlIlI = Entry.Key == self.Value local _IlIIIIlIll = _lIlllIlIlI and _lllIIllllI.OnAccent or _lllIIllllI.SubText if Instant then Entry.Selected.BackgroundTransparency = _lIlllIlIlI and 0x0 or 0x1 Entry.Label.TextColor3 = _IlIIIIlIll else _IllllIlIll(Entry.Selected, 0.22, { BackgroundTransparency = _lIlllIlIlI and 0x0 or 0x1 }) _IllllIlIll(Entry.Label, 0.22, { TextColor3 = _IlIIIIlIll }) end
- end
- end
- function _lllllIIIII:Set(_llIIIIIIII, Silent) local _IllIlIllll = _llIIIIIIII ~= self.Value self.Value = _llIIIIIIII self:_Render(false) self:_SyncFlag() if _IllIlIllll and _llIIIIIIII ~= nil and not Silent then self:_Emit(_llIIIIIIII) end
- end
- function _lllllIIIII:Get() return self.Value end
- local _lIlllIlIIl = _lIIIlIIlIl.extend() function _lIlllIlIIl.new(_IlIllIIIlI, config) local self = setmetatable({}, _lIlllIlIIl) self:_Init(_IlIllIIIlI, config, "\080\097\108\101\116\116\101") self.Chips = {} local _llIIIIIIlI = self.Window local _IIIllllllI = config.Colors or _llIIllIIll local _lllIlllIII = config.Columns or 0x5 local _IIIIIIlllI = math.ceil(#_IIIllllllI / _lllIlllIII) local _IIIlIllIll = config.Title ~= nil local _llIlllIIIl = _IIIlIllIll and 0x24 or 0xC local _llIIlIlIII = self:_CreateHead(_IlIllIIIlI.Card, _llIlllIIIl + _IIIIIIlllI * 0x2A + 0x6, _IlIllIIIlI:NextOrder(), nil) if _IIIlIllIll then local _IIIllIlIll = _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { Position = UDim2.fromOffset(0x10, 0xC), _IllIIIllll = UDim2.new(0x1, -0x20, 0x0, 0x12), TextSize = 0xB, Weight = "\083\101\109\105\066\111\108\100", TextColor3 = _lIlIllIIlI.SubText, TextXAlignment = Enum.TextXAlignment.Left, Parent = _llIIlIlIII.Frame }) _lIIlIllIlI:Bind(_IIIllIlIll, "\084\101\120\116", self.TitleSource) end
- local _llIIllllII = _IlIIIIlIlI("\070\114\097\109\101", { Position = UDim2.fromOffset(0x10, _llIlllIIIl), _IllIIIllll = UDim2.new(0x1, -0x20, 0x0, _IIIIIIlllI * 0x2A), BackgroundTransparency = 0x1, Parent = _llIIlIlIII.Frame }, { _IlIIIIlIlI("\085\073\071\114\105\100\076\097\121\111\117\116", { CellSize = UDim2.new(0x1 / _lllIlllIII, -0x8 * (_lllIlllIII - 0x1) / _lllIlllIII, 0x0, 0x22), CellPadding = UDim2.fromOffset(0x8, 0x8), SortOrder = Enum.SortOrder.LayoutOrder }) }) for Index, _IIIlIIIIlI in ipairs(_IIIllllllI) do local _llIIlIlIlI = _llIlIIIlIl(Color3.new(0x1, 0x1, 0x1), 0x1, 0x2) local _lllllIlIlI = _IlIIIIlIlI("\084\101\120\116\066\117\116\116\111\110", { BackgroundTransparency = 0x0, BackgroundColor3 = _IIIlIIIIlI, LayoutOrder = Index, Parent = _llIIllllII }, { _IIlIlIIlIl(0xA), _llIIlIlIlI }) local _IIIllllIlI = _IlIIIIlIlI("\085\073\083\099\097\108\101", { Scale = 0x1, Parent = _lllllIlIlI }) table.insert(self.Chips, { _llIlIIIlIl = _llIIlIlIlI, _IIIlIIIIlI = _IIIlIIIIlI }) _lllllIIlIl(_llIIIIIIlI.Maid, _lllllIlIlI, function () if not self.Locked then _llIIIIIIlI:PlayClick("\066\117\116\116\111\110") for _, Other in ipairs(self.Chips) do _IllllIlIll(Other.Stroke, 0.2, { Transparency = Other.Stroke == _llIIlIlIlI and 0.1 or 0x1 }) end
- _IllllIlIll(_IIIllllIlI, 0.1, { Scale = 0.9 }, Enum.EasingStyle.Sine) task.delay(0.1, function () _IllllIlIll(_IIIllllIlI, 0.25, { Scale = 0x1 }, Enum.EasingStyle.Back) end
- ) self:_Emit(_IIIlIIIIlI, Index) end
- end
- ) end
- return self:_Finish(_llIIlIlIII.Frame, _llIIlIlIII.Divider) end
- function _lIlllIlIIl:_ApplyLabels() end
- function _lIlllIlIIl:_Layout() end
- function _lIlllIlIIl:Get() return nil end
- local _lIIlIlIllI = _lIIIlIIlIl.extend() local function _IIIlllIIII(_llIIIIIlIl) local _IIllIIIIIl = typeof(_llIIIIIlIl) local _lIIllIIIII = nil if _IIllIIIIIl == "\069\110\117\109\073\116\101\109" and _llIIIIIlIl.EnumType == Enum.KeyCode then _lIIllIIIII = _llIIIIIlIl elseif _IIllIIIIIl == "\115\116\114\105\110\103" then local _llllIlIlII, _llIIIIIIII = pcall( function () return Enum.KeyCode[_llIIIIIlIl] end
- ) _lIIllIIIII = _llllIlIlII and _llIIIIIIII or nil end
- return _lIIllIIIII end
- function _lIIlIlIllI.new(_IlIllIIIlI, config) local self = setmetatable({}, _lIIlIlIllI) self:_Init(_IlIllIIIlI, config, "\075\101\121\098\105\110\100") self.Value = _IIIlllIIII(_IIIIlllIIl(config.Default, config.Value)) or Enum.KeyCode.Unknown self.Listening = false local _llIIIIIIlI = self.Window local _llIIlIlIII = self:_CreateHead(_IlIllIIIlI.Card, self:_RowHeight(), _IlIllIIIlI:NextOrder(), "\116\105\110\116") self:_CreateLabels(_llIIlIlIII.Hit, 0x10, 0x82) self.ButtonStroke = _llIlIIIlIl(_lIlIllIIlI.Outline, 0x0, 0x1) self.Button = _IlIIIIlIlI("\084\101\120\116\066\117\116\116\111\110", { AnchorPoint = Vector2.new(0x1, 0.5), Position = UDim2.new(0x1, -0x10, 0.5, 0x0), _IllIIIllll = UDim2.fromOffset(0x64, 0x1E), BackgroundTransparency = 0x0, BackgroundColor3 = _lIlIllIIlI.Background, TextSize = 0xC, Weight = "\083\101\109\105\066\111\108\100", TextXAlignment = Enum.TextXAlignment.Center, Parent = _llIIlIlIII.Hit }, { _IIlIlIIlIl(0x8), self.ButtonStroke }) _lllllIIlIl(_llIIIIIIlI.Maid, self.Button, function () if not self.Locked then _llIIIIIIlI:PlayClick("\066\117\116\116\111\110") self:_Listen( not self.Listening) end
- end
- ) self:_Render() return self:_Finish(_llIIlIlIII.Frame, _llIIlIlIII.Divider) end
- function _lIIlIlIllI:_Render() local _lllIllIIII = self.Value == Enum.KeyCode.Unknown and "\078\111\110\101" or self.Value.Name self.Button.Text = self.Listening and "\046\046\046" or _lllIllIIII _IllllIlIll(self.ButtonStroke, 0.2, { _IIIlIIIIlI = self.Listening and _lllIIllllI.AccentGlow or _lllIIllllI.Outline }) end
- function _lIIlIlIllI:_Listen(State) self.Listening = State if self.Connection then self.Connection:Disconnect() self.Connection = nil end
- if State then self.Connection = UserInputService.InputBegan:Connect( function (Input) if Input.UserInputType == Enum.UserInputType.Keyboard then local _lIllIIlIll = { [Enum.KeyCode.Escape] = self.Value, [Enum.KeyCode.Backspace] = Enum.KeyCode.Unknown } self:_Listen(false) self:Set(_lIllIIlIll[Input.KeyCode] or Input.KeyCode) end
- end
- ) end
- self:_Render() end
- function _lIIlIlIllI:Set(_llIIIIIlIl, Silent) local _llIIIIIIII = _IIIlllIIII(_llIIIIIlIl) if _llIIIIIIII then local _IllIlIllll = _llIIIIIIII ~= self.Value self.Value = _llIIIIIIII self:_Render() self:_SyncFlag() if _IllIlIllll and not Silent then self:_Emit(_llIIIIIIII) end
- end
- end
- function _lIIlIlIllI:Get() return self.Value end
- local function _lIllIlIIIl(_lIIIllIIll, Scroller) local _lllIIllIlI = 0x0 local _lIlllIIlII = 0x0 local _lIlllIlIlI = false _lIIIllIIll:Give(Scroller.InputChanged:Connect( function (Input) if Input.UserInputType == Enum.UserInputType.MouseWheel then local _IIIllIIlll = math.max(Scroller.AbsoluteCanvasSize.Y - Scroller.AbsoluteWindowSize.Y, 0x0) _lIlllIIlII = _lIlllIlIlI and _lIlllIIlII or Scroller.CanvasPosition.Y _lllIIllIlI = math.clamp((_lIlllIlIlI and _lllIIllIlI or _lIlllIIlII) - Input.Position.Z * 0x6E, 0x0, _IIIllIIlll) _lIlllIlIlI = true end
- end
- )) _lIIIllIIll:Give(RunService.RenderStepped:Connect( function (Dt) if _lIlllIlIlI then _lIlllIIlII = _lIlllIIlII + (_lllIIllIlI - _lIlllIIlII) * (0x1 - math.exp(-Dt * 0xC)) _lIlllIlIlI = math.abs(_lllIIllIlI - _lIlllIIlII) > 0.5 _lIlllIIlII = _lIlllIlIlI and _lIlllIIlII or _lllIIllIlI Scroller.CanvasPosition = Vector2.new(0x0, _lIlllIIlII) end
- end
- )) end
- local function _lIIIllllII(_lIIIllIIll, Scroller, Thickness) local _IIllIlllII = 0x0 Scroller.ScrollBarThickness = Thickness Scroller.ScrollBarImageTransparency = 0x1 _lIIIllIIll:Give(Scroller:GetPropertyChangedSignal("\067\097\110\118\097\115\080\111\115\105\116\105\111\110"):Connect( function () _IIllIlllII = _IIllIlllII + 0x1 local _IllllIllll = _IIllIlllII _IllllIlIll(Scroller, 0.15, { ScrollBarImageTransparency = 0.1 }) task.delay(0.9, function () if _IllllIllll == _IIllIlllII and Scroller.Parent then _IllllIlIll(Scroller, 0.4, { ScrollBarImageTransparency = 0x1 }) end
- end
- ) end
- )) end
- local _IIlIlIllII = _lIIIlIIlIl.extend() function _IIlIlIllII.new(_IlIllIIIlI, config) local self = setmetatable({}, _IIlIlIllII) self:_Init(_IlIllIIIlI, config, "\068\114\111\112\100\111\119\110") local _IIIIIllIIl = self.Window self.OptionsSource = config.Options or {} self.Options = self:_ResolveOptions() self.Multi = config.Multi == true self.Searchable = config.Search ~= false self.Chosen = {} self.Entries = {} self.IsOpen = false self.PanelHeight = 0x0 self.Query = "" self.VisibleCount = 0x0 self.ListTop = self.Searchable and 0x2E or 0x0 if self.Multi then if type(config.Default) == "\116\097\098\108\101" then for _, _llIIllllII in ipairs(config.Default) do self.Chosen[_llIIllllII] = true end
- end
- else local _IllllIIlIl = config.Default if _IllllIIlIl ~= nil then self.Chosen[_IllllIIlIl] = true end
- end
- self.Row = _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.new(0x1, 0x0, 0x0, 0x0), AutomaticSize = Enum.AutomaticSize.Y, BackgroundTransparency = 0x1, LayoutOrder = _IlIllIIIlI:NextOrder(), Parent = _IlIllIIIlI.Card }, { _IlIIIIlIlI("\085\073\076\105\115\116\076\097\121\111\117\116", { SortOrder = Enum.SortOrder.LayoutOrder }) }) local _IIlIIIlIll = self:_CreateHead(self.Row, self:_RowHeight(), 0x1, "\116\105\110\116") self:_CreateLabels(_IIlIIIlIll.Hit, 0x10, 0xBE) self.BoxStroke = _llIlIIIlIl(_lIlIllIIlI.Outline, 0x0, 0x1) self.ValueBox = _IlIIIIlIlI("\070\114\097\109\101", { AnchorPoint = Vector2.new(0x1, 0.5), _IllIIIllll = UDim2.fromOffset(0x96, 0x1E), Position = UDim2.new(0x1, -0x10, 0.5, 0x0), BackgroundColor3 = _lIlIllIIlI.Background, Parent = _IIlIIIlIll.Hit }, { _IIlIlIIlIl(0x8), self.BoxStroke }) self.ValueLabel = _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { _IllIIIllll = UDim2.new(0x1, -0x26, 0x1, 0x0), Position = UDim2.fromOffset(0xC, 0x0), TextSize = 0xB, Weight = "\077\101\100\105\117\109", TextColor3 = _lIlIllIIlI.SubText, TextTruncate = Enum.TextTruncate.AtEnd, Parent = self.ValueBox }) self.Arrow = _IlIIIIlIlI("\073\109\097\103\101\076\097\098\101\108", { AnchorPoint = Vector2.new(0x1, 0.5), _IllIIIllll = UDim2.fromOffset(0x10, 0x10), Position = UDim2.new(0x1, -0x8, 0.5, 0x0), Image = _lIllIIIIII.chevronDown, ImageColor3 = _lIlIllIIlI.SubText, Parent = self.ValueBox }) _IIlIIIlIll.OnHover = function (state) if not self.IsOpen then _IllllIlIll(self.BoxStroke, 0.2, { _IIIlIIIIlI = state and _lllIIllllI.AccentGlow or _lllIIllllI.Outline, Transparency = state and 0.35 or 0x0 }) end
- _IllllIlIll(self.Arrow, 0.2, { ImageColor3 = state and _lllIIllllI.Text or _lllIIllllI.SubText }) _IllllIlIll(self.ValueLabel, 0.2, { TextColor3 = state and _lllIIllllI.Text or _lllIIllllI.SubText }) if self.IconImage then _IllllIlIll(self.IconImage, 0.2, { ImageColor3 = state and _lllIIllllI.Text or _lllIIllllI.SubText }) end
- end
- self.PanelWidth = 0xF0 self.Space = 0x190 self.PanelScale = _IlIIIIlIlI("\085\073\083\099\097\108\101", { Scale = 0x1 }) self.Panel = _IlIIIIlIlI("\070\114\097\109\101", { _lllIllIIII = "\068\114\111\112\100\111\119\110\080\097\110\101\108", _IllIIIllll = UDim2.fromOffset(0xF0, 0x0), BackgroundColor3 = _lIlIllIIlI.Background, ClipsDescendants = true, _lIlllIlIlI = true, ZIndex = 0x2, Visible = false, Parent = _IIIIIllIIl.Overlay }, { _IIlIlIIlIl(0xC), _llIlIIIlIl(_lIlIllIIlI.Outline, 0x0, 0x1), self.PanelScale }) if self.Searchable then local _llIlllIIll = _llIlIIIlIl(_lIlIllIIlI.Outline, 0x0, 0x1) local _llIIIIllIl = _IlIIIIlIlI("\070\114\097\109\101", { Position = UDim2.fromOffset(0xC, 0x8), _IllIIIllll = UDim2.new(0x1, -0x18, 0x0, 0x1E), BackgroundColor3 = _lIlIllIIlI.Card, Parent = self.Panel }, { _IIlIlIIlIl(0x8), _llIlllIIll }) _IlIIIIlIlI("\073\109\097\103\101\076\097\098\101\108", { _IllIIIllll = UDim2.fromOffset(0xE, 0xE), Position = UDim2.new(0x0, 0xA, 0.5, -0x7), Image = _lIllIIIIII.search, ImageColor3 = _lIlIllIIlI.SubText, Parent = _llIIIIllIl }) self.Search = _IlIIIIlIlI("\084\101\120\116\066\111\120", { Position = UDim2.fromOffset(0x20, 0x0), _IllIIIllll = UDim2.new(0x1, -0x28, 0x1, 0x0), PlaceholderColor3 = _lIlIllIIlI.SubText, ClearTextOnFocus = false, Parent = _llIIIIllIl }) _lIIlIllIlI:Bind(self.Search, "\080\108\097\099\101\104\111\108\100\101\114\084\101\120\116", _IIlllIIlII("\083\101\097\114\099\104")) _IIIIIllIIl.Maid:Give(self.Search.Focused:Connect( function () _IllllIlIll(_llIlllIIll, 0.2, { _IIIlIIIIlI = _lllIIllllI.AccentGlow }) end
- )) _IIIIIllIIl.Maid:Give(self.Search.FocusLost:Connect( function () _IllllIlIll(_llIlllIIll, 0.2, { _IIIlIIIIlI = _lllIIllllI.Outline }) end
- )) _IIIIIllIIl.Maid:Give(self.Search:GetPropertyChangedSignal("\084\101\120\116"):Connect( function () self.Query = string.lower(self.Search.Text) self:_ApplyFilter() end
- )) end
- self.Scroll = _IlIIIIlIlI("\083\099\114\111\108\108\105\110\103\070\114\097\109\101", { Position = UDim2.fromOffset(0x0, self.ListTop), _IllIIIllll = UDim2.new(0x1, 0x0, 0x1, -self.ListTop), ScrollBarThickness = 0x3, ScrollBarImageColor3 = _lIlIllIIlI.Accent, _lIlllIlIlI = true, ElasticBehavior = Enum.ElasticBehavior.Never, ScrollingDirection = Enum.ScrollingDirection.Y, CanvasSize = UDim2.new(), AutomaticCanvasSize = Enum.AutomaticSize.Y, Parent = self.Panel }, { _IlIIIIlIlI("\085\073\076\105\115\116\076\097\121\111\117\116", { SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0x0, 0x3) }), _IlIIIIlIlI("\085\073\080\097\100\100\105\110\103", { PaddingLeft = UDim.new(0x0, 0xC), PaddingRight = UDim.new(0x0, 0xC), PaddingTop = UDim.new(0x0, 0x2), PaddingBottom = UDim.new(0x0, 0x8) }) }) _lIllIlIIIl(_IIIIIllIIl.Maid, self.Scroll) _lIIIllllII(_IIIIIllIIl.Maid, self.Scroll, 0x3) _IIIIIllIIl.Maid:Give(self.Scroll:GetPropertyChangedSignal("\067\097\110\118\097\115\080\111\115\105\116\105\111\110"):Connect( function () if self.Panel.Visible and self.Scroll.AbsoluteWindowSize.Y > 0x0 then self.SavedScroll = self.Scroll.CanvasPosition.Y end
- end
- )) self.Empty = _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { Position = UDim2.fromOffset(0x0, self.ListTop), _IllIIIllll = UDim2.new(0x1, 0x0, 0x1, -self.ListTop), TextColor3 = _lIlIllIIlI.SubText, TextXAlignment = Enum.TextXAlignment.Center, Visible = false, Parent = self.Panel }) _lIIlIllIlI:Bind(self.Empty, "\084\101\120\116", _IIlllIIlII("\078\111\082\101\115\117\108\116\115")) _lllllIIlIl(_IIIIIllIIl.Maid, _IIlIIIlIll.Hit, function () if self.Locked then return end
- _IIIIIllIIl:PlayClick("\084\111\103\103\108\101") self:SetOpen( not self.IsOpen) end
- ) _IIIIIllIIl.Maid:Give( function () if self.OutsideConnection then self.OutsideConnection:Disconnect() self.OutsideConnection = nil end
- end
- ) _IIIIIllIIl.Maid:Give(_lIIlIllIlI:Listen( function () self:_Reindex() self:_Refresh(true) self:_ApplyFilter() end
- )) _IIIIIllIIl.Maid:Give(_IllIIIIIIl( function () for _, _IIllIlIIII in ipairs(self.Entries) do self:_StyleEntry(_IIllIlIIII) end
- end
- )) self:_BuildOptions() self:_Refresh(true) return self:_Finish(self.Row, _IIlIIIlIll.Divider) end
- function _IIlIlIllII:_ResolveOptions() local _lIIllIIlIl = self.OptionsSource if type(_lIIllIIlIl) == "\102\117\110\099\116\105\111\110" then local _llIIlIIlIl, _IIlIlIlIll = pcall(_lIIllIIlIl) _lIIllIIlIl = _llIIlIIlIl and _IIlIlIlIll or {} end
- return type(_lIIllIIlIl) == "\116\097\098\108\101" and _lIIllIIlIl or {} end
- function _IIlIlIllII:_OnLocked(state) if state then self:SetOpen(false) end
- end
- function _IIlIlIllII:_Cleanup() self:SetOpen(false) if self.OutsideConnection then self.OutsideConnection:Disconnect() self.OutsideConnection = nil end
- self.Panel:Destroy() end
- function _IIlIlIllII:_StyleEntry(_IIllIlIIII, instant) local _lIIIllllIl = self.Chosen[_IIllIlIIII.Option] == true local _lllIlIIIll = _lIIIllllIl or _IIllIlIIII.Hovered local _llIllIlllI = _lIIIllllIl and 0.88 or (_IIllIlIIII.Hovered and 0.945 or 0x1) local _lIlIIIlIIl = _lllIlIIIll and _lllIIllllI.Text or _lllIIllllI.SubText local _IllllIlIll = UDim2.new(0x0, _lIIIllllIl and 0x1E or 0xE, 0x0, 0x0) local _lllllllllI = _lIIIllllIl and UDim2.fromOffset(0x6, 0x6) or UDim2.fromOffset(0x0, 0x0) if instant then _IIllIlIIII.Button.BackgroundTransparency = _llIllIlllI _IIllIlIIII.Label.TextColor3 = _lIlIIIlIIl _IIllIlIIII.Label.Position = _IllllIlIll _IIllIlIIII.Dot.Size = _lllllllllI return end
- _IllllIlIll(_IIllIlIIII.Button, 0.18, { BackgroundTransparency = _llIllIlllI }) _IllllIlIll(_IIllIlIIII.Label, 0.2, { TextColor3 = _lIlIIIlIIl, Position = _IllllIlIll }) _IllllIlIll(_IIllIlIIII.Dot, 0.2, { _IllIIIllll = _lllllllllI }) end
- function _IIlIlIllII:_BuildOptions() for _, _IIllIlIIII in ipairs(self.Entries) do _IIllIlIIII.Button:Destroy() end
- table.clear(self.Entries) self.Lookup = {} for _IIIlIllIll, option in ipairs(self.Options) do local _IIIllIIIlI = _IlIIIIlIlI("\084\101\120\116\066\117\116\116\111\110", { _IllIIIllll = UDim2.new(0x1, 0x0, 0x0, 0x24), BackgroundColor3 = Color3.new(0x1, 0x1, 0x1), LayoutOrder = _IIIlIllIll, Parent = self.Scroll }, { _IIlIlIIlIl(0x8), _llllIlIlIl.Make("\070\105\108\108", { Rotation = 0x14 }) }) local _IIIIIIIlIl = _IlIIIIlIlI("\070\114\097\109\101", { AnchorPoint = Vector2.new(0.5, 0.5), _IllIIIllll = UDim2.fromOffset(0x0, 0x0), Position = UDim2.new(0x0, 0x10, 0.5, 0x0), BackgroundColor3 = Color3.new(0x1, 0x1, 0x1), Parent = _IIIllIIIlI }, { _IIlIlIIlIl(nil, true), _llllIlIlIl.Make("\070\105\108\108") }) local _IIlllIIIII = _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { _IllIIIllll = UDim2.new(0x1, -0x28, 0x1, 0x0), Position = UDim2.new(0x0, 0xE, 0x0, 0x0), TextSize = 0xC, Weight = "\077\101\100\105\117\109", TextColor3 = _lIlIllIIlI.SubText, TextTruncate = Enum.TextTruncate.AtEnd, Parent = _IIIllIIIlI }) _lIIlIllIlI:Bind(_IIlllIIIII, "\084\101\120\116", tostring(option)) local _IIllIlIIII = { Option = option, _IIIIIlllIl = _IIIllIIIlI, _IIllIIIIll = _IIlllIIIII, Dot = _IIIIIIIlIl, Hovered = false, _llIIIIIIII = string.lower(tostring(_lIIlIllIlI:Resolve(tostring(option)))) } table.insert(self.Entries, _IIllIlIIII) self.Lookup[option] = _IIllIlIIII _llIIllIIlI(self.Window.Maid, _IIIllIIIlI, { Hover = function (state) _IIllIlIIII.Hovered = state self:_StyleEntry(_IIllIlIIII) end
- }) _lllllIIlIl(self.Window.Maid, _IIIllIIIlI, function () self.Window:PlayClick("\084\111\103\103\108\101") self:_Choose(option) end
- ) self:_StyleEntry(_IIllIlIIII, true) end
- self:_ApplyFilter() end
- function _IIlIlIllII:_RestoreScroll() task.defer( function () task.wait() if not self.Destroyed and self.Panel.Visible then local _IIIllIIlll = math.max(self.Scroll.AbsoluteCanvasSize.Y - self.Scroll.AbsoluteWindowSize.Y, 0x0) self.Scroll.CanvasPosition = Vector2.new(0x0, math.min(self.SavedScroll or 0x0, _IIIllIIlll)) end
- end
- ) end
- function _IIlIlIllII:_Reindex() for _, _IIllIlIIII in ipairs(self.Entries) do _IIllIlIIII.Key = string.lower(tostring(_lIIlIllIlI:Resolve(tostring(_IIllIlIIII.Option)))) end
- end
- function _IIlIlIllII:_ApplyFilter() local _IlIIlIlIIl = self.Query or "" local _lIlIIllIlI = 0x0 for _, _IIllIlIIII in ipairs(self.Entries) do local _IlIllIlIlI = _IlIIlIlIIl == "" or string.find(_IIllIlIIII.Key, _IlIIlIlIIl, 0x1, true) ~= nil _IIllIlIIII.Button.Visible = _IlIllIlIlI if _IlIllIlIlI then _lIlIIllIlI = _lIlIIllIlI + 0x1 end
- end
- self.VisibleCount = _lIlIIllIlI self:_Resize(self.IsOpen) end
- function _IIlIlIllII:_Resize(animate) local _lIllIIIlII = self.VisibleCount local _IIlIlllllI = _lIllIIIlII * 0x24 + math.max(_lIllIIIlII - 0x1, 0x0) * 0x3 + 0x8 local _lIlIlIIlII = math.clamp(_IIlIlllllI, 0x2C, 0xAA) self.PanelHeight = self.ListTop + _lIlIlIIlII self.Empty.Visible = _lIllIIIlII == 0x0 and #self.Options > 0x0 local _IIlIIlIllI = UDim2.fromOffset(self.PanelWidth, math.min(self.PanelHeight, self.Space)) if self.ResizeTween then self.ResizeTween:Cancel() self.ResizeTween = nil end
- if animate then self.ResizeTween = _IllllIlIll(self.Panel, 0.2, { _IllIIIllll = _IIlIIlIllI }) else self.Panel.Size = _IIlIIlIllI end
- end
- function _IIlIlIllII:_Place() local _IlIIIllllI = self.Window.Main local _lIlllIlIll = self.Head.Frame local _IlllllIlIl = _IlIIIllllI.AbsoluteSize.X / _IlIIIllllI.Size.X.Offset local _llIlllIllI = _IlIIIllllI.AbsolutePosition local _IlIIlIIIIl = _IlIIIllllI.AbsoluteSize.Y / _IlllllIlIl local _IIIlllIIlI = math.clamp((_lIlllIlIll.AbsolutePosition.Y - _llIlllIllI.Y) / _IlllllIlIl, 0x42, _IlIIlIIIIl) local _IIllIIIllI = math.clamp(_IIIlllIIlI + _lIlllIlIll.AbsoluteSize.Y / _IlllllIlIl, 0x42, _IlIIlIIIIl) local _lllIlIlIlI = (_lIlllIlIll.AbsolutePosition.X + _lIlllIlIll.AbsoluteSize.X - _llIlllIllI.X) / _IlllllIlIl - 0xE self:_Resize(false) local _IlIIlIlllI = _IlIIlIIIIl - _IIllIIIllI - 0xC local _lllIIlllII = _IIIlllIIlI - 0xC local _IlIlllIlll = _IlIIlIlllI >= self.PanelHeight or _IlIIlIlllI >= _lllIIlllII self.Space = math.max(_IlIlllIlll and _IlIIlIlllI or _lllIIlllII, 0x6E) self.PanelWidth = math.clamp(_lIlllIlIll.AbsoluteSize.X / _IlllllIlIl - 0x1C, 0xAA, 0x118) self.Panel.AnchorPoint = Vector2.new(0x1, _IlIlllIlll and 0x0 or 0x1) self.Panel.Position = UDim2.fromOffset(_lllIlIlIlI, _IlIlllIlll and _IIllIIIllI + 0x6 or _IIIlllIIlI - 0x6) self:_Resize(false) end
- function _IIlIlIllII:_Choose(option) local _lIlIllIIII = { option } if self.Multi then self.Chosen[option] = not self.Chosen[option] or nil else for _lIlllllIll in pairs(self.Chosen) do table.insert(_lIlIllIIII, _lIlllllIll) end
- self.Chosen = { [option] = true } end
- for _, _lIlllllIll in ipairs(_lIlIllIIII) do local _IIllIlIIII = self.Lookup[_lIlllllIll] if _IIllIlIIII then self:_StyleEntry(_IIllIlIIII) end
- end
- self:_Refresh(false) if not self.Multi then task.delay(0.12, function () if not self.Destroyed then self:SetOpen(false) end
- end
- ) end
- end
- function _IIlIlIllII:_Refresh(silent) local _llIIllllII = self:Get() if self.Multi then local _IlIllllllI = {} for _IIIlIllIll, item in ipairs(_llIIllllII) do _IlIllllllI[_IIIlIllIll] = _lIIlIllIlI:Resolve(tostring(item)) end
- self.ValueLabel.Text = #_IlIllllllI > 0x0 and table.concat(_IlIllllllI, "\044\032") or "" else self.ValueLabel.Text = _llIIllllII ~= nil and _lIIlIllIlI:Resolve(tostring(_llIIllllII)) or "" end
- self:_SyncFlag() if not silent then self:_Emit(_llIIllllII) end
- end
- function _IIlIlIllII:Get() if self.Multi then local _IIlIlIlIll = {} for _, option in ipairs(self.Options) do if self.Chosen[option] then table.insert(_IIlIlIlIll, option) end
- end
- return _IIlIlIlIll end
- for _, option in ipairs(self.Options) do if self.Chosen[option] then return option end
- end
- return nil end
- function _IIlIlIllII:Set(_llIIllllII, silent) self.Chosen = {} if self.Multi and type(_llIIllllII) == "\116\097\098\108\101" then for _, item in ipairs(_llIIllllII) do self.Chosen[item] = true end
- elseif _llIIllllII ~= nil then self.Chosen[_llIIllllII] = true end
- for _, _IIllIlIIII in ipairs(self.Entries) do self:_StyleEntry(_IIllIlIIII) end
- self:_Refresh(silent) end
- function _IIlIlIllII:Refresh() self.Options = self:_ResolveOptions() local _IlIlIIllIl = false for option in pairs(self.Chosen) do if not table.find(self.Options, option) then self.Chosen[option] = nil _IlIlIIllIl = true end
- end
- self:_BuildOptions() self:_Refresh( not _IlIlIIllIl) end
- function _IIlIlIllII:SetOptions(options, keepSelection) self.OptionsSource = options or {} if keepSelection == false then self.Chosen = {} end
- self:Refresh() end
- function _IIlIlIllII:GetOptions() return table.clone(self.Options) end
- function _IIlIlIllII:AddOption(option, _IIIlIllIll) if table.find(self.Options, option) then return end
- local _IIlIlIlIll = table.clone(self.Options) table.insert(_IIlIlIlIll, math.clamp(_IIIlIllIll or (#_IIlIlIlIll + 0x1), 0x1, #_IIlIlIlIll + 0x1), option) self:SetOptions(_IIlIlIlIll) end
- function _IIlIlIllII:RemoveOption(option) local _IIIlIllIll = table.find(self.Options, option) if not _IIIlIllIll then return end
- local _IIlIlIlIll = table.clone(self.Options) table.remove(_IIlIlIlIll, _IIIlIllIll) self:SetOptions(_IIlIlIlIll) end
- function _IIlIlIllII:IsSelected(option) return self.Chosen[option] == true end
- function _IIlIlIllII:Select(_llIIllllII, silent) local _IIlIlIlIll = (type(_llIIllllII) == "\116\097\098\108\101") and _llIIllllII or { _llIIllllII } local _IlIIllIIIl = false if not self.Multi then local _IlIlIllIlI = _IIlIlIlIll[0x1] if _IlIlIllIlI ~= nil and table.find(self.Options, _IlIlIllIlI) and not self.Chosen[_IlIlIllIlI] then self.Chosen = { [_IlIlIllIlI] = true } _IlIIllIIIl = true end
- else for _, item in ipairs(_IIlIlIlIll) do if table.find(self.Options, item) and not self.Chosen[item] then self.Chosen[item] = true _IlIIllIIIl = true end
- end
- end
- if _IlIIllIIIl then for _, _IIllIlIIII in ipairs(self.Entries) do self:_StyleEntry(_IIllIlIIII) end
- self:_Refresh(silent) end
- return _IlIIllIIIl end
- function _IIlIlIllII:Deselect(_llIIllllII, silent) local _IIlIlIlIll = (type(_llIIllllII) == "\116\097\098\108\101") and _llIIllllII or { _llIIllllII } local _IlIIllIIIl = false for _, item in ipairs(_IIlIlIlIll) do if self.Chosen[item] then self.Chosen[item] = nil _IlIIllIIIl = true end
- end
- if _IlIIllIIIl then for _, _IIllIlIIII in ipairs(self.Entries) do self:_StyleEntry(_IIllIlIIII) end
- self:_Refresh(silent) end
- return _IlIIllIIIl end
- function _IIlIlIllII:Clear(silent) self.Chosen = {} for _, _IIllIlIIII in ipairs(self.Entries) do self:_StyleEntry(_IIllIlIIII) end
- self:_Refresh(silent) end
- function _IIlIlIllII:SelectAll(silent) if self.Multi then self:Select(self.Options, silent) end
- end
- function _IIlIlIllII:Open() self:SetOpen(true) end
- function _IIlIlIllII:Close() self:SetOpen(false) end
- function _IIlIlIllII:SetOpen(state) if state and self.Locked then return end
- if self.IsOpen == state then return end
- self.IsOpen = state local _IIIlIIIlII = self.Section and self.Section.Tab and self.Section.Tab.Content if _IIIlIIIlII and _IIIlIIIlII.Parent then _IIIlIIIlII.ScrollingEnabled = not state end
- _IllllIlIll(self.Arrow, 0.25, { Rotation = state and 0xB4 or 0x0 }) _IllllIlIll(self.BoxStroke, 0.2, { _IIIlIIIIlI = state and _lllIIllllI.AccentGlow or _lllIIllllI.Outline, Transparency = state and 0.25 or 0x0 }) if self.OutsideConnection then self.OutsideConnection:Disconnect() self.OutsideConnection = nil end
- if state then self.Window:ActivateDropdown(self) self:_Place() self:_RestoreScroll() self.PanelScale.Scale = 0.92 self.Panel.Visible = true _IllllIlIll(self.PanelScale, 0.3, { Scale = 0x1 }, Enum.EasingStyle.Back) self.OutsideConnection = UserInputService.InputBegan:Connect( function (input) if not _lllIIlIlll[input.UserInputType] or not self.IsOpen then return end
- if _IIlIIIIIll(self.Panel, input.Position, true) or _IIlIIIIIll(self.Head.Frame, input.Position, true) then return end
- self:SetOpen(false) end
- ) else self.Window:ReleaseDropdown(self) if self.Search then self.Search:ReleaseFocus() end
- local _IlllllIIIl = _IllllIlIll(self.PanelScale, 0.16, { Scale = 0.94 }, Enum.EasingStyle.Quad, Enum.EasingDirection.In) _IlllllIIIl.Completed:Connect( function () if not self.IsOpen and self.Panel.Parent then self.Panel.Visible = false if self.Search and self.Search.Text ~= "" then self.Search.Text = "" end
- end
- end
- ) end
- end
- local _llIllIIlIl = _lIIIlIIlIl.extend() function _llIllIIlIl.new(_IlIllIIIlI, config) local self = setmetatable({}, _llIllIIlIl) self:_Init(_IlIllIIIlI, config, "\083\108\105\100\101\114") self.Min = config.Min or 0x0 self.Max = config.Max or 0x64 self.Step = config.Step or config.Increment or 0x1 self.Suffix = config.Suffix or "" self.Decimals = _IllllIlIlI(self.Step) self.Value = self:_Snap(config.Default or self.Min) self.DisplayAlpha = self:_ToAlpha(self.Value) self.TargetAlpha = self.DisplayAlpha local _IIIIIllIIl = self.Window local _lIIIIllIIl = self.HasDesc and 0x42 or 0x30 self.TrackY = _lIIIIllIIl local _IIlIIIlIll = self:_CreateHead(_IlIllIIIlI.Card, _lIIIIllIIl + 0x10, _IlIllIIIlI:NextOrder(), nil) self:_CreateLabels(_IIlIIIlIll.Hit, 0x10, 0xA0) local _lIIllIlllI = _llIlIIIlIl(_lIlIllIIlI.Outline, 0x0, 0x1) self.Box = _IlIIIIlIlI("\084\101\120\116\066\111\120", { AnchorPoint = Vector2.new(0x1, 0x0), _IllIIIllll = UDim2.fromOffset(0x3C, 0x1C), Position = UDim2.new(0x1, -0x34, 0x0, 0xA), BackgroundTransparency = 0x0, BackgroundColor3 = _lIlIllIIlI.Background, _llllIIllll = self:_Format(self.Value), TextXAlignment = Enum.TextXAlignment.Center, ClearTextOnFocus = false, ClipsDescendants = true, Parent = _IIlIIIlIll.Hit }, { _IIlIlIIlIl(0x7), _lIIllIlllI }) local function _lIIIlIIlIl(_llllIIllll, OffsetX, Direction) local _IIIIIlllIl = _IlIIIIlIlI("\084\101\120\116\066\117\116\116\111\110", { AnchorPoint = Vector2.new(0x1, 0x0), _IllIIIllll = UDim2.fromOffset(0x1E, 0x1C), Position = UDim2.new(0x1, OffsetX, 0x0, 0xA), BackgroundTransparency = 0x0, BackgroundColor3 = _lIlIllIIlI.Background, _llllIIllll = _llllIIllll, TextSize = 0x12, Weight = "\083\101\109\105\066\111\108\100", TextXAlignment = Enum.TextXAlignment.Center, Parent = _IIlIIIlIll.Hit }, { _IIlIlIIlIl(0x8), _llIlIIIlIl(_lIlIllIIlI.Outline, 0x0, 0x1) }) _IIIIIllIIl.Maid:Give(_IIIIIlllIl.InputBegan:Connect( function (Input) if _lllIIlIlll[Input.UserInputType] and not self.Locked then self.StepToken = (self.StepToken or 0x0) + 0x1 local _IIllIlllII = self.StepToken _IIIIIllIIl:PlayClick("\066\117\116\116\111\110") self:Set(self.Value + Direction * self.Step) local _lIIllIllII _lIIllIllII = Input.Changed:Connect( function () if Input.UserInputState == Enum.UserInputState.End then self.StepToken = _IIllIlllII + 0x1 _lIIllIllII:Disconnect() end
- end
- ) task.spawn( function () task.wait(0.4) while self.StepToken == _IIllIlllII and not self.Destroyed do self:Set(self.Value + Direction * self.Step) task.wait(0.08) end
- end
- ) end
- end
- )) end
- _lIIIlIIlIl("\045", -0x76, -0x1) _lIIIlIIlIl("\043", -0x10, 0x1) self.Track = _IlIIIIlIlI("\070\114\097\109\101", { Position = UDim2.fromOffset(0x10, _lIIIIllIIl - 0x4), _IllIIIllll = UDim2.new(0x1, -0x20, 0x0, 0x8), BackgroundColor3 = _lIlIllIIlI.ToggleOff, Parent = _IIlIIIlIll.Frame }, { _IIlIlIIlIl(nil, true) }) self.Fill = _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.fromScale(self.DisplayAlpha, 0x1), BackgroundColor3 = Color3.new(0x1, 0x1, 0x1), Parent = self.Track }, { _IIlIlIIlIl(nil, true), _llllIlIlIl.Make("\070\105\108\108") }) self.Knob = _IlIIIIlIlI("\070\114\097\109\101", { AnchorPoint = Vector2.new(0.5, 0.5), _IllIIIllll = UDim2.fromOffset(0xE, 0xE), Position = UDim2.fromScale(self.DisplayAlpha, 0.5), BackgroundColor3 = Color3.fromRGB(0xFF, 0xFF, 0xFF), Parent = self.Track }, { _IIlIlIIlIl(nil, true), _llIlIIIlIl(_lIlIllIIlI.AccentGlow, 0.3, 1.5) }) local _IIIllIIllI = _IlIIIIlIlI("\084\101\120\116\066\117\116\116\111\110", { Position = UDim2.fromOffset(0x8, _lIIIIllIIl - 0x10), _IllIIIllll = UDim2.new(0x1, -0x10, 0x0, 0x20), Parent = _IIlIIIlIll.Frame }) self.Zone = _IIIllIIllI _IIIIIllIIl.Maid:Give(_IIIllIIllI.InputBegan:Connect( function (input) if _lllIIlIlll[input.UserInputType] and not self.Locked then self:_BeginDrag(input) end
- end
- )) _IIIIIllIIl.Maid:Give(self.Box.Focused:Connect( function () self.Box.Text = self:_FormatNumber(self.Value) _IllllIlIll(_lIIllIlllI, 0.2, { _IIIlIIIIlI = _lllIIllllI.AccentGlow }) end
- )) _IIIIIllIIl.Maid:Give(self.Box.FocusLost:Connect( function () _IllllIlIll(_lIIllIlllI, 0.2, { _IIIlIIIIlI = _lllIIllllI.Outline }) local _IlIIllIIIl = tonumber(string.match(self.Box.Text, "\037\045\063\037\100\043\037\046\063\037\100\042")) if _IlIIllIIIl then self:Set(_IlIIllIIIl) else self.Box.Text = self:_Format(self.Value) end
- end
- )) return self:_Finish(_IIlIIIlIll.Frame, _IIlIIIlIll.Divider) end
- function _llIllIIlIl:_OnLocked(state) self.Box.TextEditable = not state end
- function _llIllIIlIl:_Layout() self:_ApplyLabels() local _lIIIIllIIl = self.HasDesc and 0x42 or 0x30 self.TrackY = _lIIIIllIIl self.Head.Frame.Size = UDim2.new(0x1, 0x0, 0x0, _lIIIIllIIl + 0x10) self.Track.Position = UDim2.fromOffset(0x10, _lIIIIllIIl - 0x3) self.Zone.Position = UDim2.fromOffset(0x8, _lIIIIllIIl - 0x10) end
- function _llIllIIlIl:_Snap(_IIlIIIIIII) local _IllIlIIIII = self.Min + math.floor((_IIlIIIIIII - self.Min) / self.Step + 0.5) * self.Step _IllIlIIIII = math.clamp(_IllIlIIIII, self.Min, self.Max) local _IIIIllIIII = 0xA ^ self.Decimals return math.floor(_IllIlIIIII * _IIIIllIIII + 0.5) / _IIIIllIIII end
- function _llIllIIlIl:_ToAlpha(_llIIllllII) local _IIlIIIllIl = self.Max - self.Min if _IIlIIIllIl <= 0x0 then return 0x0 end
- return math.clamp((_llIIllllII - self.Min) / _IIlIIIllIl, 0x0, 0x1) end
- function _llIllIIlIl:_FormatNumber(_llIIllllII) return string.format("\037\046" .. self.Decimals .. "\102", _llIIllllII) end
- function _llIllIIlIl:_Format(_llIIllllII) return self:_FormatNumber(_llIIllllII) .. self.Suffix end
- function _llIllIIlIl:_Paint(_lIIIIlIlll, _IIlIllIIlI) self.DisplayAlpha = _lIIIIlIlll if _IIlIllIIlI then _IllllIlIll(self.Fill, _IIlIllIIlI, { _IllIIIllll = UDim2.fromScale(_lIIIIlIlll, 0x1) }) _IllllIlIll(self.Knob, _IIlIllIIlI, { Position = UDim2.fromScale(_lIIIIlIlll, 0.5) }) else self.Fill.Size = UDim2.fromScale(_lIIIIlIlll, 0x1) self.Knob.Position = UDim2.fromScale(_lIIIIlIlll, 0.5) end
- end
- function _llIllIIlIl:_Commit(_lIIIIlIlll) local _llIIllllII = self:_Snap(self.Min + _lIIIIlIlll * (self.Max - self.Min)) if _llIIllllII ~= self.Value then self.Value = _llIIllllII self.Box.Text = self:_Format(_llIIllllII) self:_Emit(_llIIllllII) end
- end
- function _llIllIIlIl:_BeginDrag(input) local _llllIIlllI = self.Section.Tab.Content local _IlIIllIlIl = self.Track local _llIIIIIllI local function _IllIllllIl(positionX) local _IIlllllIlI = _IlIIllIlIl.AbsoluteSize.X if _IIlllllIlI <= 0x0 then return end
- local _lIIIIlIlll = math.clamp((positionX - _IlIIllIlIl.AbsolutePosition.X) / _IIlllllIlI, 0x0, 0x1) self.TargetAlpha = _lIIIIlIlll self:_Commit(_lIIIIlIlll) end
- _llllIIlllI.ScrollingEnabled = false _IllllIlIll(self.Knob, 0.2, { _IllIIIllll = UDim2.fromOffset(0x13, 0x13) }, Enum.EasingStyle.Back) _IllIllllIl(input.Position.X) _llIIIIIllI = RunService.Heartbeat:Connect( function (_IIlIIlIllI) local _lIIIllIlIl = math.min(0x1, _IIlIIlIllI * 0x18) self:_Paint(self.DisplayAlpha + (self.TargetAlpha - self.DisplayAlpha) * _lIIIllIlIl) end
- ) _IllIlIIIll(input, function (_lIIlIIIlIl) _IllIllllIl(_lIIlIIIlIl.X) end
- , function () _llIIIIIllI:Disconnect() _llllIIlllI.ScrollingEnabled = true _IllllIlIll(self.Knob, 0.25, { _IllIIIllll = UDim2.fromOffset(0xE, 0xE) }, Enum.EasingStyle.Back) self:_Paint(self:_ToAlpha(self.Value), 0.18) end
- ) end
- function _llIllIIlIl:Set(_llIIllllII, silent) _llIIllllII = tonumber(_llIIllllII) if _llIIllllII == nil then return end
- local _IllIlIIIII = self:_Snap(_llIIllllII) local _IlIIllIIIl = _IllIlIIIII ~= self.Value self.Value = _IllIlIIIII self.TargetAlpha = self:_ToAlpha(_IllIlIIIII) self.Box.Text = self:_Format(_IllIlIIIII) self:_Paint(self.TargetAlpha, 0.2) self:_SyncFlag() if _IlIIllIIIl and not silent then self:_Emit(_IllIlIIIII) end
- end
- function _llIllIIlIl:Get() return self.Value end
- function _llIllIIlIl:_Reconfigure(silent) if self.Step <= 0x0 then self.Step = 0x1 end
- if self.Max < self.Min then self.Max = self.Min end
- self.Decimals = _IllllIlIlI(self.Step) self:Set(self.Value, silent) self.Box.Text = self:_Format(self.Value) end
- function _llIllIIlIl:SetMin(_llIIllllII, silent) self.Min = _llIIllllII self:_Reconfigure(silent) end
- function _llIllIIlIl:SetMax(_llIIllllII, silent) self.Max = _llIIllllII self:_Reconfigure(silent) end
- function _llIllIIlIl:SetRange(min, max, silent) self.Min = min self.Max = max self:_Reconfigure(silent) end
- function _llIllIIlIl:SetStep(step, silent) self.Step = step self:_Reconfigure(silent) end
- function _llIllIIlIl:SetSuffix(suffix) self.Suffix = suffix or "" self.Box.Text = self:_Format(self.Value) end
- function _llIllIIlIl:Refresh() _lIIIlIIlIl.Refresh(self) self:_Reconfigure(true) end
- local _llllIIllIl = _lIIIlIIlIl.extend() function _llllIIllIl.new(_IlIllIIIlI, config) local self = setmetatable({}, _llllIIllIl) self:_Init(_IlIllIIIlI, config, "\073\110\112\117\116") self.Numeric = config.Numeric == true self.Live = config.Live == true self.Value = config.Default ~= nil and tostring(config.Default) or "" local _IIIIIllIIl = self.Window local _IIlIIIlIll = self:_CreateHead(_IlIllIIIlI.Card, self:_RowHeight(), _IlIllIIIlI:NextOrder(), "\116\105\110\116") self:_CreateLabels(_IIlIIIlIll.Hit, 0x10, 0xB4) _IIlIIIlIll.OnHover = function (state) if self.IconImage then _IllllIlIll(self.IconImage, 0.2, { ImageColor3 = state and _lllIIllllI.Text or _lllIIllllI.SubText }) end
- end
- local _lIIllIlllI = _llIlIIIlIl(_lIlIllIIlI.Outline, 0x0, 0x1) local _IlIIlllIll = _IlIIIIlIlI("\070\114\097\109\101", { AnchorPoint = Vector2.new(0x1, 0.5), _IllIIIllll = UDim2.fromOffset(0x96, 0x1C), Position = UDim2.new(0x1, -0x10, 0.5, 0x0), BackgroundTransparency = 0x0, BackgroundColor3 = _lIlIllIIlI.Background, ClipsDescendants = true, Parent = _IIlIIIlIll.Hit }, { _IIlIlIIlIl(0x7), _lIIllIlllI }) self.Box = _IlIIIIlIlI("\084\101\120\116\066\111\120", { Position = UDim2.fromOffset(0xA, 0x0), _IllIIIllll = UDim2.new(0x1, -0x14, 0x1, 0x0), _llllIIllll = self.Value, PlaceholderColor3 = _lIlIllIIlI.SubText, TextXAlignment = Enum.TextXAlignment.Left, TextYAlignment = Enum.TextYAlignment.Center, ClearTextOnFocus = false, ClipsDescendants = true, Parent = _IlIIlllIll }) _lIIlIllIlI:Bind(self.Box, "\080\108\097\099\101\104\111\108\100\101\114\084\101\120\116", config.Placeholder or "") local _lIIIIIlllI = config.MaxLength _IIIIIllIIl.Maid:Give(self.Box:GetPropertyChangedSignal("\084\101\120\116"):Connect( function () local _IlIlIIIIIl = self.Box.Text local _IIllIIlllI = _IlIlIIIIIl if self.Numeric then _IIllIIlllI = string.gsub(_IIllIIlllI, "\091\094\037\100\037\046\037\045\093", "") end
- if _lIIIIIlllI and #_IIllIIlllI > _lIIIIIlllI then _IIllIIlllI = string.sub(_IIllIIlllI, 0x1, _lIIIIIlllI) end
- if _IIllIIlllI ~= _IlIlIIIIIl then self.Box.Text = _IIllIIlllI return end
- if self.Live and self.Box:IsFocused() then if self.Numeric then local _IlIIIllIlI = tonumber(_IIllIIlllI) if _IlIIIllIlI ~= nil then self.Value = _IIllIIlllI self:_Emit(_IlIIIllIlI, false) end
- else self.Value = _IIllIIlllI self:_Emit(_IIllIIlllI, false) end
- end
- end
- )) _IIIIIllIIl.Maid:Give(self.Box.Focused:Connect( function () _IllllIlIll(_lIIllIlllI, 0.2, { _IIIlIIIIlI = _lllIIllllI.AccentGlow }) end
- )) _IIIIIllIIl.Maid:Give(self.Box.FocusLost:Connect( function (enterPressed) _IllllIlIll(_lIIllIlllI, 0.2, { _IIIlIIIIlI = _lllIIllllI.Outline }) if self.Numeric then local _IlIIIllIlI = tonumber(self.Box.Text) if _IlIIIllIlI == nil then self.Box.Text = self.Value return end
- self.Value = self.Box.Text self:_Emit(_IlIIIllIlI, enterPressed) else self.Value = self.Box.Text self:_Emit(self.Value, enterPressed) end
- end
- )) _lllllIIlIl(_IIIIIllIIl.Maid, _IIlIIIlIll.Hit, function () if not self.Locked then self.Box:CaptureFocus() end
- end
- ) self.PlaceholderSource = config.Placeholder or "" return self:_Finish(_IIlIIIlIll.Frame, _IIlIIIlIll.Divider) end
- function _llllIIllIl:_OnLocked(state) self.Box.TextEditable = not state end
- function _llllIIllIl:SetPlaceholder(_lIIllIIlIl) self.PlaceholderSource = _lIIllIIlIl or "" _lIIlIllIlI:Bind(self.Box, "\080\108\097\099\101\104\111\108\100\101\114\084\101\120\116", self.PlaceholderSource) end
- function _llllIIllIl:Focus() if not self.Locked then self.Box:CaptureFocus() end
- end
- function _llllIIllIl:Clear(silent) self:Set("", silent) end
- function _llllIIllIl:Refresh() _lIIIlIIlIl.Refresh(self) self.Box.Text = self.Value _lIIlIllIlI:Bind(self.Box, "\080\108\097\099\101\104\111\108\100\101\114\084\101\120\116", self.PlaceholderSource or "") end
- function _llllIIllIl:Get() if self.Numeric then return tonumber(self.Value) end
- return self.Value end
- function _llllIIllIl:Set(_llIIllllII, silent) self.Value = _llIIllllII ~= nil and tostring(_llIIllllII) or "" self.Box.Text = self.Value self:_SyncFlag() if not silent then self:_Emit(self:Get(), false) end
- end
- local _IllIllIIlI = {} _IllIllIIlI.__index = _IllIllIIlI function _IllIllIIlI.new(_lIlllIlIIl, config) local self = setmetatable({}, _IllIllIIlI) local _IllIlIllII = config.Desc ~= nil and config.Desc ~= "" self.Tab = _lIlllIlIIl self.Window = _lIlllIlIIl.Window self.TitleSource = config.Title or "\083\101\099\116\105\111\110" self.Rows = {} self.Order = 0x0 self.Collapsed = config.Collapsed == true or config.DefaultOpen == false self.Frame = _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.new(0x1, 0x0, 0x0, 0x0), AutomaticSize = Enum.AutomaticSize.Y, BackgroundTransparency = 0x1, LayoutOrder = _lIlllIlIIl:NextOrder(), Parent = _lIlllIlIIl.Content }, { _IlIIIIlIlI("\085\073\076\105\115\116\076\097\121\111\117\116", { SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0x0, 0xA) }) }) local _lIlllIIlIl = _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.new(0x1, 0x0, 0x0, 0x28), BackgroundTransparency = 0x1, LayoutOrder = 0x1, Parent = self.Frame }) self.IconSource = config.Icon self.DescSource = config.Desc self.HasDesc = _IllIlIllII self.Hidden = config.Visible == false self.IconBox = _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.fromOffset(0x26, 0x26), Position = UDim2.fromOffset(0x0, 0x1), BackgroundColor3 = config.Color or Color3.new(0x1, 0x1, 0x1), Parent = _lIlllIIlIl }, { _IIlIlIIlIl(0xA), _llllIlIlIl.Make(config.Color and "\083\104\097\100\101" or "\070\105\108\108", { Rotation = 0x2D }) }) self.IconImage = _IlIIIIlIlI("\073\109\097\103\101\076\097\098\101\108", { AnchorPoint = Vector2.new(0.5, 0.5), _IllIIIllll = UDim2.fromOffset(0x14, 0x14), Position = UDim2.fromScale(0.5, 0.5), Image = _llllllIlll(config.Icon, "\114\098\120\097\115\115\101\116\105\100\058\047\047\054\048\050\051\052\050\054\057\049\053"), Parent = self.IconBox }) self.TitleLabel = _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { _IllIIIllll = UDim2.new(0x1, -0x50, 0x0, 0x10), TextSize = 0xD, Weight = "\083\101\109\105\066\111\108\100", TextTruncate = Enum.TextTruncate.AtEnd, Parent = _lIlllIIlIl }) _lIIlIllIlI:Bind(self.TitleLabel, "\084\101\120\116", self.TitleSource) self.DescLabel = _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { _IllIIIllll = UDim2.new(0x1, -0x50, 0x0, 0xE), Position = UDim2.fromOffset(0x32, 0x16), TextSize = 0xB, TextColor3 = _lIlIllIIlI.SubText, TextTruncate = Enum.TextTruncate.AtEnd, Visible = _IllIlIllII, Parent = _lIlllIIlIl }) _lIIlIllIlI:Bind(self.DescLabel, "\084\101\120\116", config.Desc or "") self:_ApplyHeader() local _lIllIlIlII = _IlIIIIlIlI("\084\101\120\116\066\117\116\116\111\110", { _IllIIIllll = UDim2.fromScale(0x1, 0x1), Parent = _lIlllIIlIl }) self.Indicator = _IlIIIIlIlI("\073\109\097\103\101\076\097\098\101\108", { AnchorPoint = Vector2.new(0x1, 0.5), _IllIIIllll = UDim2.fromOffset(0x10, 0x10), Position = UDim2.new(0x1, -0x8, 0.5, 0x0), Rotation = self.Collapsed and -0x5A or 0x0, Image = _lIllIIIIII.chevronDown, ImageColor3 = _lIlIllIIlI.SubText, Parent = _lIlllIIlIl }) self.Card = _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.new(0x1, 0x0, 0x0, 0x0), AutomaticSize = Enum.AutomaticSize.Y, BackgroundColor3 = _lIlIllIIlI.Card, BackgroundTransparency = self.Window:_AcrylicAlpha() * 0.7, Visible = not self.Collapsed, LayoutOrder = 0x2, Parent = self.Frame }, { _IIlIlIIlIl(0xA), _llIlIIIlIl(_lIlIllIIlI.Outline, 0x0, 0x1), _IlIIIIlIlI("\085\073\076\105\115\116\076\097\121\111\117\116", { SortOrder = Enum.SortOrder.LayoutOrder }) }) table.insert(self.Window.AcrylicCards, self.Card) _lllllIIlIl(self.Window.Maid, _lIllIlIlII, function () self.Window:PlayClick("\084\111\103\103\108\101") self:SetCollapsed( not self.Collapsed) end
- ) return self end
- function _IllIllIIlI:_ApplyHeader() self.TitleLabel.Position = UDim2.fromOffset(0x32, self.HasDesc and 0x4 or 0xC) self.DescLabel.Visible = self.HasDesc end
- function _IllIllIIlI:SetCollapsed(state) self.Collapsed = state == true self.Card.Visible = not self.Collapsed _IllllIlIll(self.Indicator, 0.2, { Rotation = self.Collapsed and -0x5A or 0x0 }) end
- function _IllIllIIlI:Collapse() self:SetCollapsed(true) end
- function _IllIllIIlI:Expand() self:SetCollapsed(false) end
- function _IllIllIIlI:ToggleCollapsed() self:SetCollapsed( not self.Collapsed) end
- function _IllIllIIlI:NextOrder() self.Order = self.Order + 0x1 return self.Order end
- function _IllIllIIlI:_Register(_llIIlIIlll, row, _lllllIIIIl) table.insert(self.Rows, { _lIIIlIIlIl = _llIIlIIlll, _IlIIlIllIl = row, Divider = _lllllIIIIl }) _lllllIIIIl.Visible = #self.Rows > 0x1 end
- function _IllIllIIlI:_Unregister(_llIIlIIlll) for _IIIlIllIll, _IIllIlIIII in ipairs(self.Rows) do if _IIllIlIIII.Element == _llIIlIIlll then table.remove(self.Rows, _IIIlIllIll) break end
- end
- self:_Refresh() end
- function _IllIllIIlI:_Refresh() local _IlIIlIlIIl = self.Query or "" local _IIIllIIlII = string.lower(tostring(_lIIlIllIlI:Resolve(self.TitleSource))) local _lIIIllIllI = _IlIIlIlIIl ~= "" and string.find(_IIIllIIlII, _IlIIlIlIIl, 0x1, true) ~= nil local _IIIlllIIII = false for _, _IIllIlIIII in ipairs(self.Rows) do local _IlIIIlllll = not _IIllIlIIII.Element.Hidden if _IlIIIlllll and _IlIIlIlIIl ~= "" and not _lIIIllIllI then local _IIlIIlIlII = string.lower(tostring(_lIIlIllIlI:Resolve(_IIllIlIIII.Element.TitleSource))) _IlIIIlllll = string.find(_IIlIIlIlII, _IlIIlIlIIl, 0x1, true) ~= nil end
- _IIllIlIIII.Row.Visible = _IlIIIlllll _IIllIlIIII.Divider.Visible = _IlIIIlllll and _IIIlllIIII if _IlIIIlllll then _IIIlllIIII = true end
- end
- self.Frame.Visible = not self.Hidden and (_IIIlllIIII or #self.Rows == 0x0 or _IlIIlIlIIl == "") end
- function _IllIllIIlI:Filter(_IlIIlIlIIl) self.Query = _IlIIlIlIIl or "" self:_Refresh() end
- function _IllIllIIlI:SetTitle(_lIIllIIlIl) self.TitleSource = _lIIllIIlIl _lIIlIllIlI:Bind(self.TitleLabel, "\084\101\120\116", _lIIllIIlIl) self:_Refresh() end
- function _IllIllIIlI:SetDesc(_lIIllIIlIl) self.DescSource = _lIIllIIlIl self.HasDesc = _lIIllIIlIl ~= nil and _lIIllIIlIl ~= "" _lIIlIllIlI:Bind(self.DescLabel, "\084\101\120\116", _lIIllIIlIl or "") self:_ApplyHeader() end
- function _IllIllIIlI:SetIcon(_llIlIIIllI) self.IconSource = _llIlIIIllI self.IconImage.Image = _llllllIlll(_llIlIIIllI, "\114\098\120\097\115\115\101\116\105\100\058\047\047\054\048\050\051\052\050\054\057\049\053") end
- function _IllIllIIlI:SetColor(color) self.IconBox.BackgroundColor3 = color end
- function _IllIllIIlI:SetVisible(state) self.Hidden = state == false self:_Refresh() end
- function _IllIllIIlI:Show() self:SetVisible(true) end
- function _IllIllIIlI:Hide() self:SetVisible(false) end
- function _IllIllIIlI:GetElements() local _IIlIlIlIll = {} for _, _IIllIlIIII in ipairs(self.Rows) do table.insert(_IIlIlIlIll, _IIllIlIIII.Element) end
- return _IIlIlIlIll end
- function _IllIllIIlI:Refresh() _lIIlIllIlI:Bind(self.TitleLabel, "\084\101\120\116", self.TitleSource) _lIIlIllIlI:Bind(self.DescLabel, "\084\101\120\116", self.DescSource or "") self:_ApplyHeader() for _, _IIllIlIIII in ipairs(self.Rows) do _IIllIlIIII.Element:Refresh() end
- self:_Refresh() end
- function _IllIllIIlI:Clear() for _, _llIIlIIlll in ipairs(self:GetElements()) do _llIIlIIlll:Destroy() end
- end
- function _IllIllIIlI:Destroy() if self.Destroyed then return end
- self.Destroyed = true self:Clear() for _IIIlIllIll, _IlIllIIIlI in ipairs(self.Tab.Sections) do if _IlIllIIIlI == self then table.remove(self.Tab.Sections, _IIIlIllIll) break end
- end
- self.Frame:Destroy() end
- function _IllIllIIlI:AddButton(config) return _IIlllIIlIl.new(self, config or {}) end
- function _IllIllIIlI:AddToggle(config) return _IlIIIIIllI.new(self, config or {}) end
- function _IllIllIIlI:AddDropdown(config) return _IIlIlIllII.new(self, config or {}) end
- function _IllIllIIlI:AddSlider(config) return _llIllIIlIl.new(self, config or {}) end
- function _IllIllIIlI:AddInput(config) return _llllIIllIl.new(self, config or {}) end
- function _IllIllIIlI:AddColorPicker(config) return _IlllllIIIl.new(self, config or {}) end
- function _IllIllIIlI:AddSegmented(config) return _lllllIIIII.new(self, config or {}) end
- function _IllIllIIlI:AddPalette(config) return _lIlllIlIIl.new(self, config or {}) end
- function _IllIllIIlI:AddKeybind(config) return _lIIlIlIllI.new(self, config or {}) end
- _IllIllIIlI.AddColorpicker = _IllIllIIlI.AddColorPicker function _IllIllIIlI:AddLabel(config) if type(config) == "\115\116\114\105\110\103" then config = { Title = config } end
- return _lIlllIlIIl.new(self, config or {}) end
- _IllIllIIlI.CreateButton = _IllIllIIlI.AddButton _IllIllIIlI.CreateToggle = _IllIllIIlI.AddToggle _IllIllIIlI.CreateDropdown = _IllIllIIlI.AddDropdown _IllIllIIlI.CreateSlider = _IllIllIIlI.AddSlider _IllIllIIlI.CreateInput = _IllIllIIlI.AddInput _IllIllIIlI.CreateLabel = _IllIllIIlI.AddLabel local _lIIllllIll = {} _lIIllllIll.__index = _lIIllllIll function _lIIllllIll.new(_IIIIIllIIl, config) local self = setmetatable({}, _lIIllllIll) self.Window = _IIIIIllIIl self.TitleSource = config.Title or "\084\097\098" self.DescSource = config.Desc or self:_DefaultDesc() self.IconSource = config.Icon self.Hidden = config.Visible == false self.Destroyed = false self.Sections = {} self.Order = 0x0 self.IsActive = false self.Hovered = false self.SavedScroll = 0x0 self.Content = _IlIIIIlIlI("\083\099\114\111\108\108\105\110\103\070\114\097\109\101", { _lllIllIIII = "\084\097\098\067\111\110\116\101\110\116", _IllIIIllll = UDim2.fromScale(0x1, 0x1), Visible = false, ScrollBarThickness = 0x3, ScrollBarImageColor3 = _lIlIllIIlI.Accent, CanvasSize = UDim2.new(), AutomaticCanvasSize = Enum.AutomaticSize.Y, Parent = _IIIIIllIIl.Pages }, { _IlIIIIlIlI("\085\073\076\105\115\116\076\097\121\111\117\116", { SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0x0, 0x10) }), _IlIIIIlIlI("\085\073\080\097\100\100\105\110\103", { PaddingTop = UDim.new(0x0, 0x4), PaddingLeft = UDim.new(0x0, 0x16), PaddingRight = UDim.new(0x0, 0x16), PaddingBottom = UDim.new(0x0, 0x16) }) }) _lIllIlIIIl(_IIIIIllIIl.Maid, self.Content) _lIIIllllII(_IIIIIllIIl.Maid, self.Content, 0x3) _IIIIIllIIl.Maid:Give(self.Content:GetPropertyChangedSignal("\067\097\110\118\097\115\080\111\115\105\116\105\111\110"):Connect( function () if self.IsActive and _IIIIIllIIl.Visible and self.Content.AbsoluteWindowSize.Y > 0x0 then self.SavedScroll = self.Content.CanvasPosition.Y end
- end
- )) self.Stroke = _llIlIIIlIl(_lIlIllIIlI.Outline, 0x1, 0x1) self.Button = _IlIIIIlIlI("\084\101\120\116\066\117\116\116\111\110", { _IllIIIllll = UDim2.new(0x1, 0x0, 0x0, 0x28), BackgroundColor3 = _lIlIllIIlI.Selected, BackgroundTransparency = 0x1, LayoutOrder = config.Order or (#_IIIIIllIIl.Tabs + 0x1), Parent = _IIIIIllIIl.TabList }, { _IIlIlIIlIl(0x9), self.Stroke }) self.IconBox = _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.fromOffset(0x1A, 0x1A), Position = UDim2.new(0x0, 0xA, 0.5, -0xD), BackgroundColor3 = config.Color or Color3.new(0x1, 0x1, 0x1), Parent = self.Button }, { _IIlIlIIlIl(0x7), _llllIlIlIl.Make(config.Color and "\083\104\097\100\101" or "\070\105\108\108", { Rotation = 0x2D }) }) self.IconImage = _IlIIIIlIlI("\073\109\097\103\101\076\097\098\101\108", { AnchorPoint = Vector2.new(0.5, 0.5), _IllIIIllll = UDim2.fromOffset(0x10, 0x10), Position = UDim2.fromScale(0.5, 0.5), Image = _llllllIlll(config.Icon, "\114\098\120\097\115\115\101\116\105\100\058\047\047\054\048\050\051\052\050\054\057\049\053"), Parent = self.IconBox }) self.Label = _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { _IllIIIllll = UDim2.new(0x1, -0x34, 0x1, 0x0), Position = UDim2.fromOffset(0x2E, 0x0), TextColor3 = _lIlIllIIlI.SubText, Weight = "\077\101\100\105\117\109", TextTruncate = Enum.TextTruncate.AtEnd, Parent = self.Button }) _lIIlIllIlI:Bind(self.Label, "\084\101\120\116", self.TitleSource) self.Indicator = _IlIIIIlIlI("\070\114\097\109\101", { AnchorPoint = Vector2.new(0x0, 0.5), _IllIIIllll = UDim2.fromOffset(0x3, 0x0), Position = UDim2.new(0x0, -0x8, 0.5, 0x0), BackgroundColor3 = Color3.new(0x1, 0x1, 0x1), BackgroundTransparency = 0x1, Parent = self.Button }, { _IIlIlIIlIl(0x2), _llllIlIlIl.Make("\070\105\108\108", { Rotation = 0x5A }) }) self.Button.Visible = not self.Hidden _lllllIIlIl(_IIIIIllIIl.Maid, self.Button, function () _IIIIIllIIl:PlayClick("\066\117\116\116\111\110") _IIIIIllIIl:Select(self) end
- ) _llIIllIIlI(_IIIIIllIIl.Maid, self.Button, { Hover = function (state) self.Hovered = state self:_Render() end
- }) _IIIIIllIIl.Maid:Give(_IllIIIIIIl( function () self:_Render() end
- )) return self end
- function _lIIllllIll:_DefaultDesc() return function () return string.format(_lIIlIllIlI:Builtin("\077\097\110\097\103\101\070\111\114"), tostring(_lIIlIllIlI:Resolve(self.TitleSource))) end
- end
- function _lIIllllIll:NextOrder() self.Order = self.Order + 0x1 return self.Order end
- function _lIIllllIll:_Render() local _lllIIllIll = 0x1 if self.IsActive then _lllIIllIll = 0x0 elseif self.Hovered then _lllIIllIll = 0.6 end
- local _lllIlIIIll = self.IsActive or self.Hovered _IllllIlIll(self.Button, 0.2, { BackgroundTransparency = _lllIIllIll }) _IllllIlIll(self.Stroke, 0.2, { Transparency = self.IsActive and 0x0 or 0x1 }) _IllllIlIll(self.Label, 0.2, { TextColor3 = _lllIlIIIll and _lllIIllllI.Text or _lllIIllllI.SubText, Position = UDim2.fromOffset(self.IsActive and 0x31 or 0x2E, 0x0) }) end
- function _lIIllllIll:_RestoreScroll() task.defer( function () task.wait() if not self.Destroyed and self.IsActive then local _IIIllIIlll = math.max(self.Content.AbsoluteCanvasSize.Y - self.Content.AbsoluteWindowSize.Y, 0x0) self.Content.CanvasPosition = Vector2.new(0x0, math.min(self.SavedScroll, _IIIllIIlll)) end
- end
- ) end
- function _lIIllllIll:SetActive(state) self.IsActive = state self.Content.Visible = state if state then self:_RestoreScroll() self.Indicator.Size = UDim2.fromOffset(0x3, 0x0) self.Indicator.BackgroundTransparency = 0x0 _IllllIlIll(self.Indicator, 0.4, { _IllIIIllll = UDim2.fromOffset(0x3, 0x14) }, Enum.EasingStyle.Back) else _IllllIlIll(self.Indicator, 0.2, { _IllIIIllll = UDim2.fromOffset(0x3, 0x0), BackgroundTransparency = 0x1 }) end
- self:_Render() end
- function _lIIllllIll:AddSection(config) local _IlIllIIIlI = _IllIllIIlI.new(self, config or {}) table.insert(self.Sections, _IlIllIIIlI) return _IlIllIIIlI end
- _lIIllllIll.CreateSection = _lIIllllIll.AddSection function _lIIllllIll:SetTitle(_lIIllIIlIl) self.TitleSource = _lIIllIIlIl _lIIlIllIlI:Bind(self.Label, "\084\101\120\116", _lIIllIIlIl) if self.Window.Active == self then _lIIlIllIlI:Bind(self.Window.PageTitle, "\084\101\120\116", _lIIllIIlIl) end
- end
- function _lIIllllIll:SetDesc(_lIIllIIlIl) self.DescSource = _lIIllIIlIl or self:_DefaultDesc() if self.Window.Active == self then _lIIlIllIlI:Bind(self.Window.PageDesc, "\084\101\120\116", self.DescSource) end
- end
- function _lIIllllIll:SetIcon(_llIlIIIllI) self.IconSource = _llIlIIIllI self.IconImage.Image = _llllllIlll(_llIlIIIllI, "\114\098\120\097\115\115\101\116\105\100\058\047\047\054\048\050\051\052\050\054\057\049\053") end
- function _lIIllllIll:SetColor(color) self.IconBox.BackgroundColor3 = color end
- function _lIIllllIll:Select(silent) self.Window:Select(self, silent) end
- function _lIIllllIll:SetVisible(state) self.Hidden = state == false self.Button.Visible = not self.Hidden if self.Hidden and self.Window.Active == self then self.Window:_SelectFallback(self) end
- end
- function _lIIllllIll:Show() self:SetVisible(true) end
- function _lIIllllIll:Hide() self:SetVisible(false) end
- function _lIIllllIll:GetSections() return table.clone(self.Sections) end
- function _lIIllllIll:Refresh() for _, _IlIllIIIlI in ipairs(self.Sections) do _IlIllIIIlI:Refresh() end
- end
- function _lIIllllIll:Destroy() if self.Destroyed then return end
- self.Destroyed = true local _IIIIIllIIl = self.Window for _, _IlIllIIIlI in ipairs(table.clone(self.Sections)) do _IlIllIIIlI:Destroy() end
- for _IIIlIllIll, _lIlllIlIIl in ipairs(_IIIIIllIIl.Tabs) do if _lIlllIlIIl == self then table.remove(_IIIIIllIIl.Tabs, _IIIlIllIll) break end
- end
- if _IIIIIllIIl.Active == self then _IIIIIllIIl.Active = nil _IIIIIllIIl:_SelectFallback(self) end
- self.Content:Destroy() self.Button:Destroy() end
- local _IlIIllIlII = {} _IlIIllIlII.__index = _IlIIllIlII local _lIlIIllIII = {} function _IlIIllIlII.new(config) local self = setmetatable({}, _IlIIllIlII) config = table.clone(config or {}) self.Config = config self.Maid = _lIIIllIIll.new() self.Tabs = {} self.UserTabs = 0x0 self.Active = nil self.Visible = true self.Destroyed = false self.UserScale = math.clamp(tonumber(config.Scale) or 0x1, 0.5, 1.5) self.SoundEnabled = config.Sound ~= false self.ToggleKey = nil self.Transition = 0x0 self.FitScale = 0x1 self.ActiveDropdown = nil self.LogoImages = {} self.AcrylicCards = {} self.IconSource = config.Icon or config.Logo or "\114\098\120\097\115\115\101\116\105\100\058\047\047\049\048\055\050\051\052\049\053\051\057\051" self.TitleSource = config.Title or "\070\114\097\099\116\117\114\101\032\072\117\098" self.SubTitleSource = config.SubTitle or "\098\121\032\070\114\097\099\116\117\114\101" self.ToggleTextSource = config.ToggleText self.ConfigFolder = config.ConfigFolder or "\070\114\097\099\116\117\114\101\032\085\073" self.ConfigMap = config.MapName ~= nil and _lIllIIllll(config.MapName) or nil self.AutoSave = config.AutoSave == true self.OnOpen = config.OnOpen self.OnClose = config.OnClose self.OnDestroy = config.OnDestroy self.Flags = _lIIIIlIIlI self.SettingsReady = false local _llllIllIIl = self:_ReadSettings() self:_ApplyCustomData(_llllIllIIl.Custom) local _lIIlIIIlII = config.Acrylic self.AcrylicOn = _IIIIlllIIl(_llllIllIIl.AcrylicOn, _lIIlIIIlII == true or (type(_lIIlIIIlII) == "\110\117\109\098\101\114" and _lIIlIIIlII > 0x0)) self.Transparency = math.clamp(tonumber(_IIIIlllIIl(_llllIllIIl.Transparency, type(_lIIlIIIlII) == "\110\117\109\098\101\114" and _lIIlIIIlII or config.Transparency)) or 0.25, 0x0, 0.85) self.BlurSize = math.clamp(tonumber(_IIIIlllIIl(_llllIllIIl.BlurSize, config.BlurSize)) or 0x10, 0x0, 0x28) _lIlllllIII = _IIIIlllIIl(_llllIllIIl.AccentStyle, config.AccentStyle) == "\083\111\108\105\100" self.NotifyTimer = _IIIIlllIIl(_llllIllIIl.NotifyTimer, config.NotifyTimer ~= false) self.NotifyLineColor = _IIlIllllII(_IIIIlllIIl(_llllIllIIl.NotifyLine, config.NotifyLineColor)) config.Language = _IIIIlllIIl(_llllIllIIl.Language, config.Language) config.Theme = _IIIIlllIIl(_llllIllIIl.Theme, config.Theme) config.HideName = _IIIIlllIIl(_llllIllIIl.HideName, config.HideName) config.HideProfile = _IIIIlllIIl(_llllIllIIl.HideProfile, config.HideProfile) config.ToggleKey = _IIIIlllIIl(_llllIllIIl.ToggleKey, config.ToggleKey) self.SoundEnabled = _IIIIlllIIl(_llllIllIIl.Sound, self.SoundEnabled) self.Volume = math.clamp(tonumber(_IIIIlllIIl(_llllIllIIl.Volume, config.Volume)) or 0x1, 0x0, 0x2) self.UserScale = math.clamp(tonumber(_IIIIlllIIl(_llllIllIIl.Scale, self.UserScale)) or 0x1, 0.5, 1.5) if config.Translations then _lIIlIllIlI:AddTranslations(config.Translations) end
- if config.Language then _lIIlIllIlI:SetLanguage(config.Language) end
- if config.Theme and _llIllllIIl[config.Theme] then _lIIllIIlll(config.Theme) elseif _lIlllllIII then _lIIllIIlll(_IIlIIIIlIl) end
- if config.ToggleKey == nil then self:SetToggleKey(Enum.KeyCode.RightControl) else self:SetToggleKey(config.ToggleKey) end
- self:_Build(config) self:_BindInput() self:SetPillVisible(config.Pill ~= false and config.ShowToggle ~= false) local _lIlllllIIl = config.Open ~= false local _lIllIllIII = config.Splash ~= false self:SetVisible(_lIlllllIIl and not _lIllIllIII, true) if _lIllIllIII then self:_RunSplash(config, _lIlllllIIl) elseif _lIlllllIIl then self:PlayOpenSound() end
- if config.HideName then self:SetHideName(true) end
- if config.HideProfile then self:SetHideProfile(true) end
- self.Maid:Give(_lIIlIllIlI:Listen( function () self:_QueueSettingsSave() end
- )) self.Maid:Give(_IllIIIIIIl( function () self:_QueueSettingsSave() end
- )) self.SettingsReady = true table.insert(_lIlIIllIII, self) return self end
- function _IlIIllIlII:_Build(config) local _lIlIIlIIIl = config.Size or UDim2.fromOffset(0x280, 0x1B8) local _IIllIIllIl = self.IconSource local _IIlIlllIII = config.Name or "\070\114\097\099\116\117\114\101\085\073" if typeof(_lIlIIlIIIl) == "\086\101\099\116\111\114\050" then self.RequestedSize = _lIlIIlIIIl else self.RequestedSize = Vector2.new(_lIlIIlIIIl.X.Offset, _lIlIIlIIIl.Y.Offset) end
- self.DefaultPosition = config.Position or UDim2.fromScale(0.5, 0.5) local _IIlllllIlI, _lIIIllllII = self:_FitSize() local _llIIlllIll = _lIllllIlII() local _llIlllIlll = _llIIlllIll:FindFirstChild(_IIlIlllIII) if _llIlllIlll then _llIlllIlll:Destroy() end
- self.Gui = self.Maid:Give(_IlIIIIlIlI("\083\099\114\101\101\110\071\117\105", { _lllIllIIII = _IIlIlllIII, ResetOnSpawn = false, IgnoreGuiInset = true, DisplayOrder = config.DisplayOrder or 0x64, ZIndexBehavior = Enum.ZIndexBehavior.Sibling, Parent = _llIIlllIll })) self.Sounds = {} local _IIIIIlIIll = { Open = config.OpenSound, Toggle = config.ToggleSound, _llIIIIIIII = config.KeySound, _IIIIIlllIl = config.ButtonSound } local _IIlllIIIlI = {} for _IIllIIIIIl, Id in pairs(_IIIIIIIlIl) do local _IllllIIIll = _IlIIIIlIlI("\083\111\117\110\100", { SoundId = _IIIIIlIIll[_IIllIIIIIl] or Id, Volume = 0x0, Parent = self.Gui }) self.Sounds[_IIllIIIIIl] = _IllllIIIll table.insert(_IIlllIIIlI, _IllllIIIll) end
- task.spawn( function () pcall( function () game:GetService("\067\111\110\116\101\110\116\080\114\111\118\105\100\101\114"):PreloadAsync(_IIlllIIIlI) end
- ) end
- ) self.Maid:Give(UserInputService.TextBoxFocused:Connect( function (_lllllIIIll) if _lllllIIIll:IsDescendantOf(self.Gui) then local _IIlllIlllI = _lllllIIIll:GetPropertyChangedSignal("\084\101\120\116"):Connect( function () self:PlayClick("\075\101\121") end
- ) _lllllIIIll.FocusLost:Once( function () _IIlllIlllI:Disconnect() end
- ) end
- end
- )) self.Scale = _IlIIIIlIlI("\085\073\083\099\097\108\101", { Scale = 0x1 }) self.Gradient = _IlIIIIlIlI("\085\073\071\114\097\100\105\101\110\116", { Rotation = 0x5A, _IIIlIIIIlI = ColorSequence.new(_lllIIllllI.BackgroundTop, _lllIIllllI.Background) }) self.Maid:Give(_IllIIIIIIl( function () self.Gradient.Color = ColorSequence.new(_lllIIllllI.BackgroundTop, _lllIIllllI.Background) end
- )) local _IlIIIIlllI = _IlIIIIlIlI("\085\073\083\116\114\111\107\101", { _IIIlIIIIlI = Color3.new(0x1, 0x1, 0x1), Thickness = 1.2, ApplyStrokeMode = Enum.ApplyStrokeMode.Border }, { _llllIlIlIl.Make("\082\105\109", { Rotation = 0x23 }) }) self.Main = _IlIIIIlIlI("\070\114\097\109\101", { _lllIllIIII = "\077\097\105\110", _IllIIIllll = UDim2.fromOffset(_IIlllllIlI, _lIIIllllII), Position = self.DefaultPosition, AnchorPoint = Vector2.new(0.5, 0.5), BackgroundColor3 = Color3.fromRGB(0xFF, 0xFF, 0xFF), BackgroundTransparency = self:_AcrylicAlpha(), ClipsDescendants = true, Parent = self.Gui }, { _IIlIlIIlIl(0xC), _IlIIIIlllI, self.Scale, self.Gradient }) self:_BuildOverlay() self:_BuildPill(config, _IIllIIllIl) local _IIIllIllII = self:_BuildSidebar(config, _IIllIIllIl) self:_BuildProfile(_IIIllIllII) self:_BuildContent() self:_BuildControls() self:_BuildDragHandle() self:_BuildSettings() self:_BuildNotifications() self:_BindViewport() self:_PaintIcons() self.Maid:Give(_lIIlIllIlI:Listen( function () self:_PaintIcons() end
- )) self.Maid:Give(_IllIIIIIIl( function () self:_PaintIcons() end
- )) self.Maid:Give(self.Gui.Destroying:Connect( function () self:Destroy() end
- )) end
- function _IlIIllIlII:_BuildSidebar(config, _IIllIIllIl) local _IIIllIllII = _IlIIIIlIlI("\070\114\097\109\101", { _lllIllIIII = "\083\105\100\101\098\097\114", _IllIIIllll = UDim2.new(0x0, 0xB4, 0x1, 0x0), BackgroundTransparency = 0x1, Parent = self.Main }) _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.new(0x0, 0x1, 0x1, -0x24), Position = UDim2.new(0x1, 0x0, 0x0, 0x12), BackgroundColor3 = _lIlIllIIlI.Divider, Parent = _IIIllIllII }) local _lIlllIIlIl = _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.new(0x1, -0x18, 0x0, 0x2C), Position = UDim2.fromOffset(0xE, 0x10), BackgroundTransparency = 0x1, Parent = _IIIllIllII }) local _lIllllIlIl = _IlIIIIlIlI("\073\109\097\103\101\076\097\098\101\108", { _IllIIIllll = UDim2.fromOffset(0x24, 0x24), Position = UDim2.new(0x0, 0x0, 0.5, -0x12), ScaleType = Enum.ScaleType.Fit, Parent = _lIlllIIlIl }) table.insert(self.LogoImages, _lIllllIlIl) local _IIlIIlIlII = _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { _IllIIIllll = UDim2.new(0x1, -0x2E, 0x0, 0x12), Position = UDim2.fromOffset(0x2E, 0x5), TextSize = 0xE, Weight = "\083\101\109\105\066\111\108\100", TextTruncate = Enum.TextTruncate.AtEnd, Parent = _lIlllIIlIl }) self.SidebarTitle = _IIlIIlIlII _lIIlIllIlI:Bind(_IIlIIlIlII, "\084\101\120\116", self.TitleSource) local _IIlIIIIIIl = _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { _IllIIIllll = UDim2.new(0x1, -0x2E, 0x0, 0xE), Position = UDim2.fromOffset(0x2E, 0x18), TextSize = 0xA, TextColor3 = _lIlIllIIlI.SubText, TextTruncate = Enum.TextTruncate.AtEnd, Parent = _lIlllIIlIl }) self.SidebarSubTitle = _IIlIIIIIIl _lIIlIllIlI:Bind(_IIlIIIIIIl, "\084\101\120\116", self.SubTitleSource) local _llIlllIIll = _llIlIIIlIl(_lIlIllIIlI.Outline, 0x0, 0x1) local _lIllllIllI = _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.new(0x1, -0x18, 0x0, 0x20), Position = UDim2.fromOffset(0xC, 0x48), BackgroundColor3 = _lIlIllIIlI.Card, Parent = _IIIllIllII }, { _IIlIlIIlIl(0x8), _llIlllIIll }) local _IIIIIIlIIl = _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.fromOffset(0x10, 0x10), Position = UDim2.new(0x0, 0xA, 0.5, -0x8), BackgroundTransparency = 0x1, Parent = _lIllllIllI }) _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.fromOffset(0xA, 0xA), BackgroundTransparency = 0x1, Parent = _IIIIIIlIIl }, { _IIlIlIIlIl(0x5), _llIlIIIlIl(_lIlIllIIlI.SubText, 0x0, 1.5) }) _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.fromOffset(0x6, 0x2), Position = UDim2.fromOffset(0x9, 0xC), Rotation = 0x2D, BackgroundColor3 = _lIlIllIIlI.SubText, Parent = _IIIIIIlIIl }) local _IllIllIlll = _IlIIIIlIlI("\084\101\120\116\066\111\120", { _IllIIIllll = UDim2.new(0x1, -0x26, 0x1, 0x0), Position = UDim2.fromOffset(0x20, 0x0), PlaceholderColor3 = _lIlIllIIlI.SubText, ClearTextOnFocus = false, Parent = _lIllllIllI }) _lIIlIllIlI:Bind(_IllIllIlll, "\080\108\097\099\101\104\111\108\100\101\114\084\101\120\116", _IIlllIIlII("\083\101\097\114\099\104")) self.Maid:Give(_IllIllIlll.Focused:Connect( function () _IllllIlIll(_llIlllIIll, 0.2, { _IIIlIIIIlI = _lllIIllllI.AccentGlow }) end
- )) self.Maid:Give(_IllIllIlll.FocusLost:Connect( function () _IllllIlIll(_llIlllIIll, 0.2, { _IIIlIIIIlI = _lllIIllllI.Outline }) end
- )) self.Maid:Give(_IllIllIlll:GetPropertyChangedSignal("\084\101\120\116"):Connect( function () self:Filter(string.lower(_IllIllIlll.Text)) end
- )) self.TabList = _IlIIIIlIlI("\083\099\114\111\108\108\105\110\103\070\114\097\109\101", { _IllIIIllll = UDim2.new(0x1, 0x0, 0x1, -0xC0), Position = UDim2.fromOffset(0x0, 0x76), ScrollBarThickness = 0x0, CanvasSize = UDim2.new(), AutomaticCanvasSize = Enum.AutomaticSize.Y, Parent = _IIIllIllII }, { _IlIIIIlIlI("\085\073\076\105\115\116\076\097\121\111\117\116", { SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0x0, 0x6) }), _IlIIIIlIlI("\085\073\080\097\100\100\105\110\103", { PaddingLeft = UDim.new(0x0, 0x10), PaddingRight = UDim.new(0x0, 0xC), PaddingTop = UDim.new(0x0, 0x4) }) }) return _IIIllIllII end
- function _IlIIllIlII:_BuildProfile(_IIIllIllII) local _llIIIIIlII = Players.LocalPlayer if not _llIIIIIlII then return end
- local _lIllIIIlII = _IlIIIIlIlI("\070\114\097\109\101", { _lllIllIIII = "\080\114\111\102\105\108\101", _IllIIIllll = UDim2.new(0x1, -0x18, 0x0, 0x32), Position = UDim2.new(0x0, 0xC, 0x1, -0x3E), BackgroundColor3 = _lIlIllIIlI.Card, Parent = _IIIllIllII }, { _IIlIlIIlIl(0xA), _llIlIIIlIl(_lIlIllIIlI.Outline, 0x0, 0x1) }) self.ProfileCard = _lIllIIIlII self.ProfileDisplayName = _llIIIIIlII.DisplayName self.ProfileUserName = _llIIIIIlII.Name local _lIIIlllIlI = _IlIIIIlIlI("\073\109\097\103\101\076\097\098\101\108", { _IllIIIllll = UDim2.fromOffset(0x22, 0x22), Position = UDim2.fromOffset(0x8, 0x8), BackgroundTransparency = 0x0, BackgroundColor3 = _lIlIllIIlI.Selected, Parent = _lIllIIIlII }, { _IIlIlIIlIl(nil, true) }) _IlIIIIlIlI("\070\114\097\109\101", { AnchorPoint = Vector2.new(0x1, 0x1), _IllIIIllll = UDim2.fromOffset(0xA, 0xA), Position = UDim2.fromOffset(0x2C, 0x2C), BackgroundColor3 = _lIlIllIIlI.Green, Parent = _lIllIIIlII }, { _IIlIlIIlIl(nil, true), _llIlIIIlIl(_lIlIllIIlI.Card, 0x0, 0x2) }) self.ProfileName = _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { _IllIIIllll = UDim2.new(0x1, -0x3C, 0x0, 0x10), Position = UDim2.fromOffset(0x34, 0x9), _llllIIllll = _llIIIIIlII.DisplayName, Weight = "\077\101\100\105\117\109", TextTruncate = Enum.TextTruncate.AtEnd, Parent = _lIllIIIlII }) self.ProfileUser = _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { _IllIIIllll = UDim2.new(0x1, -0x3C, 0x0, 0xE), Position = UDim2.fromOffset(0x34, 0x1A), _llllIIllll = "\064" .. _llIIIIIlII.Name, TextSize = 0xA, TextColor3 = _lIlIllIIlI.SubText, TextTruncate = Enum.TextTruncate.AtEnd, Parent = _lIllIIIlII }) task.spawn( function () local _llIIlIIlIl, _IIlIlllllI = pcall( function () return Players:GetUserThumbnailAsync( _llIIIIIlII.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size100x100 ) end
- ) if _llIIlIIlIl and _lIIIlllIlI.Parent then _lIIIlllIlI.Image = _IIlIlllllI end
- end
- ) end
- function _IlIIllIlII:_BuildContent() local _IIlIllIIll = _IlIIIIlIlI("\070\114\097\109\101", { _lllIllIIII = "\067\111\110\116\101\110\116", _IllIIIllll = UDim2.new(0x1, -0xB4, 0x1, 0x0), Position = UDim2.fromOffset(0xB4, 0x0), BackgroundTransparency = 0x1, Parent = self.Main }) self.PageTitle = _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { _IllIIIllll = UDim2.new(0x1, -0x78, 0x0, 0x16), Position = UDim2.fromOffset(0x18, 0x10), TextSize = 0x12, Weight = "\083\101\109\105\066\111\108\100", TextTruncate = Enum.TextTruncate.AtEnd, Parent = _IIlIllIIll }) self.PageDesc = _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { _IllIIIllll = UDim2.new(0x1, -0x78, 0x0, 0xE), Position = UDim2.fromOffset(0x18, 0x28), TextSize = 0xB, TextColor3 = _lIlIllIIlI.SubText, TextTruncate = Enum.TextTruncate.AtEnd, Parent = _IIlIllIIll }) self.Pages = _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.new(0x1, 0x0, 0x1, -0x42), Position = UDim2.fromOffset(0x0, 0x42), BackgroundTransparency = 0x1, ClipsDescendants = true, Parent = _IIlIllIIll }) end
- function _IlIIllIlII:_BuildControls() local _IllIIIllIl = _IlIIIIlIlI("\070\114\097\109\101", { _lllIllIIII = "\067\111\110\116\114\111\108\115", AnchorPoint = Vector2.new(0x1, 0x0), _IllIIIllll = UDim2.fromOffset(0x34, 0xC), Position = UDim2.new(0x1, -0x12, 0x0, 0x12), BackgroundTransparency = 0x1, ZIndex = 0x5, Parent = self.Main }, { _IlIIIIlIlI("\085\073\076\105\115\116\076\097\121\111\117\116", { FillDirection = Enum.FillDirection.Horizontal, HorizontalAlignment = Enum.HorizontalAlignment.Right, VerticalAlignment = Enum.VerticalAlignment.Center, SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0x0, 0x8) }) }) local _lIIIIlIIIl = { { _IIIlIIIIlI = _lllIIllllI.Red, Action = function () self:Destroy() end
- }, { _IIIlIIIIlI = _lllIIllllI.Yellow, Action = function () self:SetVisible(false) end
- }, { _IIIlIIIIlI = _lllIIllllI.Green, Action = function () self:ResetPosition() end
- } } for _IIIlIllIll, _lIIlIIIIlI in ipairs(_lIIIIlIIIl) do local _IIIIIIIlIl = _IlIIIIlIlI("\084\101\120\116\066\117\116\116\111\110", { _IllIIIllll = UDim2.fromOffset(0xC, 0xC), BackgroundTransparency = 0x0, BackgroundColor3 = _lIIlIIIIlI.Color, LayoutOrder = _IIIlIllIll, Parent = _IllIIIllIl }, { _IIlIlIIlIl(nil, true) }) _llIIllIIlI(self.Maid, _IIIIIIIlIl, { Hover = function (state) _IllllIlIll(_IIIIIIIlIl, 0.15, { _IllIIIllll = state and UDim2.fromOffset(0xE, 0xE) or UDim2.fromOffset(0xC, 0xC) }) end
- }) self.Maid:Give(_IIIIIIIlIl.MouseButton1Click:Connect( function () self:PlayClick("\066\117\116\116\111\110") _lIIlIIIIlI.Action() end
- )) end
- end
- function _IlIIllIlII:_BuildDragHandle() local _IIllllllII = _IlIIIIlIlI("\070\114\097\109\101", { _lllIllIIII = "\068\114\097\103\072\097\110\100\108\101", _IllIIIllll = UDim2.new(0x1, 0x0, 0x0, 0x38), BackgroundTransparency = 0x1, _lIlllIlIlI = true, ZIndex = 0x2, Parent = self.Main }) self.Maid:Give(_IIllllllII.InputBegan:Connect( function (input) if not _lllIIlIlll[input.UserInputType] then return end
- local _llIlllIllI = input.Position local _lIIIIIIlII = self.Main.Position _IllIlIIIll(input, function (_lIIlIIIlIl) local _IIlIIlIllI = _lIIlIIIlIl - _llIlllIllI self.Main.Position = UDim2.new( _lIIIIIIlII.X.Scale, _lIIIIIIlII.X.Offset + _IIlIIlIllI.X, _lIIIIIIlII.Y.Scale, _lIIIIIIlII.Y.Offset + _IIlIIlIllI.Y ) end
- ) end
- )) end
- function _IlIIllIlII:_BuildSettings() local _lIlllIlIIl = _lIIllllIll.new(self, { Title = _IIlllIIlII("\083\101\116\116\105\110\103\115"), Desc = _IIlllIIlII("\083\101\116\116\105\110\103\115\068\101\115\099"), Icon = _lIllIIIIII.settings, _IIIlIIIIlI = Color3.fromRGB(0x46, 0x46, 0x4C), Order = 0x3E8 }) table.insert(self.Tabs, _lIlllIlIIl) self.SettingsTab = _lIlllIlIIl local _IIllllllIl = _lIlllIlIIl:AddSection({ Title = _IIlllIIlII("\076\097\110\103\117\097\103\101"), Desc = _IIlllIIlII("\076\097\110\103\117\097\103\101\068\101\115\099"), Icon = _lIllIIIIII.settings, _IIIlIIIIlI = Color3.fromRGB(0x2E, 0x6C, 0xD6) }) local function _lIlIIlIIII() local _IlIllllllI = {} for _, _IIllIlIIII in ipairs(_lIIlIllIlI:GetLanguages()) do table.insert(_IlIllllllI, _IIllIlIIII.Name) end
- return _IlIllllllI end
- local _IIIllIlllI = _IIllllllIl:AddDropdown({ Title = _IIlllIIlII("\076\097\110\103\117\097\103\101"), Desc = _IIlllIIlII("\076\097\110\103\117\097\103\101\068\101\115\099"), _IIIllIIIlI = _lIlIIlIIII(), Default = _lIIlIllIlI:GetName(_lIIlIllIlI.Language), Callback = function (name) local _lIllIlllIl = _lIIlIllIlI:GetCode(name) if _lIllIlllIl and _lIllIlllIl ~= _lIIlIllIlI.Language then _lIIlIllIlI:SetLanguage(_lIllIlllIl) end
- end
- }) self.LanguageDropdown = _IIIllIlllI self.Maid:Give(_lIIlIllIlI:Listen( function () _IIIllIlllI:SetOptions(_lIlIIlIIII()) _IIIllIlllI:Set(_lIIlIllIlI:GetName(_lIIlIllIlI.Language), true) end
- )) local _IlllIIllII = _lIlllIlIIl:AddSection({ Title = _IIlllIIlII("\065\112\112\101\097\114\097\110\099\101"), Desc = _IIlllIIlII("\065\112\112\101\097\114\097\110\099\101\068\101\115\099"), Icon = "\112\097\108\101\116\116\101", _IIIlIIIIlI = Color3.fromRGB(0x96, 0x50, 0xDC) }) local function _lIIlIIlIll() local _IlIllllllI = {} for _, _lIlllllIll in ipairs(_llIllIIlII) do table.insert(_IlIllllllI, _lIIlIllIlI:Builtin("\084\104\101\109\101" .. _lIlllllIll)) end
- return _IlIllllllI end
- local function _IlIIIlIIII(_lIlllllIll) return _lIIlIllIlI:Builtin("\084\104\101\109\101" .. _lIlllllIll) end
- local function _IIIlIllIll(name) for _, _lIlllllIll in ipairs(_llIllIIlII) do if _lIIlIllIlI:Builtin("\084\104\101\109\101" .. _lIlllllIll) == name then return _lIlllllIll end
- end
- return nil end
- self.StyleSegmented = _IlllIIllII:AddSegmented({ Title = _IIlllIIlII("\065\099\099\101\110\116\083\116\121\108\101"), _IIIllIIIlI = { { _llIIIIIIII = "\071\114\097\100\105\101\110\116", _llllIIllll = _IIlllIIlII("\083\116\121\108\101\071\114\097\100\105\101\110\116") }, { _llIIIIIIII = "\083\111\108\105\100", _llllIIllll = _IIlllIIlII("\083\116\121\108\101\083\111\108\105\100") } }, Default = _lIlllllIII and "\083\111\108\105\100" or "\071\114\097\100\105\101\110\116", Callback = function (_llIIIIIIII) _IlIllIIIlI(_llIIIIIIII) self:_QueueSettingsSave() end
- }) local _lllIllllIl = _IlllIIllII:AddDropdown({ Title = _IIlllIIlII("\084\104\101\109\101"), Desc = _IIlllIIlII("\084\104\101\109\101\068\101\115\099"), _IIIllIIIlI = _lIIlIIlIll(), Default = _IlIIIlIIII(_IIlIIIIlIl), Search = false, Callback = function (name) local _lIlllllIll = _IIIlIllIll(name) if _lIlllllIll and _lIlllllIll ~= _IIlIIIIlIl then _lIIllIIlll(_lIlllllIll) end
- end
- }) self.ThemeDropdown = _lllIllllIl self.Maid:Give(_lIIlIllIlI:Listen( function () _lllIllllIl:SetOptions(_lIIlIIlIll()) _lllIllllIl:Set(_IlIIIlIIII(_IIlIIIIlIl), true) end
- )) self.Maid:Give(_IllIIIIIIl( function () _lllIllllIl:Set(_IlIIIlIIII(_IIlIIIIlIl), true) end
- )) self.CustomPickers = {} local function _IllIlIllIl(Section, _llIIIIIIII, TitleKey) self.CustomPickers[_llIIIIIIII] = Section:AddColorPicker({ Title = _IIlllIIlII(TitleKey), Default = _llIllllIIl[_IIlIIIIlIl][_llIIIIIIII], Callback = function (_IIIlIIIIlI) self:_PrepareCustom() _lIIIIIllII[_llIIIIIIII] = _IIIlIIIIlI _lIIlIlIIIl() self:_QueueSettingsSave() end
- }) end
- _IlllIIllII:AddPalette({ Title = _IIlllIIlII("\081\117\105\099\107\080\097\108\101\116\116\101\115"), _IIIllllllI = _llIIllIIll, _lllIlllIII = 0x5, Callback = function (_IIIlIIIIlI) self:_PrepareCustom() _lIIIIIllII.Accent = _IIIlIIIIlI _lIIIIIllII.AccentAlt = _IIIlIIIIlI:Lerp(Color3.new(0x1, 0x1, 0x1), 0.35) _lIIlIlIIIl() self:_QueueSettingsSave() end
- }) _IllIlIllIl(_IlllIIllII, "\065\099\099\101\110\116", "\080\114\105\109\097\114\121\065\099\099\101\110\116") _IllIlIllIl(_IlllIIllII, "\065\099\099\101\110\116\065\108\116", "\083\101\099\111\110\100\097\114\121\065\099\099\101\110\116") self.Maid:Give(_IllIIIIIIl( function () self:_SyncCustomPickers() end
- )) local _llIlIlIlll = _lIlllIlIIl:AddSection({ Title = _IIlllIIlII("\073\110\116\101\114\102\097\099\101"), Desc = _IIlllIIlII("\073\110\116\101\114\102\097\099\101\068\101\115\099"), Icon = _lIllIIIIII.sliders, _IIIlIIIIlI = Color3.fromRGB(0x46, 0x46, 0x4C) }) self.SoundToggle = _llIlIlIlll:AddToggle({ Title = _IIlllIIlII("\083\111\117\110\100"), Desc = _IIlllIIlII("\083\111\117\110\100\068\101\115\099"), Default = self.SoundEnabled, Callback = function (state) self:SetSound(state) end
- }) self.VolumeSlider = _llIlIlIlll:AddSlider({ Title = _IIlllIIlII("\086\111\108\117\109\101"), Desc = _IIlllIIlII("\086\111\108\117\109\101\068\101\115\099"), Min = 0x0, Max = 0xC8, Step = 0x5, Default = math.floor(self.Volume * 0x64 + 0.5), Suffix = "\037", Callback = function (_llIIIIIlIl) self:SetVolume(_llIIIIIlIl / 0x64) end
- }) self.ScaleSlider = _llIlIlIlll:AddSlider({ Title = _IIlllIIlII("\083\099\097\108\101"), Desc = _IIlllIIlII("\083\099\097\108\101\068\101\115\099"), Min = 0x46, Max = 0x82, Step = 0x5, Default = math.floor(self.UserScale * 0x64 + 0.5), Suffix = "\037", Callback = function (_llIIllllII) self:SetUserScale(_llIIllllII / 0x64) end
- }) self.AcrylicToggle = _llIlIlIlll:AddToggle({ Title = _IIlllIIlII("\065\099\114\121\108\105\099"), Desc = _IIlllIIlII("\065\099\114\121\108\105\099\068\101\115\099"), Default = self.AcrylicOn, Callback = function (State) self:SetAcrylic(State) end
- }) self.TransparencySlider = _llIlIlIlll:AddSlider({ Title = _IIlllIIlII("\084\114\097\110\115\112\097\114\101\110\099\121"), Desc = _IIlllIIlII("\084\114\097\110\115\112\097\114\101\110\099\121\068\101\115\099"), Min = 0x0, Max = 0x55, Step = 0x5, Default = math.floor(self.Transparency * 0x64 + 0.5), Suffix = "\037", Callback = function (_llIIIIIlIl) self:SetTransparency(_llIIIIIlIl / 0x64) if not self.AcrylicOn then self:SetAcrylic(true) end
- end
- }) self.BlurSlider = _llIlIlIlll:AddSlider({ Title = _IIlllIIlII("\066\108\117\114"), Desc = _IIlllIIlII("\066\108\117\114\068\101\115\099"), Min = 0x0, Max = 0x28, Step = 0x2, Default = math.floor(self.BlurSize + 0.5), Callback = function (_llIIIIIlIl) self:SetBlur(_llIIIIIlIl) end
- }) _llIlIlIlll:AddKeybind({ Title = _IIlllIIlII("\084\111\103\103\108\101\075\101\121"), Desc = _IIlllIIlII("\084\111\103\103\108\101\075\101\121\068\101\115\099"), Default = self.ToggleKey, Callback = function (_llIIIIIIII) self:SetToggleKey(_llIIIIIIII ~= Enum.KeyCode.Unknown and _llIIIIIIII or nil) end
- }) _llIlIlIlll:AddButton({ Title = _IIlllIIlII("\082\101\115\101\116"), Desc = _IIlllIIlII("\082\101\115\101\116\068\101\115\099"), Icon = _lIllIIIIII.refresh, Callback = function () self:ResetPosition() end
- }) _llIlIlIlll:AddButton({ Title = _IIlllIIlII("\082\101\115\101\116\065\108\108"), Desc = _IIlllIIlII("\082\101\115\101\116\065\108\108\068\101\115\099"), Icon = _lIllIIIIII.refresh, Callback = function () self:ResetSettings() end
- }) local _IIIllIIlIl = _lIlllIlIIl:AddSection({ Title = _IIlllIIlII("\080\114\105\118\097\099\121"), Desc = _IIlllIIlII("\080\114\105\118\097\099\121\068\101\115\099"), Icon = "\101\121\101\045\111\102\102", _IIIlIIIIlI = Color3.fromRGB(0x2E, 0x96, 0x78) }) _IIIllIIlIl:AddToggle({ Title = _IIlllIIlII("\072\105\100\101\078\097\109\101"), Desc = _IIlllIIlII("\072\105\100\101\078\097\109\101\068\101\115\099"), Default = self.Config.HideName == true, Callback = function (state) self:SetHideName(state) end
- }) _IIIllIIlIl:AddToggle({ Title = _IIlllIIlII("\072\105\100\101\080\114\111\102\105\108\101"), Desc = _IIlllIIlII("\072\105\100\101\080\114\111\102\105\108\101\068\101\115\099"), Default = self.Config.HideProfile == true, Callback = function (state) self:SetHideProfile(state) end
- }) end
- function _IlIIllIlII:SetHideName(state) self.NameHidden = state == true self:_QueueSettingsSave() if self.ProfileName then self.ProfileName.Text = self.NameHidden and "\8226\8226\8226\8226\8226\8226" or self.ProfileDisplayName end
- if self.ProfileUser then self.ProfileUser.Text = "\064" .. (self.NameHidden and "\8226\8226\8226\8226\8226\8226" or self.ProfileUserName) end
- end
- function _IlIIllIlII:SetHideProfile(state) self.ProfileHidden = state == true self:_QueueSettingsSave() if self.ProfileCard then self.ProfileCard.Visible = not self.ProfileHidden end
- end
- function _IlIIllIlII:_BindInput() self.Maid:Give(UserInputService.InputBegan:Connect( function (input, processed) if processed or not self.ToggleKey then return end
- if input.KeyCode == self.ToggleKey then self:SetVisible( not self.Visible) end
- end
- )) end
- function _IlIIllIlII:_Viewport() local _IlIlIlllll = workspace.CurrentCamera local _IIlIIlIllI = _IlIlIlllll and _IlIlIlllll.ViewportSize or Vector2.new(0x500, 0x2D0) if _IIlIIlIllI.X <= 0x0 or _IIlIIlIllI.Y <= 0x0 then _IIlIIlIllI = Vector2.new(0x500, 0x2D0) end
- return _IIlIIlIllI end
- function _IlIIllIlII:_FitSize() local _IIllIlllIl = self:_Viewport() local _IIlllllIlI = math.max(math.min(self.RequestedSize.X, _IIllIlllIl.X - 0x18), 0x1B8) local _lIIIllllII = math.max(math.min(self.RequestedSize.Y, _IIllIlllIl.Y - 0x18), 0x12C) self.FitScale = math.min(0x1, (_IIllIlllIl.X - 0x10) / _IIlllllIlI, (_IIllIlllIl.Y - 0x10) / _lIIIllllII) return _IIlllllIlI, _lIIIllllII end
- function _IlIIllIlII:_TargetScale() return self.UserScale * self.FitScale end
- function _IlIIllIlII:_BindViewport() local _IlIlIlllll = workspace.CurrentCamera if not _IlIlIlllll then return end
- self.Maid:Give(_IlIlIlllll:GetPropertyChangedSignal("\086\105\101\119\112\111\114\116\083\105\122\101"):Connect( function () self:_Refit() end
- )) end
- function _IlIIllIlII:_Refit() local _IIlllllIlI, _lIIIllllII = self:_FitSize() self.Main.Size = UDim2.fromOffset(_IIlllllIlI, _lIIIllllII) if self.Visible then _IllllIlIll(self.Scale, 0.2, { Scale = self:_TargetScale() }) end
- local _lIIlIIIlIl = self.Pill.Position self:_PlacePill(_lIIlIIIlIl.X.Offset, _lIIlIIIlIl.Y.Offset) end
- function _IlIIllIlII:_BuildOverlay() self.Overlay = _IlIIIIlIlI("\070\114\097\109\101", { _lllIllIIII = "\079\118\101\114\108\097\121", _IllIIIllll = UDim2.fromScale(0x1, 0x1), BackgroundTransparency = 0x1, ZIndex = 0x32, Parent = self.Main }) self.Blocker = _IlIIIIlIlI("\084\101\120\116\066\117\116\116\111\110", { _IllIIIllll = UDim2.fromScale(0x1, 0x1), Visible = false, Parent = self.Overlay }) self.Maid:Give(self.Blocker.MouseButton1Click:Connect( function () self:CloseDropdown() end
- )) end
- function _IlIIllIlII:ActivateDropdown(_IIIllIlllI) if self.ActiveDropdown and self.ActiveDropdown ~= _IIIllIlllI then self.ActiveDropdown:SetOpen(false) end
- self.ActiveDropdown = _IIIllIlllI self.Blocker.Visible = true end
- function _IlIIllIlII:ReleaseDropdown(_IIIllIlllI) if self.ActiveDropdown == _IIIllIlllI then self.ActiveDropdown = nil self.Blocker.Visible = false end
- end
- function _IlIIllIlII:CloseDropdown() if self.ActiveDropdown then self.ActiveDropdown:SetOpen(false) end
- end
- function _IlIIllIlII:_PillHome() return Vector2.new(self:_Viewport().X / 0x2, 0xC) end
- function _IlIIllIlII:_ClampPill(x, y) local _IIllIlllIl = self:_Viewport() local _IIlIIlIllI = self.Pill.AbsoluteSize local _IIIlIIlIll = _IIlIIlIllI.X / 0x2 local _IIllllIlIl = _IIIlIIlIll + 0x8 local _lllIlIIlIl = math.max(_IIllIlllIl.X - _IIIlIIlIll - 0x8, _IIllllIlIl) local _IIlIlIllIl = math.max(_IIllIlllIl.Y - _IIlIIlIllI.Y - 0x8, 0x8) return Vector2.new(math.clamp(x, _IIllllIlIl, _lllIlIIlIl), math.clamp(y, 0x8, _IIlIlIllIl)) end
- function _IlIIllIlII:_PlacePill(x, y) local _lIllIllIlI = self:_ClampPill(x, y) self.Pill.Position = UDim2.fromOffset(_lIllIllIlI.X, _lIllIllIlI.Y) end
- function _IlIIllIlII:_BuildPill(config, _IIllIIllIl) local _IIlllllllI = self:_PillHome() local _IlIlIIIIIl = self.ToggleTextSource or self.TitleSource self.PillScale = _IlIIIIlIlI("\085\073\083\099\097\108\101", { Scale = 0x1 }) self.PillStroke = _llIlIIIlIl(_lIlIllIIlI.Outline, 0x0, 0x1) self.Pill = _IlIIIIlIlI("\084\101\120\116\066\117\116\116\111\110", { _lllIllIIII = "\084\111\103\103\108\101\080\105\108\108", AnchorPoint = Vector2.new(0.5, 0x0), _IllIIIllll = UDim2.fromOffset(0x0, 0x28), AutomaticSize = Enum.AutomaticSize.X, Position = UDim2.fromOffset(_IIlllllllI.X, _IIlllllllI.Y), BackgroundTransparency = 0x0, BackgroundColor3 = _lIlIllIIlI.Card, ZIndex = 0x64, Parent = self.Gui }, { _IIlIlIIlIl(0xC), self.PillStroke, self.PillScale, _IlIIIIlIlI("\085\073\080\097\100\100\105\110\103", { PaddingLeft = UDim.new(0x0, 0xE), PaddingRight = UDim.new(0x0, 0x10) }), _IlIIIIlIlI("\085\073\076\105\115\116\076\097\121\111\117\116", { FillDirection = Enum.FillDirection.Horizontal, VerticalAlignment = Enum.VerticalAlignment.Center, SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0x0, 0x9) }) }) self.PillDot = _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.fromOffset(0x8, 0x8), BackgroundColor3 = _lllIIllllI.Green, LayoutOrder = 0x1, Parent = self.Pill }, { _IIlIlIIlIl(nil, true) }) local _llIlIIIllI = _IlIIIIlIlI("\073\109\097\103\101\076\097\098\101\108", { _IllIIIllll = UDim2.fromOffset(0x16, 0x16), ScaleType = Enum.ScaleType.Fit, LayoutOrder = 0x2, Parent = self.Pill }) table.insert(self.LogoImages, _llIlIIIllI) self.PillLabel = _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { _IllIIIllll = UDim2.fromOffset(0x0, 0x12), AutomaticSize = Enum.AutomaticSize.X, Weight = "\077\101\100\105\117\109", TextSize = 0xC, TextColor3 = _lllIIllllI.Text, LayoutOrder = 0x3, Parent = self.Pill }) _lIIlIllIlI:Bind(self.PillLabel, "\084\101\120\116", _IlIlIIIIIl) self.Maid:Give(_IllIIIIIIl( function () self:_RenderPill(true) end
- )) self:_BindPillInput() end
- function _IlIIllIlII:_RenderPill(animate) if not self.Pill then return end
- local _lIllIllllI = self.Visible local _IIIIIlIIll = { { self.PillDot, { BackgroundColor3 = _lIllIllllI and _lllIIllllI.Green or _lllIIllllI.SubText } }, { self.PillLabel, { TextColor3 = _lIllIllllI and _lllIIllllI.Text or _lllIIllllI.SubText } }, { self.PillStroke, { _IIIlIIIIlI = _lIllIllllI and _lllIIllllI.AccentGlow or _lllIIllllI.Outline, Transparency = _lIllIllllI and 0.55 or 0x0 } } } for _, _IllllIlIll in ipairs(_IIIIIlIIll) do if animate then _IllllIlIll(_IllllIlIll[0x1], 0.25, _IllllIlIll[0x2]) else for property, _llIIllllII in pairs(_IllllIlIll[0x2]) do _IllllIlIll[0x1][property] = _llIIllllII end
- end
- end
- end
- function _IlIIllIlII:_BindPillInput() local _llIIlIIllI = self.Pill self.Maid:Give(_llIIlIIllI.InputBegan:Connect( function (input) if not _lllIIlIlll[input.UserInputType] then return end
- local _llIlllIllI = input.Position local _lIIIIIIlII = Vector2.new(_llIIlIIllI.Position.X.Offset, _llIIlIIllI.Position.Y.Offset) local _IllllIlIll = _lIIIIIIlII local _lIIlIlllIl = _lIIIIIIlII local _IlIIllIIIl = false _IllllIlIll(self.PillScale, 0.1, { Scale = 0.95 }) local _llIIIIIllI = RunService.Heartbeat:Connect( function (_IIlIIlIllI) if not _IlIIllIIIl then return end
- _lIIlIlllIl = _lIIlIlllIl:Lerp(_IllllIlIll, 0x1 - math.exp(-_IIlIIlIllI * 0x1C)) self:_PlacePill(_lIIlIlllIl.X, _lIIlIlllIl.Y) end
- ) _IllIlIIIll(input, function (_lIIlIIIlIl) local _IlIIllIllI = _lIIlIIIlIl - _llIlllIllI if not _IlIIllIIIl and _IlIIllIllI.Magnitude > 0xC then _IlIIllIIIl = true end
- if _IlIIllIIIl then _IllllIlIll = self:_ClampPill(_lIIIIIIlII.X + _IlIIllIllI.X, _lIIIIIIlII.Y + _IlIIllIllI.Y) end
- end
- , function (_, cancelled) _llIIIIIllI:Disconnect() _IllllIlIll(self.PillScale, 0.3, { Scale = 0x1 }, Enum.EasingStyle.Back) if _IlIIllIIIl then _IllllIlIll(_llIIlIIllI, 0.18, { Position = UDim2.fromOffset(_IllllIlIll.X, _IllllIlIll.Y) }, Enum.EasingStyle.Quint) elseif not cancelled then self:SetVisible( not self.Visible) end
- end
- ) end
- )) end
- function _IlIIllIlII:SetToggleKey(_lIlllllIll) if type(_lIlllllIll) == "\115\116\114\105\110\103" then local _llIIlIIlIl, _llIIllllII = pcall( function () return Enum.KeyCode[_lIlllllIll] end
- ) _lIlllllIll = _llIIlIIlIl and _llIIllllII or nil end
- if typeof(_lIlllllIll) == "\069\110\117\109\073\116\101\109" and _lIlllllIll.EnumType == Enum.KeyCode then self.ToggleKey = _lIlllllIll else self.ToggleKey = nil end
- self:_QueueSettingsSave() end
- function _IlIIllIlII:PlayClick(_IIllIIIIIl) local _IllllIIIll = self.Sounds and self.Sounds[_IIllIIIIIl] if self.SoundEnabled and _IllllIIIll and self.Volume > 0x0 then _IllllIIIll.Volume = math.min(_llIlIIIIIl[_IIllIIIIIl] * self.Volume, 0xA) _IllllIIIll.TimePosition = 0x0 _IllllIIIll:Play() end
- end
- function _IlIIllIlII:PlayOpenSound() self:PlayClick("\079\112\101\110") end
- function _IlIIllIlII:SetVolume(_llIIIIIlIl) self.Volume = math.clamp(tonumber(_llIIIIIlIl) or 0x1, 0x0, 0x2) local _IlllIIIIIl = os.clock() if _IlllIIIIIl - (self.LastVolumePreview or 0x0) > 0.2 then self.LastVolumePreview = _IlllIIIIIl self:PlayClick("\066\117\116\116\111\110") end
- self:_QueueSettingsSave() end
- function _IlIIllIlII:_AcrylicAlpha() return self.AcrylicOn and self.Transparency or 0x0 end
- function _IlIIllIlII:_UpdateBlur() local _lIlllIlIlI = self.AcrylicOn and self.Visible and not self.Destroyed local _IlIIIIlIll = _lIlllIlIlI and self.BlurSize or 0x0 if _IlIIIIlIll > 0x0 and not self.BlurEffect then self.BlurEffect = _IlIIIIlIlI("\066\108\117\114\069\102\102\101\099\116", { _lllIllIIII = "\070\114\097\099\116\117\114\101\085\073\066\108\117\114", _IllIIIllll = 0x0, Parent = game:GetService("\076\105\103\104\116\105\110\103") }) end
- if self.BlurEffect then _IllllIlIll(self.BlurEffect, 0.35, { _IllIIIllll = _IlIIIIlIll }) end
- end
- function _IlIIllIlII:SetBlur(_llIIIIIlIl) self.BlurSize = math.clamp(tonumber(_llIIIIIlIl) or 0x0, 0x0, 0x28) self:_UpdateBlur() self:_QueueSettingsSave() end
- function _IlIIllIlII:_ApplyAcrylic() self:_UpdateBlur() local _IIlIlllllI = self:_AcrylicAlpha() _IllllIlIll(self.Main, 0.2, { BackgroundTransparency = _IIlIlllllI }) for Index = #self.AcrylicCards, 0x1, -0x1 do local _llllIIIIII = self.AcrylicCards[Index] if _llllIIIIII.Parent then _IllllIlIll(_llllIIIIII, 0.2, { BackgroundTransparency = _IIlIlllllI * 0.7 }) else table.remove(self.AcrylicCards, Index) end
- end
- self:_QueueSettingsSave() end
- function _IlIIllIlII:SetAcrylic(State) self.AcrylicOn = State == true if self.AcrylicToggle then self.AcrylicToggle:Set(self.AcrylicOn, true) end
- self:_ApplyAcrylic() end
- function _IlIIllIlII:SetTransparency(_llIIIIIlIl) self.Transparency = math.clamp(tonumber(_llIIIIIlIl) or 0x0, 0x0, 0.85) self:_ApplyAcrylic() end
- function _IlIIllIlII:_PrepareCustom() if _IIlIIIIlIl ~= "\067\117\115\116\111\109" then for _, _llIIIIIIII in ipairs(_IIIIlIIlll) do local _IIIlIIIIlI = _llIllllIIl[_IIlIIIIlIl][_llIIIIIIII] _lIIIIIllII[_llIIIIIIII] = _IIIlIIIIlI local _IlllIIllll = self.CustomPickers and self.CustomPickers[_llIIIIIIII] if _IlllIIllll then _IlllIIllll:Set(_IIIlIIIIlI, true) end
- end
- end
- end
- function _IlIIllIlII:_SyncCustomPickers() local _IlllIIllll = _llIllllIIl[_IIlIIIIlIl] for _, _llIIIIIIII in ipairs(_IIIIlIIlll) do local _IlllIIllll = self.CustomPickers and self.CustomPickers[_llIIIIIIII] if _IlllIIllll and _IlllIIllll then _IlllIIllll:Set(_IlllIIllll[_llIIIIIIII], true) end
- end
- end
- function _IlIIllIlII:ResetSettings() for _, _llIIIIIIII in ipairs(_IIIIlIIlll) do _lIIIIIllII[_llIIIIIIII] = _llIllllIIl.Dark[_llIIIIIIII] end
- _llIllllIIl.Custom = _IllllIIIII() _lIlllllIII = false self.StyleSegmented:Set("\071\114\097\100\105\101\110\116", true) self.AcrylicOn = false self.Transparency = 0.25 self.AcrylicToggle:Set(false, true) self.TransparencySlider:Set(0x19, true) self.BlurSize = 0x10 self.BlurSlider:Set(0x10, true) self:_ApplyAcrylic() self.UserScale = 0x1 self.ScaleSlider:Set(0x64, true) _IllllIlIll(self.Scale, 0.25, { Scale = self:_TargetScale() }, Enum.EasingStyle.Back) self.SoundEnabled = true self.SoundToggle:Set(true, true) self.NotifyTimer = true self.NotifyLineColor = nil if self.NotifyToggle then self.NotifyToggle:Set(true, true) end
- if self.NotifyLinePicker then self.NotifyLinePicker:Set(_lllIIllllI.AccentGlow, true) end
- self.Volume = 0x1 self.VolumeSlider:Set(0x64, true) _lIIllIIlll("\068\097\114\107") self:_QueueSettingsSave() end
- function _IlIIllIlII:OpenColorPicker(_llIlIIllIl) if not self.Modal then self:_BuildColorModal() end
- local _lIIIIlIIlI = self.Modal local _IIIlIIIIlI = _llIlIIllIl:Get() local _IIlllllIlI, Sat, Bri = _IIIlIIIIlI:ToHSV() _lIIIIlIIlI.Owner = _llIlIIllIl _lIIIIlIIlI.Original = _IIIlIIIIlI _lIIIIlIIlI.Color = _IIIlIIIIlI _lIIIIlIIlI.Hue = Sat > 0x0 and _IIlllllIlI or _lIIIIlIIlI.Hue _lIIIIlIIlI.Sat = Sat _lIIIIlIIlI.Bri = Bri _lIIIIlIIlI.Title.Text = tostring(_lIIlIllIlI:Resolve(_llIlIIllIl.TitleSource)) _lIIIIlIIlI.OldSwatch.BackgroundColor3 = _IIIlIIIIlI _lIIIIlIIlI.Fit = math.min(0x1, (self.Main.Size.X.Offset - 0x18) / 0x208, (self.Main.Size.Y.Offset - 0x18) / 0x154) _lIIIIlIIlI.Scale.Scale = _lIIIIlIIlI.Fit * 0.92 _lIIIIlIIlI.Dimmer.BackgroundTransparency = 0x1 _lIIIIlIIlI.Root.Visible = true _IllllIlIll(_lIIIIlIIlI.Scale, 0.3, { Scale = _lIIIIlIIlI.Fit }, Enum.EasingStyle.Back) _IllllIlIll(_lIIIIlIIlI.Dimmer, 0.2, { BackgroundTransparency = 0.45 }) self:_ModalRender() end
- function _IlIIllIlII:CloseColorPicker(Keep) local _lIIIIlIIlI = self.Modal if _lIIIIlIIlI and _lIIIIlIIlI.Owner then local _llIlIIllIl = _lIIIIlIIlI.Owner _lIIIIlIIlI.Owner = nil _llIlIIllIl:Set(Keep and _lIIIIlIIlI.Color or _lIIIIlIIlI.Original) _IllllIlIll(_lIIIIlIIlI.Scale, 0.15, { Scale = _lIIIIlIIlI.Fit * 0.94 }, Enum.EasingStyle.Quad, Enum.EasingDirection.In) _IllllIlIll(_lIIIIlIIlI.Dimmer, 0.15, { BackgroundTransparency = 0x1 }) task.delay(0.17, function () if not _lIIIIlIIlI.Owner then _lIIIIlIIlI.Root.Visible = false end
- end
- ) end
- end
- function _IlIIllIlII:_ModalRender() local _lIIIIlIIlI = self.Modal local _IIIlIIIIlI = _lIIIIlIIlI.Color _lIIIIlIIlI.SV.BackgroundColor3 = Color3.fromHSV(_lIIIIlIIlI.Hue, 0x1, 0x1) _lIIIIlIIlI.Cursor.Position = UDim2.fromScale(_lIIIIlIIlI.Sat, 0x1 - _lIIIIlIIlI.Bri) _lIIIIlIIlI.HueKnob.Position = UDim2.fromScale(0.5, _lIIIIlIIlI.Hue) _lIIIIlIIlI.HueKnob.BackgroundColor3 = Color3.fromHSV(_lIIIIlIIlI.Hue, 0x1, 0x1) _lIIIIlIIlI.NewSwatch.BackgroundColor3 = _IIIlIIIIlI _lIIIIlIIlI.Hex.Text = _lllIIllllI(_IIIlIIIIlI) _lIIIIlIIlI.Red.Text = tostring(math.floor(_IIIlIIIIlI.R * 0xFF + 0.5)) _lIIIIlIIlI.Green.Text = tostring(math.floor(_IIIlIIIIlI.G * 0xFF + 0.5)) _lIIIIlIIlI.Blue.Text = tostring(math.floor(_IIIlIIIIlI.B * 0xFF + 0.5)) end
- function _IlIIllIlII:_ModalApply(Final) local _lIIIIlIIlI = self.Modal local _IlllIIIIIl = os.clock() if _lIIIIlIIlI.Owner and (Final or _IlllIIIIIl - _lIIIIlIIlI.LastApply > 0.12) then _lIIIIlIIlI.LastApply = _IlllIIIIIl _lIIIIlIIlI.Owner:Set(_lIIIIlIIlI.Color) end
- end
- function _IlIIllIlII:_ModalSetColor(_IIIlIIIIlI) local _lIIIIlIIlI = self.Modal local _IIlllllIlI, Sat, Bri = _IIIlIIIIlI:ToHSV() _lIIIIlIIlI.Color = _IIIlIIIIlI _lIIIIlIIlI.Hue = Sat > 0x0 and _IIlllllIlI or _lIIIIlIIlI.Hue _lIIIIlIIlI.Sat = Sat _lIIIIlIIlI.Bri = Bri self:_ModalRender() self:_ModalApply(true) end
- function _IlIIllIlII:_ModalDrag(Input, Zone, _lllIIllIlI, Handler) local _lIIIIlIIlI = self.Modal local _lIllIlIIII = _llIlIllIIl() local _IIIIllllll = Zone.AbsolutePosition local _IlllllIIIl = _IIIIllllll + Zone.AbsoluteSize local _lllllllIlI = Vector2.new(Input.Position.X, Input.Position.Y) + _lIllIlIIII local _llIllllIll = _lllllllIlI.X >= _IIIIllllll.X and _lllllllIlI.X <= _IlllllIIIl.X and _lllllllIlI.Y >= _IIIIllllll.Y and _lllllllIlI.Y <= _IlllllIIIl.Y _lIllIlIIII = _llIllllIll and _lIllIlIIII or Vector2.zero local function _IllIllllIl(Position) local _IllIIIllll = _lllIIllIlI.AbsoluteSize local _IIIlllIIlI = _lllIIllIlI.AbsolutePosition local _IIIlllIlII = math.clamp((Position.X + _lIllIlIIII.X - _IIIlllIIlI.X) / math.max(_IllIIIllll.X, 0x1), 0x0, 0x1) local _lIlIIIlIlI = math.clamp((Position.Y + _lIllIlIIII.Y - _IIIlllIIlI.Y) / math.max(_IllIIIllll.Y, 0x1), 0x0, 0x1) Handler(_IIIlllIlII, _lIlIIIlIlI) _lIIIIlIIlI.Color = Color3.fromHSV(_lIIIIlIIlI.Hue, _lIIIIlIIlI.Sat, _lIIIIlIIlI.Bri) self:_ModalRender() self:_ModalApply(false) end
- _IllIllllIl(Input.Position) _IllIlIIIll(Input, _IllIllllIl, function () self:_ModalApply(true) end
- ) end
- function _IlIIllIlII:_BuildColorModal() local _lIIIIlIIlI = { _IIlllllIlI = 0x0, Sat = 0x1, Bri = 0x1, _IIIlIIIIlI = Color3.new(0x1, 0x1, 0x1), LastApply = 0x0, Fit = 0x1 } self.Modal = _lIIIIlIIlI _lIIIIlIIlI.Root = _IlIIIIlIlI("\070\114\097\109\101", { _lllIllIIII = "\067\111\108\111\114\077\111\100\097\108", _IllIIIllll = UDim2.fromScale(0x1, 0x1), BackgroundTransparency = 0x1, Visible = false, ZIndex = 0x50, Parent = self.Main }) _lIIIIlIIlI.Dimmer = _IlIIIIlIlI("\084\101\120\116\066\117\116\116\111\110", { _IllIIIllll = UDim2.fromScale(0x1, 0x1), BackgroundColor3 = Color3.new(0x0, 0x0, 0x0), BackgroundTransparency = 0x1, Parent = _lIIIIlIIlI.Root }) _lIIIIlIIlI.Panel = _IlIIIIlIlI("\070\114\097\109\101", { AnchorPoint = Vector2.new(0.5, 0.5), Position = UDim2.fromScale(0.5, 0.5), _IllIIIllll = UDim2.fromOffset(0x208, 0x154), BackgroundColor3 = _lIlIllIIlI.Background, Parent = _lIIIIlIIlI.Root }, { _IIlIlIIlIl(0x10), _llIlIIIlIl(_lIlIllIIlI.Outline, 0x0, 0x1) }) _lIIIIlIIlI.Scale = _IlIIIIlIlI("\085\073\083\099\097\108\101", { Scale = 0x1, Parent = _lIIIIlIIlI.Panel }) local _lIlllIlIlI = _lIIIIlIIlI.Panel _lIIIIlIIlI.Title = _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { Position = UDim2.fromOffset(0x14, 0xE), _IllIIIllll = UDim2.fromOffset(0x1A4, 0x1A), TextSize = 0xF, Weight = "\066\111\108\100", TextTruncate = Enum.TextTruncate.AtEnd, Parent = _lIlllIlIlI }) local _llIIllIllI = _IlIIIIlIlI("\084\101\120\116\066\117\116\116\111\110", { Position = UDim2.fromOffset(0x1DA, 0xC), _IllIIIllll = UDim2.fromOffset(0x20, 0x20), BackgroundTransparency = 0x0, BackgroundColor3 = _lIlIllIIlI.Card, _llllIIllll = "\120", TextSize = 0x10, Weight = "\083\101\109\105\066\111\108\100", TextColor3 = _lIlIllIIlI.SubText, TextXAlignment = Enum.TextXAlignment.Center, Parent = _lIlllIlIlI }, { _IIlIlIIlIl(0x10) }) _lIIIIlIIlI.SV = _IlIIIIlIlI("\084\101\120\116\066\117\116\116\111\110", { Position = UDim2.fromOffset(0x14, 0x38), _IllIIIllll = UDim2.fromOffset(0xFA, 0xA4), BackgroundTransparency = 0x0, BackgroundColor3 = Color3.new(0x1, 0x0, 0x0), ClipsDescendants = true, Parent = _lIlllIlIlI }, { _IIlIlIIlIl(0xC), _llIlIIIlIl(_lIlIllIIlI.Outline, 0x0, 0x1) }) _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.fromScale(0x1, 0x1), BackgroundColor3 = Color3.new(0x1, 0x1, 0x1), Parent = _lIIIIlIIlI.SV }, { _IlIIIIlIlI("\085\073\071\114\097\100\105\101\110\116", { Transparency = NumberSequence.new(0x0, 0x1) }) }) _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.fromScale(0x1, 0x1), BackgroundColor3 = Color3.new(0x0, 0x0, 0x0), Parent = _lIIIIlIIlI.SV }, { _IlIIIIlIlI("\085\073\071\114\097\100\105\101\110\116", { Rotation = 0x5A, Transparency = NumberSequence.new(0x1, 0x0) }) }) _lIIIIlIIlI.Cursor = _IlIIIIlIlI("\070\114\097\109\101", { AnchorPoint = Vector2.new(0.5, 0.5), _IllIIIllll = UDim2.fromOffset(0x16, 0x16), BackgroundTransparency = 0x1, Parent = _lIIIIlIIlI.SV }, { _IIlIlIIlIl(nil, true), _llIlIIIlIl(Color3.new(0x1, 0x1, 0x1), 0x0, 0x3) }) _lIIIIlIIlI.HueBar = _IlIIIIlIlI("\070\114\097\109\101", { Position = UDim2.fromOffset(0x11A, 0x38), _IllIIIllll = UDim2.fromOffset(0x16, 0xA4), BackgroundColor3 = Color3.new(0x1, 0x1, 0x1), Parent = _lIlllIlIlI }, { _IIlIlIIlIl(nil, true), _IlIIIIlIlI("\085\073\071\114\097\100\105\101\110\116", { Rotation = 0x5A, _IIIlIIIIlI = ColorSequence.new(_IlllIIIIIl) }) }) _lIIIIlIIlI.HueKnob = _IlIIIIlIlI("\070\114\097\109\101", { AnchorPoint = Vector2.new(0.5, 0.5), _IllIIIllll = UDim2.fromOffset(0x22, 0x10), Parent = _lIIIIlIIlI.HueBar }, { _IIlIlIIlIl(nil, true), _llIlIIIlIl(Color3.new(0x1, 0x1, 0x1), 0x0, 0x3) }) _lIIIIlIIlI.HueZone = _IlIIIIlIlI("\084\101\120\116\066\117\116\116\111\110", { Position = UDim2.fromOffset(0x112, 0x30), _IllIIIllll = UDim2.fromOffset(0x26, 0xB4), Parent = _lIlllIlIlI }) local function _lIIllllIlI(_lIlIIIlIlI, LabelText) local _lIlIIllIlI = _llIlIIIlIl(_lIlIllIIlI.Outline, 0x0, 0x1) local _lllllIIIll = _IlIIIIlIlI("\084\101\120\116\066\111\120", { Position = UDim2.fromOffset(0x144, _lIlIIIlIlI), _IllIIIllll = UDim2.fromOffset(0x78, 0x22), BackgroundTransparency = 0x0, BackgroundColor3 = _lIlIllIIlI.Card, TextSize = 0xE, Weight = "\083\101\109\105\066\111\108\100", TextXAlignment = Enum.TextXAlignment.Center, ClearTextOnFocus = false, Parent = _lIlllIlIlI }, { _IIlIlIIlIl(0x9), _lIlIIllIlI }) _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { Position = UDim2.fromOffset(0x1C6, _lIlIIIlIlI), _IllIIIllll = UDim2.fromOffset(0x32, 0x22), TextSize = 0xC, TextColor3 = _lIlIllIIlI.SubText, _llllIIllll = LabelText, Parent = _lIlllIlIlI }) self.Maid:Give(_lllllIIIll.Focused:Connect( function () _IllllIlIll(_lIlIIllIlI, 0.2, { _IIIlIIIIlI = _lllIIllllI.AccentGlow }) end
- )) self.Maid:Give(_lllllIIIll.FocusLost:Connect( function () _IllllIlIll(_lIlIIllIlI, 0.2, { _IIIlIIIIlI = _lllIIllllI.Outline }) end
- )) return _lllllIIIll end
- _lIIIIlIIlI.Hex = _lIIllllIlI(0x38, "\072\101\120") _lIIIIlIIlI.Red = _lIIllllIlI(0x62, "\082") _lIIIIlIIlI.Green = _lIIllllIlI(0x8C, "\071") _lIIIIlIIlI.Blue = _lIIllllIlI(0xB6, "\066") _lIIIIlIIlI.OldSwatch = _IlIIIIlIlI("\070\114\097\109\101", { Position = UDim2.fromOffset(0x14, 0xE8), _IllIIIllll = UDim2.fromOffset(0x70, 0x38), BackgroundColor3 = Color3.new(0x1, 0x1, 0x1), Parent = _lIlllIlIlI }, { _IIlIlIIlIl(0xC), _llIlIIIlIl(_lIlIllIIlI.Outline, 0x0, 0x1) }) _lIIIIlIIlI.NewSwatch = _IlIIIIlIlI("\070\114\097\109\101", { Position = UDim2.fromOffset(0x8A, 0xE8), _IllIIIllll = UDim2.fromOffset(0x70, 0x38), BackgroundColor3 = Color3.new(0x1, 0x1, 0x1), Parent = _lIlllIlIlI }, { _IIlIlIIlIl(0xC), _llIlIIIlIl(_lIlIllIIlI.Outline, 0x0, 0x1) }) for Index, Preset in ipairs(_llIIllIIll) do local _llIlIIlIlI = (Index - 0x1) % 0x5 local _IlIIlIllIl = math.floor((Index - 0x1) / 0x5) local _lllllIlIlI = _IlIIIIlIlI("\084\101\120\116\066\117\116\116\111\110", { Position = UDim2.fromOffset(0x112 + _llIlIIlIlI * 0x2E, 0xE8 + _IlIIlIllIl * 0x1E), _IllIIIllll = UDim2.fromOffset(0x26, 0x1A), BackgroundTransparency = 0x0, BackgroundColor3 = Preset, Parent = _lIlllIlIlI }, { _IIlIlIIlIl(0x8) }) _lllllIIlIl(self.Maid, _lllllIlIlI, function () self:PlayClick("\066\117\116\116\111\110") self:_ModalSetColor(Preset) end
- ) end
- local _llIlIllIll = _IlIIIIlIlI("\084\101\120\116\066\117\116\116\111\110", { Position = UDim2.fromOffset(0x14, 0x12A), _IllIIIllll = UDim2.fromOffset(0xEE, 0x22), BackgroundTransparency = 0x0, BackgroundColor3 = Color3.new(0x1, 0x1, 0x1), TextSize = 0xE, Weight = "\083\101\109\105\066\111\108\100", TextColor3 = _lIlIllIIlI.OnAccent, TextXAlignment = Enum.TextXAlignment.Center, Parent = _lIlllIlIlI }, { _IIlIlIIlIl(0xA), _llllIlIlIl.Make("\070\105\108\108") }) _lIIlIllIlI:Bind(_llIlIllIll, "\084\101\120\116", _IIlllIIlII("\067\111\108\111\114\068\111\110\101")) local _lIIllIlIII = _IlIIIIlIlI("\084\101\120\116\066\117\116\116\111\110", { Position = UDim2.fromOffset(0x10A, 0x12A), _IllIIIllll = UDim2.fromOffset(0xEE, 0x22), BackgroundTransparency = 0x0, BackgroundColor3 = _lIlIllIIlI.Card, TextSize = 0xE, Weight = "\083\101\109\105\066\111\108\100", TextXAlignment = Enum.TextXAlignment.Center, Parent = _lIlllIlIlI }, { _IIlIlIIlIl(0xA) }) _lIIlIllIlI:Bind(_lIIllIlIII, "\084\101\120\116", _IIlllIIlII("\067\111\108\111\114\067\097\110\099\101\108")) self.Maid:Give(_lIIIIlIIlI.SV.InputBegan:Connect( function (Input) if _lllIIlIlll[Input.UserInputType] then self:_ModalDrag(Input, _lIIIIlIIlI.SV, _lIIIIlIIlI.SV, function (_IIIlllIlII, _lIlIIIlIlI) _lIIIIlIIlI.Sat = _IIIlllIlII _lIIIIlIIlI.Bri = 0x1 - _lIlIIIlIlI end
- ) end
- end
- )) self.Maid:Give(_lIIIIlIIlI.HueZone.InputBegan:Connect( function (Input) if _lllIIlIlll[Input.UserInputType] then self:_ModalDrag(Input, _lIIIIlIIlI.HueZone, _lIIIIlIIlI.HueBar, function (_, _lIlIIIlIlI) _lIIIIlIIlI.Hue = _lIlIIIlIlI end
- ) end
- end
- )) self.Maid:Give(_lIIIIlIIlI.Hex.FocusLost:Connect( function () local _IllIIlllIl = _IIlIllllII(_lIIIIlIIlI.Hex.Text) if _IllIIlllIl then self:_ModalSetColor(_IllIIlllIl) else self:_ModalRender() end
- end
- )) local function _IllllIIIll() local _lIIIllllIl = tonumber(_lIIIIlIIlI.Red.Text) local _IlllIIlIll = tonumber(_lIIIIlIIlI.Green.Text) local _llllIIlllI = tonumber(_lIIIIlIIlI.Blue.Text) if _lIIIllllIl and _IlllIIlIll and _llllIIlllI then self:_ModalSetColor(Color3.fromRGB(math.clamp(_lIIIllllIl, 0x0, 0xFF), math.clamp(_IlllIIlIll, 0x0, 0xFF), math.clamp(_llllIIlllI, 0x0, 0xFF))) else self:_ModalRender() end
- end
- self.Maid:Give(_lIIIIlIIlI.Red.FocusLost:Connect(_IllllIIIll)) self.Maid:Give(_lIIIIlIIlI.Green.FocusLost:Connect(_IllllIIIll)) self.Maid:Give(_lIIIIlIIlI.Blue.FocusLost:Connect(_IllllIIIll)) _lllllIIlIl(self.Maid, _llIlIllIll, function () self:PlayClick("\066\117\116\116\111\110") self:CloseColorPicker(true) end
- ) _lllllIIlIl(self.Maid, _lIIllIlIII, function () self:PlayClick("\066\117\116\116\111\110") self:CloseColorPicker(false) end
- ) _lllllIIlIl(self.Maid, _llIIllIllI, function () self:PlayClick("\066\117\116\116\111\110") self:CloseColorPicker(false) end
- ) self.Maid:Give(_lIIIIlIIlI.Dimmer.MouseButton1Click:Connect( function () self:CloseColorPicker(false) end
- )) end
- function _IlIIllIlII:_RunSplash(Config, _lIlllllIIl) local _llIIIIIlIl = math.max(tonumber(Config.SplashTime) or 0x2, 0.2) local _lIllllIlll = _IlIIIIlIlI("\073\109\097\103\101\076\097\098\101\108", { AnchorPoint = Vector2.new(0.5, 0.5), Position = UDim2.fromScale(0.5, 0.5), _IllIIIllll = UDim2.fromOffset(0x0, 0x0), BackgroundTransparency = 0x1, ImageTransparency = 0x1, Image = Config.SplashImage or "\114\098\120\097\115\115\101\116\105\100\058\047\047\049\049\052\049\057\056\055\052\053\050\054\054\056\054\054", ZIndex = 0x270F, Parent = self.Gui }, { _IIlIlIIlIl(nil, true) }) _IllllIlIll(_lIllllIlll, 0.6, { _IllIIIllll = UDim2.fromOffset(0xB4, 0xB4), ImageTransparency = 0x0 }, Enum.EasingStyle.Back, Enum.EasingDirection.Out) task.spawn( function () task.wait(0.6 + _llIIIIIlIl) if not self.Destroyed then _IllllIlIll(_lIllllIlll, 0.5, { _IllIIIllll = UDim2.fromOffset(0x82, 0x82), ImageTransparency = 0x1 }, Enum.EasingStyle.Quad, Enum.EasingDirection.In) task.wait(0.5) _lIllllIlll:Destroy() if _lIlllllIIl and not self.Destroyed then self:SetVisible(true) self:PlayOpenSound() end
- end
- end
- ) end
- function _IlIIllIlII:SetUserScale(_llIIllllII) self.UserScale = math.clamp(_llIIllllII, 0.5, 1.5) self:_QueueSettingsSave() if self.Visible then _IllllIlIll(self.Scale, 0.25, { Scale = self:_TargetScale() }, Enum.EasingStyle.Back) end
- end
- function _IlIIllIlII:SetVisible(state, instant) state = state == true local _IlIIllIIIl = self.Visible ~= state self.Visible = state self.Transition = self.Transition + 0x1 local _lIIIIIllII = self.Transition local _lIIIllIlll = self:_TargetScale() self:_RenderPill( not instant) if state then self.Main.Visible = true if self.Active then self.Active:_RestoreScroll() end
- if instant then self.Scale.Scale = _lIIIllIlll else self.Scale.Scale = _lIIIllIlll * 0.9 _IllllIlIll(self.Scale, 0.35, { Scale = _lIIIllIlll }, Enum.EasingStyle.Back) end
- else self:CloseDropdown() if instant then self.Scale.Scale = _lIIIllIlll * 0.9 self.Main.Visible = false else local _IlllllIIIl = _IllllIlIll(self.Scale, 0.2, { Scale = _lIIIllIlll * 0.9 }, Enum.EasingStyle.Quad, Enum.EasingDirection.In) _IlllllIIIl.Completed:Connect( function () if self.Transition == _lIIIIIllII and not self.Visible and self.Main.Parent then self.Main.Visible = false end
- end
- ) end
- end
- self:_UpdateBlur() if _IlIIllIIIl and not instant then _lIIIIIllll(state and self.OnOpen or self.OnClose, self) end
- end
- function _IlIIllIlII:Toggle() self:SetVisible( not self.Visible) end
- function _IlIIllIlII:ResetPosition() _IllllIlIll(self.Main, 0.35, { Position = self.DefaultPosition }, Enum.EasingStyle.Back) local _IIlllllllI = self:_PillHome() _IllllIlIll(self.Pill, 0.35, { Position = UDim2.fromOffset(_IIlllllllI.X, _IIlllllllI.Y) }, Enum.EasingStyle.Back) end
- function _IlIIllIlII:Filter(_IlIIlIlIIl) for _, _lIlllIlIIl in ipairs(self.Tabs) do for _, _IlIllIIIlI in ipairs(_lIlllIlIIl.Sections) do _IlIllIIIlI:Filter(_IlIIlIlIIl) end
- end
- end
- function _IlIIllIlII:GetTab(reference) if type(reference) == "\116\097\098\108\101" then return reference end
- local _lIllIIIlII = 0x0 for _, _lIlllIlIIl in ipairs(self.Tabs) do if _lIlllIlIIl ~= self.SettingsTab then _lIllIIIlII = _lIllIIIlII + 0x1 if type(reference) == "\110\117\109\098\101\114" and _lIllIIIlII == reference then return _lIlllIlIIl end
- end
- if type(reference) == "\115\116\114\105\110\103" and (_lIlllIlIIl.TitleSource == reference or _lIIlIllIlI:Resolve(_lIlllIlIIl.TitleSource) == reference) then return _lIlllIlIIl end
- end
- return nil end
- function _IlIIllIlII:Select(reference, silent) local _lIlllIlIIl = self:GetTab(reference) if not _lIlllIlIIl or _lIlllIlIIl.Destroyed or self.Active == _lIlllIlIIl then return end
- self:CloseDropdown() if self.Active then self.Active:SetActive(false) end
- self.Active = _lIlllIlIIl _lIIlIllIlI:Bind(self.PageTitle, "\084\101\120\116", _lIlllIlIIl.TitleSource) _lIIlIllIlI:Bind(self.PageDesc, "\084\101\120\116", _lIlllIlIIl.DescSource) _lIlllIlIIl:SetActive(true) end
- function _IlIIllIlII:_SelectFallback(skip) for _, _lIlllIlIIl in ipairs(self.Tabs) do if _lIlllIlIIl ~= skip and not _lIlllIlIIl.Hidden and not _lIlllIlIIl.Destroyed then self.Active = nil self:Select(_lIlllIlIIl, true) return end
- end
- end
- function _IlIIllIlII:AddTab(config) local _lIlllIlIIl = _lIIllllIll.new(self, config or {}) table.insert(self.Tabs, _lIlllIlIIl) self.UserTabs = self.UserTabs + 0x1 if self.UserTabs == 0x1 then self:Select(_lIlllIlIIl, true) end
- return _lIlllIlIIl end
- function _IlIIllIlII:Destroy() if self.Destroyed then return end
- self.Destroyed = true if self.BlurEffect then self.BlurEffect:Destroy() self.BlurEffect = nil end
- _lIIIIIllll(self.OnDestroy, self) for flag, _llIIlIIlll in pairs(_IlllllIlII) do if _llIIlIIlll.Window == self then _IlllllIlII[flag] = nil _lIIIIlIIlI[flag] = nil end
- end
- for _IIIlIllIll, _IIIIIllIIl in ipairs(_lIlIIllIII) do if _IIIIIllIIl == self then table.remove(_lIlIIllIII, _IIIlIllIll) break end
- end
- self.Maid:Destroy() end
- _IlIIllIlII.CreateTab = _IlIIllIlII.AddTab local function _llIllIIIll(_llIIllllII) return type(_llIIllllII) == "\115\116\114\105\110\103" and (_lIllIIIIII[_llIIllllII] or _lIllIIIIII[_IIllIIIlll(_llIIllllII)]) ~= nil end
- function _IlIIllIlII:_PaintIcons() local _lIIllIIlIl = self.IconSource if type(_lIIllIIlIl) == "\115\116\114\105\110\103" then _lIIllIIlIl = _lIIlIllIlI:Resolve(_lIIllIIlIl) end
- local _IIlIllIllI = _llllllIlll(_lIIllIIlIl, "\114\098\120\097\115\115\101\116\105\100\058\047\047\049\048\055\050\051\052\049\053\051\057\051") local _IllIllIlll = _llIllIIIll(_lIIllIIlIl) and _lllIIllllI.Text or Color3.fromRGB(0xFF, 0xFF, 0xFF) for _, _IIlllIIIII in ipairs(self.LogoImages) do _IIlllIIIII.Image = _IIlIllIllI _IIlllIIIII.ImageColor3 = _IllIllIlll end
- end
- function _IlIIllIlII:SetIcon(_llIlIIIllI) self.IconSource = _llIlIIIllI or "\114\098\120\097\115\115\101\116\105\100\058\047\047\049\048\055\050\051\052\049\053\051\057\051" self:_PaintIcons() end
- function _IlIIllIlII:GetIcon() return self.IconSource end
- _IlIIllIlII.SetLogo = _IlIIllIlII.SetIcon function _IlIIllIlII:SetTitle(_lIIllIIlIl) self.TitleSource = _lIIllIIlIl _lIIlIllIlI:Bind(self.SidebarTitle, "\084\101\120\116", _lIIllIIlIl) if not self.ToggleTextSource then _lIIlIllIlI:Bind(self.PillLabel, "\084\101\120\116", _lIIllIIlIl) end
- end
- function _IlIIllIlII:SetSubTitle(_lIIllIIlIl) self.SubTitleSource = _lIIllIIlIl _lIIlIllIlI:Bind(self.SidebarSubTitle, "\084\101\120\116", _lIIllIIlIl) end
- function _IlIIllIlII:SetToggleText(_lIIllIIlIl) self.ToggleTextSource = _lIIllIIlIl _lIIlIllIlI:Bind(self.PillLabel, "\084\101\120\116", _lIIllIIlIl or self.TitleSource) end
- function _IlIIllIlII:SetPillVisible(state) self.PillShown = state ~= false self.Pill.Visible = self.PillShown end
- function _IlIIllIlII:SetSize(_IIlIIlIllI) if typeof(_IIlIIlIllI) == "\085\068\105\109\050" then _IIlIIlIllI = Vector2.new(_IIlIIlIllI.X.Offset, _IIlIIlIllI.Y.Offset) end
- self.RequestedSize = _IIlIIlIllI self:_Refit() end
- function _IlIIllIlII:SetPosition(_lIIlIIIlIl) self.DefaultPosition = _lIIlIIIlIl self.Main.Position = _lIIlIIIlIl end
- _IlIIllIlII.SetScale = _IlIIllIlII.SetUserScale function _IlIIllIlII:SetSound(state) self.SoundEnabled = state == true self:PlayClick("\084\111\103\103\108\101") self:_QueueSettingsSave() end
- function _IlIIllIlII:Open() self:SetVisible(true) end
- function _IlIIllIlII:Close() self:SetVisible(false) end
- _IlIIllIlII.Show = _IlIIllIlII.Open _IlIIllIlII.Hide = _IlIIllIlII.Close function _IlIIllIlII:IsVisible() return self.Visible end
- function _IlIIllIlII:SetTheme(name) return _lIIllIIlll(name) end
- function _IlIIllIlII:GetTheme() return _IIlIIIIlIl end
- function _IlIIllIlII:SetLanguage(_lIllIlllIl) _lIIlIllIlI:SetLanguage(_lIllIlllIl) end
- function _IlIIllIlII:GetLanguage() return _lIIlIllIlI.Language end
- function _IlIIllIlII:AddLanguage(_lIllIlllIl, _IlllIIIIlI, name) local _IIllIlIIII = { [_lIllIlllIl] = _IlllIIIIlI } if name then _IIllIlIIII[_lIllIlllIl].LanguageName = name end
- _lIIlIllIlI:AddTranslations(_IIllIlIIII) _lIIlIllIlI:_Apply() end
- function _IlIIllIlII:Refresh() self:_Refit() self:_PaintIcons() _lIIlIllIlI:_Apply() for _, _lIlllIlIIl in ipairs(self.Tabs) do _lIlllIlIIl:Refresh() end
- self:Filter("") end
- function _IlIIllIlII:_BuildNotifications() self.NotifyList = _IlIIIIlIlI("\070\114\097\109\101", { _lllIllIIII = "\078\111\116\105\102\105\099\097\116\105\111\110\115", AnchorPoint = Vector2.new(0x1, 0x1), _IllIIIllll = UDim2.new(0x0, 0x122, 0x1, -0x20), Position = UDim2.new(0x1, -0x10, 0x1, -0x10), BackgroundTransparency = 0x1, ZIndex = 0xC8, Parent = self.Gui }, { _IlIIIIlIlI("\085\073\076\105\115\116\076\097\121\111\117\116", { SortOrder = Enum.SortOrder.LayoutOrder, VerticalAlignment = Enum.VerticalAlignment.Bottom, Padding = UDim.new(0x0, 0x8) }) }) self.NotifyCount = 0x0 end
- local _IIlIllIllI = { success = "\071\114\101\101\110", warning = "\089\101\108\108\111\119", error = "\082\101\100" } function _IlIIllIlII:Notify(config) if type(config) == "\115\116\114\105\110\103" then config = { Content = config } end
- config = config or {} self.NotifyCount = self.NotifyCount + 0x1 local _IIlIllIIlI = config.Duration or 0x4 local _lIlllIIllI = _IIlIllIllI[config.Type] local _IIIllIIlIl = config.LineColor or config.Color or (_lIlllIIllI and _lllIIllllI[_lIlllIIllI]) or self.NotifyLineColor or _lllIIllllI.AccentGlow local _IllllIllll = _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.new(0x1, 0x0, 0x0, 0x0), AutomaticSize = Enum.AutomaticSize.Y, BackgroundTransparency = 0x1, LayoutOrder = self.NotifyCount, Parent = self.NotifyList }) local _lIllIIIlII = _IlIIIIlIlI("\084\101\120\116\066\117\116\116\111\110", { _IllIIIllll = UDim2.new(0x1, 0x0, 0x0, 0x0), AutomaticSize = Enum.AutomaticSize.Y, Position = UDim2.new(0x0, 0x140, 0x0, 0x0), BackgroundTransparency = 0x0, BackgroundColor3 = _lIlIllIIlI.Card, ClipsDescendants = true, ZIndex = 0xC8, Parent = _IllllIllll }, { _IIlIlIIlIl(0xA), _llIlIIIlIl(_lIlIllIIlI.Outline, 0x0, 0x1) }) _IlIIIIlIlI("\070\114\097\109\101", { _lllIllIIII = "\076\105\110\101", _IllIIIllll = UDim2.new(0x0, 0x4, 0x1, 0x0), BackgroundColor3 = _IIIllIIlIl, Parent = _lIllIIIlII }) local _lIlIIlIIIl = _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.new(0x1, 0x0, 0x0, 0x0), AutomaticSize = Enum.AutomaticSize.Y, BackgroundTransparency = 0x1, Parent = _lIllIIIlII }, { _IlIIIIlIlI("\085\073\080\097\100\100\105\110\103", { PaddingLeft = UDim.new(0x0, 0x12), PaddingRight = UDim.new(0x0, 0xE), PaddingTop = UDim.new(0x0, 0xB), PaddingBottom = UDim.new(0x0, 0xC) }), _IlIIIIlIlI("\085\073\076\105\115\116\076\097\121\111\117\116", { SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0x0, 0x4) }) }) local _IIlIIIlIll = _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.new(0x1, 0x0, 0x0, 0x10), BackgroundTransparency = 0x1, LayoutOrder = 0x1, Parent = _lIlIIlIIIl }) local _IIlIIlIlII = _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { _IllIIIllll = UDim2.new(0x1, 0x0, 0x1, 0x0), Weight = "\077\101\100\105\117\109", TextSize = 0xD, TextTruncate = Enum.TextTruncate.AtEnd, Parent = _IIlIIIlIll }) _lIIlIllIlI:Bind(_IIlIIlIlII, "\084\101\120\116", config.Title or self.TitleSource) if config.Content and config.Content ~= "" then local _IlIlIIIIIl = _IlIIIIlIlI("\084\101\120\116\076\097\098\101\108", { _IllIIIllll = UDim2.new(0x1, 0x0, 0x0, 0x0), AutomaticSize = Enum.AutomaticSize.Y, TextWrapped = true, TextYAlignment = Enum.TextYAlignment.Top, TextColor3 = _lIlIllIIlI.SubText, LayoutOrder = 0x2, Parent = _lIlIIlIIIl }) _lIIlIllIlI:Bind(_IlIlIIIIIl, "\084\101\120\116", config.Content) end
- local _IIllIIlIIl = _IIlIllIIlI > 0x0 and _IIIIlllIIl(config.Timer, self.NotifyTimer) == true if _IIllIIlIIl then local _IlIIllIlIl = _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.new(0x1, 0x0, 0x0, 0x3), BackgroundColor3 = _IIIllIIlIl, BackgroundTransparency = 0.82, LayoutOrder = 0x3, Parent = _lIlIIlIIIl }, { _IIlIlIIlIl(nil, true) }) local _IIIIIIIllI = _IlIIIIlIlI("\070\114\097\109\101", { _IllIIIllll = UDim2.fromScale(0x1, 0x1), BackgroundColor3 = _IIIllIIlIl, Parent = _IlIIllIlIl }, { _IIlIlIIlIl(nil, true) }) _IllllIlIll(_IIIIIIIllI, _IIlIllIIlI, { _IllIIIllll = UDim2.fromScale(0x0, 0x1) }, Enum.EasingStyle.Linear) end
- local _IlIllIIllI = false local function _llIIllIllI() if _IlIllIIllI then return end
- _IlIllIIllI = true local _IlllllIIIl = _IllllIlIll(_lIllIIIlII, 0.22, { Position = UDim2.new(0x0, 0x140, 0x0, 0x0) }, Enum.EasingStyle.Quad, Enum.EasingDirection.In) _IlllllIIIl.Completed:Connect( function () _IllllIllll:Destroy() end
- ) end
- _IllllIlIll(_lIllIIIlII, 0.35, { Position = UDim2.new(0x0, 0x0, 0x0, 0x0) }, Enum.EasingStyle.Back) _lllllIIlIl(self.Maid, _lIllIIIlII, function () self:PlayClick("\066\117\116\116\111\110") _llIIllIllI() _lIIIIIllll(config.Callback) end
- ) if _IIlIllIIlI > 0x0 then task.delay(_IIlIllIIlI, _llIIllIllI) end
- return { _llIIllIllI = _llIIllIllI } end
- function _IlIIllIlII:GetConfig() local _lIIlIIIIlI = {} for flag, _llIIlIIlll in pairs(_IlllllIlII) do if _llIIlIIlll.Window == self and not _llIIlIIlll.Destroyed then local _llIIIIIlIl = _llIIlIIlll:Get() local _IIllIIIIIl = typeof(_llIIIIIlIl) _lIIlIIIIlI[flag] = _IIllIIIIIl == "\067\111\108\111\114\051" and _lllIIllllI(_llIIIIIlIl) or (_IIllIIIIIl == "\069\110\117\109\073\116\101\109" and _llIIIIIlIl.Name or _llIIIIIlIl) end
- end
- return _lIIlIIIIlI end
- function _IlIIllIlII:LoadConfig(_lIIlIIIIlI, silent) if type(_lIIlIIIIlI) == "\115\116\114\105\110\103" then local _llIIlIIlIl, decoded = pcall( function () return HttpService:JSONDecode(_lIIlIIIIlI) end
- ) if not _llIIlIIlIl then return false, decoded end
- _lIIlIIIIlI = decoded end
- if type(_lIIlIIIIlI) ~= "\116\097\098\108\101" then return false, "\105\110\118\097\108\105\100\032\099\111\110\102\105\103" end
- for flag, _llIIllllII in pairs(_lIIlIIIIlI) do local _llIIlIIlll = _IlllllIlII[flag] if _llIIlIIlll and _llIIlIIlll.Window == self and not _llIIlIIlll.Destroyed then _llIIlIIlll:Set(_llIIllllII, silent) end
- end
- return true end
- function _IlIIllIlII:SetMap(name) self.ConfigMap = name ~= nil and _lIllIIllll(name) or nil end
- function _IlIIllIlII:GetMap() return self.ConfigMap or tostring(game.PlaceId) end
- function _IlIIllIlII:_ConfigPath(name) local _lIIlllIIlI = _lIllIIllll(name or Players.LocalPlayer.Name) return { Folders = { _lIllIIllll(self.ConfigFolder), self:GetMap() }, File = _lIIlllIIlI .. "\046\106\115\111\110" } end
- function _IlIIllIlII:ConfigFilePath(name) local _IIllllIlIl = self:_ConfigPath(name) return table.concat(_IIllllIlIl.Folders, "\047") .. "\047" .. _IIllllIlIl.File end
- function _IlIIllIlII:SaveConfig(name) if not (writefile and makefolder) then return false, "\116\104\105\115\032\101\120\101\099\117\116\111\114\032\104\097\115\032\110\111\032\102\105\108\101\032\065\080\073" end
- local _llIIlIIlIl, err = pcall( function () local _IIllllIlIl = self:_ConfigPath(name) local _llIlIIllII = "" for _, folder in ipairs(_IIllllIlIl.Folders) do _llIlIIllII = _llIlIIllII == "" and folder or (_llIlIIllII .. "\047" .. folder) if not (isfolder and isfolder(_llIlIIllII)) then makefolder(_llIlIIllII) end
- end
- writefile(_llIlIIllII .. "\047" .. _IIllllIlIl.File, HttpService:JSONEncode(self:GetConfig())) end
- ) return _llIIlIIlIl, err end
- function _IlIIllIlII:SetAutoSave(state) self.AutoSave = state == true end
- function _IlIIllIlII:_QueueSave() if not self.AutoSave or self.Destroyed then return end
- self.SaveToken = (self.SaveToken or 0x0) + 0x1 local _lIIIIIllII = self.SaveToken task.delay(1.5, function () if _lIIIIIllII == self.SaveToken and not self.Destroyed then self:SaveConfig() end
- end
- ) end
- function _IlIIllIlII:LoadConfigFile(name, silent) local _llIlIIllII = self:ConfigFilePath(name) if not (readfile and isfile and isfile(_llIlIIllII)) then return false, "\099\111\110\102\105\103\032\110\111\116\032\102\111\117\110\100" end
- local _llIIlIIlIl, _IIlIlllllI = pcall(readfile, _llIlIIllII) if not _llIIlIIlIl then return false, _IIlIlllllI end
- return self:LoadConfig(_IIlIlllllI, silent) end
- function _IlIIllIlII:SettingsFilePath() return _lIllIIllll(self.ConfigFolder) .. "\047\083\101\116\116\105\110\103\115\046\106\115\111\110" end
- function _IlIIllIlII:GetSettings() return { Language = _lIIlIllIlI.Language, _lllIIllllI = _IIlIIIIlIl, _IllllIIIll = self.SoundEnabled, Volume = self.Volume, Scale = self.UserScale, AcrylicOn = self.AcrylicOn, Transparency = self.Transparency, BlurSize = self.BlurSize, AccentStyle = _lIlllllIII and "\083\111\108\105\100" or "\071\114\097\100\105\101\110\116", HideName = self.NameHidden == true, HideProfile = self.ProfileHidden == true, ToggleKey = self.ToggleKey and self.ToggleKey.Name or "", Custom = self:_CustomData() } end
- function _IlIIllIlII:_CustomData() local _IIIIIIlIIl = {} for _, _llIIIIIIII in ipairs(_IIIIlIIlll) do _IIIIIIlIIl[_llIIIIIIII] = _lllIIllllI(_lIIIIIllII[_llIIIIIIII]) end
- return _IIIIIIlIIl end
- function _IlIIllIlII:_ApplyCustomData(_IIIIIIlIIl) local _lIIlllIIII = type(_IIIIIIlIIl) == "\116\097\098\108\101" and _IIIIIIlIIl or {} for _, _llIIIIIIII in ipairs(_IIIIlIIlll) do local _IIIlIIIIlI = _IIlIllllII(_lIIlllIIII[_llIIIIIIII]) _lIIIIIllII[_llIIIIIIII] = _IIIlIIIIlI or _lIIIIIllII[_llIIIIIIII] local _IlllIIllll = self.CustomPickers and self.CustomPickers[_llIIIIIIII] if _IlllIIllll and _IIIlIIIIlI then _IlllIIllll:Set(_IIIlIIIIlI, true) end
- end
- _llIllllIIl.Custom = _IllllIIIII() end
- function _IlIIllIlII:_ReadSettings() local _lIIllIIIII = {} local _lIllIIIlII = self:SettingsFilePath() if readfile and isfile and isfile(_lIllIIIlII) then local _llllIlIlII, Decoded = pcall( function () return HttpService:JSONDecode(readfile(_lIllIIIlII)) end
- ) if _llllIlIlII and type(Decoded) == "\116\097\098\108\101" then _lIIllIIIII = Decoded end
- end
- return _lIIllIIIII end
- function _IlIIllIlII:SaveSettings() local _llllIlIlII, Err = false, "\116\104\105\115\032\101\120\101\099\117\116\111\114\032\104\097\115\032\110\111\032\102\105\108\101\032\065\080\073" if writefile and makefolder then _llllIlIlII, Err = pcall( function () local _llIIllllIl = _lIllIIllll(self.ConfigFolder) if not (isfolder and isfolder(_llIIllllIl)) then makefolder(_llIIllllIl) end
- writefile(self:SettingsFilePath(), HttpService:JSONEncode(self:GetSettings())) end
- ) end
- return _llllIlIlII, Err end
- function _IlIIllIlII:LoadSettings() local _IIIIIIlIIl = self:_ReadSettings() local _IllIIllIlI = next(_IIIIIIlIIl) ~= nil if _IllIIllIlI then self:_ApplyCustomData(_IIIIIIlIIl.Custom) self.NotifyTimer = _IIIIlllIIl(_IIIIIIlIIl.NotifyTimer, self.NotifyTimer) self.NotifyLineColor = _IIlIllllII(_IIIIlllIIl(_IIIIIIlIIl.NotifyLine, self.NotifyLineColor)) _lIIlIllIlI:SetLanguage(_IIIIIIlIIl.Language) _lIIllIIlll(_IIIIIIlIIl.Theme) self.Volume = math.clamp(tonumber(_IIIIlllIIl(_IIIIIIlIIl.Volume, self.Volume)) or 0x1, 0x0, 0x2) self:SetSound(_IIIIlllIIl(_IIIIIIlIIl.Sound, self.SoundEnabled)) self:SetUserScale(tonumber(_IIIIlllIIl(_IIIIIIlIIl.Scale, self.UserScale)) or 0x1) self.Transparency = math.clamp(tonumber(_IIIIlllIIl(_IIIIIIlIIl.Transparency, self.Transparency)) or 0.25, 0x0, 0.85) self.BlurSize = math.clamp(tonumber(_IIIIlllIIl(_IIIIIIlIIl.BlurSize, self.BlurSize)) or 0x10, 0x0, 0x28) self:SetAcrylic(_IIIIlllIIl(_IIIIIIlIIl.AcrylicOn, self.AcrylicOn)) _lIlllllIII = _IIIIlllIIl(_IIIIIIlIIl.AccentStyle, _lIlllllIII and "\083\111\108\105\100" or "\071\114\097\100\105\101\110\116") == "\083\111\108\105\100" self:SetHideName(_IIIIlllIIl(_IIIIIIlIIl.HideName, self.NameHidden)) self:SetHideProfile(_IIIIlllIIl(_IIIIIIlIIl.HideProfile, self.ProfileHidden)) self:SetToggleKey(_IIIIlllIIl(_IIIIIIlIIl.ToggleKey, self.ToggleKey)) end
- return _IllIIllIlI end
- function _IlIIllIlII:_QueueSettingsSave() if self.SettingsReady and not self.Destroyed then self.SettingsToken = (self.SettingsToken or 0x0) + 0x1 local _IIllIlllII = self.SettingsToken task.delay(0x1, function () if _IIllIlllII == self.SettingsToken and not self.Destroyed then self:SaveSettings() end
- end
- ) end
- end
- function _IlIIllIlII:HasConfig(name) return isfile ~= nil and isfile(self:ConfigFilePath(name)) == true end
- local _lllllIIlIl = { Version = "\050\046\048\046\048", _lllIIllllI = _lllIIllllI, Icons = _lIllIIIIII, Themes = _llIllIIlII, _lIIIIlIIlI = _lIIIIlIIlI, Elements = _IlllllIlII, _lIlIIllIII = _lIlIIllIII } function _lllllIIlIl:SetTheme(name) return _lIIllIIlll(name) end
- function _lllllIIlIl:GetTheme() return _IIlIIIIlIl end
- function _lllllIIlIl:ResolveIcon(_llIlIIIllI) return _llllllIlll(_llIlIIIllI, "\114\098\120\097\115\115\101\116\105\100\058\047\047\054\048\050\051\052\050\054\057\049\053") end
- function _lllllIIlIl:AddIcon(name, asset) if type(asset) == "\110\117\109\098\101\114" then asset = "\114\098\120\097\115\115\101\116\105\100\058\047\047" .. asset end
- _lIllIIIIII[name] = asset end
- function _lllllIIlIl:CreateWindow(config) return _IlIIllIlII.new(config) end
- function _lllllIIlIl:Localization(config) _lIIlIllIlI:Configure(config) end
- function _lllllIIlIl:AddTranslations(translations) _lIIlIllIlI:AddTranslations(translations) _lIIlIllIlI:_Apply() end
- function _lllllIIlIl:SetLanguage(_lIllIlllIl) _lIIlIllIlI:SetLanguage(_lIllIlllIl) end
- function _lllllIIlIl:GetLanguage() return _lIIlIllIlI.Language end
- function _lllllIIlIl:GetLanguages() return _lIIlIllIlI:GetLanguages() end
- function _lllllIIlIl:Notify(config) local _IIIIIllIIl = _lIlIIllIII[#_lIlIIllIII] if _IIIIIllIIl then return _IIIIIllIIl:Notify(config) end
- end
- function _lllllIIlIl:GetWindows() return table.clone(_lIlIIllIII) end
- function _lllllIIlIl:Destroy() for _, _IIIIIllIIl in ipairs(table.clone(_lIlIIllIII)) do _IIIIIllIIl:Destroy() end
- end
- return _lllllIIlIl end
- )(...)
+local SOUND_IDS = {
+    Open = "rbxassetid://140207837688369",
+    Toggle = "rbxassetid://139719503904449",
+    Key = "rbxassetid://127105730240202",
+    Button = "rbxassetid://88442833509532"
+}
+local SOUND_LEVELS = { Open = 5, Toggle = 5, Key = 5, Button = 5 }
+
+local IconList = loadstring(game:HttpGet("https://raw.githubusercontent.com/Tosixkub012/UI/refs/heads/main/Icon.lua"))()
+
+IconList.dashboard = IconList["layout-dashboard"]
+IconList.mapPin = IconList["map-pin"]
+IconList.refresh = IconList["refresh-cw"]
+IconList.chevronRight = IconList["chevron-right"]
+IconList.chevronDown = IconList["chevron-down"]
+IconList.chevronUp = IconList["chevron-up"]
+IconList.chevronsDown = IconList["chevrons-down"]
+
+local function NormalizeIconName(name)
+    name = string.gsub(name, "(%l)(%u)", "%1-%2")
+    name = string.gsub(string.lower(name), "[%s_]+", "-")
+    return name
+end
+
+local function ResolveIcon(icon, fallback)
+    local kind = type(icon)
+    if kind == "number" then
+        return "rbxassetid://" .. icon
+    end
+    if kind == "string" and icon ~= "" then
+        local found = IconList[icon] or IconList[NormalizeIconName(icon)]
+        if found then
+            return found
+        end
+        if string.find(icon, "rbxasset", 1, true) or string.find(icon, "http", 1, true) or tonumber(icon) then
+            return tonumber(icon) and ("rbxassetid://" .. icon) or icon
+        end
+        warn("[Fracture UI] icon not found: " .. icon)
+    end
+    return fallback
+end
+
+local Palettes = {
+    Dark = {
+        Background = Color3.fromRGB(10, 10, 10),
+        BackgroundTop = Color3.fromRGB(22, 22, 22),
+        Card = Color3.fromRGB(24, 24, 24),
+        Selected = Color3.fromRGB(34, 34, 34),
+        Outline = Color3.fromRGB(46, 46, 46),
+        Divider = Color3.fromRGB(38, 38, 38),
+        Accent = Color3.fromRGB(34, 108, 232),
+        AccentGlow = Color3.fromRGB(86, 158, 255),
+        AccentAlt = Color3.fromRGB(60, 176, 255),
+        Text = Color3.fromRGB(238, 238, 238),
+        SubText = Color3.fromRGB(145, 145, 145),
+        ToggleOff = Color3.fromRGB(58, 58, 58),
+        OnAccent = Color3.fromRGB(255, 255, 255)
+    },
+    Light = {
+        Background = Color3.fromRGB(238, 240, 245),
+        BackgroundTop = Color3.fromRGB(250, 251, 253),
+        Card = Color3.fromRGB(255, 255, 255),
+        Selected = Color3.fromRGB(230, 233, 242),
+        Outline = Color3.fromRGB(212, 216, 227),
+        Divider = Color3.fromRGB(226, 229, 238),
+        Accent = Color3.fromRGB(72, 92, 224),
+        AccentGlow = Color3.fromRGB(98, 118, 240),
+        AccentAlt = Color3.fromRGB(44, 170, 232),
+        Text = Color3.fromRGB(28, 31, 42),
+        SubText = Color3.fromRGB(108, 114, 134),
+        ToggleOff = Color3.fromRGB(200, 205, 218),
+        OnAccent = Color3.fromRGB(255, 255, 255)
+    },
+    Blue = {
+        Background = Color3.fromRGB(9, 16, 30),
+        BackgroundTop = Color3.fromRGB(15, 27, 49),
+        Card = Color3.fromRGB(18, 31, 55),
+        Selected = Color3.fromRGB(24, 41, 72),
+        Outline = Color3.fromRGB(37, 58, 94),
+        Divider = Color3.fromRGB(30, 49, 81),
+        Accent = Color3.fromRGB(40, 126, 240),
+        AccentGlow = Color3.fromRGB(96, 168, 255),
+        AccentAlt = Color3.fromRGB(46, 214, 232),
+        Text = Color3.fromRGB(230, 240, 255),
+        SubText = Color3.fromRGB(128, 151, 187),
+        ToggleOff = Color3.fromRGB(44, 63, 98),
+        OnAccent = Color3.fromRGB(255, 255, 255)
+    },
+    Purple = {
+        Background = Color3.fromRGB(16, 12, 26),
+        BackgroundTop = Color3.fromRGB(27, 20, 43),
+        Card = Color3.fromRGB(31, 24, 49),
+        Selected = Color3.fromRGB(39, 30, 61),
+        Outline = Color3.fromRGB(59, 46, 92),
+        Divider = Color3.fromRGB(49, 38, 77),
+        Accent = Color3.fromRGB(136, 82, 238),
+        AccentGlow = Color3.fromRGB(170, 128, 255),
+        AccentAlt = Color3.fromRGB(236, 104, 196),
+        Text = Color3.fromRGB(240, 234, 252),
+        SubText = Color3.fromRGB(151, 139, 180),
+        ToggleOff = Color3.fromRGB(65, 53, 93),
+        OnAccent = Color3.fromRGB(255, 255, 255)
+    },
+    Rose = {
+        Background = Color3.fromRGB(22, 12, 16),
+        BackgroundTop = Color3.fromRGB(35, 20, 26),
+        Card = Color3.fromRGB(39, 24, 31),
+        Selected = Color3.fromRGB(49, 29, 38),
+        Outline = Color3.fromRGB(75, 45, 57),
+        Divider = Color3.fromRGB(61, 37, 47),
+        Accent = Color3.fromRGB(222, 68, 108),
+        AccentGlow = Color3.fromRGB(255, 122, 152),
+        AccentAlt = Color3.fromRGB(255, 154, 96),
+        Text = Color3.fromRGB(252, 236, 240),
+        SubText = Color3.fromRGB(177, 141, 151),
+        ToggleOff = Color3.fromRGB(81, 53, 63),
+        OnAccent = Color3.fromRGB(255, 255, 255)
+    }
+}
+
+local THEME_ORDER = { "Dark", "Blue", "Purple", "Rose", "Custom" }
+local CurrentTheme = "Dark"
+
+local SURFACE = {
+    Background = Color3.fromRGB(0, 0, 0),
+    BackgroundTop = Color3.fromRGB(8, 8, 10),
+    Card = Color3.fromRGB(14, 14, 16),
+    Outline = Color3.fromRGB(36, 36, 42),
+    Divider = Color3.fromRGB(24, 24, 28),
+    Text = Color3.fromRGB(244, 244, 248),
+    SubText = Color3.fromRGB(142, 142, 152),
+    ToggleOff = Color3.fromRGB(46, 46, 52)
+}
+
+local Theme = {
+    Red = Color3.fromRGB(255, 95, 87),
+    Yellow = Color3.fromRGB(255, 189, 46),
+    Green = Color3.fromRGB(39, 201, 63)
+}
+for key, value in pairs(Palettes.Dark) do
+    Theme[key] = value
+end
+
+local function ApplySurface()
+    for Key, Value in pairs(SURFACE) do
+        Theme[Key] = Value
+    end
+    Theme.Selected = SURFACE.Card:Lerp(Theme.Accent, 0.12)
+end
+
+ApplySurface()
+
+local C = setmetatable({}, {
+    __index = function(_, key)
+        return { __token = key }
+    end
+})
+
+local Bound = {}
+local ThemeListeners = {}
+local NextThemeListener = 0
+
+local function Track(instance, property, key)
+    table.insert(Bound, { instance, property, key })
+end
+
+local function OnTheme(callback)
+    NextThemeListener = NextThemeListener + 1
+    local id = NextThemeListener
+    ThemeListeners[id] = callback
+    return function()
+        ThemeListeners[id] = nil
+    end
+end
+
+local PressTypes = {
+    [Enum.UserInputType.MouseButton1] = true,
+    [Enum.UserInputType.Touch] = true
+}
+
+local FontPath = "rbxasset://fonts/families/Montserrat.json"
+local Fonts = {}
+for name, weight in pairs({
+    Regular = Enum.FontWeight.Regular,
+    Medium = Enum.FontWeight.Medium,
+    SemiBold = Enum.FontWeight.SemiBold,
+    Bold = Enum.FontWeight.Bold
+}) do
+    Fonts[name] = Font.new(FontPath, weight, Enum.FontStyle.Normal)
+end
+
+local function New(className, properties, children)
+    local instance = Instance.new(className)
+    local isText = instance:IsA("TextLabel") or instance:IsA("TextButton") or instance:IsA("TextBox")
+    local props = properties or {}
+
+    if instance:IsA("GuiObject") then
+        instance.BorderSizePixel = 0
+    end
+    if instance:IsA("GuiButton") then
+        instance.AutoButtonColor = false
+    end
+    if isText then
+        instance.FontFace = Fonts.Regular
+        instance.TextSize = 12
+        instance.TextColor3 = Theme.Text
+        instance.TextXAlignment = Enum.TextXAlignment.Left
+        instance.Text = ""
+        if props.TextColor3 == nil then
+            Track(instance, "TextColor3", "Text")
+        end
+    end
+    if isText or instance:IsA("ImageLabel") or instance:IsA("ImageButton") or instance:IsA("ScrollingFrame") then
+        instance.BackgroundTransparency = 1
+    end
+
+    local parent
+    for key, value in pairs(props) do
+        if key == "Parent" then
+            parent = value
+        elseif key == "Weight" then
+            instance.FontFace = Fonts[value] or Fonts.Regular
+        else
+            if type(value) == "table" and value.__token then
+                Track(instance, key, value.__token)
+                value = Theme[value.__token]
+            end
+            instance[key] = value
+        end
+    end
+    for _, child in ipairs(children or {}) do
+        child.Parent = instance
+    end
+    if parent then
+        instance.Parent = parent
+    end
+    return instance
+end
+
+local function Corner(radius, isCircle)
+    if isCircle then
+        return New("UICorner", { CornerRadius = UDim.new(1, 0) })
+    end
+    return New("UICorner", { CornerRadius = UDim.new(0, radius or 8) })
+end
+
+local function Stroke(color, transparency, thickness)
+    return New("UIStroke", {
+        Color = color,
+        Transparency = transparency or 0,
+        Thickness = thickness or 1,
+        ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    })
+end
+
+local function Tween(object, duration, properties, style, direction)
+    local tween = TweenService:Create(
+        object,
+        TweenInfo.new(duration, style or Enum.EasingStyle.Quad, direction or Enum.EasingDirection.Out),
+        properties
+    )
+    tween:Play()
+    return tween
+end
+
+local function SafeCall(callback, ...)
+    if type(callback) ~= "function" then
+        return
+    end
+    local ok, err = pcall(callback, ...)
+    if not ok then
+        warn("[Fracture UI] " .. tostring(err))
+    end
+end
+
+local Aura = {}
+Aura.__index = Aura
+Aura.Pool = {}
+Aura.Next = 0
+
+Aura.Styles = {
+    Fill = function()
+        return ColorSequence.new(Theme.Accent, Theme.AccentAlt)
+    end,
+    Shade = function()
+        return ColorSequence.new(Color3.new(1, 1, 1), Color3.new(0.68, 0.68, 0.74))
+    end,
+    Haze = function()
+        return ColorSequence.new({
+            ColorSequenceKeypoint.new(0, Theme.Accent),
+            ColorSequenceKeypoint.new(0.5, Theme.AccentAlt),
+            ColorSequenceKeypoint.new(1, Theme.Accent)
+        })
+    end,
+    Rim = function()
+        local base = Theme.Outline
+        return ColorSequence.new({
+            ColorSequenceKeypoint.new(0, base:Lerp(Theme.Accent, 0.55)),
+            ColorSequenceKeypoint.new(0.35, base),
+            ColorSequenceKeypoint.new(0.7, base:Lerp(Theme.AccentAlt, 0.55)),
+            ColorSequenceKeypoint.new(1, base:Lerp(Theme.Accent, 0.55))
+        })
+    end
+}
+
+function Aura.Make(style, props)
+    local self = setmetatable({ Style = style }, Aura)
+    self.Gradient = New("UIGradient", props or {})
+    self:Paint()
+    Aura.Next = Aura.Next + 1
+    Aura.Pool[Aura.Next] = self
+    return self.Gradient
+end
+
+function Aura:Paint()
+    self.Gradient.Color = Aura.Styles[self.Style]()
+end
+
+function Aura.Sync()
+    for id, aura in pairs(Aura.Pool) do
+        if aura.Gradient.Parent and aura.Gradient:IsDescendantOf(game) then
+            aura:Paint()
+        else
+            Aura.Pool[id] = nil
+        end
+    end
+end
+
+local AccentSolid = false
+
+local function SetTheme(name)
+    local palette = Palettes[name]
+    if not palette then
+        return false
+    end
+    CurrentTheme = name
+    for key, value in pairs(palette) do
+        Theme[key] = value
+    end
+    if AccentSolid then
+        Theme.AccentAlt = Theme.Accent
+        Theme.AccentGlow = Theme.Accent
+    end
+    ApplySurface()
+
+    local alive = {}
+    for _, binding in ipairs(Bound) do
+        local instance = binding[1]
+        if instance.Parent ~= nil and instance:IsDescendantOf(game) then
+            table.insert(alive, binding)
+            Tween(instance, 0.25, { [binding[2]] = Theme[binding[3]] })
+        end
+    end
+    Bound = alive
+    Aura.Sync()
+
+    for _, callback in pairs(ThemeListeners) do
+        SafeCall(callback)
+    end
+    return true
+end
+
+local CUSTOM_KEYS = { "Accent", "AccentAlt" }
+local CustomColors = {}
+for _, Key in ipairs(CUSTOM_KEYS) do
+    CustomColors[Key] = Palettes.Dark[Key]
+end
+
+local function ColorToHex(Color)
+    return string.format("#%02X%02X%02X", math.floor(Color.R * 255 + 0.5), math.floor(Color.G * 255 + 0.5), math.floor(Color.B * 255 + 0.5))
+end
+
+local function ParseColor(Value)
+    local Kind = typeof(Value)
+    local Result = nil
+    if Kind == "Color3" then
+        Result = Value
+    elseif Kind == "string" then
+        local Red, Green, Blue = string.match(Value, "^%s*#?(%x%x)(%x%x)(%x%x)%s*$")
+        Result = Red and Color3.fromRGB(tonumber(Red, 16), tonumber(Green, 16), tonumber(Blue, 16)) or nil
+    elseif Kind == "table" then
+        local Channels = { Value.R or Value[1], Value.G or Value[2], Value.B or Value[3] }
+        Result = #Channels == 3 and Color3.fromRGB(Channels[1], Channels[2], Channels[3]) or nil
+    end
+    return Result
+end
+
+local function BuildCustomPalette()
+    local White = Color3.new(1, 1, 1)
+    local Accent = CustomColors.Accent
+    local Luma = Accent.R * 0.299 + Accent.G * 0.587 + Accent.B * 0.114
+    return {
+        Background = SURFACE.Background,
+        BackgroundTop = SURFACE.BackgroundTop,
+        Card = SURFACE.Card,
+        Selected = SURFACE.Card:Lerp(Accent, 0.12),
+        Outline = SURFACE.Outline,
+        Divider = SURFACE.Divider,
+        Accent = Accent,
+        AccentGlow = Accent:Lerp(White, 0.35),
+        AccentAlt = CustomColors.AccentAlt,
+        Text = SURFACE.Text,
+        SubText = SURFACE.SubText,
+        ToggleOff = SURFACE.ToggleOff,
+        OnAccent = Luma > 0.62 and Color3.fromRGB(20, 20, 24) or White
+    }
+end
+
+Palettes.Custom = BuildCustomPalette()
+
+local function SetAccentStyle(Style)
+    AccentSolid = Style == "Solid"
+    SetTheme(CurrentTheme)
+end
+
+local function ApplyCustomColors()
+    Palettes.Custom = BuildCustomPalette()
+    SetTheme("Custom")
+end
+
+local function ResolveParent()
+    local ok, container = pcall(function()
+        return gethui and gethui()
+    end)
+    if ok and container then
+        return container
+    end
+    return CoreGui
+end
+
+local function Pick(Value, Fallback)
+    local Options = { [true] = Value, [false] = Fallback }
+    return Options[Value ~= nil]
+end
+
+local function CleanName(text)
+    text = string.gsub(tostring(text), "[\\\\/:*?\"<>|]", "_")
+    text = string.gsub(text, "^%s+", "")
+    text = string.gsub(text, "%s+$", "")
+    return text ~= "" and text or "default"
+end
+
+local function CountDecimals(step)
+    local fraction = string.match(tostring(step), "%.(%d+)")
+    return fraction and #fraction or 0
+end
+
+local Maid = {}
+Maid.__index = Maid
+
+function Maid.new()
+    return setmetatable({ Tasks = {} }, Maid)
+end
+
+function Maid:Give(task)
+    table.insert(self.Tasks, task)
+    return task
+end
+
+function Maid:Destroy()
+    for _, task in ipairs(self.Tasks) do
+        local kind = typeof(task)
+        if kind == "RBXScriptConnection" then
+            task:Disconnect()
+        elseif kind == "Instance" then
+            task:Destroy()
+        elseif kind == "function" then
+            task()
+        end
+    end
+    table.clear(self.Tasks)
+end
+
+local function BindPointer(maid, target, handlers)
+    local hovered = false
+    local pressed = false
+
+    local function SetHover(state)
+        if state == hovered or not handlers.Hover then
+            hovered = state
+            return
+        end
+        hovered = state
+        handlers.Hover(state)
+    end
+
+    local function SetPress(state)
+        if state == pressed or not handlers.Press then
+            pressed = state
+            return
+        end
+        pressed = state
+        handlers.Press(state)
+    end
+
+    maid:Give(target.MouseEnter:Connect(function()
+        SetHover(true)
+    end))
+
+    maid:Give(target.MouseLeave:Connect(function()
+        SetPress(false)
+        SetHover(false)
+    end))
+
+    maid:Give(target.InputBegan:Connect(function(input)
+        if not PressTypes[input.UserInputType] then
+            return
+        end
+        if input.UserInputType == Enum.UserInputType.Touch then
+            SetHover(true)
+        end
+        SetPress(true)
+    end))
+
+    maid:Give(target.InputEnded:Connect(function(input)
+        if not PressTypes[input.UserInputType] then
+            return
+        end
+        SetPress(false)
+        if input.UserInputType == Enum.UserInputType.Touch then
+            SetHover(false)
+        end
+    end))
+end
+
+
+local function GuiInset()
+    local ok, inset = pcall(function()
+        return GuiService:GetGuiInset()
+    end)
+    return ok and inset or Vector2.zero
+end
+
+local function PointInside(gui, position, tolerant)
+    local from = gui.AbsolutePosition
+    local to = from + gui.AbsoluteSize
+    local function Test(point)
+        return point.X >= from.X and point.X <= to.X and point.Y >= from.Y and point.Y <= to.Y
+    end
+    local raw = Vector2.new(position.X, position.Y)
+    if Test(raw + GuiInset()) then
+        return true
+    end
+    return tolerant == true and Test(raw)
+end
+
+local function TrackPointer(input, onMove, onEnd)
+    local isTouch = input.UserInputType == Enum.UserInputType.Touch
+    local finished = false
+    local last = input.Position
+    local connections = {}
+
+    local function Finish(cancelled)
+        if finished then
+            return
+        end
+        finished = true
+        for _, connection in ipairs(connections) do
+            connection:Disconnect()
+        end
+        if onEnd then
+            onEnd(last, cancelled)
+        end
+    end
+
+    table.insert(connections, UserInputService.InputChanged:Connect(function(moved)
+        local same = moved == input
+            or (isTouch and moved.UserInputType == Enum.UserInputType.Touch)
+            or (not isTouch and moved.UserInputType == Enum.UserInputType.MouseMovement)
+        if same then
+            last = moved.Position
+            if onMove then
+                onMove(last)
+            end
+        end
+    end))
+    table.insert(connections, input.Changed:Connect(function()
+        if input.UserInputState == Enum.UserInputState.End then
+            Finish(false)
+        elseif input.UserInputState == Enum.UserInputState.Cancel then
+            Finish(true)
+        end
+    end))
+    table.insert(connections, UserInputService.InputEnded:Connect(function(ended)
+        if ended == input or ended.UserInputType == input.UserInputType then
+            Finish(false)
+        end
+    end))
+
+    return Finish
+end
+
+local function BindTap(maid, target, callback)
+    maid:Give(target.InputBegan:Connect(function(input)
+        if not PressTypes[input.UserInputType] then
+            return
+        end
+        local origin = input.Position
+        local moved = false
+        TrackPointer(input, function(position)
+            if (position - origin).Magnitude > 10 then
+                moved = true
+            end
+        end, function(position, cancelled)
+            if cancelled or moved or (position - origin).Magnitude > 10 then
+                return
+            end
+            if input.UserInputType == Enum.UserInputType.MouseButton1 and not PointInside(target, position, true) then
+                return
+            end
+            callback(input)
+        end)
+    end))
+end
+
+local Builtins = {
+    en = {
+        Settings = "Settings",
+        SettingsDesc = "Configure UI preferences",
+        Language = "Language",
+        LanguageDesc = "Choose the interface language",
+        Interface = "Interface",
+        InterfaceDesc = "Window options",
+        Sound = "UI Sounds",
+        SoundDesc = "Play sounds on open, clicks and typing",
+        Volume = "Sound Volume",
+        VolumeDesc = "Adjust how loud the UI sounds are",
+        Scale = "UI Scale",
+        ScaleDesc = "Resize the whole window",
+        Acrylic = "Acrylic Effect",
+        AcrylicDesc = "Frosted glass window",
+        Transparency = "Transparency",
+        TransparencyDesc = "How see-through the window is",
+        Blur = "Background Blur",
+        BlurDesc = "Blur the game behind the window (needs Acrylic on)",
+        AccentStyle = "Accent Color Style",
+        StyleGradient = "Gradient Mode",
+        StyleSolid = "Solid Mode",
+        ToneTitle = "Tone",
+        ToneDark = "Dark",
+        ToneLight = "Light",
+        QuickPalettes = "Quick Accent Palettes (One-Tap)",
+        PrimaryAccent = "Primary Accent",
+        SecondaryAccent = "Secondary Accent",
+        ToggleKey = "Toggle Key",
+        ToggleKeyDesc = "Key to show or hide the window",
+        ColorDone = "Done",
+        ColorCancel = "Cancel",
+        ResetAll = "Reset UI Settings",
+        ResetAllDesc = "Restore every UI setting to default",
+        Reset = "Reset UI Position",
+        ResetDesc = "Move the window back to the center",
+        Search = "Search...",
+        None = "None",
+        Select = "Select...",
+        ManageFor = "Manage options and settings for %s",
+        Appearance = "Appearance",
+        AppearanceDesc = "Customize colors",
+        Theme = "Theme",
+        ThemeDesc = "Pick a color theme",
+        ThemeDark = "Dark",
+        ThemeLight = "Light",
+        ThemeBlue = "Blue",
+        ThemePurple = "Purple",
+        ThemeRose = "Rose",
+        ThemeCustom = "Custom",
+        CustomTheme = "Custom Theme",
+        CustomThemeDesc = "Pick your own colors",
+        ColorAccent = "Accent",
+        ColorAccentAlt = "Accent Alt",
+        ColorBackground = "Background",
+        ColorCard = "Card",
+        ColorText = "Text",
+        ColorSubText = "Sub Text",
+        ResetColors = "Reset Colors",
+        ResetColorsDesc = "Restore the default custom colors",
+        Notifications = "Notifications",
+        NotificationsDesc = "Toast options",
+        NotifyTimer = "Timer Bar",
+        NotifyTimerDesc = "Show the countdown line on notifications",
+        NotifyLine = "Line Color",
+        NotifyLineDesc = "Color of the stripe on the left edge",
+        NotifyLineReset = "Auto Line Color",
+        NotifyLineResetDesc = "Use the default color for each type",
+        NotifyTest = "Test Notification",
+        NotifyTestDesc = "Preview how a notification looks",
+        NotifyTestBody = "This is a sample notification",
+        Privacy = "Privacy",
+        PrivacyDesc = "Hide personal info",
+        HideName = "Hide Name",
+        HideNameDesc = "Mask your name on the profile card",
+        HideProfile = "Hide Profile",
+        HideProfileDesc = "Hide the whole profile card",
+        NoResults = "No results"
+    },
+    th = {
+        Settings = "ตั้งค่า",
+        SettingsDesc = "ปรับแต่งการใช้งานเมนู",
+        Language = "ภาษา",
+        LanguageDesc = "เลือกภาษาของหน้าต่างเมนู",
+        Interface = "หน้าตาเมนู",
+        InterfaceDesc = "ตั้งค่าหน้าต่าง",
+        Sound = "เสียงเมนู",
+        SoundDesc = "เล่นเสียงตอนเปิดเมนู กดปุ่ม และพิมพ์",
+        Volume = "ระดับเสียง",
+        VolumeDesc = "ปรับความดังของเสียงเมนู",
+        Scale = "ขนาดเมนู",
+        ScaleDesc = "ปรับขนาดหน้าต่างทั้งหมด",
+        Acrylic = "เอฟเฟกต์ Acrylic",
+        AcrylicDesc = "หน้าต่างแบบกระจกฝ้า",
+        Transparency = "ความโปร่งใส",
+        TransparencyDesc = "ปรับความโปร่งแสงของหน้าต่าง",
+        Blur = "เบลอพื้นหลัง",
+        BlurDesc = "เบลอฉากเกมด้านหลังหน้าต่าง (ต้องเปิด Acrylic)",
+        AccentStyle = "สไตล์สีเน้น",
+        StyleGradient = "โหมดไล่สี",
+        StyleSolid = "โหมดสีเดียว",
+        ToneTitle = "โทนสี",
+        ToneDark = "มืด",
+        ToneLight = "สว่าง",
+        QuickPalettes = "พาเลตสีด่วน (แตะครั้งเดียว)",
+        PrimaryAccent = "สีเน้นหลัก",
+        SecondaryAccent = "สีเน้นรอง",
+        ToggleKey = "ปุ่มเปิด/ปิดเมนู",
+        ToggleKeyDesc = "ปุ่มลัดสำหรับแสดงหรือซ่อนหน้าต่าง",
+        ColorDone = "เสร็จสิ้น",
+        ColorCancel = "ยกเลิก",
+        ResetAll = "รีเซ็ตการตั้งค่า UI",
+        ResetAllDesc = "คืนค่าการตั้งค่า UI ทั้งหมดเป็นค่าเริ่มต้น",
+        Reset = "รีเซ็ตตำแหน่งเมนู",
+        ResetDesc = "ย้ายหน้าต่างกลับมากลางจอ",
+        Search = "ค้นหา...",
+        None = "ไม่มี",
+        Select = "เลือก...",
+        ManageFor = "จัดการตัวเลือกและการตั้งค่าของ %s",
+        Appearance = "ธีม",
+        AppearanceDesc = "ปรับสีหน้าตาเมนู",
+        Theme = "ธีมสี",
+        ThemeDesc = "เลือกธีมสีที่ชอบ",
+        ThemeDark = "มืด",
+        ThemeLight = "ขาว",
+        ThemeBlue = "ฟ้า",
+        ThemePurple = "ม่วง",
+        ThemeRose = "ชมพู",
+        ThemeCustom = "กำหนดเอง",
+        CustomTheme = "ธีมกำหนดเอง",
+        CustomThemeDesc = "เลือกสีได้อิสระ",
+        ColorAccent = "สีหลัก",
+        ColorAccentAlt = "สีรอง",
+        ColorBackground = "สีพื้นหลัง",
+        ColorCard = "สีการ์ด",
+        ColorText = "สีตัวอักษร",
+        ColorSubText = "สีตัวอักษรรอง",
+        ResetColors = "รีเซ็ตสี",
+        ResetColorsDesc = "คืนค่าสีกำหนดเองเป็นค่าเริ่มต้น",
+        Notifications = "การแจ้งเตือน",
+        NotificationsDesc = "ตั้งค่าแจ้งเตือนมุมจอ",
+        NotifyTimer = "เส้นนับเวลา",
+        NotifyTimerDesc = "แสดงเส้นนับถอยหลังในแจ้งเตือน",
+        NotifyLine = "สีเส้นข้างหน้า",
+        NotifyLineDesc = "สีของเส้นด้านซ้ายของแจ้งเตือน",
+        NotifyLineReset = "สีเส้นอัตโนมัติ",
+        NotifyLineResetDesc = "ใช้สีตามประเภทแจ้งเตือน",
+        NotifyTest = "ทดสอบแจ้งเตือน",
+        NotifyTestDesc = "ดูตัวอย่างหน้าตาแจ้งเตือน",
+        NotifyTestBody = "นี่คือข้อความแจ้งเตือนตัวอย่าง",
+        Privacy = "ความเป็นส่วนตัว",
+        PrivacyDesc = "ซ่อนข้อมูลส่วนตัว",
+        HideName = "ปิดชื่อ",
+        HideNameDesc = "ซ่อนชื่อในการ์ดโปรไฟล์",
+        HideProfile = "ปิดโปรไฟล์",
+        HideProfileDesc = "ซ่อนการ์ดโปรไฟล์ทั้งหมด",
+        NoResults = "ไม่พบผลลัพธ์"
+    }
+}
+
+local Localization = {}
+Localization.__index = Localization
+
+function Localization.new()
+    return setmetatable({
+        Enabled = true,
+        Prefix = "L:",
+        Language = "en",
+        Default = "en",
+        Translations = {},
+        Names = { en = "English", th = "ไทย" },
+        Bindings = setmetatable({}, { __mode = "k" }),
+        Listeners = {},
+        NextId = 0
+    }, Localization)
+end
+
+function Localization:AddTranslations(translations)
+    for code, pack in pairs(translations or {}) do
+        local target = self.Translations[code]
+        if not target then
+            target = {}
+            self.Translations[code] = target
+        end
+        for key, value in pairs(pack) do
+            target[key] = value
+        end
+    end
+end
+
+function Localization:Configure(config)
+    config = config or {}
+    if config.Enabled ~= nil then
+        self.Enabled = config.Enabled ~= false
+    end
+    self.Prefix = config.Prefix or self.Prefix
+    self.Default = config.DefaultLanguage or self.Default
+    self:AddTranslations(config.Translations)
+    if config.Language then
+        self.Language = config.Language
+    elseif not self.Translations[self.Language] and self.Language ~= "en" and self.Language ~= "th" then
+        self.Language = self.Default
+    end
+    self:_Apply()
+end
+
+function Localization:SetLanguage(code)
+    if code == nil or code == self.Language then
+        return
+    end
+    self.Language = code
+    self:_Apply()
+end
+
+function Localization:GetName(code)
+    local pack = self.Translations[code]
+    return (pack and pack.LanguageName) or self.Names[code] or code
+end
+
+function Localization:GetCode(name)
+    for _, entry in ipairs(self:GetLanguages()) do
+        if entry.Name == name then
+            return entry.Code
+        end
+    end
+    return nil
+end
+
+function Localization:GetLanguages()
+    local list = {}
+    local seen = {}
+
+    local function Add(code)
+        if not seen[code] then
+            seen[code] = true
+            table.insert(list, { Code = code, Name = self:GetName(code) })
+        end
+    end
+
+    Add("en")
+    Add("th")
+
+    local extra = {}
+    for code in pairs(self.Translations) do
+        if not seen[code] then
+            table.insert(extra, code)
+        end
+    end
+    table.sort(extra)
+    for _, code in ipairs(extra) do
+        Add(code)
+    end
+
+    return list
+end
+
+function Localization:Translate(text)
+    if not self.Enabled or type(text) ~= "string" then
+        return text
+    end
+    local prefixLength = #self.Prefix
+    if string.sub(text, 1, prefixLength) ~= self.Prefix then
+        return text
+    end
+    local key = string.sub(text, prefixLength + 1)
+    local pack = self.Translations[self.Language]
+    local value = pack and pack[key]
+    if value == nil then
+        local fallback = self.Translations[self.Default]
+        value = fallback and fallback[key]
+    end
+    return value or key
+end
+
+function Localization:Builtin(key)
+    local pack = self.Translations[self.Language]
+    local custom = pack and pack["Fracture." .. key]
+    if custom then
+        return custom
+    end
+    local own = Builtins[self.Language]
+    if own and own[key] then
+        return own[key]
+    end
+    return Builtins.en[key] or key
+end
+
+function Localization:Resolve(source)
+    if type(source) == "function" then
+        return source()
+    end
+    if type(source) == "string" then
+        return self:Translate(source)
+    end
+    return tostring(source)
+end
+
+function Localization:IsDynamic(source)
+    if type(source) == "function" then
+        return true
+    end
+    return type(source) == "string" and string.sub(source, 1, #self.Prefix) == self.Prefix
+end
+
+function Localization:Bind(object, property, source)
+    object[property] = self:Resolve(source)
+    local bound = self.Bindings[object]
+    if self:IsDynamic(source) then
+        if not bound then
+            bound = {}
+            self.Bindings[object] = bound
+        end
+        bound[property] = source
+    elseif bound then
+        bound[property] = nil
+    end
+end
+
+function Localization:Listen(callback)
+    self.NextId = self.NextId + 1
+    local id = self.NextId
+    self.Listeners[id] = callback
+    return function()
+        self.Listeners[id] = nil
+    end
+end
+
+function Localization:_Apply()
+    for object, properties in pairs(self.Bindings) do
+        for property, source in pairs(properties) do
+            object[property] = self:Resolve(source)
+        end
+    end
+    for _, callback in pairs(self.Listeners) do
+        SafeCall(callback)
+    end
+end
+
+local Locale = Localization.new()
+
+local function Builtin(key)
+    return function()
+        return Locale:Builtin(key)
+    end
+end
+
+local Flags = {}
+local FlagElements = {}
+
+local Element = {}
+Element.__index = Element
+
+function Element.extend()
+    local class = {}
+    class.__index = class
+    return setmetatable(class, { __index = Element })
+end
+
+function Element:_Init(section, config, defaultTitle)
+    self.Section = section
+    self.Window = section.Window
+    self.Callback = config.Callback
+    self.TitleSource = config.Title or config.Name or defaultTitle
+    self.DescSource = config.Desc
+    self.HasDesc = config.Desc ~= nil and config.Desc ~= ""
+    self.IconSource = config.Icon
+    self.Flag = config.Flag
+    self.Locked = config.Locked == true or config.Disabled == true
+    self.Hidden = config.Visible == false
+    self.Destroyed = false
+    self.Listeners = {}
+    self.NextListener = 0
+end
+
+function Element:_RowHeight()
+    return self.HasDesc and 58 or 46
+end
+
+function Element:_TextX()
+    if self.IconSource ~= nil then
+        return math.max(self.BaseTextX, 52)
+    end
+    return self.BaseTextX
+end
+
+function Element:_CreateLabels(parent, textX, rightInset)
+    self.BaseTextX = textX
+    self.RightInset = rightInset
+
+    self.IconImage = New("ImageLabel", {
+        Size = UDim2.fromOffset(20, 20),
+        ImageColor3 = C.SubText,
+        Visible = false,
+        Parent = parent
+    })
+
+    self.TitleLabel = New("TextLabel", {
+        TextSize = 13,
+        Weight = "Medium",
+        TextTruncate = Enum.TextTruncate.AtEnd,
+        Parent = parent
+    })
+    Locale:Bind(self.TitleLabel, "Text", self.TitleSource)
+
+    self.DescLabel = New("TextLabel", {
+        TextSize = 11,
+        TextColor3 = C.SubText,
+        TextTruncate = Enum.TextTruncate.AtEnd,
+        Visible = false,
+        Parent = parent
+    })
+    Locale:Bind(self.DescLabel, "Text", self.DescSource or "")
+
+    self:_ApplyLabels()
+end
+
+function Element:_ApplyLabels()
+    if not self.TitleLabel then
+        return
+    end
+    local textX = self:_TextX()
+    local hasDesc = self.HasDesc
+    local width = -(textX + self.RightInset)
+
+    self.IconImage.Visible = self.IconSource ~= nil
+    if self.IconSource ~= nil then
+        self.IconImage.Image = ResolveIcon(self.IconSource, "rbxassetid://6023426915")
+        self.IconImage.Position = UDim2.fromOffset(16, (hasDesc and 29 or 23) - 10)
+    end
+
+    self.TitleLabel.Size = UDim2.new(1, width, 0, 16)
+    self.TitleLabel.Position = UDim2.fromOffset(textX, hasDesc and 12 or 15)
+
+    self.DescLabel.Visible = hasDesc
+    self.DescLabel.Size = UDim2.new(1, width, 0, 14)
+    self.DescLabel.Position = UDim2.fromOffset(textX, 30)
+end
+
+function Element:_Layout()
+    self:_ApplyLabels()
+    if self.Head then
+        self.Head.Frame.Size = UDim2.new(1, 0, 0, self:_RowHeight())
+    end
+end
+
+function Element:_ApplyLocked()
+    local fade = self.Locked and 0.55 or 0
+    if self.TitleLabel then
+        self.TitleLabel.TextTransparency = fade
+        self.DescLabel.TextTransparency = fade
+        self.IconImage.ImageTransparency = fade
+    end
+    local hook = self._OnLocked
+    if hook then
+        hook(self, self.Locked)
+    end
+end
+
+function Element:_SyncFlag()
+    if self.Flag then
+        Flags[self.Flag] = self:Get()
+    end
+end
+
+function Element:_Emit(value, ...)
+    if self.Flag then
+        Flags[self.Flag] = value
+    end
+    SafeCall(self.Callback, value, ...)
+    for _, listener in pairs(self.Listeners) do
+        SafeCall(listener, value, ...)
+    end
+    if self.Flag and self.Window then
+        self.Window:_QueueSave()
+    end
+end
+
+function Element:_Finish(row, divider)
+    self.Row = row
+    if self.Flag then
+        FlagElements[self.Flag] = self
+        self:_SyncFlag()
+    end
+    self:_ApplyLocked()
+    self.Section:_Register(self, row, divider)
+    self.Section:_Refresh()
+    return self
+end
+
+function Element:SetTitle(source)
+    self.TitleSource = source
+    Locale:Bind(self.TitleLabel, "Text", source)
+    self.Section:_Refresh()
+end
+
+function Element:GetTitle()
+    return Locale:Resolve(self.TitleSource)
+end
+
+function Element:SetDesc(source)
+    self.DescSource = source
+    self.HasDesc = source ~= nil and source ~= ""
+    Locale:Bind(self.DescLabel, "Text", source or "")
+    self:_Layout()
+end
+
+function Element:GetDesc()
+    if not self.HasDesc then
+        return ""
+    end
+    return Locale:Resolve(self.DescSource)
+end
+
+function Element:SetIcon(icon)
+    self.IconSource = icon
+    self:_Layout()
+end
+
+function Element:SetVisible(state)
+    self.Hidden = state == false
+    self.Section:_Refresh()
+end
+
+function Element:Show()
+    self:SetVisible(true)
+end
+
+function Element:Hide()
+    self:SetVisible(false)
+end
+
+function Element:SetLocked(state)
+    self.Locked = state == true
+    self:_ApplyLocked()
+end
+
+function Element:SetEnabled(state)
+    self:SetLocked(state == false)
+end
+
+function Element:IsLocked()
+    return self.Locked
+end
+
+function Element:SetCallback(callback)
+    self.Callback = callback
+end
+
+function Element:OnChanged(callback)
+    self.NextListener = self.NextListener + 1
+    local id = self.NextListener
+    self.Listeners[id] = callback
+    return function()
+        self.Listeners[id] = nil
+    end
+end
+
+function Element:Set() end
+
+function Element:Get()
+    return nil
+end
+
+function Element:SetValue(...)
+    return self:Set(...)
+end
+
+function Element:GetValue()
+    return self:Get()
+end
+
+function Element:Refresh()
+    Locale:Bind(self.TitleLabel, "Text", self.TitleSource)
+    Locale:Bind(self.DescLabel, "Text", self.DescSource or "")
+    self:_Layout()
+end
+
+function Element:Destroy()
+    if self.Destroyed then
+        return
+    end
+    self.Destroyed = true
+    local hook = self._Cleanup
+    if hook then
+        hook(self)
+    end
+    if self.Flag and FlagElements[self.Flag] == self then
+        FlagElements[self.Flag] = nil
+        Flags[self.Flag] = nil
+    end
+    self.Section:_Unregister(self)
+    if self.Row then
+        self.Row:Destroy()
+    end
+end
+
+function Element:_CreateHead(parent, height, order, mode)
+    local maid = self.Window.Maid
+
+    local frame = New("Frame", {
+        Size = UDim2.new(1, 0, 0, height),
+        BackgroundTransparency = 1,
+        ClipsDescendants = true,
+        LayoutOrder = order,
+        Parent = parent
+    })
+
+    local divider = New("Frame", {
+        Size = UDim2.new(1, -28, 0, 1),
+        Position = UDim2.fromOffset(14, 0),
+        BackgroundColor3 = C.Divider,
+        Parent = frame
+    })
+
+    local glowStroke = Stroke(C.AccentGlow, 1, 1)
+    local glow = New("Frame", {
+        Size = UDim2.new(1, -12, 1, -6),
+        Position = UDim2.fromOffset(6, 3),
+        BackgroundColor3 = C.AccentGlow,
+        BackgroundTransparency = 1,
+        Parent = frame
+    }, { Corner(8), glowStroke })
+
+    local scale = mode == "bounce" and New("UIScale", { Scale = 1 }) or nil
+    local hit = New("TextButton", {
+        AnchorPoint = Vector2.new(0.5, 0.5),
+        Position = UDim2.fromScale(0.5, 0.5),
+        Size = UDim2.fromScale(1, 1),
+        Parent = frame
+    }, scale and { scale } or nil)
+
+    local head = { Frame = frame, Divider = divider, Hit = hit, OnHover = nil }
+    local hovered = false
+    local pressed = false
+
+    local function Render()
+        local fill = 1
+        local line = 1
+        if pressed then
+            fill, line = 0.93, 0.86
+        elseif hovered then
+            fill, line = 0.972, 1
+        end
+        Tween(glow, 0.2, { BackgroundTransparency = fill })
+        Tween(glowStroke, 0.2, { Transparency = line })
+    end
+
+    BindPointer(maid, hit, mode == "none" and {} or {
+        Hover = function(state)
+            hovered = state
+            Render()
+            if head.OnHover then
+                head.OnHover(state)
+            end
+        end,
+        Press = mode and function(state)
+            pressed = state
+            Render()
+            if scale then
+                if state then
+                    Tween(scale, 0.12, { Scale = 0.983 }, Enum.EasingStyle.Sine)
+                else
+                    Tween(scale, 0.28, { Scale = 1 }, Enum.EasingStyle.Back)
+                end
+            end
+        end or nil
+    })
+
+    self.Head = head
+    return head
+end
+
+local UIButton = Element.extend()
+
+function UIButton.new(section, config)
+    local self = setmetatable({}, UIButton)
+    self:_Init(section, config, "Button")
+    self.ButtonTextSource = config.ButtonText
+
+    local window = self.Window
+    local head = self:_CreateHead(section.Card, self:_RowHeight(), section:NextOrder(), "bounce")
+    local hasText = self.ButtonTextSource ~= nil and self.ButtonTextSource ~= ""
+
+    self:_CreateLabels(head.Hit, 16, hasText and 128 or 52)
+
+    local pillStroke = Stroke(C.AccentGlow, 0.6, 1)
+    self.Pill = New("Frame", {
+        AnchorPoint = Vector2.new(1, 0.5),
+        Size = UDim2.fromOffset(0, 28),
+        AutomaticSize = Enum.AutomaticSize.X,
+        Position = UDim2.new(1, -16, 0.5, 0),
+        BackgroundColor3 = Color3.new(1, 1, 1),
+        Visible = hasText,
+        Parent = head.Hit
+    }, {
+        Corner(7),
+        pillStroke,
+        Aura.Make("Fill")
+    })
+    self.PillText = New("TextLabel", {
+        Size = UDim2.fromOffset(0, 28),
+        AutomaticSize = Enum.AutomaticSize.X,
+        TextColor3 = C.OnAccent,
+        TextXAlignment = Enum.TextXAlignment.Center,
+        Weight = "SemiBold",
+        Parent = self.Pill
+    }, {
+        New("UIPadding", { PaddingLeft = UDim.new(0, 14), PaddingRight = UDim.new(0, 14) })
+    })
+    Locale:Bind(self.PillText, "Text", self.ButtonTextSource or "")
+
+    self.Arrow = New("ImageLabel", {
+        AnchorPoint = Vector2.new(1, 0.5),
+        Size = UDim2.fromOffset(16, 16),
+        Position = UDim2.new(1, -16, 0.5, 0),
+        Image = IconList.chevronRight,
+        ImageColor3 = C.SubText,
+        Visible = not hasText,
+        Parent = head.Hit
+    })
+
+    head.OnHover = function(state)
+        if self.Pill.Visible then
+            Tween(pillStroke, 0.2, { Transparency = state and 0.4 or 0.6 })
+            Tween(self.Pill, 0.2, { BackgroundTransparency = state and 0.14 or 0 })
+        else
+            Tween(self.Arrow, 0.22, {
+                Position = state and UDim2.new(1, -13, 0.5, 0) or UDim2.new(1, -16, 0.5, 0),
+                ImageColor3 = state and Theme.Text or Theme.SubText
+            })
+        end
+        Tween(self.IconImage, 0.2, { ImageColor3 = state and Theme.Text or Theme.SubText })
+    end
+
+    BindTap(window.Maid, head.Hit, function()
+        if self.Locked then
+            return
+        end
+        window:PlayClick("Button")
+        self:Fire()
+    end)
+
+    return self:_Finish(head.Frame, head.Divider)
+end
+
+function UIButton:_ApplyMode()
+    local hasText = self.ButtonTextSource ~= nil and self.ButtonTextSource ~= ""
+    self.Pill.Visible = hasText
+    self.Arrow.Visible = not hasText
+    self.RightInset = hasText and 128 or 52
+    Locale:Bind(self.PillText, "Text", self.ButtonTextSource or "")
+    self:_ApplyLabels()
+end
+
+function UIButton:SetButtonText(source)
+    self.ButtonTextSource = source
+    self:_ApplyMode()
+end
+
+function UIButton:Fire(...)
+    SafeCall(self.Callback, ...)
+    for _, listener in pairs(self.Listeners) do
+        SafeCall(listener, ...)
+    end
+end
+
+UIButton.Click = UIButton.Fire
+
+function UIButton:Refresh()
+    Element.Refresh(self)
+    self:_ApplyMode()
+end
+
+local UIToggle = Element.extend()
+
+function UIToggle.new(section, config)
+    local self = setmetatable({}, UIToggle)
+    self:_Init(section, config, "Toggle")
+    self.Value = (config.Default == true) or (config.Value == true)
+
+    local window = self.Window
+    local head = self:_CreateHead(section.Card, self:_RowHeight(), section:NextOrder(), "tint")
+    self:_CreateLabels(head.Hit, 16, 80)
+
+    local trackStroke = Stroke(C.AccentGlow, 1, 1)
+    self.Track = New("Frame", {
+        AnchorPoint = Vector2.new(1, 0.5),
+        Size = UDim2.fromOffset(38, 20),
+        Position = UDim2.new(1, -16, 0.5, 0),
+        BackgroundColor3 = C.ToggleOff,
+        Parent = head.Hit
+    }, { Corner(nil, true), trackStroke })
+
+    self.Fill = New("Frame", {
+        Size = UDim2.fromScale(1, 1),
+        BackgroundColor3 = Color3.new(1, 1, 1),
+        BackgroundTransparency = self.Value and 0 or 1,
+        Parent = self.Track
+    }, { Corner(nil, true), Aura.Make("Fill") })
+
+    self.Knob = New("Frame", {
+        AnchorPoint = Vector2.new(0, 0.5),
+        Size = UDim2.fromOffset(14, 14),
+        Position = self.Value and UDim2.new(1, -17, 0.5, 0) or UDim2.new(0, 3, 0.5, 0),
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        Parent = self.Track
+    }, { Corner(nil, true) })
+
+    head.OnHover = function(state)
+        Tween(trackStroke, 0.2, { Transparency = state and 0.78 or 1 })
+        Tween(self.IconImage, 0.2, { ImageColor3 = state and Theme.Text or Theme.SubText })
+    end
+
+    BindTap(window.Maid, head.Hit, function()
+        if self.Locked then
+            return
+        end
+        window:PlayClick("Toggle")
+        self:Set(not self.Value)
+    end)
+
+    return self:_Finish(head.Frame, head.Divider)
+end
+
+function UIToggle:_Paint()
+    Tween(self.Knob, 0.2, {
+        Position = self.Value and UDim2.new(1, -17, 0.5, 0) or UDim2.new(0, 3, 0.5, 0)
+    }, Enum.EasingStyle.Quint)
+    Tween(self.Fill, 0.2, { BackgroundTransparency = self.Value and 0 or 1 })
+end
+
+function UIToggle:Set(value, silent)
+    local new = value == true
+    local changed = new ~= self.Value
+    self.Value = new
+    self:_Paint()
+    self:_SyncFlag()
+    if changed and not silent then
+        self:_Emit(self.Value)
+    end
+end
+
+function UIToggle:Get()
+    return self.Value
+end
+
+function UIToggle:Toggle(silent)
+    self:Set(not self.Value, silent)
+end
+
+function UIToggle:Refresh()
+    Element.Refresh(self)
+    self:_Paint()
+end
+
+local UILabel = Element.extend()
+
+function UILabel.new(section, config)
+    local self = setmetatable({}, UILabel)
+    self:_Init(section, config, "Label")
+    local head = self:_CreateHead(section.Card, self:_RowHeight(), section:NextOrder(), "none")
+    self:_CreateLabels(head.Hit, 16, 16)
+    return self:_Finish(head.Frame, head.Divider)
+end
+
+UILabel.SetText = Element.SetTitle
+
+local HUE_KEYS = {
+    ColorSequenceKeypoint.new(0, Color3.fromHSV(0, 1, 1)),
+    ColorSequenceKeypoint.new(1 / 6, Color3.fromHSV(1 / 6, 1, 1)),
+    ColorSequenceKeypoint.new(2 / 6, Color3.fromHSV(2 / 6, 1, 1)),
+    ColorSequenceKeypoint.new(3 / 6, Color3.fromHSV(3 / 6, 1, 1)),
+    ColorSequenceKeypoint.new(4 / 6, Color3.fromHSV(4 / 6, 1, 1)),
+    ColorSequenceKeypoint.new(5 / 6, Color3.fromHSV(5 / 6, 1, 1)),
+    ColorSequenceKeypoint.new(1, Color3.fromHSV(0, 1, 1))
+}
+
+local ACCENT_PRESETS = {
+    Color3.fromRGB(239, 68, 68),
+    Color3.fromRGB(245, 158, 11),
+    Color3.fromRGB(14, 165, 233),
+    Color3.fromRGB(16, 185, 129),
+    Color3.fromRGB(139, 92, 246),
+    Color3.fromRGB(244, 63, 94),
+    Color3.fromRGB(37, 99, 235),
+    Color3.fromRGB(249, 115, 22),
+    Color3.fromRGB(132, 204, 22),
+    Color3.fromRGB(148, 163, 184)
+}
+
+local UIColorPicker = Element.extend()
+
+function UIColorPicker.new(section, config)
+    local self = setmetatable({}, UIColorPicker)
+    self:_Init(section, config, "ColorPicker")
+    self.Value = ParseColor(Pick(config.Default, config.Value)) or Color3.new(1, 1, 1)
+
+    local Window = self.Window
+    local Head = self:_CreateHead(section.Card, self:_RowHeight(), section:NextOrder(), "tint")
+    self:_CreateLabels(Head.Hit, 16, 160)
+
+    self.HexLabel = New("TextLabel", {
+        AnchorPoint = Vector2.new(1, 0.5),
+        Position = UDim2.new(1, -68, 0.5, 0),
+        Size = UDim2.fromOffset(80, 18),
+        TextSize = 12,
+        Weight = "Medium",
+        TextColor3 = C.SubText,
+        TextXAlignment = Enum.TextXAlignment.Right,
+        Text = ColorToHex(self.Value),
+        Parent = Head.Hit
+    })
+
+    self.Swatch = New("Frame", {
+        AnchorPoint = Vector2.new(1, 0.5),
+        Size = UDim2.fromOffset(44, 26),
+        Position = UDim2.new(1, -16, 0.5, 0),
+        BackgroundColor3 = self.Value,
+        Parent = Head.Hit
+    }, { Corner(8), Stroke(C.Outline, 0, 1) })
+
+    BindTap(Window.Maid, Head.Hit, function()
+        if not self.Locked then
+            Window:PlayClick("Button")
+            Window:OpenColorPicker(self)
+        end
+    end)
+
+    return self:_Finish(Head.Frame, Head.Divider)
+end
+
+function UIColorPicker:Set(Value, Silent)
+    local Color = ParseColor(Value)
+    if Color then
+        local Changed = Color ~= self.Value
+        self.Value = Color
+        self.Swatch.BackgroundColor3 = Color
+        self.HexLabel.Text = ColorToHex(Color)
+        self:_SyncFlag()
+        if Changed and not Silent then
+            self:_Emit(self.Value)
+        end
+    end
+end
+
+function UIColorPicker:Get()
+    return self.Value
+end
+
+function UIColorPicker:GetHex()
+    return ColorToHex(self.Value)
+end
+
+local UISegmented = Element.extend()
+
+function UISegmented.new(section, config)
+    local self = setmetatable({}, UISegmented)
+    self:_Init(section, config, "Segmented")
+    self.Value = config.Default
+    self.Entries = {}
+
+    local Window = self.Window
+    local Options = config.Options or {}
+    local Count = math.max(#Options, 1)
+    local HasTitle = config.Title ~= nil
+    local Head = self:_CreateHead(section.Card, HasTitle and 82 or 58, section:NextOrder(), nil)
+
+    if HasTitle then
+        local TitleLabel = New("TextLabel", {
+            Position = UDim2.fromOffset(16, 12),
+            Size = UDim2.new(1, -32, 0, 18),
+            TextSize = 11,
+            Weight = "SemiBold",
+            TextColor3 = C.SubText,
+            TextXAlignment = Enum.TextXAlignment.Left,
+            Parent = Head.Frame
+        })
+        Locale:Bind(TitleLabel, "Text", self.TitleSource)
+    end
+
+    local Holder = New("Frame", {
+        Position = UDim2.fromOffset(16, HasTitle and 36 or 11),
+        Size = UDim2.new(1, -32, 0, 38),
+        BackgroundTransparency = 1,
+        Parent = Head.Frame
+    }, {
+        New("UIListLayout", {
+            FillDirection = Enum.FillDirection.Horizontal,
+            Padding = UDim.new(0, 8),
+            SortOrder = Enum.SortOrder.LayoutOrder
+        })
+    })
+
+    for Index, Option in ipairs(Options) do
+        local Key = type(Option) == "table" and Option.Key or Option
+        local Text = type(Option) == "table" and (Option.Text or Option.Key) or Option
+        local Button = New("TextButton", {
+            Size = UDim2.new(1 / Count, -8 * (Count - 1) / Count, 1, 0),
+            BackgroundTransparency = 0,
+            BackgroundColor3 = C.Background,
+            LayoutOrder = Index,
+            Parent = Holder
+        }, { Corner(12), Stroke(C.Outline, 0.4, 1) })
+
+        local Selected = New("Frame", {
+            Size = UDim2.fromScale(1, 1),
+            BackgroundColor3 = Color3.new(1, 1, 1),
+            BackgroundTransparency = 1,
+            Parent = Button
+        }, { Corner(12), Aura.Make("Fill") })
+
+        local Label = New("TextLabel", {
+            Size = UDim2.fromScale(1, 1),
+            TextSize = 13,
+            Weight = "SemiBold",
+            TextColor3 = Theme.SubText,
+            TextXAlignment = Enum.TextXAlignment.Center,
+            Parent = Button
+        })
+        Locale:Bind(Label, "Text", Text)
+
+        table.insert(self.Entries, { Key = Key, Selected = Selected, Label = Label })
+
+        BindTap(Window.Maid, Button, function()
+            if not self.Locked then
+                Window:PlayClick("Button")
+                self:Set(Key)
+            end
+        end)
+    end
+
+    Window.Maid:Give(OnTheme(function()
+        self:_Render(true)
+    end))
+
+    self:_Render(true)
+    return self:_Finish(Head.Frame, Head.Divider)
+end
+
+function UISegmented:_ApplyLabels()
+end
+
+function UISegmented:_Layout()
+end
+
+function UISegmented:_Render(Instant)
+    for _, Entry in ipairs(self.Entries) do
+        local Active = Entry.Key == self.Value
+        local Goal = Active and Theme.OnAccent or Theme.SubText
+        if Instant then
+            Entry.Selected.BackgroundTransparency = Active and 0 or 1
+            Entry.Label.TextColor3 = Goal
+        else
+            Tween(Entry.Selected, 0.22, { BackgroundTransparency = Active and 0 or 1 })
+            Tween(Entry.Label, 0.22, { TextColor3 = Goal })
+        end
+    end
+end
+
+function UISegmented:Set(Key, Silent)
+    local Changed = Key ~= self.Value
+    self.Value = Key
+    self:_Render(false)
+    self:_SyncFlag()
+    if Changed and Key ~= nil and not Silent then
+        self:_Emit(Key)
+    end
+end
+
+function UISegmented:Get()
+    return self.Value
+end
+
+local UIPalette = Element.extend()
+
+function UIPalette.new(section, config)
+    local self = setmetatable({}, UIPalette)
+    self:_Init(section, config, "Palette")
+    self.Chips = {}
+
+    local Window = self.Window
+    local Colors = config.Colors or ACCENT_PRESETS
+    local Columns = config.Columns or 5
+    local Rows = math.ceil(#Colors / Columns)
+    local HasTitle = config.Title ~= nil
+    local Top = HasTitle and 36 or 12
+    local Head = self:_CreateHead(section.Card, Top + Rows * 42 + 6, section:NextOrder(), nil)
+
+    if HasTitle then
+        local TitleLabel = New("TextLabel", {
+            Position = UDim2.fromOffset(16, 12),
+            Size = UDim2.new(1, -32, 0, 18),
+            TextSize = 11,
+            Weight = "SemiBold",
+            TextColor3 = C.SubText,
+            TextXAlignment = Enum.TextXAlignment.Left,
+            Parent = Head.Frame
+        })
+        Locale:Bind(TitleLabel, "Text", self.TitleSource)
+    end
+
+    local Grid = New("Frame", {
+        Position = UDim2.fromOffset(16, Top),
+        Size = UDim2.new(1, -32, 0, Rows * 42),
+        BackgroundTransparency = 1,
+        Parent = Head.Frame
+    }, {
+        New("UIGridLayout", {
+            CellSize = UDim2.new(1 / Columns, -8 * (Columns - 1) / Columns, 0, 34),
+            CellPadding = UDim2.fromOffset(8, 8),
+            SortOrder = Enum.SortOrder.LayoutOrder
+        })
+    })
+
+    for Index, Color in ipairs(Colors) do
+        local ChipStroke = Stroke(Color3.new(1, 1, 1), 1, 2)
+        local Chip = New("TextButton", {
+            BackgroundTransparency = 0,
+            BackgroundColor3 = Color,
+            LayoutOrder = Index,
+            Parent = Grid
+        }, { Corner(10), ChipStroke })
+        local ChipScale = New("UIScale", { Scale = 1, Parent = Chip })
+        table.insert(self.Chips, { Stroke = ChipStroke, Color = Color })
+
+        BindTap(Window.Maid, Chip, function()
+            if not self.Locked then
+                Window:PlayClick("Button")
+                for _, Other in ipairs(self.Chips) do
+                    Tween(Other.Stroke, 0.2, { Transparency = Other.Stroke == ChipStroke and 0.1 or 1 })
+                end
+                Tween(ChipScale, 0.1, { Scale = 0.9 }, Enum.EasingStyle.Sine)
+                task.delay(0.1, function()
+                    Tween(ChipScale, 0.25, { Scale = 1 }, Enum.EasingStyle.Back)
+                end)
+                self:_Emit(Color, Index)
+            end
+        end)
+    end
+
+    return self:_Finish(Head.Frame, Head.Divider)
+end
+
+function UIPalette:_ApplyLabels()
+end
+
+function UIPalette:_Layout()
+end
+
+function UIPalette:Get()
+    return nil
+end
+
+local UIKeybind = Element.extend()
+
+local function ParseKey(Value)
+    local Kind = typeof(Value)
+    local Result = nil
+    if Kind == "EnumItem" and Value.EnumType == Enum.KeyCode then
+        Result = Value
+    elseif Kind == "string" then
+        local Ok, Key = pcall(function()
+            return Enum.KeyCode[Value]
+        end)
+        Result = Ok and Key or nil
+    end
+    return Result
+end
+
+function UIKeybind.new(section, config)
+    local self = setmetatable({}, UIKeybind)
+    self:_Init(section, config, "Keybind")
+    self.Value = ParseKey(Pick(config.Default, config.Value)) or Enum.KeyCode.Unknown
+    self.Listening = false
+
+    local Window = self.Window
+    local Head = self:_CreateHead(section.Card, self:_RowHeight(), section:NextOrder(), "tint")
+    self:_CreateLabels(Head.Hit, 16, 130)
+
+    self.ButtonStroke = Stroke(C.Outline, 0, 1)
+    self.Button = New("TextButton", {
+        AnchorPoint = Vector2.new(1, 0.5),
+        Position = UDim2.new(1, -16, 0.5, 0),
+        Size = UDim2.fromOffset(100, 30),
+        BackgroundTransparency = 0,
+        BackgroundColor3 = C.Background,
+        TextSize = 12,
+        Weight = "SemiBold",
+        TextXAlignment = Enum.TextXAlignment.Center,
+        Parent = Head.Hit
+    }, { Corner(8), self.ButtonStroke })
+
+    BindTap(Window.Maid, self.Button, function()
+        if not self.Locked then
+            Window:PlayClick("Button")
+            self:_Listen(not self.Listening)
+        end
+    end)
+
+    self:_Render()
+    return self:_Finish(Head.Frame, Head.Divider)
+end
+
+function UIKeybind:_Render()
+    local Name = self.Value == Enum.KeyCode.Unknown and "None" or self.Value.Name
+    self.Button.Text = self.Listening and "..." or Name
+    Tween(self.ButtonStroke, 0.2, { Color = self.Listening and Theme.AccentGlow or Theme.Outline })
+end
+
+function UIKeybind:_Listen(State)
+    self.Listening = State
+    if self.Connection then
+        self.Connection:Disconnect()
+        self.Connection = nil
+    end
+    if State then
+        self.Connection = UserInputService.InputBegan:Connect(function(Input)
+            if Input.UserInputType == Enum.UserInputType.Keyboard then
+                local Choice = {
+                    [Enum.KeyCode.Escape] = self.Value,
+                    [Enum.KeyCode.Backspace] = Enum.KeyCode.Unknown
+                }
+                self:_Listen(false)
+                self:Set(Choice[Input.KeyCode] or Input.KeyCode)
+            end
+        end)
+    end
+    self:_Render()
+end
+
+function UIKeybind:Set(Value, Silent)
+    local Key = ParseKey(Value)
+    if Key then
+        local Changed = Key ~= self.Value
+        self.Value = Key
+        self:_Render()
+        self:_SyncFlag()
+        if Changed and not Silent then
+            self:_Emit(Key)
+        end
+    end
+end
+
+function UIKeybind:Get()
+    return self.Value
+end
+
+local function SmoothScroll(Maid, Scroller)
+    local Target = 0
+    local Current = 0
+    local Active = false
+
+    Maid:Give(Scroller.InputChanged:Connect(function(Input)
+        if Input.UserInputType == Enum.UserInputType.MouseWheel then
+            local Limit = math.max(Scroller.AbsoluteCanvasSize.Y - Scroller.AbsoluteWindowSize.Y, 0)
+            Current = Active and Current or Scroller.CanvasPosition.Y
+            Target = math.clamp((Active and Target or Current) - Input.Position.Z * 110, 0, Limit)
+            Active = true
+        end
+    end))
+
+    Maid:Give(RunService.RenderStepped:Connect(function(Dt)
+        if Active then
+            Current = Current + (Target - Current) * (1 - math.exp(-Dt * 12))
+            Active = math.abs(Target - Current) > 0.5
+            Current = Active and Current or Target
+            Scroller.CanvasPosition = Vector2.new(0, Current)
+        end
+    end))
+end
+
+local function AutoHideBar(Maid, Scroller, Thickness)
+    local Token = 0
+    Scroller.ScrollBarThickness = Thickness
+    Scroller.ScrollBarImageTransparency = 1
+    Maid:Give(Scroller:GetPropertyChangedSignal("CanvasPosition"):Connect(function()
+        Token = Token + 1
+        local Mine = Token
+        Tween(Scroller, 0.15, { ScrollBarImageTransparency = 0.1 })
+        task.delay(0.9, function()
+            if Mine == Token and Scroller.Parent then
+                Tween(Scroller, 0.4, { ScrollBarImageTransparency = 1 })
+            end
+        end)
+    end))
+end
+
+local UIDropdown = Element.extend()
+
+
+function UIDropdown.new(section, config)
+    local self = setmetatable({}, UIDropdown)
+    self:_Init(section, config, "Dropdown")
+
+    local window = self.Window
+    self.OptionsSource = config.Options or {}
+    self.Options = self:_ResolveOptions()
+    self.Multi = config.Multi == true
+    self.Searchable = config.Search ~= false
+    self.Chosen = {}
+    self.Entries = {}
+    self.IsOpen = false
+    self.PanelHeight = 0
+    self.Query = ""
+    self.VisibleCount = 0
+    self.ListTop = self.Searchable and 46 or 0
+
+    if self.Multi then
+        if type(config.Default) == "table" then
+            for _, value in ipairs(config.Default) do
+                self.Chosen[value] = true
+            end
+        end
+    else
+        local default = config.Default
+        if default ~= nil then
+            self.Chosen[default] = true
+        end
+    end
+
+    self.Row = New("Frame", {
+        Size = UDim2.new(1, 0, 0, 0),
+        AutomaticSize = Enum.AutomaticSize.Y,
+        BackgroundTransparency = 1,
+        LayoutOrder = section:NextOrder(),
+        Parent = section.Card
+    }, {
+        New("UIListLayout", { SortOrder = Enum.SortOrder.LayoutOrder })
+    })
+
+    local head = self:_CreateHead(self.Row, self:_RowHeight(), 1, "tint")
+    self:_CreateLabels(head.Hit, 16, 190)
+
+    self.BoxStroke = Stroke(C.Outline, 0, 1)
+    self.ValueBox = New("Frame", {
+        AnchorPoint = Vector2.new(1, 0.5),
+        Size = UDim2.fromOffset(150, 30),
+        Position = UDim2.new(1, -16, 0.5, 0),
+        BackgroundColor3 = C.Background,
+        Parent = head.Hit
+    }, { Corner(8), self.BoxStroke })
+
+    self.ValueLabel = New("TextLabel", {
+        Size = UDim2.new(1, -38, 1, 0),
+        Position = UDim2.fromOffset(12, 0),
+        TextSize = 11,
+        Weight = "Medium",
+        TextColor3 = C.SubText,
+        TextTruncate = Enum.TextTruncate.AtEnd,
+        Parent = self.ValueBox
+    })
+
+    self.Arrow = New("ImageLabel", {
+        AnchorPoint = Vector2.new(1, 0.5),
+        Size = UDim2.fromOffset(16, 16),
+        Position = UDim2.new(1, -8, 0.5, 0),
+        Image = IconList.chevronDown,
+        ImageColor3 = C.SubText,
+        Parent = self.ValueBox
+    })
+
+    head.OnHover = function(state)
+        if not self.IsOpen then
+            Tween(self.BoxStroke, 0.2, {
+                Color = state and Theme.AccentGlow or Theme.Outline,
+                Transparency = state and 0.35 or 0
+            })
+        end
+        Tween(self.Arrow, 0.2, { ImageColor3 = state and Theme.Text or Theme.SubText })
+        Tween(self.ValueLabel, 0.2, { TextColor3 = state and Theme.Text or Theme.SubText })
+        if self.IconImage then
+            Tween(self.IconImage, 0.2, { ImageColor3 = state and Theme.Text or Theme.SubText })
+        end
+    end
+
+    self.PanelWidth = 240
+    self.Space = 400
+    self.PanelScale = New("UIScale", { Scale = 1 })
+    self.Panel = New("Frame", {
+        Name = "DropdownPanel",
+        Size = UDim2.fromOffset(240, 0),
+        BackgroundColor3 = C.Background,
+        ClipsDescendants = true,
+        Active = true,
+        ZIndex = 2,
+        Visible = false,
+        Parent = window.Overlay
+    }, { Corner(12), Stroke(C.Outline, 0, 1), self.PanelScale })
+
+    if self.Searchable then
+        local searchStroke = Stroke(C.Outline, 0, 1)
+        local searchFrame = New("Frame", {
+            Position = UDim2.fromOffset(12, 8),
+            Size = UDim2.new(1, -24, 0, 30),
+            BackgroundColor3 = C.Card,
+            Parent = self.Panel
+        }, { Corner(8), searchStroke })
+
+        New("ImageLabel", {
+            Size = UDim2.fromOffset(14, 14),
+            Position = UDim2.new(0, 10, 0.5, -7),
+            Image = IconList.search,
+            ImageColor3 = C.SubText,
+            Parent = searchFrame
+        })
+
+        self.Search = New("TextBox", {
+            Position = UDim2.fromOffset(32, 0),
+            Size = UDim2.new(1, -40, 1, 0),
+            PlaceholderColor3 = C.SubText,
+            ClearTextOnFocus = false,
+            Parent = searchFrame
+        })
+        Locale:Bind(self.Search, "PlaceholderText", Builtin("Search"))
+
+        window.Maid:Give(self.Search.Focused:Connect(function()
+            Tween(searchStroke, 0.2, { Color = Theme.AccentGlow })
+        end))
+        window.Maid:Give(self.Search.FocusLost:Connect(function()
+            Tween(searchStroke, 0.2, { Color = Theme.Outline })
+        end))
+        window.Maid:Give(self.Search:GetPropertyChangedSignal("Text"):Connect(function()
+            self.Query = string.lower(self.Search.Text)
+            self:_ApplyFilter()
+        end))
+    end
+
+    self.Scroll = New("ScrollingFrame", {
+        Position = UDim2.fromOffset(0, self.ListTop),
+        Size = UDim2.new(1, 0, 1, -self.ListTop),
+        ScrollBarThickness = 3,
+        ScrollBarImageColor3 = C.Accent,
+        Active = true,
+        ElasticBehavior = Enum.ElasticBehavior.Never,
+        ScrollingDirection = Enum.ScrollingDirection.Y,
+        CanvasSize = UDim2.new(),
+        AutomaticCanvasSize = Enum.AutomaticSize.Y,
+        Parent = self.Panel
+    }, {
+        New("UIListLayout", { SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0, 3) }),
+        New("UIPadding", {
+            PaddingLeft = UDim.new(0, 12),
+            PaddingRight = UDim.new(0, 12),
+            PaddingTop = UDim.new(0, 2),
+            PaddingBottom = UDim.new(0, 8)
+        })
+    })
+
+    SmoothScroll(window.Maid, self.Scroll)
+    AutoHideBar(window.Maid, self.Scroll, 3)
+    window.Maid:Give(self.Scroll:GetPropertyChangedSignal("CanvasPosition"):Connect(function()
+        if self.Panel.Visible and self.Scroll.AbsoluteWindowSize.Y > 0 then
+            self.SavedScroll = self.Scroll.CanvasPosition.Y
+        end
+    end))
+
+    self.Empty = New("TextLabel", {
+        Position = UDim2.fromOffset(0, self.ListTop),
+        Size = UDim2.new(1, 0, 1, -self.ListTop),
+        TextColor3 = C.SubText,
+        TextXAlignment = Enum.TextXAlignment.Center,
+        Visible = false,
+        Parent = self.Panel
+    })
+    Locale:Bind(self.Empty, "Text", Builtin("NoResults"))
+
+    BindTap(window.Maid, head.Hit, function()
+        if self.Locked then
+            return
+        end
+        window:PlayClick("Toggle")
+        self:SetOpen(not self.IsOpen)
+    end)
+
+    window.Maid:Give(function()
+        if self.OutsideConnection then
+            self.OutsideConnection:Disconnect()
+            self.OutsideConnection = nil
+        end
+    end)
+
+    window.Maid:Give(Locale:Listen(function()
+        self:_Reindex()
+        self:_Refresh(true)
+        self:_ApplyFilter()
+    end))
+
+    window.Maid:Give(OnTheme(function()
+        for _, entry in ipairs(self.Entries) do
+            self:_StyleEntry(entry)
+        end
+    end))
+
+    self:_BuildOptions()
+    self:_Refresh(true)
+
+    return self:_Finish(self.Row, head.Divider)
+end
+
+function UIDropdown:_ResolveOptions()
+    local source = self.OptionsSource
+    if type(source) == "function" then
+        local ok, list = pcall(source)
+        source = ok and list or {}
+    end
+    return type(source) == "table" and source or {}
+end
+
+function UIDropdown:_OnLocked(state)
+    if state then
+        self:SetOpen(false)
+    end
+end
+
+function UIDropdown:_Cleanup()
+    self:SetOpen(false)
+    if self.OutsideConnection then
+        self.OutsideConnection:Disconnect()
+        self.OutsideConnection = nil
+    end
+    self.Panel:Destroy()
+end
+
+function UIDropdown:_StyleEntry(entry, instant)
+    local selected = self.Chosen[entry.Option] == true
+    local lit = selected or entry.Hovered
+    local transparency = selected and 0.88 or (entry.Hovered and 0.945 or 1)
+    local textColor = lit and Theme.Text or Theme.SubText
+    local labelPosition = UDim2.new(0, selected and 30 or 14, 0, 0)
+    local dotSize = selected and UDim2.fromOffset(6, 6) or UDim2.fromOffset(0, 0)
+
+    if instant then
+        entry.Button.BackgroundTransparency = transparency
+        entry.Label.TextColor3 = textColor
+        entry.Label.Position = labelPosition
+        entry.Dot.Size = dotSize
+        return
+    end
+
+    Tween(entry.Button, 0.18, { BackgroundTransparency = transparency })
+    Tween(entry.Label, 0.2, { TextColor3 = textColor, Position = labelPosition })
+    Tween(entry.Dot, 0.2, { Size = dotSize })
+end
+
+function UIDropdown:_BuildOptions()
+    for _, entry in ipairs(self.Entries) do
+        entry.Button:Destroy()
+    end
+    table.clear(self.Entries)
+    self.Lookup = {}
+
+    for index, option in ipairs(self.Options) do
+        local button = New("TextButton", {
+            Size = UDim2.new(1, 0, 0, 36),
+            BackgroundColor3 = Color3.new(1, 1, 1),
+            LayoutOrder = index,
+            Parent = self.Scroll
+        }, { Corner(8), Aura.Make("Fill", { Rotation = 20 }) })
+
+        local dot = New("Frame", {
+            AnchorPoint = Vector2.new(0.5, 0.5),
+            Size = UDim2.fromOffset(0, 0),
+            Position = UDim2.new(0, 16, 0.5, 0),
+            BackgroundColor3 = Color3.new(1, 1, 1),
+            Parent = button
+        }, { Corner(nil, true), Aura.Make("Fill") })
+
+        local label = New("TextLabel", {
+            Size = UDim2.new(1, -40, 1, 0),
+            Position = UDim2.new(0, 14, 0, 0),
+            TextSize = 12,
+            Weight = "Medium",
+            TextColor3 = C.SubText,
+            TextTruncate = Enum.TextTruncate.AtEnd,
+            Parent = button
+        })
+        Locale:Bind(label, "Text", tostring(option))
+
+        local entry = {
+            Option = option,
+            Button = button,
+            Label = label,
+            Dot = dot,
+            Hovered = false,
+            Key = string.lower(tostring(Locale:Resolve(tostring(option))))
+        }
+        table.insert(self.Entries, entry)
+        self.Lookup[option] = entry
+
+        BindPointer(self.Window.Maid, button, {
+            Hover = function(state)
+                entry.Hovered = state
+                self:_StyleEntry(entry)
+            end
+        })
+
+        BindTap(self.Window.Maid, button, function()
+            self.Window:PlayClick("Toggle")
+            self:_Choose(option)
+        end)
+
+        self:_StyleEntry(entry, true)
+    end
+
+    self:_ApplyFilter()
+end
+
+function UIDropdown:_RestoreScroll()
+    task.defer(function()
+        task.wait()
+        if not self.Destroyed and self.Panel.Visible then
+            local Limit = math.max(self.Scroll.AbsoluteCanvasSize.Y - self.Scroll.AbsoluteWindowSize.Y, 0)
+            self.Scroll.CanvasPosition = Vector2.new(0, math.min(self.SavedScroll or 0, Limit))
+        end
+    end)
+end
+
+function UIDropdown:_Reindex()
+    for _, entry in ipairs(self.Entries) do
+        entry.Key = string.lower(tostring(Locale:Resolve(tostring(entry.Option))))
+    end
+end
+
+function UIDropdown:_ApplyFilter()
+    local query = self.Query or ""
+    local visible = 0
+    for _, entry in ipairs(self.Entries) do
+        local match = query == "" or string.find(entry.Key, query, 1, true) ~= nil
+        entry.Button.Visible = match
+        if match then
+            visible = visible + 1
+        end
+    end
+    self.VisibleCount = visible
+    self:_Resize(self.IsOpen)
+end
+
+function UIDropdown:_Resize(animate)
+    local count = self.VisibleCount
+    local content = count * 36 + math.max(count - 1, 0) * 3 + 8
+    local listHeight = math.clamp(content, 44, 170)
+    self.PanelHeight = self.ListTop + listHeight
+    self.Empty.Visible = count == 0 and #self.Options > 0
+
+    local size = UDim2.fromOffset(self.PanelWidth, math.min(self.PanelHeight, self.Space))
+    if self.ResizeTween then
+        self.ResizeTween:Cancel()
+        self.ResizeTween = nil
+    end
+    if animate then
+        self.ResizeTween = Tween(self.Panel, 0.2, { Size = size })
+    else
+        self.Panel.Size = size
+    end
+end
+
+function UIDropdown:_Place()
+    local main = self.Window.Main
+    local frame = self.Head.Frame
+    local scale = main.AbsoluteSize.X / main.Size.X.Offset
+    local origin = main.AbsolutePosition
+    local mainHeight = main.AbsoluteSize.Y / scale
+
+    local top = math.clamp((frame.AbsolutePosition.Y - origin.Y) / scale, 66, mainHeight)
+    local bottom = math.clamp(top + frame.AbsoluteSize.Y / scale, 66, mainHeight)
+    local right = (frame.AbsolutePosition.X + frame.AbsoluteSize.X - origin.X) / scale - 14
+
+    self:_Resize(false)
+
+    local below = mainHeight - bottom - 12
+    local above = top - 12
+    local openDown = below >= self.PanelHeight or below >= above
+
+    self.Space = math.max(openDown and below or above, 110)
+    self.PanelWidth = math.clamp(frame.AbsoluteSize.X / scale - 28, 170, 280)
+    self.Panel.AnchorPoint = Vector2.new(1, openDown and 0 or 1)
+    self.Panel.Position = UDim2.fromOffset(right, openDown and bottom + 6 or top - 6)
+    self:_Resize(false)
+end
+
+function UIDropdown:_Choose(option)
+    local touched = { option }
+    if self.Multi then
+        self.Chosen[option] = not self.Chosen[option] or nil
+    else
+        for key in pairs(self.Chosen) do
+            table.insert(touched, key)
+        end
+        self.Chosen = { [option] = true }
+    end
+    for _, key in ipairs(touched) do
+        local entry = self.Lookup[key]
+        if entry then
+            self:_StyleEntry(entry)
+        end
+    end
+    self:_Refresh(false)
+    if not self.Multi then
+        task.delay(0.12, function()
+            if not self.Destroyed then
+                self:SetOpen(false)
+            end
+        end)
+    end
+end
+
+function UIDropdown:_Refresh(silent)
+    local value = self:Get()
+    if self.Multi then
+        local names = {}
+        for index, item in ipairs(value) do
+            names[index] = Locale:Resolve(tostring(item))
+        end
+        self.ValueLabel.Text = #names > 0 and table.concat(names, ", ") or ""
+    else
+        self.ValueLabel.Text = value ~= nil and Locale:Resolve(tostring(value)) or ""
+    end
+    self:_SyncFlag()
+    if not silent then
+        self:_Emit(value)
+    end
+end
+
+function UIDropdown:Get()
+    if self.Multi then
+        local list = {}
+        for _, option in ipairs(self.Options) do
+            if self.Chosen[option] then
+                table.insert(list, option)
+            end
+        end
+        return list
+    end
+    for _, option in ipairs(self.Options) do
+        if self.Chosen[option] then
+            return option
+        end
+    end
+    return nil
+end
+
+function UIDropdown:Set(value, silent)
+    self.Chosen = {}
+    if self.Multi and type(value) == "table" then
+        for _, item in ipairs(value) do
+            self.Chosen[item] = true
+        end
+    elseif value ~= nil then
+        self.Chosen[value] = true
+    end
+    for _, entry in ipairs(self.Entries) do
+        self:_StyleEntry(entry)
+    end
+    self:_Refresh(silent)
+end
+
+function UIDropdown:Refresh()
+    self.Options = self:_ResolveOptions()
+    local pruned = false
+    for option in pairs(self.Chosen) do
+        if not table.find(self.Options, option) then
+            self.Chosen[option] = nil
+            pruned = true
+        end
+    end
+    self:_BuildOptions()
+    self:_Refresh(not pruned)
+end
+
+function UIDropdown:SetOptions(options, keepSelection)
+    self.OptionsSource = options or {}
+    if keepSelection == false then
+        self.Chosen = {}
+    end
+    self:Refresh()
+end
+
+function UIDropdown:GetOptions()
+    return table.clone(self.Options)
+end
+
+function UIDropdown:AddOption(option, index)
+    if table.find(self.Options, option) then
+        return
+    end
+    local list = table.clone(self.Options)
+    table.insert(list, math.clamp(index or (#list + 1), 1, #list + 1), option)
+    self:SetOptions(list)
+end
+
+function UIDropdown:RemoveOption(option)
+    local index = table.find(self.Options, option)
+    if not index then
+        return
+    end
+    local list = table.clone(self.Options)
+    table.remove(list, index)
+    self:SetOptions(list)
+end
+
+function UIDropdown:IsSelected(option)
+    return self.Chosen[option] == true
+end
+
+function UIDropdown:Select(value, silent)
+    local list = (type(value) == "table") and value or { value }
+    local changed = false
+    if not self.Multi then
+        local single = list[1]
+        if single ~= nil and table.find(self.Options, single) and not self.Chosen[single] then
+            self.Chosen = { [single] = true }
+            changed = true
+        end
+    else
+        for _, item in ipairs(list) do
+            if table.find(self.Options, item) and not self.Chosen[item] then
+                self.Chosen[item] = true
+                changed = true
+            end
+        end
+    end
+    if changed then
+        for _, entry in ipairs(self.Entries) do
+            self:_StyleEntry(entry)
+        end
+        self:_Refresh(silent)
+    end
+    return changed
+end
+
+function UIDropdown:Deselect(value, silent)
+    local list = (type(value) == "table") and value or { value }
+    local changed = false
+    for _, item in ipairs(list) do
+        if self.Chosen[item] then
+            self.Chosen[item] = nil
+            changed = true
+        end
+    end
+    if changed then
+        for _, entry in ipairs(self.Entries) do
+            self:_StyleEntry(entry)
+        end
+        self:_Refresh(silent)
+    end
+    return changed
+end
+
+function UIDropdown:Clear(silent)
+    self.Chosen = {}
+    for _, entry in ipairs(self.Entries) do
+        self:_StyleEntry(entry)
+    end
+    self:_Refresh(silent)
+end
+
+function UIDropdown:SelectAll(silent)
+    if self.Multi then
+        self:Select(self.Options, silent)
+    end
+end
+
+function UIDropdown:Open()
+    self:SetOpen(true)
+end
+
+function UIDropdown:Close()
+    self:SetOpen(false)
+end
+
+function UIDropdown:SetOpen(state)
+    if state and self.Locked then
+        return
+    end
+    if self.IsOpen == state then
+        return
+    end
+    self.IsOpen = state
+    local page = self.Section and self.Section.Tab and self.Section.Tab.Content
+    if page and page.Parent then
+        page.ScrollingEnabled = not state
+    end
+    Tween(self.Arrow, 0.25, { Rotation = state and 180 or 0 })
+    Tween(self.BoxStroke, 0.2, {
+        Color = state and Theme.AccentGlow or Theme.Outline,
+        Transparency = state and 0.25 or 0
+    })
+
+    if self.OutsideConnection then
+        self.OutsideConnection:Disconnect()
+        self.OutsideConnection = nil
+    end
+
+    if state then
+        self.Window:ActivateDropdown(self)
+        self:_Place()
+        self:_RestoreScroll()
+        self.PanelScale.Scale = 0.92
+        self.Panel.Visible = true
+        Tween(self.PanelScale, 0.3, { Scale = 1 }, Enum.EasingStyle.Back)
+
+        self.OutsideConnection = UserInputService.InputBegan:Connect(function(input)
+            if not PressTypes[input.UserInputType] or not self.IsOpen then
+                return
+            end
+            if PointInside(self.Panel, input.Position, true) or PointInside(self.Head.Frame, input.Position, true) then
+                return
+            end
+            self:SetOpen(false)
+        end)
+    else
+        self.Window:ReleaseDropdown(self)
+        if self.Search then
+            self.Search:ReleaseFocus()
+        end
+        local tween = Tween(self.PanelScale, 0.16, { Scale = 0.94 }, Enum.EasingStyle.Quad, Enum.EasingDirection.In)
+        tween.Completed:Connect(function()
+            if not self.IsOpen and self.Panel.Parent then
+                self.Panel.Visible = false
+                if self.Search and self.Search.Text ~= "" then
+                    self.Search.Text = ""
+                end
+            end
+        end)
+    end
+end
+
+local UISlider = Element.extend()
+
+function UISlider.new(section, config)
+    local self = setmetatable({}, UISlider)
+    self:_Init(section, config, "Slider")
+
+    self.Min = config.Min or 0
+    self.Max = config.Max or 100
+    self.Step = config.Step or config.Increment or 1
+    self.Suffix = config.Suffix or ""
+    self.Decimals = CountDecimals(self.Step)
+    self.Value = self:_Snap(config.Default or self.Min)
+    self.DisplayAlpha = self:_ToAlpha(self.Value)
+    self.TargetAlpha = self.DisplayAlpha
+
+    local window = self.Window
+    local trackY = self.HasDesc and 66 or 48
+    self.TrackY = trackY
+    local head = self:_CreateHead(section.Card, trackY + 16, section:NextOrder(), nil)
+    self:_CreateLabels(head.Hit, 16, 160)
+
+    local boxStroke = Stroke(C.Outline, 0, 1)
+    self.Box = New("TextBox", {
+        AnchorPoint = Vector2.new(1, 0),
+        Size = UDim2.fromOffset(60, 28),
+        Position = UDim2.new(1, -52, 0, 10),
+        BackgroundTransparency = 0,
+        BackgroundColor3 = C.Background,
+        Text = self:_Format(self.Value),
+        TextXAlignment = Enum.TextXAlignment.Center,
+        ClearTextOnFocus = false,
+        ClipsDescendants = true,
+        Parent = head.Hit
+    }, { Corner(7), boxStroke })
+
+    local function StepButton(Text, OffsetX, Direction)
+        local Button = New("TextButton", {
+            AnchorPoint = Vector2.new(1, 0),
+            Size = UDim2.fromOffset(30, 28),
+            Position = UDim2.new(1, OffsetX, 0, 10),
+            BackgroundTransparency = 0,
+            BackgroundColor3 = C.Background,
+            Text = Text,
+            TextSize = 18,
+            Weight = "SemiBold",
+            TextXAlignment = Enum.TextXAlignment.Center,
+            Parent = head.Hit
+        }, { Corner(8), Stroke(C.Outline, 0, 1) })
+
+        window.Maid:Give(Button.InputBegan:Connect(function(Input)
+            if PressTypes[Input.UserInputType] and not self.Locked then
+                self.StepToken = (self.StepToken or 0) + 1
+                local Token = self.StepToken
+                window:PlayClick("Button")
+                self:Set(self.Value + Direction * self.Step)
+                local Ended
+                Ended = Input.Changed:Connect(function()
+                    if Input.UserInputState == Enum.UserInputState.End then
+                        self.StepToken = Token + 1
+                        Ended:Disconnect()
+                    end
+                end)
+                task.spawn(function()
+                    task.wait(0.4)
+                    while self.StepToken == Token and not self.Destroyed do
+                        self:Set(self.Value + Direction * self.Step)
+                        task.wait(0.08)
+                    end
+                end)
+            end
+        end))
+    end
+
+    StepButton("-", -118, -1)
+    StepButton("+", -16, 1)
+
+    self.Track = New("Frame", {
+        Position = UDim2.fromOffset(16, trackY - 4),
+        Size = UDim2.new(1, -32, 0, 8),
+        BackgroundColor3 = C.ToggleOff,
+        Parent = head.Frame
+    }, { Corner(nil, true) })
+
+    self.Fill = New("Frame", {
+        Size = UDim2.fromScale(self.DisplayAlpha, 1),
+        BackgroundColor3 = Color3.new(1, 1, 1),
+        Parent = self.Track
+    }, { Corner(nil, true), Aura.Make("Fill") })
+
+    self.Knob = New("Frame", {
+        AnchorPoint = Vector2.new(0.5, 0.5),
+        Size = UDim2.fromOffset(14, 14),
+        Position = UDim2.fromScale(self.DisplayAlpha, 0.5),
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        Parent = self.Track
+    }, { Corner(nil, true), Stroke(C.AccentGlow, 0.3, 1.5) })
+
+    local zone = New("TextButton", {
+        Position = UDim2.fromOffset(8, trackY - 16),
+        Size = UDim2.new(1, -16, 0, 32),
+        Parent = head.Frame
+    })
+
+    self.Zone = zone
+    window.Maid:Give(zone.InputBegan:Connect(function(input)
+        if PressTypes[input.UserInputType] and not self.Locked then
+            self:_BeginDrag(input)
+        end
+    end))
+
+    window.Maid:Give(self.Box.Focused:Connect(function()
+        self.Box.Text = self:_FormatNumber(self.Value)
+        Tween(boxStroke, 0.2, { Color = Theme.AccentGlow })
+    end))
+
+    window.Maid:Give(self.Box.FocusLost:Connect(function()
+        Tween(boxStroke, 0.2, { Color = Theme.Outline })
+        local typed = tonumber(string.match(self.Box.Text, "%-?%d+%.?%d*"))
+        if typed then
+            self:Set(typed)
+        else
+            self.Box.Text = self:_Format(self.Value)
+        end
+    end))
+
+    return self:_Finish(head.Frame, head.Divider)
+end
+
+function UISlider:_OnLocked(state)
+    self.Box.TextEditable = not state
+end
+
+function UISlider:_Layout()
+    self:_ApplyLabels()
+    local trackY = self.HasDesc and 66 or 48
+    self.TrackY = trackY
+    self.Head.Frame.Size = UDim2.new(1, 0, 0, trackY + 16)
+    self.Track.Position = UDim2.fromOffset(16, trackY - 3)
+    self.Zone.Position = UDim2.fromOffset(8, trackY - 16)
+end
+
+function UISlider:_Snap(raw)
+    local snapped = self.Min + math.floor((raw - self.Min) / self.Step + 0.5) * self.Step
+    snapped = math.clamp(snapped, self.Min, self.Max)
+    local factor = 10 ^ self.Decimals
+    return math.floor(snapped * factor + 0.5) / factor
+end
+
+function UISlider:_ToAlpha(value)
+    local range = self.Max - self.Min
+    if range <= 0 then
+        return 0
+    end
+    return math.clamp((value - self.Min) / range, 0, 1)
+end
+
+function UISlider:_FormatNumber(value)
+    return string.format("%." .. self.Decimals .. "f", value)
+end
+
+function UISlider:_Format(value)
+    return self:_FormatNumber(value) .. self.Suffix
+end
+
+function UISlider:_Paint(alpha, duration)
+    self.DisplayAlpha = alpha
+    if duration then
+        Tween(self.Fill, duration, { Size = UDim2.fromScale(alpha, 1) })
+        Tween(self.Knob, duration, { Position = UDim2.fromScale(alpha, 0.5) })
+    else
+        self.Fill.Size = UDim2.fromScale(alpha, 1)
+        self.Knob.Position = UDim2.fromScale(alpha, 0.5)
+    end
+end
+
+function UISlider:_Commit(alpha)
+    local value = self:_Snap(self.Min + alpha * (self.Max - self.Min))
+    if value ~= self.Value then
+        self.Value = value
+        self.Box.Text = self:_Format(value)
+        self:_Emit(value)
+    end
+end
+
+function UISlider:_BeginDrag(input)
+    local scroller = self.Section.Tab.Content
+    local track = self.Track
+    local beatConnection
+
+    local function Follow(positionX)
+        local width = track.AbsoluteSize.X
+        if width <= 0 then
+            return
+        end
+        local alpha = math.clamp((positionX - track.AbsolutePosition.X) / width, 0, 1)
+        self.TargetAlpha = alpha
+        self:_Commit(alpha)
+    end
+
+    scroller.ScrollingEnabled = false
+    Tween(self.Knob, 0.2, { Size = UDim2.fromOffset(19, 19) }, Enum.EasingStyle.Back)
+    Follow(input.Position.X)
+
+    beatConnection = RunService.Heartbeat:Connect(function(delta)
+        local blend = math.min(1, delta * 24)
+        self:_Paint(self.DisplayAlpha + (self.TargetAlpha - self.DisplayAlpha) * blend)
+    end)
+
+    TrackPointer(input, function(position)
+        Follow(position.X)
+    end, function()
+        beatConnection:Disconnect()
+        scroller.ScrollingEnabled = true
+        Tween(self.Knob, 0.25, { Size = UDim2.fromOffset(14, 14) }, Enum.EasingStyle.Back)
+        self:_Paint(self:_ToAlpha(self.Value), 0.18)
+    end)
+end
+
+function UISlider:Set(value, silent)
+    value = tonumber(value)
+    if value == nil then
+        return
+    end
+    local snapped = self:_Snap(value)
+    local changed = snapped ~= self.Value
+    self.Value = snapped
+    self.TargetAlpha = self:_ToAlpha(snapped)
+    self.Box.Text = self:_Format(snapped)
+    self:_Paint(self.TargetAlpha, 0.2)
+    self:_SyncFlag()
+    if changed and not silent then
+        self:_Emit(snapped)
+    end
+end
+
+function UISlider:Get()
+    return self.Value
+end
+
+function UISlider:_Reconfigure(silent)
+    if self.Step <= 0 then
+        self.Step = 1
+    end
+    if self.Max < self.Min then
+        self.Max = self.Min
+    end
+    self.Decimals = CountDecimals(self.Step)
+    self:Set(self.Value, silent)
+    self.Box.Text = self:_Format(self.Value)
+end
+
+function UISlider:SetMin(value, silent)
+    self.Min = value
+    self:_Reconfigure(silent)
+end
+
+function UISlider:SetMax(value, silent)
+    self.Max = value
+    self:_Reconfigure(silent)
+end
+
+function UISlider:SetRange(min, max, silent)
+    self.Min = min
+    self.Max = max
+    self:_Reconfigure(silent)
+end
+
+function UISlider:SetStep(step, silent)
+    self.Step = step
+    self:_Reconfigure(silent)
+end
+
+function UISlider:SetSuffix(suffix)
+    self.Suffix = suffix or ""
+    self.Box.Text = self:_Format(self.Value)
+end
+
+function UISlider:Refresh()
+    Element.Refresh(self)
+    self:_Reconfigure(true)
+end
+
+local UIInput = Element.extend()
+
+function UIInput.new(section, config)
+    local self = setmetatable({}, UIInput)
+    self:_Init(section, config, "Input")
+
+    self.Numeric = config.Numeric == true
+    self.Live = config.Live == true
+    self.Value = config.Default ~= nil and tostring(config.Default) or ""
+
+    local window = self.Window
+    local head = self:_CreateHead(section.Card, self:_RowHeight(), section:NextOrder(), "tint")
+    self:_CreateLabels(head.Hit, 16, 180)
+
+    head.OnHover = function(state)
+        if self.IconImage then
+            Tween(self.IconImage, 0.2, { ImageColor3 = state and Theme.Text or Theme.SubText })
+        end
+    end
+
+    local boxStroke = Stroke(C.Outline, 0, 1)
+    local boxFrame = New("Frame", {
+        AnchorPoint = Vector2.new(1, 0.5),
+        Size = UDim2.fromOffset(150, 28),
+        Position = UDim2.new(1, -16, 0.5, 0),
+        BackgroundTransparency = 0,
+        BackgroundColor3 = C.Background,
+        ClipsDescendants = true,
+        Parent = head.Hit
+    }, { Corner(7), boxStroke })
+
+    self.Box = New("TextBox", {
+        Position = UDim2.fromOffset(10, 0),
+        Size = UDim2.new(1, -20, 1, 0),
+        Text = self.Value,
+        PlaceholderColor3 = C.SubText,
+        TextXAlignment = Enum.TextXAlignment.Left,
+        TextYAlignment = Enum.TextYAlignment.Center,
+        ClearTextOnFocus = false,
+        ClipsDescendants = true,
+        Parent = boxFrame
+    })
+    Locale:Bind(self.Box, "PlaceholderText", config.Placeholder or "")
+
+    local maxLength = config.MaxLength
+
+    window.Maid:Give(self.Box:GetPropertyChangedSignal("Text"):Connect(function()
+        local text = self.Box.Text
+        local cleaned = text
+        if self.Numeric then
+            cleaned = string.gsub(cleaned, "[^%d%.%-]", "")
+        end
+        if maxLength and #cleaned > maxLength then
+            cleaned = string.sub(cleaned, 1, maxLength)
+        end
+        if cleaned ~= text then
+            self.Box.Text = cleaned
+            return
+        end
+        if self.Live and self.Box:IsFocused() then
+            if self.Numeric then
+                local number = tonumber(cleaned)
+                if number ~= nil then
+                    self.Value = cleaned
+                    self:_Emit(number, false)
+                end
+            else
+                self.Value = cleaned
+                self:_Emit(cleaned, false)
+            end
+        end
+    end))
+
+    window.Maid:Give(self.Box.Focused:Connect(function()
+        Tween(boxStroke, 0.2, { Color = Theme.AccentGlow })
+    end))
+
+    window.Maid:Give(self.Box.FocusLost:Connect(function(enterPressed)
+        Tween(boxStroke, 0.2, { Color = Theme.Outline })
+        if self.Numeric then
+            local number = tonumber(self.Box.Text)
+            if number == nil then
+                self.Box.Text = self.Value
+                return
+            end
+            self.Value = self.Box.Text
+            self:_Emit(number, enterPressed)
+        else
+            self.Value = self.Box.Text
+            self:_Emit(self.Value, enterPressed)
+        end
+    end))
+
+    BindTap(window.Maid, head.Hit, function()
+        if not self.Locked then
+            self.Box:CaptureFocus()
+        end
+    end)
+
+    self.PlaceholderSource = config.Placeholder or ""
+    return self:_Finish(head.Frame, head.Divider)
+end
+
+function UIInput:_OnLocked(state)
+    self.Box.TextEditable = not state
+end
+
+function UIInput:SetPlaceholder(source)
+    self.PlaceholderSource = source or ""
+    Locale:Bind(self.Box, "PlaceholderText", self.PlaceholderSource)
+end
+
+function UIInput:Focus()
+    if not self.Locked then
+        self.Box:CaptureFocus()
+    end
+end
+
+function UIInput:Clear(silent)
+    self:Set("", silent)
+end
+
+function UIInput:Refresh()
+    Element.Refresh(self)
+    self.Box.Text = self.Value
+    Locale:Bind(self.Box, "PlaceholderText", self.PlaceholderSource or "")
+end
+
+function UIInput:Get()
+    if self.Numeric then
+        return tonumber(self.Value)
+    end
+    return self.Value
+end
+
+function UIInput:Set(value, silent)
+    self.Value = value ~= nil and tostring(value) or ""
+    self.Box.Text = self.Value
+    self:_SyncFlag()
+    if not silent then
+        self:_Emit(self:Get(), false)
+    end
+end
+
+local UISection = {}
+UISection.__index = UISection
+
+function UISection.new(tab, config)
+    local self = setmetatable({}, UISection)
+    local hasDesc = config.Desc ~= nil and config.Desc ~= ""
+
+    self.Tab = tab
+    self.Window = tab.Window
+    self.TitleSource = config.Title or "Section"
+    self.Rows = {}
+    self.Order = 0
+    self.Collapsed = config.Collapsed == true or config.DefaultOpen == false
+
+    self.Frame = New("Frame", {
+        Size = UDim2.new(1, 0, 0, 0),
+        AutomaticSize = Enum.AutomaticSize.Y,
+        BackgroundTransparency = 1,
+        LayoutOrder = tab:NextOrder(),
+        Parent = tab.Content
+    }, {
+        New("UIListLayout", { SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0, 10) })
+    })
+
+    local header = New("Frame", {
+        Size = UDim2.new(1, 0, 0, 40),
+        BackgroundTransparency = 1,
+        LayoutOrder = 1,
+        Parent = self.Frame
+    })
+
+    self.IconSource = config.Icon
+    self.DescSource = config.Desc
+    self.HasDesc = hasDesc
+    self.Hidden = config.Visible == false
+
+    self.IconBox = New("Frame", {
+        Size = UDim2.fromOffset(38, 38),
+        Position = UDim2.fromOffset(0, 1),
+        BackgroundColor3 = config.Color or Color3.new(1, 1, 1),
+        Parent = header
+    }, { Corner(10), Aura.Make(config.Color and "Shade" or "Fill", { Rotation = 45 }) })
+
+    self.IconImage = New("ImageLabel", {
+        AnchorPoint = Vector2.new(0.5, 0.5),
+        Size = UDim2.fromOffset(20, 20),
+        Position = UDim2.fromScale(0.5, 0.5),
+        Image = ResolveIcon(config.Icon, "rbxassetid://6023426915"),
+        Parent = self.IconBox
+    })
+
+    self.TitleLabel = New("TextLabel", {
+        Size = UDim2.new(1, -80, 0, 16),
+        TextSize = 13,
+        Weight = "SemiBold",
+        TextTruncate = Enum.TextTruncate.AtEnd,
+        Parent = header
+    })
+    Locale:Bind(self.TitleLabel, "Text", self.TitleSource)
+
+    self.DescLabel = New("TextLabel", {
+        Size = UDim2.new(1, -80, 0, 14),
+        Position = UDim2.fromOffset(50, 22),
+        TextSize = 11,
+        TextColor3 = C.SubText,
+        TextTruncate = Enum.TextTruncate.AtEnd,
+        Visible = hasDesc,
+        Parent = header
+    })
+    Locale:Bind(self.DescLabel, "Text", config.Desc or "")
+    self:_ApplyHeader()
+
+    local toggleButton = New("TextButton", {
+        Size = UDim2.fromScale(1, 1),
+        Parent = header
+    })
+
+    self.Indicator = New("ImageLabel", {
+        AnchorPoint = Vector2.new(1, 0.5),
+        Size = UDim2.fromOffset(16, 16),
+        Position = UDim2.new(1, -8, 0.5, 0),
+        Rotation = self.Collapsed and -90 or 0,
+        Image = IconList.chevronDown,
+        ImageColor3 = C.SubText,
+        Parent = header
+    })
+
+    self.Card = New("Frame", {
+        Size = UDim2.new(1, 0, 0, 0),
+        AutomaticSize = Enum.AutomaticSize.Y,
+        BackgroundColor3 = C.Card,
+        BackgroundTransparency = self.Window:_AcrylicAlpha() * 0.7,
+        Visible = not self.Collapsed,
+        LayoutOrder = 2,
+        Parent = self.Frame
+    }, {
+        Corner(10),
+        Stroke(C.Outline, 0, 1),
+        New("UIListLayout", { SortOrder = Enum.SortOrder.LayoutOrder })
+    })
+    table.insert(self.Window.AcrylicCards, self.Card)
+
+    BindTap(self.Window.Maid, toggleButton, function()
+        self.Window:PlayClick("Toggle")
+        self:SetCollapsed(not self.Collapsed)
+    end)
+
+    return self
+end
+
+function UISection:_ApplyHeader()
+    self.TitleLabel.Position = UDim2.fromOffset(50, self.HasDesc and 4 or 12)
+    self.DescLabel.Visible = self.HasDesc
+end
+
+function UISection:SetCollapsed(state)
+    self.Collapsed = state == true
+    self.Card.Visible = not self.Collapsed
+    Tween(self.Indicator, 0.2, { Rotation = self.Collapsed and -90 or 0 })
+end
+
+function UISection:Collapse()
+    self:SetCollapsed(true)
+end
+
+function UISection:Expand()
+    self:SetCollapsed(false)
+end
+
+function UISection:ToggleCollapsed()
+    self:SetCollapsed(not self.Collapsed)
+end
+
+function UISection:NextOrder()
+    self.Order = self.Order + 1
+    return self.Order
+end
+
+function UISection:_Register(element, row, divider)
+    table.insert(self.Rows, { Element = element, Row = row, Divider = divider })
+    divider.Visible = #self.Rows > 1
+end
+
+function UISection:_Unregister(element)
+    for index, entry in ipairs(self.Rows) do
+        if entry.Element == element then
+            table.remove(self.Rows, index)
+            break
+        end
+    end
+    self:_Refresh()
+end
+
+function UISection:_Refresh()
+    local query = self.Query or ""
+    local sectionTitle = string.lower(tostring(Locale:Resolve(self.TitleSource)))
+    local sectionMatch = query ~= "" and string.find(sectionTitle, query, 1, true) ~= nil
+    local anyVisible = false
+
+    for _, entry in ipairs(self.Rows) do
+        local show = not entry.Element.Hidden
+        if show and query ~= "" and not sectionMatch then
+            local title = string.lower(tostring(Locale:Resolve(entry.Element.TitleSource)))
+            show = string.find(title, query, 1, true) ~= nil
+        end
+        entry.Row.Visible = show
+        entry.Divider.Visible = show and anyVisible
+        if show then
+            anyVisible = true
+        end
+    end
+
+    self.Frame.Visible = not self.Hidden and (anyVisible or #self.Rows == 0 or query == "")
+end
+
+function UISection:Filter(query)
+    self.Query = query or ""
+    self:_Refresh()
+end
+
+function UISection:SetTitle(source)
+    self.TitleSource = source
+    Locale:Bind(self.TitleLabel, "Text", source)
+    self:_Refresh()
+end
+
+function UISection:SetDesc(source)
+    self.DescSource = source
+    self.HasDesc = source ~= nil and source ~= ""
+    Locale:Bind(self.DescLabel, "Text", source or "")
+    self:_ApplyHeader()
+end
+
+function UISection:SetIcon(icon)
+    self.IconSource = icon
+    self.IconImage.Image = ResolveIcon(icon, "rbxassetid://6023426915")
+end
+
+function UISection:SetColor(color)
+    self.IconBox.BackgroundColor3 = color
+end
+
+function UISection:SetVisible(state)
+    self.Hidden = state == false
+    self:_Refresh()
+end
+
+function UISection:Show()
+    self:SetVisible(true)
+end
+
+function UISection:Hide()
+    self:SetVisible(false)
+end
+
+function UISection:GetElements()
+    local list = {}
+    for _, entry in ipairs(self.Rows) do
+        table.insert(list, entry.Element)
+    end
+    return list
+end
+
+function UISection:Refresh()
+    Locale:Bind(self.TitleLabel, "Text", self.TitleSource)
+    Locale:Bind(self.DescLabel, "Text", self.DescSource or "")
+    self:_ApplyHeader()
+    for _, entry in ipairs(self.Rows) do
+        entry.Element:Refresh()
+    end
+    self:_Refresh()
+end
+
+function UISection:Clear()
+    for _, element in ipairs(self:GetElements()) do
+        element:Destroy()
+    end
+end
+
+function UISection:Destroy()
+    if self.Destroyed then
+        return
+    end
+    self.Destroyed = true
+    self:Clear()
+    for index, section in ipairs(self.Tab.Sections) do
+        if section == self then
+            table.remove(self.Tab.Sections, index)
+            break
+        end
+    end
+    self.Frame:Destroy()
+end
+
+function UISection:AddButton(config)
+    return UIButton.new(self, config or {})
+end
+
+function UISection:AddToggle(config)
+    return UIToggle.new(self, config or {})
+end
+
+function UISection:AddDropdown(config)
+    return UIDropdown.new(self, config or {})
+end
+
+function UISection:AddSlider(config)
+    return UISlider.new(self, config or {})
+end
+
+function UISection:AddInput(config)
+    return UIInput.new(self, config or {})
+end
+
+function UISection:AddColorPicker(config)
+    return UIColorPicker.new(self, config or {})
+end
+
+function UISection:AddSegmented(config)
+    return UISegmented.new(self, config or {})
+end
+
+function UISection:AddPalette(config)
+    return UIPalette.new(self, config or {})
+end
+
+function UISection:AddKeybind(config)
+    return UIKeybind.new(self, config or {})
+end
+
+UISection.AddColorpicker = UISection.AddColorPicker
+
+function UISection:AddLabel(config)
+    if type(config) == "string" then
+        config = { Title = config }
+    end
+    return UILabel.new(self, config or {})
+end
+
+UISection.CreateButton = UISection.AddButton
+UISection.CreateToggle = UISection.AddToggle
+UISection.CreateDropdown = UISection.AddDropdown
+UISection.CreateSlider = UISection.AddSlider
+UISection.CreateInput = UISection.AddInput
+UISection.CreateLabel = UISection.AddLabel
+
+local UITab = {}
+UITab.__index = UITab
+
+function UITab.new(window, config)
+    local self = setmetatable({}, UITab)
+
+    self.Window = window
+    self.TitleSource = config.Title or "Tab"
+    self.DescSource = config.Desc or self:_DefaultDesc()
+    self.IconSource = config.Icon
+    self.Hidden = config.Visible == false
+    self.Destroyed = false
+    self.Sections = {}
+    self.Order = 0
+    self.IsActive = false
+    self.Hovered = false
+
+    self.SavedScroll = 0
+    self.Content = New("ScrollingFrame", {
+        Name = "TabContent",
+        Size = UDim2.fromScale(1, 1),
+        Visible = false,
+        ScrollBarThickness = 3,
+        ScrollBarImageColor3 = C.Accent,
+        CanvasSize = UDim2.new(),
+        AutomaticCanvasSize = Enum.AutomaticSize.Y,
+        Parent = window.Pages
+    }, {
+        New("UIListLayout", { SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0, 16) }),
+        New("UIPadding", {
+            PaddingTop = UDim.new(0, 4),
+            PaddingLeft = UDim.new(0, 22),
+            PaddingRight = UDim.new(0, 22),
+            PaddingBottom = UDim.new(0, 22)
+        })
+    })
+
+    SmoothScroll(window.Maid, self.Content)
+    AutoHideBar(window.Maid, self.Content, 3)
+    window.Maid:Give(self.Content:GetPropertyChangedSignal("CanvasPosition"):Connect(function()
+        if self.IsActive and window.Visible and self.Content.AbsoluteWindowSize.Y > 0 then
+            self.SavedScroll = self.Content.CanvasPosition.Y
+        end
+    end))
+
+    self.Stroke = Stroke(C.Outline, 1, 1)
+    self.Button = New("TextButton", {
+        Size = UDim2.new(1, 0, 0, 40),
+        BackgroundColor3 = C.Selected,
+        BackgroundTransparency = 1,
+        LayoutOrder = config.Order or (#window.Tabs + 1),
+        Parent = window.TabList
+    }, { Corner(9), self.Stroke })
+
+    self.IconBox = New("Frame", {
+        Size = UDim2.fromOffset(26, 26),
+        Position = UDim2.new(0, 10, 0.5, -13),
+        BackgroundColor3 = config.Color or Color3.new(1, 1, 1),
+        Parent = self.Button
+    }, { Corner(7), Aura.Make(config.Color and "Shade" or "Fill", { Rotation = 45 }) })
+
+    self.IconImage = New("ImageLabel", {
+        AnchorPoint = Vector2.new(0.5, 0.5),
+        Size = UDim2.fromOffset(16, 16),
+        Position = UDim2.fromScale(0.5, 0.5),
+        Image = ResolveIcon(config.Icon, "rbxassetid://6023426915"),
+        Parent = self.IconBox
+    })
+
+    self.Label = New("TextLabel", {
+        Size = UDim2.new(1, -52, 1, 0),
+        Position = UDim2.fromOffset(46, 0),
+        TextColor3 = C.SubText,
+        Weight = "Medium",
+        TextTruncate = Enum.TextTruncate.AtEnd,
+        Parent = self.Button
+    })
+    Locale:Bind(self.Label, "Text", self.TitleSource)
+
+    self.Indicator = New("Frame", {
+        AnchorPoint = Vector2.new(0, 0.5),
+        Size = UDim2.fromOffset(3, 0),
+        Position = UDim2.new(0, -8, 0.5, 0),
+        BackgroundColor3 = Color3.new(1, 1, 1),
+        BackgroundTransparency = 1,
+        Parent = self.Button
+    }, { Corner(2), Aura.Make("Fill", { Rotation = 90 }) })
+
+    self.Button.Visible = not self.Hidden
+
+    BindTap(window.Maid, self.Button, function()
+        window:PlayClick("Button")
+        window:Select(self)
+    end)
+
+    BindPointer(window.Maid, self.Button, {
+        Hover = function(state)
+            self.Hovered = state
+            self:_Render()
+        end
+    })
+
+    window.Maid:Give(OnTheme(function()
+        self:_Render()
+    end))
+
+    return self
+end
+
+function UITab:_DefaultDesc()
+    return function()
+        return string.format(Locale:Builtin("ManageFor"), tostring(Locale:Resolve(self.TitleSource)))
+    end
+end
+
+function UITab:NextOrder()
+    self.Order = self.Order + 1
+    return self.Order
+end
+
+function UITab:_Render()
+    local background = 1
+    if self.IsActive then
+        background = 0
+    elseif self.Hovered then
+        background = 0.6
+    end
+    local lit = self.IsActive or self.Hovered
+    Tween(self.Button, 0.2, { BackgroundTransparency = background })
+    Tween(self.Stroke, 0.2, { Transparency = self.IsActive and 0 or 1 })
+    Tween(self.Label, 0.2, {
+        TextColor3 = lit and Theme.Text or Theme.SubText,
+        Position = UDim2.fromOffset(self.IsActive and 49 or 46, 0)
+    })
+end
+
+function UITab:_RestoreScroll()
+    task.defer(function()
+        task.wait()
+        if not self.Destroyed and self.IsActive then
+            local Limit = math.max(self.Content.AbsoluteCanvasSize.Y - self.Content.AbsoluteWindowSize.Y, 0)
+            self.Content.CanvasPosition = Vector2.new(0, math.min(self.SavedScroll, Limit))
+        end
+    end)
+end
+
+function UITab:SetActive(state)
+    self.IsActive = state
+    self.Content.Visible = state
+    if state then
+        self:_RestoreScroll()
+        self.Indicator.Size = UDim2.fromOffset(3, 0)
+        self.Indicator.BackgroundTransparency = 0
+        Tween(self.Indicator, 0.4, { Size = UDim2.fromOffset(3, 20) }, Enum.EasingStyle.Back)
+    else
+        Tween(self.Indicator, 0.2, { Size = UDim2.fromOffset(3, 0), BackgroundTransparency = 1 })
+    end
+    self:_Render()
+end
+
+function UITab:AddSection(config)
+    local section = UISection.new(self, config or {})
+    table.insert(self.Sections, section)
+    return section
+end
+
+UITab.CreateSection = UITab.AddSection
+
+function UITab:SetTitle(source)
+    self.TitleSource = source
+    Locale:Bind(self.Label, "Text", source)
+    if self.Window.Active == self then
+        Locale:Bind(self.Window.PageTitle, "Text", source)
+    end
+end
+
+function UITab:SetDesc(source)
+    self.DescSource = source or self:_DefaultDesc()
+    if self.Window.Active == self then
+        Locale:Bind(self.Window.PageDesc, "Text", self.DescSource)
+    end
+end
+
+function UITab:SetIcon(icon)
+    self.IconSource = icon
+    self.IconImage.Image = ResolveIcon(icon, "rbxassetid://6023426915")
+end
+
+function UITab:SetColor(color)
+    self.IconBox.BackgroundColor3 = color
+end
+
+function UITab:Select(silent)
+    self.Window:Select(self, silent)
+end
+
+function UITab:SetVisible(state)
+    self.Hidden = state == false
+    self.Button.Visible = not self.Hidden
+    if self.Hidden and self.Window.Active == self then
+        self.Window:_SelectFallback(self)
+    end
+end
+
+function UITab:Show()
+    self:SetVisible(true)
+end
+
+function UITab:Hide()
+    self:SetVisible(false)
+end
+
+function UITab:GetSections()
+    return table.clone(self.Sections)
+end
+
+function UITab:Refresh()
+    for _, section in ipairs(self.Sections) do
+        section:Refresh()
+    end
+end
+
+function UITab:Destroy()
+    if self.Destroyed then
+        return
+    end
+    self.Destroyed = true
+    local window = self.Window
+    for _, section in ipairs(table.clone(self.Sections)) do
+        section:Destroy()
+    end
+    for index, tab in ipairs(window.Tabs) do
+        if tab == self then
+            table.remove(window.Tabs, index)
+            break
+        end
+    end
+    if window.Active == self then
+        window.Active = nil
+        window:_SelectFallback(self)
+    end
+    self.Content:Destroy()
+    self.Button:Destroy()
+end
+
+local UIWindow = {}
+UIWindow.__index = UIWindow
+
+local Windows = {}
+
+function UIWindow.new(config)
+    local self = setmetatable({}, UIWindow)
+    config = table.clone(config or {})
+    self.Config = config
+
+    self.Maid = Maid.new()
+    self.Tabs = {}
+    self.UserTabs = 0
+    self.Active = nil
+    self.Visible = true
+    self.Destroyed = false
+    self.UserScale = math.clamp(tonumber(config.Scale) or 1, 0.5, 1.5)
+    self.SoundEnabled = config.Sound ~= false
+    self.ToggleKey = nil
+    self.Transition = 0
+    self.FitScale = 1
+    self.ActiveDropdown = nil
+    self.LogoImages = {}
+    self.AcrylicCards = {}
+    self.IconSource = config.Icon or config.Logo or "rbxassetid://10723415393"
+    self.TitleSource = config.Title or "Fracture Hub"
+    self.SubTitleSource = config.SubTitle or "by Fracture"
+    self.ToggleTextSource = config.ToggleText
+    self.ConfigFolder = config.ConfigFolder or "Fracture UI"
+    self.ConfigMap = config.MapName ~= nil and CleanName(config.MapName) or nil
+    self.AutoSave = config.AutoSave == true
+    self.OnOpen = config.OnOpen
+    self.OnClose = config.OnClose
+    self.OnDestroy = config.OnDestroy
+    self.Flags = Flags
+    self.SettingsReady = false
+
+    local Saved = self:_ReadSettings()
+    self:_ApplyCustomData(Saved.Custom)
+    local AcrylicConfig = config.Acrylic
+    self.AcrylicOn = Pick(Saved.AcrylicOn, AcrylicConfig == true or (type(AcrylicConfig) == "number" and AcrylicConfig > 0))
+    self.Transparency = math.clamp(tonumber(Pick(Saved.Transparency, type(AcrylicConfig) == "number" and AcrylicConfig or config.Transparency)) or 0.25, 0, 0.85)
+    self.BlurSize = math.clamp(tonumber(Pick(Saved.BlurSize, config.BlurSize)) or 16, 0, 40)
+    AccentSolid = Pick(Saved.AccentStyle, config.AccentStyle) == "Solid"
+    self.NotifyTimer = Pick(Saved.NotifyTimer, config.NotifyTimer ~= false)
+    self.NotifyLineColor = ParseColor(Pick(Saved.NotifyLine, config.NotifyLineColor))
+    config.Language = Pick(Saved.Language, config.Language)
+    config.Theme = Pick(Saved.Theme, config.Theme)
+    config.HideName = Pick(Saved.HideName, config.HideName)
+    config.HideProfile = Pick(Saved.HideProfile, config.HideProfile)
+    config.ToggleKey = Pick(Saved.ToggleKey, config.ToggleKey)
+    self.SoundEnabled = Pick(Saved.Sound, self.SoundEnabled)
+    self.Volume = math.clamp(tonumber(Pick(Saved.Volume, config.Volume)) or 1, 0, 2)
+    self.UserScale = math.clamp(tonumber(Pick(Saved.Scale, self.UserScale)) or 1, 0.5, 1.5)
+
+    if config.Translations then
+        Locale:AddTranslations(config.Translations)
+    end
+    if config.Language then
+        Locale:SetLanguage(config.Language)
+    end
+    if config.Theme and Palettes[config.Theme] then
+        SetTheme(config.Theme)
+    elseif AccentSolid then
+        SetTheme(CurrentTheme)
+    end
+
+    if config.ToggleKey == nil then
+        self:SetToggleKey(Enum.KeyCode.RightControl)
+    else
+        self:SetToggleKey(config.ToggleKey)
+    end
+
+    self:_Build(config)
+    self:_BindInput()
+    self:SetPillVisible(config.Pill ~= false and config.ShowToggle ~= false)
+    local WantOpen = config.Open ~= false
+    local ShowSplash = config.Splash ~= false
+    self:SetVisible(WantOpen and not ShowSplash, true)
+    if ShowSplash then
+        self:_RunSplash(config, WantOpen)
+    elseif WantOpen then
+        self:PlayOpenSound()
+    end
+
+    if config.HideName then
+        self:SetHideName(true)
+    end
+    if config.HideProfile then
+        self:SetHideProfile(true)
+    end
+
+    self.Maid:Give(Locale:Listen(function()
+        self:_QueueSettingsSave()
+    end))
+    self.Maid:Give(OnTheme(function()
+        self:_QueueSettingsSave()
+    end))
+    self.SettingsReady = true
+
+    table.insert(Windows, self)
+    return self
+end
+
+function UIWindow:_Build(config)
+    local requested = config.Size or UDim2.fromOffset(640, 440)
+    local logo = self.IconSource
+    local guiName = config.Name or "FractureUI"
+
+    if typeof(requested) == "Vector2" then
+        self.RequestedSize = requested
+    else
+        self.RequestedSize = Vector2.new(requested.X.Offset, requested.Y.Offset)
+    end
+    self.DefaultPosition = config.Position or UDim2.fromScale(0.5, 0.5)
+    local width, height = self:_FitSize()
+
+    local parent = ResolveParent()
+    local old = parent:FindFirstChild(guiName)
+    if old then
+        old:Destroy()
+    end
+
+    self.Gui = self.Maid:Give(New("ScreenGui", {
+        Name = guiName,
+        ResetOnSpawn = false,
+        IgnoreGuiInset = true,
+        DisplayOrder = config.DisplayOrder or 100,
+        ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
+        Parent = parent
+    }))
+
+    self.Sounds = {}
+    local SoundOverrides = {
+        Open = config.OpenSound,
+        Toggle = config.ToggleSound,
+        Key = config.KeySound,
+        Button = config.ButtonSound
+    }
+    local Preload = {}
+    for Kind, Id in pairs(SOUND_IDS) do
+        local Sound = New("Sound", { SoundId = SoundOverrides[Kind] or Id, Volume = 0, Parent = self.Gui })
+        self.Sounds[Kind] = Sound
+        table.insert(Preload, Sound)
+    end
+    task.spawn(function()
+        pcall(function()
+            game:GetService("ContentProvider"):PreloadAsync(Preload)
+        end)
+    end)
+
+    self.Maid:Give(UserInputService.TextBoxFocused:Connect(function(Box)
+        if Box:IsDescendantOf(self.Gui) then
+            local Typing = Box:GetPropertyChangedSignal("Text"):Connect(function()
+                self:PlayClick("Key")
+            end)
+            Box.FocusLost:Once(function()
+                Typing:Disconnect()
+            end)
+        end
+    end))
+
+    self.Scale = New("UIScale", { Scale = 1 })
+    self.Gradient = New("UIGradient", {
+        Rotation = 90,
+        Color = ColorSequence.new(Theme.BackgroundTop, Theme.Background)
+    })
+    self.Maid:Give(OnTheme(function()
+        self.Gradient.Color = ColorSequence.new(Theme.BackgroundTop, Theme.Background)
+    end))
+
+    local rim = New("UIStroke", {
+        Color = Color3.new(1, 1, 1),
+        Thickness = 1.2,
+        ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    }, { Aura.Make("Rim", { Rotation = 35 }) })
+
+    self.Main = New("Frame", {
+        Name = "Main",
+        Size = UDim2.fromOffset(width, height),
+        Position = self.DefaultPosition,
+        AnchorPoint = Vector2.new(0.5, 0.5),
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BackgroundTransparency = self:_AcrylicAlpha(),
+        ClipsDescendants = true,
+        Parent = self.Gui
+    }, {
+        Corner(12),
+        rim,
+        self.Scale,
+        self.Gradient
+    })
+
+    self:_BuildOverlay()
+    self:_BuildPill(config, logo)
+
+    local sidebar = self:_BuildSidebar(config, logo)
+    self:_BuildProfile(sidebar)
+    self:_BuildContent()
+    self:_BuildControls()
+    self:_BuildDragHandle()
+    self:_BuildSettings()
+    self:_BuildNotifications()
+    self:_BindViewport()
+
+    self:_PaintIcons()
+    self.Maid:Give(Locale:Listen(function()
+        self:_PaintIcons()
+    end))
+    self.Maid:Give(OnTheme(function()
+        self:_PaintIcons()
+    end))
+
+    self.Maid:Give(self.Gui.Destroying:Connect(function()
+        self:Destroy()
+    end))
+end
+
+function UIWindow:_BuildSidebar(config, logo)
+    local sidebar = New("Frame", {
+        Name = "Sidebar",
+        Size = UDim2.new(0, 180, 1, 0),
+        BackgroundTransparency = 1,
+        Parent = self.Main
+    })
+
+    New("Frame", {
+        Size = UDim2.new(0, 1, 1, -36),
+        Position = UDim2.new(1, 0, 0, 18),
+        BackgroundColor3 = C.Divider,
+        Parent = sidebar
+    })
+
+    local header = New("Frame", {
+        Size = UDim2.new(1, -24, 0, 44),
+        Position = UDim2.fromOffset(14, 16),
+        BackgroundTransparency = 1,
+        Parent = sidebar
+    })
+
+    local logoImage = New("ImageLabel", {
+        Size = UDim2.fromOffset(36, 36),
+        Position = UDim2.new(0, 0, 0.5, -18),
+        ScaleType = Enum.ScaleType.Fit,
+        Parent = header
+    })
+    table.insert(self.LogoImages, logoImage)
+
+    local title = New("TextLabel", {
+        Size = UDim2.new(1, -46, 0, 18),
+        Position = UDim2.fromOffset(46, 5),
+        TextSize = 14,
+        Weight = "SemiBold",
+        TextTruncate = Enum.TextTruncate.AtEnd,
+        Parent = header
+    })
+    self.SidebarTitle = title
+    Locale:Bind(title, "Text", self.TitleSource)
+
+    local subtitle = New("TextLabel", {
+        Size = UDim2.new(1, -46, 0, 14),
+        Position = UDim2.fromOffset(46, 24),
+        TextSize = 10,
+        TextColor3 = C.SubText,
+        TextTruncate = Enum.TextTruncate.AtEnd,
+        Parent = header
+    })
+    self.SidebarSubTitle = subtitle
+    Locale:Bind(subtitle, "Text", self.SubTitleSource)
+
+    local searchStroke = Stroke(C.Outline, 0, 1)
+    local searchBox = New("Frame", {
+        Size = UDim2.new(1, -24, 0, 32),
+        Position = UDim2.fromOffset(12, 72),
+        BackgroundColor3 = C.Card,
+        Parent = sidebar
+    }, { Corner(8), searchStroke })
+
+    local magnifier = New("Frame", {
+        Size = UDim2.fromOffset(16, 16),
+        Position = UDim2.new(0, 10, 0.5, -8),
+        BackgroundTransparency = 1,
+        Parent = searchBox
+    })
+    New("Frame", {
+        Size = UDim2.fromOffset(10, 10),
+        BackgroundTransparency = 1,
+        Parent = magnifier
+    }, { Corner(5), Stroke(C.SubText, 0, 1.5) })
+    New("Frame", {
+        Size = UDim2.fromOffset(6, 2),
+        Position = UDim2.fromOffset(9, 12),
+        Rotation = 45,
+        BackgroundColor3 = C.SubText,
+        Parent = magnifier
+    })
+
+    local searchInput = New("TextBox", {
+        Size = UDim2.new(1, -38, 1, 0),
+        Position = UDim2.fromOffset(32, 0),
+        PlaceholderColor3 = C.SubText,
+        ClearTextOnFocus = false,
+        Parent = searchBox
+    })
+    Locale:Bind(searchInput, "PlaceholderText", Builtin("Search"))
+
+    self.Maid:Give(searchInput.Focused:Connect(function()
+        Tween(searchStroke, 0.2, { Color = Theme.AccentGlow })
+    end))
+    self.Maid:Give(searchInput.FocusLost:Connect(function()
+        Tween(searchStroke, 0.2, { Color = Theme.Outline })
+    end))
+    self.Maid:Give(searchInput:GetPropertyChangedSignal("Text"):Connect(function()
+        self:Filter(string.lower(searchInput.Text))
+    end))
+
+    self.TabList = New("ScrollingFrame", {
+        Size = UDim2.new(1, 0, 1, -192),
+        Position = UDim2.fromOffset(0, 118),
+        ScrollBarThickness = 0,
+        CanvasSize = UDim2.new(),
+        AutomaticCanvasSize = Enum.AutomaticSize.Y,
+        Parent = sidebar
+    }, {
+        New("UIListLayout", { SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0, 6) }),
+        New("UIPadding", {
+            PaddingLeft = UDim.new(0, 16),
+            PaddingRight = UDim.new(0, 12),
+            PaddingTop = UDim.new(0, 4)
+        })
+    })
+
+    return sidebar
+end
+
+function UIWindow:_BuildProfile(sidebar)
+    local player = Players.LocalPlayer
+    if not player then
+        return
+    end
+
+    local card = New("Frame", {
+        Name = "Profile",
+        Size = UDim2.new(1, -24, 0, 50),
+        Position = UDim2.new(0, 12, 1, -62),
+        BackgroundColor3 = C.Card,
+        Parent = sidebar
+    }, { Corner(10), Stroke(C.Outline, 0, 1) })
+
+    self.ProfileCard = card
+    self.ProfileDisplayName = player.DisplayName
+    self.ProfileUserName = player.Name
+
+    local avatar = New("ImageLabel", {
+        Size = UDim2.fromOffset(34, 34),
+        Position = UDim2.fromOffset(8, 8),
+        BackgroundTransparency = 0,
+        BackgroundColor3 = C.Selected,
+        Parent = card
+    }, { Corner(nil, true) })
+
+    New("Frame", {
+        AnchorPoint = Vector2.new(1, 1),
+        Size = UDim2.fromOffset(10, 10),
+        Position = UDim2.fromOffset(44, 44),
+        BackgroundColor3 = C.Green,
+        Parent = card
+    }, { Corner(nil, true), Stroke(C.Card, 0, 2) })
+
+    self.ProfileName = New("TextLabel", {
+        Size = UDim2.new(1, -60, 0, 16),
+        Position = UDim2.fromOffset(52, 9),
+        Text = player.DisplayName,
+        Weight = "Medium",
+        TextTruncate = Enum.TextTruncate.AtEnd,
+        Parent = card
+    })
+
+    self.ProfileUser = New("TextLabel", {
+        Size = UDim2.new(1, -60, 0, 14),
+        Position = UDim2.fromOffset(52, 26),
+        Text = "@" .. player.Name,
+        TextSize = 10,
+        TextColor3 = C.SubText,
+        TextTruncate = Enum.TextTruncate.AtEnd,
+        Parent = card
+    })
+
+    task.spawn(function()
+        local ok, content = pcall(function()
+            return Players:GetUserThumbnailAsync(
+                player.UserId,
+                Enum.ThumbnailType.HeadShot,
+                Enum.ThumbnailSize.Size100x100
+            )
+        end)
+        if ok and avatar.Parent then
+            avatar.Image = content
+        end
+    end)
+end
+
+function UIWindow:_BuildContent()
+    local container = New("Frame", {
+        Name = "Content",
+        Size = UDim2.new(1, -180, 1, 0),
+        Position = UDim2.fromOffset(180, 0),
+        BackgroundTransparency = 1,
+        Parent = self.Main
+    })
+
+    self.PageTitle = New("TextLabel", {
+        Size = UDim2.new(1, -120, 0, 22),
+        Position = UDim2.fromOffset(24, 16),
+        TextSize = 18,
+        Weight = "SemiBold",
+        TextTruncate = Enum.TextTruncate.AtEnd,
+        Parent = container
+    })
+
+    self.PageDesc = New("TextLabel", {
+        Size = UDim2.new(1, -120, 0, 14),
+        Position = UDim2.fromOffset(24, 40),
+        TextSize = 11,
+        TextColor3 = C.SubText,
+        TextTruncate = Enum.TextTruncate.AtEnd,
+        Parent = container
+    })
+
+    self.Pages = New("Frame", {
+        Size = UDim2.new(1, 0, 1, -66),
+        Position = UDim2.fromOffset(0, 66),
+        BackgroundTransparency = 1,
+        ClipsDescendants = true,
+        Parent = container
+    })
+end
+
+function UIWindow:_BuildControls()
+    local controls = New("Frame", {
+        Name = "Controls",
+        AnchorPoint = Vector2.new(1, 0),
+        Size = UDim2.fromOffset(52, 12),
+        Position = UDim2.new(1, -18, 0, 18),
+        BackgroundTransparency = 1,
+        ZIndex = 5,
+        Parent = self.Main
+    }, {
+        New("UIListLayout", {
+            FillDirection = Enum.FillDirection.Horizontal,
+            HorizontalAlignment = Enum.HorizontalAlignment.Right,
+            VerticalAlignment = Enum.VerticalAlignment.Center,
+            SortOrder = Enum.SortOrder.LayoutOrder,
+            Padding = UDim.new(0, 8)
+        })
+    })
+
+    local actions = {
+        { Color = Theme.Red, Action = function() self:Destroy() end },
+        { Color = Theme.Yellow, Action = function() self:SetVisible(false) end },
+        { Color = Theme.Green, Action = function() self:ResetPosition() end }
+    }
+
+    for index, data in ipairs(actions) do
+        local dot = New("TextButton", {
+            Size = UDim2.fromOffset(12, 12),
+            BackgroundTransparency = 0,
+            BackgroundColor3 = data.Color,
+            LayoutOrder = index,
+            Parent = controls
+        }, { Corner(nil, true) })
+
+        BindPointer(self.Maid, dot, {
+            Hover = function(state)
+                Tween(dot, 0.15, { Size = state and UDim2.fromOffset(14, 14) or UDim2.fromOffset(12, 12) })
+            end
+        })
+        self.Maid:Give(dot.MouseButton1Click:Connect(function()
+            self:PlayClick("Button")
+            data.Action()
+        end))
+    end
+end
+
+function UIWindow:_BuildDragHandle()
+    local handle = New("Frame", {
+        Name = "DragHandle",
+        Size = UDim2.new(1, 0, 0, 56),
+        BackgroundTransparency = 1,
+        Active = true,
+        ZIndex = 2,
+        Parent = self.Main
+    })
+
+    self.Maid:Give(handle.InputBegan:Connect(function(input)
+        if not PressTypes[input.UserInputType] then
+            return
+        end
+
+        local origin = input.Position
+        local start = self.Main.Position
+
+        TrackPointer(input, function(position)
+            local delta = position - origin
+            self.Main.Position = UDim2.new(
+                start.X.Scale, start.X.Offset + delta.X,
+                start.Y.Scale, start.Y.Offset + delta.Y
+            )
+        end)
+    end))
+end
+
+function UIWindow:_BuildSettings()
+    local tab = UITab.new(self, {
+        Title = Builtin("Settings"),
+        Desc = Builtin("SettingsDesc"),
+        Icon = IconList.settings,
+        Color = Color3.fromRGB(70, 70, 76),
+        Order = 1000
+    })
+    table.insert(self.Tabs, tab)
+    self.SettingsTab = tab
+
+    local languageSection = tab:AddSection({
+        Title = Builtin("Language"),
+        Desc = Builtin("LanguageDesc"),
+        Icon = IconList.settings,
+        Color = Color3.fromRGB(46, 108, 214)
+    })
+
+    local function LanguageNames()
+        local names = {}
+        for _, entry in ipairs(Locale:GetLanguages()) do
+            table.insert(names, entry.Name)
+        end
+        return names
+    end
+
+    local dropdown = languageSection:AddDropdown({
+        Title = Builtin("Language"),
+        Desc = Builtin("LanguageDesc"),
+        Options = LanguageNames(),
+        Default = Locale:GetName(Locale.Language),
+        Callback = function(name)
+            local code = Locale:GetCode(name)
+            if code and code ~= Locale.Language then
+                Locale:SetLanguage(code)
+            end
+        end
+    })
+    self.LanguageDropdown = dropdown
+
+    self.Maid:Give(Locale:Listen(function()
+        dropdown:SetOptions(LanguageNames())
+        dropdown:Set(Locale:GetName(Locale.Language), true)
+    end))
+
+    local appearanceSection = tab:AddSection({
+        Title = Builtin("Appearance"),
+        Desc = Builtin("AppearanceDesc"),
+        Icon = "palette",
+        Color = Color3.fromRGB(150, 80, 220)
+    })
+
+    local function ThemeNames()
+        local names = {}
+        for _, key in ipairs(THEME_ORDER) do
+            table.insert(names, Locale:Builtin("Theme" .. key))
+        end
+        return names
+    end
+
+    local function ThemeName(key)
+        return Locale:Builtin("Theme" .. key)
+    end
+
+    local function ThemeKey(name)
+        for _, key in ipairs(THEME_ORDER) do
+            if Locale:Builtin("Theme" .. key) == name then
+                return key
+            end
+        end
+        return nil
+    end
+
+    self.StyleSegmented = appearanceSection:AddSegmented({
+        Title = Builtin("AccentStyle"),
+        Options = {
+            { Key = "Gradient", Text = Builtin("StyleGradient") },
+            { Key = "Solid", Text = Builtin("StyleSolid") }
+        },
+        Default = AccentSolid and "Solid" or "Gradient",
+        Callback = function(Key)
+            SetAccentStyle(Key)
+            self:_QueueSettingsSave()
+        end
+    })
+
+    local themeDropdown = appearanceSection:AddDropdown({
+        Title = Builtin("Theme"),
+        Desc = Builtin("ThemeDesc"),
+        Options = ThemeNames(),
+        Default = ThemeName(CurrentTheme),
+        Search = false,
+        Callback = function(name)
+            local key = ThemeKey(name)
+            if key and key ~= CurrentTheme then
+                SetTheme(key)
+            end
+        end
+    })
+    self.ThemeDropdown = themeDropdown
+
+    self.Maid:Give(Locale:Listen(function()
+        themeDropdown:SetOptions(ThemeNames())
+        themeDropdown:Set(ThemeName(CurrentTheme), true)
+    end))
+
+    self.Maid:Give(OnTheme(function()
+        themeDropdown:Set(ThemeName(CurrentTheme), true)
+    end))
+
+    self.CustomPickers = {}
+
+    local function MakePicker(Section, Key, TitleKey)
+        self.CustomPickers[Key] = Section:AddColorPicker({
+            Title = Builtin(TitleKey),
+            Default = Palettes[CurrentTheme][Key],
+            Callback = function(Color)
+                self:_PrepareCustom()
+                CustomColors[Key] = Color
+                ApplyCustomColors()
+                self:_QueueSettingsSave()
+            end
+        })
+    end
+
+    appearanceSection:AddPalette({
+        Title = Builtin("QuickPalettes"),
+        Colors = ACCENT_PRESETS,
+        Columns = 5,
+        Callback = function(Color)
+            self:_PrepareCustom()
+            CustomColors.Accent = Color
+            CustomColors.AccentAlt = Color:Lerp(Color3.new(1, 1, 1), 0.35)
+            ApplyCustomColors()
+            self:_QueueSettingsSave()
+        end
+    })
+
+    MakePicker(appearanceSection, "Accent", "PrimaryAccent")
+    MakePicker(appearanceSection, "AccentAlt", "SecondaryAccent")
+
+    self.Maid:Give(OnTheme(function()
+        self:_SyncCustomPickers()
+    end))
+
+    local interfaceSection = tab:AddSection({
+        Title = Builtin("Interface"),
+        Desc = Builtin("InterfaceDesc"),
+        Icon = IconList.sliders,
+        Color = Color3.fromRGB(70, 70, 76)
+    })
+
+    self.SoundToggle = interfaceSection:AddToggle({
+        Title = Builtin("Sound"),
+        Desc = Builtin("SoundDesc"),
+        Default = self.SoundEnabled,
+        Callback = function(state)
+            self:SetSound(state)
+        end
+    })
+
+    self.VolumeSlider = interfaceSection:AddSlider({
+        Title = Builtin("Volume"),
+        Desc = Builtin("VolumeDesc"),
+        Min = 0,
+        Max = 200,
+        Step = 5,
+        Default = math.floor(self.Volume * 100 + 0.5),
+        Suffix = "%",
+        Callback = function(Value)
+            self:SetVolume(Value / 100)
+        end
+    })
+
+    self.ScaleSlider = interfaceSection:AddSlider({
+        Title = Builtin("Scale"),
+        Desc = Builtin("ScaleDesc"),
+        Min = 70,
+        Max = 130,
+        Step = 5,
+        Default = math.floor(self.UserScale * 100 + 0.5),
+        Suffix = "%",
+        Callback = function(value)
+            self:SetUserScale(value / 100)
+        end
+    })
+
+    self.AcrylicToggle = interfaceSection:AddToggle({
+        Title = Builtin("Acrylic"),
+        Desc = Builtin("AcrylicDesc"),
+        Default = self.AcrylicOn,
+        Callback = function(State)
+            self:SetAcrylic(State)
+        end
+    })
+
+    self.TransparencySlider = interfaceSection:AddSlider({
+        Title = Builtin("Transparency"),
+        Desc = Builtin("TransparencyDesc"),
+        Min = 0,
+        Max = 85,
+        Step = 5,
+        Default = math.floor(self.Transparency * 100 + 0.5),
+        Suffix = "%",
+        Callback = function(Value)
+            self:SetTransparency(Value / 100)
+            if not self.AcrylicOn then
+                self:SetAcrylic(true)
+            end
+        end
+    })
+
+    self.BlurSlider = interfaceSection:AddSlider({
+        Title = Builtin("Blur"),
+        Desc = Builtin("BlurDesc"),
+        Min = 0,
+        Max = 40,
+        Step = 2,
+        Default = math.floor(self.BlurSize + 0.5),
+        Callback = function(Value)
+            self:SetBlur(Value)
+        end
+    })
+
+    interfaceSection:AddKeybind({
+        Title = Builtin("ToggleKey"),
+        Desc = Builtin("ToggleKeyDesc"),
+        Default = self.ToggleKey,
+        Callback = function(Key)
+            self:SetToggleKey(Key ~= Enum.KeyCode.Unknown and Key or nil)
+        end
+    })
+
+    interfaceSection:AddButton({
+        Title = Builtin("Reset"),
+        Desc = Builtin("ResetDesc"),
+        Icon = IconList.refresh,
+        Callback = function()
+            self:ResetPosition()
+        end
+    })
+
+    interfaceSection:AddButton({
+        Title = Builtin("ResetAll"),
+        Desc = Builtin("ResetAllDesc"),
+        Icon = IconList.refresh,
+        Callback = function()
+            self:ResetSettings()
+        end
+    })
+
+    local privacySection = tab:AddSection({
+        Title = Builtin("Privacy"),
+        Desc = Builtin("PrivacyDesc"),
+        Icon = "eye-off",
+        Color = Color3.fromRGB(46, 150, 120)
+    })
+
+    privacySection:AddToggle({
+        Title = Builtin("HideName"),
+        Desc = Builtin("HideNameDesc"),
+        Default = self.Config.HideName == true,
+        Callback = function(state)
+            self:SetHideName(state)
+        end
+    })
+
+    privacySection:AddToggle({
+        Title = Builtin("HideProfile"),
+        Desc = Builtin("HideProfileDesc"),
+        Default = self.Config.HideProfile == true,
+        Callback = function(state)
+            self:SetHideProfile(state)
+        end
+    })
+end
+
+function UIWindow:SetHideName(state)
+    self.NameHidden = state == true
+    self:_QueueSettingsSave()
+    if self.ProfileName then
+        self.ProfileName.Text = self.NameHidden and "••••••" or self.ProfileDisplayName
+    end
+    if self.ProfileUser then
+        self.ProfileUser.Text = "@" .. (self.NameHidden and "••••••" or self.ProfileUserName)
+    end
+end
+
+function UIWindow:SetHideProfile(state)
+    self.ProfileHidden = state == true
+    self:_QueueSettingsSave()
+    if self.ProfileCard then
+        self.ProfileCard.Visible = not self.ProfileHidden
+    end
+end
+
+function UIWindow:_BindInput()
+    self.Maid:Give(UserInputService.InputBegan:Connect(function(input, processed)
+        if processed or not self.ToggleKey then
+            return
+        end
+        if input.KeyCode == self.ToggleKey then
+            self:SetVisible(not self.Visible)
+        end
+    end))
+end
+
+
+function UIWindow:_Viewport()
+    local camera = workspace.CurrentCamera
+    local size = camera and camera.ViewportSize or Vector2.new(1280, 720)
+    if size.X <= 0 or size.Y <= 0 then
+        size = Vector2.new(1280, 720)
+    end
+    return size
+end
+
+function UIWindow:_FitSize()
+    local viewport = self:_Viewport()
+    local width = math.max(math.min(self.RequestedSize.X, viewport.X - 24), 440)
+    local height = math.max(math.min(self.RequestedSize.Y, viewport.Y - 24), 300)
+    self.FitScale = math.min(1, (viewport.X - 16) / width, (viewport.Y - 16) / height)
+    return width, height
+end
+
+function UIWindow:_TargetScale()
+    return self.UserScale * self.FitScale
+end
+
+function UIWindow:_BindViewport()
+    local camera = workspace.CurrentCamera
+    if not camera then
+        return
+    end
+    self.Maid:Give(camera:GetPropertyChangedSignal("ViewportSize"):Connect(function()
+        self:_Refit()
+    end))
+end
+
+function UIWindow:_Refit()
+    local width, height = self:_FitSize()
+    self.Main.Size = UDim2.fromOffset(width, height)
+    if self.Visible then
+        Tween(self.Scale, 0.2, { Scale = self:_TargetScale() })
+    end
+    local position = self.Pill.Position
+    self:_PlacePill(position.X.Offset, position.Y.Offset)
+end
+
+function UIWindow:_BuildOverlay()
+    self.Overlay = New("Frame", {
+        Name = "Overlay",
+        Size = UDim2.fromScale(1, 1),
+        BackgroundTransparency = 1,
+        ZIndex = 50,
+        Parent = self.Main
+    })
+
+    self.Blocker = New("TextButton", {
+        Size = UDim2.fromScale(1, 1),
+        Visible = false,
+        Parent = self.Overlay
+    })
+
+    self.Maid:Give(self.Blocker.MouseButton1Click:Connect(function()
+        self:CloseDropdown()
+    end))
+end
+
+function UIWindow:ActivateDropdown(dropdown)
+    if self.ActiveDropdown and self.ActiveDropdown ~= dropdown then
+        self.ActiveDropdown:SetOpen(false)
+    end
+    self.ActiveDropdown = dropdown
+    self.Blocker.Visible = true
+end
+
+function UIWindow:ReleaseDropdown(dropdown)
+    if self.ActiveDropdown == dropdown then
+        self.ActiveDropdown = nil
+        self.Blocker.Visible = false
+    end
+end
+
+function UIWindow:CloseDropdown()
+    if self.ActiveDropdown then
+        self.ActiveDropdown:SetOpen(false)
+    end
+end
+
+function UIWindow:_PillHome()
+    return Vector2.new(self:_Viewport().X / 2, 12)
+end
+
+function UIWindow:_ClampPill(x, y)
+    local viewport = self:_Viewport()
+    local size = self.Pill.AbsoluteSize
+    local halfWidth = size.X / 2
+    local minX = halfWidth + 8
+    local maxX = math.max(viewport.X - halfWidth - 8, minX)
+    local maxY = math.max(viewport.Y - size.Y - 8, 8)
+    return Vector2.new(math.clamp(x, minX, maxX), math.clamp(y, 8, maxY))
+end
+
+function UIWindow:_PlacePill(x, y)
+    local point = self:_ClampPill(x, y)
+    self.Pill.Position = UDim2.fromOffset(point.X, point.Y)
+end
+
+function UIWindow:_BuildPill(config, logo)
+    local home = self:_PillHome()
+    local text = self.ToggleTextSource or self.TitleSource
+
+    self.PillScale = New("UIScale", { Scale = 1 })
+    self.PillStroke = Stroke(C.Outline, 0, 1)
+
+    self.Pill = New("TextButton", {
+        Name = "TogglePill",
+        AnchorPoint = Vector2.new(0.5, 0),
+        Size = UDim2.fromOffset(0, 40),
+        AutomaticSize = Enum.AutomaticSize.X,
+        Position = UDim2.fromOffset(home.X, home.Y),
+        BackgroundTransparency = 0,
+        BackgroundColor3 = C.Card,
+        ZIndex = 100,
+        Parent = self.Gui
+    }, {
+        Corner(12),
+        self.PillStroke,
+        self.PillScale,
+        New("UIPadding", { PaddingLeft = UDim.new(0, 14), PaddingRight = UDim.new(0, 16) }),
+        New("UIListLayout", {
+            FillDirection = Enum.FillDirection.Horizontal,
+            VerticalAlignment = Enum.VerticalAlignment.Center,
+            SortOrder = Enum.SortOrder.LayoutOrder,
+            Padding = UDim.new(0, 9)
+        })
+    })
+
+    self.PillDot = New("Frame", {
+        Size = UDim2.fromOffset(8, 8),
+        BackgroundColor3 = Theme.Green,
+        LayoutOrder = 1,
+        Parent = self.Pill
+    }, { Corner(nil, true) })
+
+    local icon = New("ImageLabel", {
+        Size = UDim2.fromOffset(22, 22),
+        ScaleType = Enum.ScaleType.Fit,
+        LayoutOrder = 2,
+        Parent = self.Pill
+    })
+    table.insert(self.LogoImages, icon)
+
+    self.PillLabel = New("TextLabel", {
+        Size = UDim2.fromOffset(0, 18),
+        AutomaticSize = Enum.AutomaticSize.X,
+        Weight = "Medium",
+        TextSize = 12,
+        TextColor3 = Theme.Text,
+        LayoutOrder = 3,
+        Parent = self.Pill
+    })
+    Locale:Bind(self.PillLabel, "Text", text)
+
+    self.Maid:Give(OnTheme(function()
+        self:_RenderPill(true)
+    end))
+
+    self:_BindPillInput()
+end
+
+function UIWindow:_RenderPill(animate)
+    if not self.Pill then
+        return
+    end
+    local open = self.Visible
+    local goals = {
+        { self.PillDot, { BackgroundColor3 = open and Theme.Green or Theme.SubText } },
+        { self.PillLabel, { TextColor3 = open and Theme.Text or Theme.SubText } },
+        { self.PillStroke, { Color = open and Theme.AccentGlow or Theme.Outline, Transparency = open and 0.55 or 0 } }
+    }
+    for _, goal in ipairs(goals) do
+        if animate then
+            Tween(goal[1], 0.25, goal[2])
+        else
+            for property, value in pairs(goal[2]) do
+                goal[1][property] = value
+            end
+        end
+    end
+end
+
+
+function UIWindow:_BindPillInput()
+    local pill = self.Pill
+
+    self.Maid:Give(pill.InputBegan:Connect(function(input)
+        if not PressTypes[input.UserInputType] then
+            return
+        end
+
+        local origin = input.Position
+        local start = Vector2.new(pill.Position.X.Offset, pill.Position.Y.Offset)
+        local goal = start
+        local current = start
+        local dragged = false
+
+        Tween(self.PillScale, 0.1, { Scale = 0.95 })
+
+        local beatConnection = RunService.Heartbeat:Connect(function(delta)
+            if not dragged then
+                return
+            end
+            current = current:Lerp(goal, 1 - math.exp(-delta * 28))
+            self:_PlacePill(current.X, current.Y)
+        end)
+
+        TrackPointer(input, function(position)
+            local offset = position - origin
+            if not dragged and offset.Magnitude > 12 then
+                dragged = true
+            end
+            if dragged then
+                goal = self:_ClampPill(start.X + offset.X, start.Y + offset.Y)
+            end
+        end, function(_, cancelled)
+            beatConnection:Disconnect()
+            Tween(self.PillScale, 0.3, { Scale = 1 }, Enum.EasingStyle.Back)
+            if dragged then
+                Tween(pill, 0.18, { Position = UDim2.fromOffset(goal.X, goal.Y) }, Enum.EasingStyle.Quint)
+            elseif not cancelled then
+                self:SetVisible(not self.Visible)
+            end
+        end)
+    end))
+end
+
+function UIWindow:SetToggleKey(key)
+    if type(key) == "string" then
+        local ok, value = pcall(function()
+            return Enum.KeyCode[key]
+        end)
+        key = ok and value or nil
+    end
+    if typeof(key) == "EnumItem" and key.EnumType == Enum.KeyCode then
+        self.ToggleKey = key
+    else
+        self.ToggleKey = nil
+    end
+    self:_QueueSettingsSave()
+end
+
+function UIWindow:PlayClick(Kind)
+    local Sound = self.Sounds and self.Sounds[Kind]
+    if self.SoundEnabled and Sound and self.Volume > 0 then
+        Sound.Volume = math.min(SOUND_LEVELS[Kind] * self.Volume, 10)
+        Sound.TimePosition = 0
+        Sound:Play()
+    end
+end
+
+function UIWindow:PlayOpenSound()
+    self:PlayClick("Open")
+end
+
+function UIWindow:SetVolume(Value)
+    self.Volume = math.clamp(tonumber(Value) or 1, 0, 2)
+    local Now = os.clock()
+    if Now - (self.LastVolumePreview or 0) > 0.2 then
+        self.LastVolumePreview = Now
+        self:PlayClick("Button")
+    end
+    self:_QueueSettingsSave()
+end
+
+function UIWindow:_AcrylicAlpha()
+    return self.AcrylicOn and self.Transparency or 0
+end
+
+function UIWindow:_UpdateBlur()
+    local Active = self.AcrylicOn and self.Visible and not self.Destroyed
+    local Goal = Active and self.BlurSize or 0
+    if Goal > 0 and not self.BlurEffect then
+        self.BlurEffect = New("BlurEffect", {
+            Name = "FractureUIBlur",
+            Size = 0,
+            Parent = game:GetService("Lighting")
+        })
+    end
+    if self.BlurEffect then
+        Tween(self.BlurEffect, 0.35, { Size = Goal })
+    end
+end
+
+function UIWindow:SetBlur(Value)
+    self.BlurSize = math.clamp(tonumber(Value) or 0, 0, 40)
+    self:_UpdateBlur()
+    self:_QueueSettingsSave()
+end
+
+function UIWindow:_ApplyAcrylic()
+    self:_UpdateBlur()
+    local Alpha = self:_AcrylicAlpha()
+    Tween(self.Main, 0.2, { BackgroundTransparency = Alpha })
+    for Index = #self.AcrylicCards, 1, -1 do
+        local Card = self.AcrylicCards[Index]
+        if Card.Parent then
+            Tween(Card, 0.2, { BackgroundTransparency = Alpha * 0.7 })
+        else
+            table.remove(self.AcrylicCards, Index)
+        end
+    end
+    self:_QueueSettingsSave()
+end
+
+function UIWindow:SetAcrylic(State)
+    self.AcrylicOn = State == true
+    if self.AcrylicToggle then
+        self.AcrylicToggle:Set(self.AcrylicOn, true)
+    end
+    self:_ApplyAcrylic()
+end
+
+function UIWindow:SetTransparency(Value)
+    self.Transparency = math.clamp(tonumber(Value) or 0, 0, 0.85)
+    self:_ApplyAcrylic()
+end
+
+function UIWindow:_PrepareCustom()
+    if CurrentTheme ~= "Custom" then
+        for _, Key in ipairs(CUSTOM_KEYS) do
+            local Color = Palettes[CurrentTheme][Key]
+            CustomColors[Key] = Color
+            local Picker = self.CustomPickers and self.CustomPickers[Key]
+            if Picker then
+                Picker:Set(Color, true)
+            end
+        end
+    end
+end
+
+function UIWindow:_SyncCustomPickers()
+    local Palette = Palettes[CurrentTheme]
+    for _, Key in ipairs(CUSTOM_KEYS) do
+        local Picker = self.CustomPickers and self.CustomPickers[Key]
+        if Picker and Palette then
+            Picker:Set(Palette[Key], true)
+        end
+    end
+end
+
+function UIWindow:ResetSettings()
+    for _, Key in ipairs(CUSTOM_KEYS) do
+        CustomColors[Key] = Palettes.Dark[Key]
+    end
+    Palettes.Custom = BuildCustomPalette()
+    AccentSolid = false
+    self.StyleSegmented:Set("Gradient", true)
+    self.AcrylicOn = false
+    self.Transparency = 0.25
+    self.AcrylicToggle:Set(false, true)
+    self.TransparencySlider:Set(25, true)
+    self.BlurSize = 16
+    self.BlurSlider:Set(16, true)
+    self:_ApplyAcrylic()
+    self.UserScale = 1
+    self.ScaleSlider:Set(100, true)
+    Tween(self.Scale, 0.25, { Scale = self:_TargetScale() }, Enum.EasingStyle.Back)
+    self.SoundEnabled = true
+    self.SoundToggle:Set(true, true)
+    self.NotifyTimer = true
+    self.NotifyLineColor = nil
+    if self.NotifyToggle then
+        self.NotifyToggle:Set(true, true)
+    end
+    if self.NotifyLinePicker then
+        self.NotifyLinePicker:Set(Theme.AccentGlow, true)
+    end
+    self.Volume = 1
+    self.VolumeSlider:Set(100, true)
+    SetTheme("Dark")
+    self:_QueueSettingsSave()
+end
+
+function UIWindow:OpenColorPicker(Owner)
+    if not self.Modal then
+        self:_BuildColorModal()
+    end
+    local Modal = self.Modal
+    local Color = Owner:Get()
+    local Hue, Sat, Bri = Color:ToHSV()
+    Modal.Owner = Owner
+    Modal.Original = Color
+    Modal.Color = Color
+    Modal.Hue = Sat > 0 and Hue or Modal.Hue
+    Modal.Sat = Sat
+    Modal.Bri = Bri
+    Modal.Title.Text = tostring(Locale:Resolve(Owner.TitleSource))
+    Modal.OldSwatch.BackgroundColor3 = Color
+    Modal.Fit = math.min(1, (self.Main.Size.X.Offset - 24) / 520, (self.Main.Size.Y.Offset - 24) / 340)
+    Modal.Scale.Scale = Modal.Fit * 0.92
+    Modal.Dimmer.BackgroundTransparency = 1
+    Modal.Root.Visible = true
+    Tween(Modal.Scale, 0.3, { Scale = Modal.Fit }, Enum.EasingStyle.Back)
+    Tween(Modal.Dimmer, 0.2, { BackgroundTransparency = 0.45 })
+    self:_ModalRender()
+end
+
+function UIWindow:CloseColorPicker(Keep)
+    local Modal = self.Modal
+    if Modal and Modal.Owner then
+        local Owner = Modal.Owner
+        Modal.Owner = nil
+        Owner:Set(Keep and Modal.Color or Modal.Original)
+        Tween(Modal.Scale, 0.15, { Scale = Modal.Fit * 0.94 }, Enum.EasingStyle.Quad, Enum.EasingDirection.In)
+        Tween(Modal.Dimmer, 0.15, { BackgroundTransparency = 1 })
+        task.delay(0.17, function()
+            if not Modal.Owner then
+                Modal.Root.Visible = false
+            end
+        end)
+    end
+end
+
+function UIWindow:_ModalRender()
+    local Modal = self.Modal
+    local Color = Modal.Color
+    Modal.SV.BackgroundColor3 = Color3.fromHSV(Modal.Hue, 1, 1)
+    Modal.Cursor.Position = UDim2.fromScale(Modal.Sat, 1 - Modal.Bri)
+    Modal.HueKnob.Position = UDim2.fromScale(0.5, Modal.Hue)
+    Modal.HueKnob.BackgroundColor3 = Color3.fromHSV(Modal.Hue, 1, 1)
+    Modal.NewSwatch.BackgroundColor3 = Color
+    Modal.Hex.Text = ColorToHex(Color)
+    Modal.Red.Text = tostring(math.floor(Color.R * 255 + 0.5))
+    Modal.Green.Text = tostring(math.floor(Color.G * 255 + 0.5))
+    Modal.Blue.Text = tostring(math.floor(Color.B * 255 + 0.5))
+end
+
+function UIWindow:_ModalApply(Final)
+    local Modal = self.Modal
+    local Now = os.clock()
+    if Modal.Owner and (Final or Now - Modal.LastApply > 0.12) then
+        Modal.LastApply = Now
+        Modal.Owner:Set(Modal.Color)
+    end
+end
+
+function UIWindow:_ModalSetColor(Color)
+    local Modal = self.Modal
+    local Hue, Sat, Bri = Color:ToHSV()
+    Modal.Color = Color
+    Modal.Hue = Sat > 0 and Hue or Modal.Hue
+    Modal.Sat = Sat
+    Modal.Bri = Bri
+    self:_ModalRender()
+    self:_ModalApply(true)
+end
+
+function UIWindow:_ModalDrag(Input, Zone, Target, Handler)
+    local Modal = self.Modal
+    local Offset = GuiInset()
+    local From = Zone.AbsolutePosition
+    local To = From + Zone.AbsoluteSize
+    local Probe = Vector2.new(Input.Position.X, Input.Position.Y) + Offset
+    local Inside = Probe.X >= From.X and Probe.X <= To.X and Probe.Y >= From.Y and Probe.Y <= To.Y
+    Offset = Inside and Offset or Vector2.zero
+
+    local function Follow(Position)
+        local Size = Target.AbsoluteSize
+        local Origin = Target.AbsolutePosition
+        local X = math.clamp((Position.X + Offset.X - Origin.X) / math.max(Size.X, 1), 0, 1)
+        local Y = math.clamp((Position.Y + Offset.Y - Origin.Y) / math.max(Size.Y, 1), 0, 1)
+        Handler(X, Y)
+        Modal.Color = Color3.fromHSV(Modal.Hue, Modal.Sat, Modal.Bri)
+        self:_ModalRender()
+        self:_ModalApply(false)
+    end
+
+    Follow(Input.Position)
+    TrackPointer(Input, Follow, function()
+        self:_ModalApply(true)
+    end)
+end
+
+function UIWindow:_BuildColorModal()
+    local Modal = { Hue = 0, Sat = 1, Bri = 1, Color = Color3.new(1, 1, 1), LastApply = 0, Fit = 1 }
+    self.Modal = Modal
+
+    Modal.Root = New("Frame", {
+        Name = "ColorModal",
+        Size = UDim2.fromScale(1, 1),
+        BackgroundTransparency = 1,
+        Visible = false,
+        ZIndex = 80,
+        Parent = self.Main
+    })
+
+    Modal.Dimmer = New("TextButton", {
+        Size = UDim2.fromScale(1, 1),
+        BackgroundColor3 = Color3.new(0, 0, 0),
+        BackgroundTransparency = 1,
+        Parent = Modal.Root
+    })
+
+    Modal.Panel = New("Frame", {
+        AnchorPoint = Vector2.new(0.5, 0.5),
+        Position = UDim2.fromScale(0.5, 0.5),
+        Size = UDim2.fromOffset(520, 340),
+        BackgroundColor3 = C.Background,
+        Parent = Modal.Root
+    }, { Corner(16), Stroke(C.Outline, 0, 1) })
+
+    Modal.Scale = New("UIScale", { Scale = 1, Parent = Modal.Panel })
+    local Panel = Modal.Panel
+
+    Modal.Title = New("TextLabel", {
+        Position = UDim2.fromOffset(20, 14),
+        Size = UDim2.fromOffset(420, 26),
+        TextSize = 15,
+        Weight = "Bold",
+        TextTruncate = Enum.TextTruncate.AtEnd,
+        Parent = Panel
+    })
+
+    local Close = New("TextButton", {
+        Position = UDim2.fromOffset(474, 12),
+        Size = UDim2.fromOffset(32, 32),
+        BackgroundTransparency = 0,
+        BackgroundColor3 = C.Card,
+        Text = "x",
+        TextSize = 16,
+        Weight = "SemiBold",
+        TextColor3 = C.SubText,
+        TextXAlignment = Enum.TextXAlignment.Center,
+        Parent = Panel
+    }, { Corner(16) })
+
+    Modal.SV = New("TextButton", {
+        Position = UDim2.fromOffset(20, 56),
+        Size = UDim2.fromOffset(250, 164),
+        BackgroundTransparency = 0,
+        BackgroundColor3 = Color3.new(1, 0, 0),
+        ClipsDescendants = true,
+        Parent = Panel
+    }, { Corner(12), Stroke(C.Outline, 0, 1) })
+
+    New("Frame", {
+        Size = UDim2.fromScale(1, 1),
+        BackgroundColor3 = Color3.new(1, 1, 1),
+        Parent = Modal.SV
+    }, { New("UIGradient", { Transparency = NumberSequence.new(0, 1) }) })
+
+    New("Frame", {
+        Size = UDim2.fromScale(1, 1),
+        BackgroundColor3 = Color3.new(0, 0, 0),
+        Parent = Modal.SV
+    }, { New("UIGradient", { Rotation = 90, Transparency = NumberSequence.new(1, 0) }) })
+
+    Modal.Cursor = New("Frame", {
+        AnchorPoint = Vector2.new(0.5, 0.5),
+        Size = UDim2.fromOffset(22, 22),
+        BackgroundTransparency = 1,
+        Parent = Modal.SV
+    }, { Corner(nil, true), Stroke(Color3.new(1, 1, 1), 0, 3) })
+
+    Modal.HueBar = New("Frame", {
+        Position = UDim2.fromOffset(282, 56),
+        Size = UDim2.fromOffset(22, 164),
+        BackgroundColor3 = Color3.new(1, 1, 1),
+        Parent = Panel
+    }, { Corner(nil, true), New("UIGradient", { Rotation = 90, Color = ColorSequence.new(HUE_KEYS) }) })
+
+    Modal.HueKnob = New("Frame", {
+        AnchorPoint = Vector2.new(0.5, 0.5),
+        Size = UDim2.fromOffset(34, 16),
+        Parent = Modal.HueBar
+    }, { Corner(nil, true), Stroke(Color3.new(1, 1, 1), 0, 3) })
+
+    Modal.HueZone = New("TextButton", {
+        Position = UDim2.fromOffset(274, 48),
+        Size = UDim2.fromOffset(38, 180),
+        Parent = Panel
+    })
+
+    local function Field(Y, LabelText)
+        local BoxStroke = Stroke(C.Outline, 0, 1)
+        local Box = New("TextBox", {
+            Position = UDim2.fromOffset(324, Y),
+            Size = UDim2.fromOffset(120, 34),
+            BackgroundTransparency = 0,
+            BackgroundColor3 = C.Card,
+            TextSize = 14,
+            Weight = "SemiBold",
+            TextXAlignment = Enum.TextXAlignment.Center,
+            ClearTextOnFocus = false,
+            Parent = Panel
+        }, { Corner(9), BoxStroke })
+        New("TextLabel", {
+            Position = UDim2.fromOffset(454, Y),
+            Size = UDim2.fromOffset(50, 34),
+            TextSize = 12,
+            TextColor3 = C.SubText,
+            Text = LabelText,
+            Parent = Panel
+        })
+        self.Maid:Give(Box.Focused:Connect(function()
+            Tween(BoxStroke, 0.2, { Color = Theme.AccentGlow })
+        end))
+        self.Maid:Give(Box.FocusLost:Connect(function()
+            Tween(BoxStroke, 0.2, { Color = Theme.Outline })
+        end))
+        return Box
+    end
+
+    Modal.Hex = Field(56, "Hex")
+    Modal.Red = Field(98, "R")
+    Modal.Green = Field(140, "G")
+    Modal.Blue = Field(182, "B")
+
+    Modal.OldSwatch = New("Frame", {
+        Position = UDim2.fromOffset(20, 232),
+        Size = UDim2.fromOffset(112, 56),
+        BackgroundColor3 = Color3.new(1, 1, 1),
+        Parent = Panel
+    }, { Corner(12), Stroke(C.Outline, 0, 1) })
+
+    Modal.NewSwatch = New("Frame", {
+        Position = UDim2.fromOffset(138, 232),
+        Size = UDim2.fromOffset(112, 56),
+        BackgroundColor3 = Color3.new(1, 1, 1),
+        Parent = Panel
+    }, { Corner(12), Stroke(C.Outline, 0, 1) })
+
+    for Index, Preset in ipairs(ACCENT_PRESETS) do
+        local Column = (Index - 1) % 5
+        local Row = math.floor((Index - 1) / 5)
+        local Chip = New("TextButton", {
+            Position = UDim2.fromOffset(274 + Column * 46, 232 + Row * 30),
+            Size = UDim2.fromOffset(38, 26),
+            BackgroundTransparency = 0,
+            BackgroundColor3 = Preset,
+            Parent = Panel
+        }, { Corner(8) })
+        BindTap(self.Maid, Chip, function()
+            self:PlayClick("Button")
+            self:_ModalSetColor(Preset)
+        end)
+    end
+
+    local Done = New("TextButton", {
+        Position = UDim2.fromOffset(20, 298),
+        Size = UDim2.fromOffset(238, 34),
+        BackgroundTransparency = 0,
+        BackgroundColor3 = Color3.new(1, 1, 1),
+        TextSize = 14,
+        Weight = "SemiBold",
+        TextColor3 = C.OnAccent,
+        TextXAlignment = Enum.TextXAlignment.Center,
+        Parent = Panel
+    }, { Corner(10), Aura.Make("Fill") })
+    Locale:Bind(Done, "Text", Builtin("ColorDone"))
+
+    local Cancel = New("TextButton", {
+        Position = UDim2.fromOffset(266, 298),
+        Size = UDim2.fromOffset(238, 34),
+        BackgroundTransparency = 0,
+        BackgroundColor3 = C.Card,
+        TextSize = 14,
+        Weight = "SemiBold",
+        TextXAlignment = Enum.TextXAlignment.Center,
+        Parent = Panel
+    }, { Corner(10) })
+    Locale:Bind(Cancel, "Text", Builtin("ColorCancel"))
+
+    self.Maid:Give(Modal.SV.InputBegan:Connect(function(Input)
+        if PressTypes[Input.UserInputType] then
+            self:_ModalDrag(Input, Modal.SV, Modal.SV, function(X, Y)
+                Modal.Sat = X
+                Modal.Bri = 1 - Y
+            end)
+        end
+    end))
+
+    self.Maid:Give(Modal.HueZone.InputBegan:Connect(function(Input)
+        if PressTypes[Input.UserInputType] then
+            self:_ModalDrag(Input, Modal.HueZone, Modal.HueBar, function(_, Y)
+                Modal.Hue = Y
+            end)
+        end
+    end))
+
+    self.Maid:Give(Modal.Hex.FocusLost:Connect(function()
+        local Typed = ParseColor(Modal.Hex.Text)
+        if Typed then
+            self:_ModalSetColor(Typed)
+        else
+            self:_ModalRender()
+        end
+    end))
+
+    local function ChannelLost()
+        local Red = tonumber(Modal.Red.Text)
+        local Green = tonumber(Modal.Green.Text)
+        local Blue = tonumber(Modal.Blue.Text)
+        if Red and Green and Blue then
+            self:_ModalSetColor(Color3.fromRGB(math.clamp(Red, 0, 255), math.clamp(Green, 0, 255), math.clamp(Blue, 0, 255)))
+        else
+            self:_ModalRender()
+        end
+    end
+
+    self.Maid:Give(Modal.Red.FocusLost:Connect(ChannelLost))
+    self.Maid:Give(Modal.Green.FocusLost:Connect(ChannelLost))
+    self.Maid:Give(Modal.Blue.FocusLost:Connect(ChannelLost))
+
+    BindTap(self.Maid, Done, function()
+        self:PlayClick("Button")
+        self:CloseColorPicker(true)
+    end)
+    BindTap(self.Maid, Cancel, function()
+        self:PlayClick("Button")
+        self:CloseColorPicker(false)
+    end)
+    BindTap(self.Maid, Close, function()
+        self:PlayClick("Button")
+        self:CloseColorPicker(false)
+    end)
+    self.Maid:Give(Modal.Dimmer.MouseButton1Click:Connect(function()
+        self:CloseColorPicker(false)
+    end))
+end
+
+function UIWindow:_RunSplash(Config, WantOpen)
+    local Hold = math.max(tonumber(Config.SplashTime) or 2, 0.2)
+
+    local Logo = New("ImageLabel", {
+        AnchorPoint = Vector2.new(0.5, 0.5),
+        Position = UDim2.fromScale(0.5, 0.5),
+        Size = UDim2.fromOffset(0, 0),
+        BackgroundTransparency = 1,
+        ImageTransparency = 1,
+        Image = Config.SplashImage or "rbxassetid://114198745266866",
+        ZIndex = 9999,
+        Parent = self.Gui
+    }, { Corner(nil, true) })
+
+    Tween(Logo, 0.6, { Size = UDim2.fromOffset(180, 180), ImageTransparency = 0 }, Enum.EasingStyle.Back, Enum.EasingDirection.Out)
+
+    task.spawn(function()
+        task.wait(0.6 + Hold)
+        if not self.Destroyed then
+            Tween(Logo, 0.5, { Size = UDim2.fromOffset(130, 130), ImageTransparency = 1 }, Enum.EasingStyle.Quad, Enum.EasingDirection.In)
+            task.wait(0.5)
+            Logo:Destroy()
+            if WantOpen and not self.Destroyed then
+                self:SetVisible(true)
+                self:PlayOpenSound()
+            end
+        end
+    end)
+end
+
+function UIWindow:SetUserScale(value)
+    self.UserScale = math.clamp(value, 0.5, 1.5)
+    self:_QueueSettingsSave()
+    if self.Visible then
+        Tween(self.Scale, 0.25, { Scale = self:_TargetScale() }, Enum.EasingStyle.Back)
+    end
+end
+
+function UIWindow:SetVisible(state, instant)
+    state = state == true
+    local changed = self.Visible ~= state
+    self.Visible = state
+    self.Transition = self.Transition + 1
+    local token = self.Transition
+    local target = self:_TargetScale()
+    self:_RenderPill(not instant)
+
+    if state then
+        self.Main.Visible = true
+        if self.Active then
+            self.Active:_RestoreScroll()
+        end
+        if instant then
+            self.Scale.Scale = target
+        else
+            self.Scale.Scale = target * 0.9
+            Tween(self.Scale, 0.35, { Scale = target }, Enum.EasingStyle.Back)
+        end
+    else
+        self:CloseDropdown()
+        if instant then
+            self.Scale.Scale = target * 0.9
+            self.Main.Visible = false
+        else
+            local tween = Tween(self.Scale, 0.2, { Scale = target * 0.9 }, Enum.EasingStyle.Quad, Enum.EasingDirection.In)
+            tween.Completed:Connect(function()
+                if self.Transition == token and not self.Visible and self.Main.Parent then
+                    self.Main.Visible = false
+                end
+            end)
+        end
+    end
+
+    self:_UpdateBlur()
+
+    if changed and not instant then
+        SafeCall(state and self.OnOpen or self.OnClose, self)
+    end
+end
+
+function UIWindow:Toggle()
+    self:SetVisible(not self.Visible)
+end
+
+function UIWindow:ResetPosition()
+    Tween(self.Main, 0.35, { Position = self.DefaultPosition }, Enum.EasingStyle.Back)
+    local home = self:_PillHome()
+    Tween(self.Pill, 0.35, { Position = UDim2.fromOffset(home.X, home.Y) }, Enum.EasingStyle.Back)
+end
+
+function UIWindow:Filter(query)
+    for _, tab in ipairs(self.Tabs) do
+        for _, section in ipairs(tab.Sections) do
+            section:Filter(query)
+        end
+    end
+end
+
+function UIWindow:GetTab(reference)
+    if type(reference) == "table" then
+        return reference
+    end
+    local count = 0
+    for _, tab in ipairs(self.Tabs) do
+        if tab ~= self.SettingsTab then
+            count = count + 1
+            if type(reference) == "number" and count == reference then
+                return tab
+            end
+        end
+        if type(reference) == "string" and (tab.TitleSource == reference or Locale:Resolve(tab.TitleSource) == reference) then
+            return tab
+        end
+    end
+    return nil
+end
+
+function UIWindow:Select(reference, silent)
+    local tab = self:GetTab(reference)
+    if not tab or tab.Destroyed or self.Active == tab then
+        return
+    end
+    self:CloseDropdown()
+    if self.Active then
+        self.Active:SetActive(false)
+    end
+    self.Active = tab
+    Locale:Bind(self.PageTitle, "Text", tab.TitleSource)
+    Locale:Bind(self.PageDesc, "Text", tab.DescSource)
+    tab:SetActive(true)
+end
+
+function UIWindow:_SelectFallback(skip)
+    for _, tab in ipairs(self.Tabs) do
+        if tab ~= skip and not tab.Hidden and not tab.Destroyed then
+            self.Active = nil
+            self:Select(tab, true)
+            return
+        end
+    end
+end
+
+function UIWindow:AddTab(config)
+    local tab = UITab.new(self, config or {})
+    table.insert(self.Tabs, tab)
+    self.UserTabs = self.UserTabs + 1
+    if self.UserTabs == 1 then
+        self:Select(tab, true)
+    end
+    return tab
+end
+
+function UIWindow:Destroy()
+    if self.Destroyed then
+        return
+    end
+    self.Destroyed = true
+    if self.BlurEffect then
+        self.BlurEffect:Destroy()
+        self.BlurEffect = nil
+    end
+    SafeCall(self.OnDestroy, self)
+    for flag, element in pairs(FlagElements) do
+        if element.Window == self then
+            FlagElements[flag] = nil
+            Flags[flag] = nil
+        end
+    end
+    for index, window in ipairs(Windows) do
+        if window == self then
+            table.remove(Windows, index)
+            break
+        end
+    end
+    self.Maid:Destroy()
+end
+
+UIWindow.CreateTab = UIWindow.AddTab
+
+local function IsLucide(value)
+    return type(value) == "string" and (IconList[value] or IconList[NormalizeIconName(value)]) ~= nil
+end
+
+function UIWindow:_PaintIcons()
+    local source = self.IconSource
+    if type(source) == "string" then
+        source = Locale:Resolve(source)
+    end
+    local image = ResolveIcon(source, "rbxassetid://10723415393")
+    local tint = IsLucide(source) and Theme.Text or Color3.fromRGB(255, 255, 255)
+    for _, label in ipairs(self.LogoImages) do
+        label.Image = image
+        label.ImageColor3 = tint
+    end
+end
+
+function UIWindow:SetIcon(icon)
+    self.IconSource = icon or "rbxassetid://10723415393"
+    self:_PaintIcons()
+end
+
+function UIWindow:GetIcon()
+    return self.IconSource
+end
+
+UIWindow.SetLogo = UIWindow.SetIcon
+
+function UIWindow:SetTitle(source)
+    self.TitleSource = source
+    Locale:Bind(self.SidebarTitle, "Text", source)
+    if not self.ToggleTextSource then
+        Locale:Bind(self.PillLabel, "Text", source)
+    end
+end
+
+function UIWindow:SetSubTitle(source)
+    self.SubTitleSource = source
+    Locale:Bind(self.SidebarSubTitle, "Text", source)
+end
+
+function UIWindow:SetToggleText(source)
+    self.ToggleTextSource = source
+    Locale:Bind(self.PillLabel, "Text", source or self.TitleSource)
+end
+
+function UIWindow:SetPillVisible(state)
+    self.PillShown = state ~= false
+    self.Pill.Visible = self.PillShown
+end
+
+function UIWindow:SetSize(size)
+    if typeof(size) == "UDim2" then
+        size = Vector2.new(size.X.Offset, size.Y.Offset)
+    end
+    self.RequestedSize = size
+    self:_Refit()
+end
+
+function UIWindow:SetPosition(position)
+    self.DefaultPosition = position
+    self.Main.Position = position
+end
+
+UIWindow.SetScale = UIWindow.SetUserScale
+
+function UIWindow:SetSound(state)
+    self.SoundEnabled = state == true
+    self:PlayClick("Toggle")
+    self:_QueueSettingsSave()
+end
+
+function UIWindow:Open()
+    self:SetVisible(true)
+end
+
+function UIWindow:Close()
+    self:SetVisible(false)
+end
+
+UIWindow.Show = UIWindow.Open
+UIWindow.Hide = UIWindow.Close
+
+function UIWindow:IsVisible()
+    return self.Visible
+end
+
+function UIWindow:SetTheme(name)
+    return SetTheme(name)
+end
+
+function UIWindow:GetTheme()
+    return CurrentTheme
+end
+
+function UIWindow:SetLanguage(code)
+    Locale:SetLanguage(code)
+end
+
+function UIWindow:GetLanguage()
+    return Locale.Language
+end
+
+function UIWindow:AddLanguage(code, pack, name)
+    local entry = { [code] = pack }
+    if name then
+        entry[code].LanguageName = name
+    end
+    Locale:AddTranslations(entry)
+    Locale:_Apply()
+end
+
+function UIWindow:Refresh()
+    self:_Refit()
+    self:_PaintIcons()
+    Locale:_Apply()
+    for _, tab in ipairs(self.Tabs) do
+        tab:Refresh()
+    end
+    self:Filter("")
+end
+
+function UIWindow:_BuildNotifications()
+    self.NotifyList = New("Frame", {
+        Name = "Notifications",
+        AnchorPoint = Vector2.new(1, 1),
+        Size = UDim2.new(0, 290, 1, -32),
+        Position = UDim2.new(1, -16, 1, -16),
+        BackgroundTransparency = 1,
+        ZIndex = 200,
+        Parent = self.Gui
+    }, {
+        New("UIListLayout", {
+            SortOrder = Enum.SortOrder.LayoutOrder,
+            VerticalAlignment = Enum.VerticalAlignment.Bottom,
+            Padding = UDim.new(0, 8)
+        })
+    })
+    self.NotifyCount = 0
+end
+
+local NOTIFY_COLORS = {
+    success = "Green",
+    warning = "Yellow",
+    error = "Red"
+}
+
+function UIWindow:Notify(config)
+    if type(config) == "string" then
+        config = { Content = config }
+    end
+    config = config or {}
+    self.NotifyCount = self.NotifyCount + 1
+
+    local duration = config.Duration or 4
+    local kind = NOTIFY_COLORS[config.Type]
+    local dotColor = config.LineColor or config.Color or (kind and Theme[kind]) or self.NotifyLineColor or Theme.AccentGlow
+
+    local slot = New("Frame", {
+        Size = UDim2.new(1, 0, 0, 0),
+        AutomaticSize = Enum.AutomaticSize.Y,
+        BackgroundTransparency = 1,
+        LayoutOrder = self.NotifyCount,
+        Parent = self.NotifyList
+    })
+
+    local card = New("TextButton", {
+        Size = UDim2.new(1, 0, 0, 0),
+        AutomaticSize = Enum.AutomaticSize.Y,
+        Position = UDim2.new(0, 320, 0, 0),
+        BackgroundTransparency = 0,
+        BackgroundColor3 = C.Card,
+        ClipsDescendants = true,
+        ZIndex = 200,
+        Parent = slot
+    }, {
+        Corner(10),
+        Stroke(C.Outline, 0, 1)
+    })
+
+    New("Frame", {
+        Name = "Line",
+        Size = UDim2.new(0, 4, 1, 0),
+        BackgroundColor3 = dotColor,
+        Parent = card
+    })
+
+    local body = New("Frame", {
+        Size = UDim2.new(1, 0, 0, 0),
+        AutomaticSize = Enum.AutomaticSize.Y,
+        BackgroundTransparency = 1,
+        Parent = card
+    }, {
+        New("UIPadding", {
+            PaddingLeft = UDim.new(0, 18),
+            PaddingRight = UDim.new(0, 14),
+            PaddingTop = UDim.new(0, 11),
+            PaddingBottom = UDim.new(0, 12)
+        }),
+        New("UIListLayout", { SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0, 4) })
+    })
+
+    local head = New("Frame", {
+        Size = UDim2.new(1, 0, 0, 16),
+        BackgroundTransparency = 1,
+        LayoutOrder = 1,
+        Parent = body
+    })
+    local title = New("TextLabel", {
+        Size = UDim2.new(1, 0, 1, 0),
+        Weight = "Medium",
+        TextSize = 13,
+        TextTruncate = Enum.TextTruncate.AtEnd,
+        Parent = head
+    })
+    Locale:Bind(title, "Text", config.Title or self.TitleSource)
+
+    if config.Content and config.Content ~= "" then
+        local text = New("TextLabel", {
+            Size = UDim2.new(1, 0, 0, 0),
+            AutomaticSize = Enum.AutomaticSize.Y,
+            TextWrapped = true,
+            TextYAlignment = Enum.TextYAlignment.Top,
+            TextColor3 = C.SubText,
+            LayoutOrder = 2,
+            Parent = body
+        })
+        Locale:Bind(text, "Text", config.Content)
+    end
+
+    local showTimer = duration > 0 and Pick(config.Timer, self.NotifyTimer) == true
+    if showTimer then
+        local track = New("Frame", {
+            Size = UDim2.new(1, 0, 0, 3),
+            BackgroundColor3 = dotColor,
+            BackgroundTransparency = 0.82,
+            LayoutOrder = 3,
+            Parent = body
+        }, { Corner(nil, true) })
+        local fill = New("Frame", {
+            Size = UDim2.fromScale(1, 1),
+            BackgroundColor3 = dotColor,
+            Parent = track
+        }, { Corner(nil, true) })
+        Tween(fill, duration, { Size = UDim2.fromScale(0, 1) }, Enum.EasingStyle.Linear)
+    end
+
+    local closed = false
+    local function Close()
+        if closed then
+            return
+        end
+        closed = true
+        local tween = Tween(card, 0.22, { Position = UDim2.new(0, 320, 0, 0) }, Enum.EasingStyle.Quad, Enum.EasingDirection.In)
+        tween.Completed:Connect(function()
+            slot:Destroy()
+        end)
+    end
+
+    Tween(card, 0.35, { Position = UDim2.new(0, 0, 0, 0) }, Enum.EasingStyle.Back)
+
+    BindTap(self.Maid, card, function()
+        self:PlayClick("Button")
+        Close()
+        SafeCall(config.Callback)
+    end)
+
+    if duration > 0 then
+        task.delay(duration, Close)
+    end
+
+    return { Close = Close }
+end
+
+function UIWindow:GetConfig()
+    local data = {}
+    for flag, element in pairs(FlagElements) do
+        if element.Window == self and not element.Destroyed then
+            local Value = element:Get()
+            local Kind = typeof(Value)
+            data[flag] = Kind == "Color3" and ColorToHex(Value) or (Kind == "EnumItem" and Value.Name or Value)
+        end
+    end
+    return data
+end
+
+function UIWindow:LoadConfig(data, silent)
+    if type(data) == "string" then
+        local ok, decoded = pcall(function()
+            return HttpService:JSONDecode(data)
+        end)
+        if not ok then
+            return false, decoded
+        end
+        data = decoded
+    end
+    if type(data) ~= "table" then
+        return false, "invalid config"
+    end
+    for flag, value in pairs(data) do
+        local element = FlagElements[flag]
+        if element and element.Window == self and not element.Destroyed then
+            element:Set(value, silent)
+        end
+    end
+    return true
+end
+
+function UIWindow:SetMap(name)
+    self.ConfigMap = name ~= nil and CleanName(name) or nil
+end
+
+function UIWindow:GetMap()
+    return self.ConfigMap or tostring(game.PlaceId)
+end
+
+function UIWindow:_ConfigPath(name)
+    local file = CleanName(name or Players.LocalPlayer.Name)
+    return {
+        Folders = { CleanName(self.ConfigFolder), self:GetMap() },
+        File = file .. ".json"
+    }
+end
+
+function UIWindow:ConfigFilePath(name)
+    local info = self:_ConfigPath(name)
+    return table.concat(info.Folders, "/") .. "/" .. info.File
+end
+
+function UIWindow:SaveConfig(name)
+    if not (writefile and makefolder) then
+        return false, "this executor has no file API"
+    end
+    local ok, err = pcall(function()
+        local info = self:_ConfigPath(name)
+        local path = ""
+        for _, folder in ipairs(info.Folders) do
+            path = path == "" and folder or (path .. "/" .. folder)
+            if not (isfolder and isfolder(path)) then
+                makefolder(path)
+            end
+        end
+        writefile(path .. "/" .. info.File, HttpService:JSONEncode(self:GetConfig()))
+    end)
+    return ok, err
+end
+
+function UIWindow:SetAutoSave(state)
+    self.AutoSave = state == true
+end
+
+function UIWindow:_QueueSave()
+    if not self.AutoSave or self.Destroyed then
+        return
+    end
+    self.SaveToken = (self.SaveToken or 0) + 1
+    local token = self.SaveToken
+    task.delay(1.5, function()
+        if token == self.SaveToken and not self.Destroyed then
+            self:SaveConfig()
+        end
+    end)
+end
+
+function UIWindow:LoadConfigFile(name, silent)
+    local path = self:ConfigFilePath(name)
+    if not (readfile and isfile and isfile(path)) then
+        return false, "config not found"
+    end
+    local ok, content = pcall(readfile, path)
+    if not ok then
+        return false, content
+    end
+    return self:LoadConfig(content, silent)
+end
+
+function UIWindow:SettingsFilePath()
+    return CleanName(self.ConfigFolder) .. "/Settings.json"
+end
+
+function UIWindow:GetSettings()
+    return {
+        Language = Locale.Language,
+        Theme = CurrentTheme,
+        Sound = self.SoundEnabled,
+        Volume = self.Volume,
+        Scale = self.UserScale,
+        AcrylicOn = self.AcrylicOn,
+        Transparency = self.Transparency,
+        BlurSize = self.BlurSize,
+        AccentStyle = AccentSolid and "Solid" or "Gradient",
+        HideName = self.NameHidden == true,
+        HideProfile = self.ProfileHidden == true,
+        ToggleKey = self.ToggleKey and self.ToggleKey.Name or "",
+        Custom = self:_CustomData()
+    }
+end
+
+function UIWindow:_CustomData()
+    local Data = {}
+    for _, Key in ipairs(CUSTOM_KEYS) do
+        Data[Key] = ColorToHex(CustomColors[Key])
+    end
+    return Data
+end
+
+function UIWindow:_ApplyCustomData(Data)
+    local Source = type(Data) == "table" and Data or {}
+    for _, Key in ipairs(CUSTOM_KEYS) do
+        local Color = ParseColor(Source[Key])
+        CustomColors[Key] = Color or CustomColors[Key]
+        local Picker = self.CustomPickers and self.CustomPickers[Key]
+        if Picker and Color then
+            Picker:Set(Color, true)
+        end
+    end
+    Palettes.Custom = BuildCustomPalette()
+end
+
+function UIWindow:_ReadSettings()
+    local Result = {}
+    local Path = self:SettingsFilePath()
+    if readfile and isfile and isfile(Path) then
+        local Ok, Decoded = pcall(function()
+            return HttpService:JSONDecode(readfile(Path))
+        end)
+        if Ok and type(Decoded) == "table" then
+            Result = Decoded
+        end
+    end
+    return Result
+end
+
+function UIWindow:SaveSettings()
+    local Ok, Err = false, "this executor has no file API"
+    if writefile and makefolder then
+        Ok, Err = pcall(function()
+            local Folder = CleanName(self.ConfigFolder)
+            if not (isfolder and isfolder(Folder)) then
+                makefolder(Folder)
+            end
+            writefile(self:SettingsFilePath(), HttpService:JSONEncode(self:GetSettings()))
+        end)
+    end
+    return Ok, Err
+end
+
+function UIWindow:LoadSettings()
+    local Data = self:_ReadSettings()
+    local Found = next(Data) ~= nil
+    if Found then
+        self:_ApplyCustomData(Data.Custom)
+        self.NotifyTimer = Pick(Data.NotifyTimer, self.NotifyTimer)
+        self.NotifyLineColor = ParseColor(Pick(Data.NotifyLine, self.NotifyLineColor))
+        Locale:SetLanguage(Data.Language)
+        SetTheme(Data.Theme)
+        self.Volume = math.clamp(tonumber(Pick(Data.Volume, self.Volume)) or 1, 0, 2)
+        self:SetSound(Pick(Data.Sound, self.SoundEnabled))
+        self:SetUserScale(tonumber(Pick(Data.Scale, self.UserScale)) or 1)
+        self.Transparency = math.clamp(tonumber(Pick(Data.Transparency, self.Transparency)) or 0.25, 0, 0.85)
+        self.BlurSize = math.clamp(tonumber(Pick(Data.BlurSize, self.BlurSize)) or 16, 0, 40)
+        self:SetAcrylic(Pick(Data.AcrylicOn, self.AcrylicOn))
+        AccentSolid = Pick(Data.AccentStyle, AccentSolid and "Solid" or "Gradient") == "Solid"
+        self:SetHideName(Pick(Data.HideName, self.NameHidden))
+        self:SetHideProfile(Pick(Data.HideProfile, self.ProfileHidden))
+        self:SetToggleKey(Pick(Data.ToggleKey, self.ToggleKey))
+    end
+    return Found
+end
+
+function UIWindow:_QueueSettingsSave()
+    if self.SettingsReady and not self.Destroyed then
+        self.SettingsToken = (self.SettingsToken or 0) + 1
+        local Token = self.SettingsToken
+        task.delay(1, function()
+            if Token == self.SettingsToken and not self.Destroyed then
+                self:SaveSettings()
+            end
+        end)
+    end
+end
+
+function UIWindow:HasConfig(name)
+    return isfile ~= nil and isfile(self:ConfigFilePath(name)) == true
+end
+
+local FractureUI = {
+    Version = "2.0.0",
+    Theme = Theme,
+    Icons = IconList,
+    Themes = THEME_ORDER,
+    Flags = Flags,
+    Elements = FlagElements,
+    Windows = Windows
+}
+
+function FractureUI:SetTheme(name)
+    return SetTheme(name)
+end
+
+function FractureUI:GetTheme()
+    return CurrentTheme
+end
+
+function FractureUI:ResolveIcon(icon)
+    return ResolveIcon(icon, "rbxassetid://6023426915")
+end
+
+function FractureUI:AddIcon(name, asset)
+    if type(asset) == "number" then
+        asset = "rbxassetid://" .. asset
+    end
+    IconList[name] = asset
+end
+
+function FractureUI:CreateWindow(config)
+    return UIWindow.new(config)
+end
+
+function FractureUI:Localization(config)
+    Locale:Configure(config)
+end
+
+function FractureUI:AddTranslations(translations)
+    Locale:AddTranslations(translations)
+    Locale:_Apply()
+end
+
+function FractureUI:SetLanguage(code)
+    Locale:SetLanguage(code)
+end
+
+function FractureUI:GetLanguage()
+    return Locale.Language
+end
+
+function FractureUI:GetLanguages()
+    return Locale:GetLanguages()
+end
+
+function FractureUI:Notify(config)
+    local window = Windows[#Windows]
+    if window then
+        return window:Notify(config)
+    end
+end
+
+function FractureUI:GetWindows()
+    return table.clone(Windows)
+end
+
+function FractureUI:Destroy()
+    for _, window in ipairs(table.clone(Windows)) do
+        window:Destroy()
+    end
+end
+
+return FractureUI
