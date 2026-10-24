@@ -903,7 +903,7 @@ function Localization:_Line(Text, Pack, Patterns, Depth)
         if #Captures > 0 then
             Result = (string.gsub(Entry[2], "%%(%d)", function(Slot)
                 local Value = Captures[tonumber(Slot)] or ""
-                return Depth < 3 and self:_Whole(Value, Pack, Patterns, Depth + 1) or Value
+                return Depth < 8 and self:_Whole(Value, Pack, Patterns, Depth + 1) or Value
             end))
         end
         Index = Index + 1
@@ -5919,6 +5919,8 @@ end
 function FractureUI:Localization(config)
     Locale:Configure(config)
 end
+
+FractureUI.AutoTranslate = true
 
 function FractureUI:AddTranslations(translations)
     Locale:AddTranslations(translations)
