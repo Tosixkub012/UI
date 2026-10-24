@@ -271,8 +271,13 @@ local function Tween(object, duration, properties, style, direction)
 end
 
 local function SafeCall(callback, ...)
-    if type(callback) ~= "function" then
-        return
+    local Valid = type(callback) == "function"
+    local Ok, Result = false, nil
+    if Valid then
+        Ok, Result = pcall(callback, ...)
+    end
+    if Valid and not Ok then
+        warn("[FractureUI] " .. tostring(Result))
     end
 end
 
