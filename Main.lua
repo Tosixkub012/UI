@@ -43,7 +43,6 @@ local function ResolveIcon(icon, fallback)
         if string.find(icon, "rbxasset", 1, true) or string.find(icon, "http", 1, true) or tonumber(icon) then
             return tonumber(icon) and ("rbxassetid://" .. icon) or icon
         end
-        warn("[Fracture UI] icon not found: " .. icon)
     end
     return fallback
 end
@@ -274,10 +273,6 @@ end
 local function SafeCall(callback, ...)
     if type(callback) ~= "function" then
         return
-    end
-    local ok, err = pcall(callback, ...)
-    if not ok then
-        warn("[Fracture UI] " .. tostring(err))
     end
 end
 
@@ -792,6 +787,8 @@ function Localization.new()
         Language = "en",
         Default = "en",
         Translations = {},
+        Patterns = {},
+        HasPhrases = false,
         Names = { en = "English", th = "ไทย" },
         Bindings = setmetatable({}, { __mode = "k" }),
         Listeners = {},
@@ -808,6 +805,23 @@ function Localization:AddTranslations(translations)
         end
         for key, value in pairs(pack) do
             target[key] = value
+            if key ~= "LanguageName" and string.sub(key, 1, 9) ~= "Fracture." then
+                self.HasPhrases = true
+            end
+        end
+    end
+end
+
+function Localization:AddPatterns(patterns)
+    for code, list in pairs(patterns or {}) do
+        local Target = self.Patterns[code]
+        if not Target then
+            Target = {}
+            self.Patterns[code] = Target
+        end
+        for _, entry in ipairs(list) do
+            table.insert(Target, entry)
+            self.HasPhrases = true
         end
     end
 end
@@ -878,22 +892,69 @@ function Localization:GetLanguages()
     return list
 end
 
+local Separators = { "\n", " | ", " / " }
+
+function Localization:_Line(Text, Pack, Patterns, Depth)
+    local Result = Pack[Text]
+    local Index = 1
+    while Result == nil and Index <= #Patterns do
+        local Entry = Patterns[Index]
+        local Captures = { string.match(Text, Entry[1]) }
+        if #Captures > 0 then
+            Result = (string.gsub(Entry[2], "%%(%d)", function(Slot)
+                local Value = Captures[tonumber(Slot)] or ""
+                return Depth < 3 and self:_Whole(Value, Pack, Patterns, Depth + 1) or Value
+            end))
+        end
+        Index = Index + 1
+    end
+    return Result
+end
+
+function Localization:_Whole(Text, Pack, Patterns, Depth)
+    local Result = self:_Line(Text, Pack, Patterns, Depth)
+    local Index = 1
+    while Result == nil and Index <= #Separators do
+        local Separator = Separators[Index]
+        if string.find(Text, Separator, 1, true) then
+            local Parts = string.split(Text, Separator)
+            for PartIndex, Part in ipairs(Parts) do
+                Parts[PartIndex] = self:_Whole(Part, Pack, Patterns, Depth)
+            end
+            Result = table.concat(Parts, Separator)
+        end
+        Index = Index + 1
+    end
+    return Result or Text
+end
+
+function Localization:Auto(Text)
+    local Pack = self.Translations[self.Language]
+    local Result = Text
+    if self.HasPhrases and Pack and self.Language ~= "en" and Text ~= "" then
+        Result = self:_Whole(Text, Pack, self.Patterns[self.Language] or {}, 0)
+    end
+    return Result
+end
+
 function Localization:Translate(text)
-    if not self.Enabled or type(text) ~= "string" then
-        return text
+    local Result = text
+    if self.Enabled and type(text) == "string" then
+        local PrefixLength = #self.Prefix
+        if string.sub(text, 1, PrefixLength) == self.Prefix then
+            local Key = string.sub(text, PrefixLength + 1)
+            local Pack = self.Translations[self.Language]
+            local Value = Pack and Pack[Key]
+            if Value == nil then
+                local Fallback = self.Translations[self.Default]
+                Value = Fallback and Fallback[Key]
+            end
+            Result = Value or Key
+        else
+            Result = self:Auto(text)
+        end
     end
-    local prefixLength = #self.Prefix
-    if string.sub(text, 1, prefixLength) ~= self.Prefix then
-        return text
-    end
-    local key = string.sub(text, prefixLength + 1)
-    local pack = self.Translations[self.Language]
-    local value = pack and pack[key]
-    if value == nil then
-        local fallback = self.Translations[self.Default]
-        value = fallback and fallback[key]
-    end
-    return value or key
+    return Result
 end
 
 function Localization:Builtin(key)
@@ -920,10 +981,8 @@ function Localization:Resolve(source)
 end
 
 function Localization:IsDynamic(source)
-    if type(source) == "function" then
-        return true
-    end
-    return type(source) == "string" and string.sub(source, 1, #self.Prefix) == self.Prefix
+    local Kind = type(source)
+    return Kind == "function" or (Kind == "string" and (self.HasPhrases or string.sub(source, 1, #self.Prefix) == self.Prefix))
 end
 
 function Localization:Bind(object, property, source)
@@ -997,7 +1056,7 @@ function Element:_Init(section, config, defaultTitle)
 end
 
 function Element:_RowHeight()
-    return self.HasDesc and 58 or 46
+    return self.HasDesc and 62 or 48
 end
 
 function Element:_TextX()
@@ -1049,15 +1108,15 @@ function Element:_ApplyLabels()
     self.IconImage.Visible = self.IconSource ~= nil
     if self.IconSource ~= nil then
         self.IconImage.Image = ResolveIcon(self.IconSource, "rbxassetid://6023426915")
-        self.IconImage.Position = UDim2.fromOffset(16, (hasDesc and 29 or 23) - 10)
+        self.IconImage.Position = UDim2.fromOffset(16, (hasDesc and 31 or 24) - 10)
     end
 
-    self.TitleLabel.Size = UDim2.new(1, width, 0, 16)
-    self.TitleLabel.Position = UDim2.fromOffset(textX, hasDesc and 12 or 15)
+    self.TitleLabel.Size = UDim2.new(1, width, 0, 20)
+    self.TitleLabel.Position = UDim2.fromOffset(textX, hasDesc and 10 or 14)
 
     self.DescLabel.Visible = hasDesc
-    self.DescLabel.Size = UDim2.new(1, width, 0, 14)
-    self.DescLabel.Position = UDim2.fromOffset(textX, 30)
+    self.DescLabel.Size = UDim2.new(1, width, 0, 18)
+    self.DescLabel.Position = UDim2.fromOffset(textX, 32)
 end
 
 function Element:_Layout()
@@ -1484,7 +1543,20 @@ function UILabel.new(section, config)
     self:_Init(section, config, "Label")
     local head = self:_CreateHead(section.Card, self:_RowHeight(), section:NextOrder(), "none")
     self:_CreateLabels(head.Hit, 16, 16)
+    self.DescLabel.TextWrapped = true
+    self.DescLabel.TextTruncate = Enum.TextTruncate.None
+    self.DescLabel.TextYAlignment = Enum.TextYAlignment.Top
+    self.DescLabel.AutomaticSize = Enum.AutomaticSize.Y
+    self.DescLabel.LineHeight = 1.25
+    self.Window.Maid:Give(self.DescLabel:GetPropertyChangedSignal("TextBounds"):Connect(function()
+        self:_Layout()
+    end))
     return self:_Finish(head.Frame, head.Divider)
+end
+
+function UILabel:_RowHeight()
+    local Bounds = self.DescLabel and self.DescLabel.TextBounds.Y or 0
+    return self.HasDesc and math.max(62, 32 + math.ceil(Bounds) + 14) or 48
 end
 
 UILabel.SetText = Element.SetTitle
@@ -2565,7 +2637,7 @@ function UISlider.new(section, config)
     self.TargetAlpha = self.DisplayAlpha
 
     local window = self.Window
-    local trackY = self.HasDesc and 66 or 48
+    local trackY = self.HasDesc and 70 or 52
     self.TrackY = trackY
     local head = self:_CreateHead(section.Card, trackY + 16, section:NextOrder(), nil)
     self:_CreateLabels(head.Hit, 16, 160)
@@ -2683,7 +2755,7 @@ end
 
 function UISlider:_Layout()
     self:_ApplyLabels()
-    local trackY = self.HasDesc and 66 or 48
+    local trackY = self.HasDesc and 70 or 52
     self.TrackY = trackY
     self.Head.Frame.Size = UDim2.new(1, 0, 0, trackY + 16)
     self.Track.Position = UDim2.fromOffset(16, trackY - 3)
@@ -3000,7 +3072,7 @@ function UISection.new(tab, config)
     })
 
     local header = New("Frame", {
-        Size = UDim2.new(1, 0, 0, 40),
+        Size = UDim2.new(1, 0, 0, 44),
         BackgroundTransparency = 1,
         LayoutOrder = 1,
         Parent = self.Frame
@@ -3013,7 +3085,7 @@ function UISection.new(tab, config)
 
     self.IconBox = New("Frame", {
         Size = UDim2.fromOffset(38, 38),
-        Position = UDim2.fromOffset(0, 1),
+        Position = UDim2.fromOffset(0, 3),
         BackgroundColor3 = config.Color or Color3.new(1, 1, 1),
         Parent = header
     }, { Corner(10), Aura.Make(config.Color and "Shade" or "Fill", { Rotation = 45 }) })
@@ -3027,7 +3099,7 @@ function UISection.new(tab, config)
     })
 
     self.TitleLabel = New("TextLabel", {
-        Size = UDim2.new(1, -80, 0, 16),
+        Size = UDim2.new(1, -80, 0, 20),
         TextSize = 13,
         Weight = "SemiBold",
         TextTruncate = Enum.TextTruncate.AtEnd,
@@ -3036,8 +3108,8 @@ function UISection.new(tab, config)
     Locale:Bind(self.TitleLabel, "Text", self.TitleSource)
 
     self.DescLabel = New("TextLabel", {
-        Size = UDim2.new(1, -80, 0, 14),
-        Position = UDim2.fromOffset(50, 22),
+        Size = UDim2.new(1, -80, 0, 18),
+        Position = UDim2.fromOffset(50, 25),
         TextSize = 11,
         TextColor3 = C.SubText,
         TextTruncate = Enum.TextTruncate.AtEnd,
@@ -3086,7 +3158,7 @@ function UISection.new(tab, config)
 end
 
 function UISection:_ApplyHeader()
-    self.TitleLabel.Position = UDim2.fromOffset(50, self.HasDesc and 4 or 12)
+    self.TitleLabel.Position = UDim2.fromOffset(50, self.HasDesc and 3 or 12)
     self.DescLabel.Visible = self.HasDesc
 end
 
@@ -3584,6 +3656,9 @@ function UIWindow.new(config)
     if config.Translations then
         Locale:AddTranslations(config.Translations)
     end
+    if config.Patterns then
+        Locale:AddPatterns(config.Patterns)
+    end
     if config.Language then
         Locale:SetLanguage(config.Language)
     end
@@ -3775,8 +3850,8 @@ function UIWindow:_BuildSidebar(config, logo)
     table.insert(self.LogoImages, logoImage)
 
     local title = New("TextLabel", {
-        Size = UDim2.new(1, -46, 0, 18),
-        Position = UDim2.fromOffset(46, 5),
+        Size = UDim2.new(1, -46, 0, 20),
+        Position = UDim2.fromOffset(46, 3),
         TextSize = 14,
         Weight = "SemiBold",
         TextTruncate = Enum.TextTruncate.AtEnd,
@@ -3786,8 +3861,8 @@ function UIWindow:_BuildSidebar(config, logo)
     Locale:Bind(title, "Text", self.TitleSource)
 
     local subtitle = New("TextLabel", {
-        Size = UDim2.new(1, -46, 0, 14),
-        Position = UDim2.fromOffset(46, 24),
+        Size = UDim2.new(1, -46, 0, 16),
+        Position = UDim2.fromOffset(46, 25),
         TextSize = 10,
         TextColor3 = C.SubText,
         TextTruncate = Enum.TextTruncate.AtEnd,
@@ -3938,8 +4013,8 @@ function UIWindow:_BuildContent()
     })
 
     self.PageTitle = New("TextLabel", {
-        Size = UDim2.new(1, -120, 0, 22),
-        Position = UDim2.fromOffset(24, 16),
+        Size = UDim2.new(1, -120, 0, 26),
+        Position = UDim2.fromOffset(24, 13),
         TextSize = 18,
         Weight = "SemiBold",
         TextTruncate = Enum.TextTruncate.AtEnd,
@@ -3947,8 +4022,8 @@ function UIWindow:_BuildContent()
     })
 
     self.PageDesc = New("TextLabel", {
-        Size = UDim2.new(1, -120, 0, 14),
-        Position = UDim2.fromOffset(24, 40),
+        Size = UDim2.new(1, -120, 0, 18),
+        Position = UDim2.fromOffset(24, 42),
         TextSize = 11,
         TextColor3 = C.SubText,
         TextTruncate = Enum.TextTruncate.AtEnd,
@@ -5376,7 +5451,7 @@ function UIWindow:_BuildNotifications()
     self.NotifyList = New("Frame", {
         Name = "Notifications",
         AnchorPoint = Vector2.new(1, 1),
-        Size = UDim2.new(0, 290, 1, -32),
+        Size = UDim2.new(0, 272, 1, -32),
         Position = UDim2.new(1, -16, 1, -16),
         BackgroundTransparency = 1,
         ZIndex = 200,
@@ -5385,7 +5460,7 @@ function UIWindow:_BuildNotifications()
         New("UIListLayout", {
             SortOrder = Enum.SortOrder.LayoutOrder,
             VerticalAlignment = Enum.VerticalAlignment.Bottom,
-            Padding = UDim.new(0, 8)
+            Padding = UDim.new(0, 6)
         })
     })
     self.NotifyCount = 0
@@ -5397,6 +5472,21 @@ local NOTIFY_COLORS = {
     error = "Red"
 }
 
+local NOTIFY_ICONS = {
+    success = { "check", "circle-check" },
+    warning = { "triangle-alert", "alert-triangle" },
+    error = { "circle-x", "x-circle", "x" },
+    info = { "info", "bell" }
+}
+
+local function FindIcon(Names)
+    local Found
+    for _, Name in ipairs(Names) do
+        Found = Found or ResolveIcon(Name)
+    end
+    return Found
+end
+
 function UIWindow:Notify(config)
     if type(config) == "string" then
         config = { Content = config }
@@ -5404,11 +5494,14 @@ function UIWindow:Notify(config)
     config = config or {}
     self.NotifyCount = self.NotifyCount + 1
 
-    local duration = config.Duration or 4
-    local kind = NOTIFY_COLORS[config.Type]
-    local dotColor = config.LineColor or config.Color or (kind and Theme[kind]) or self.NotifyLineColor or Theme.AccentGlow
+    local Duration = config.Duration or 4
+    local Kind = NOTIFY_ICONS[config.Type] and config.Type or "info"
+    local Tint = NOTIFY_COLORS[Kind]
+    local Accent = config.LineColor or config.Color or (Tint and Theme[Tint]) or self.NotifyLineColor or Theme.AccentGlow
+    local IconImage = (config.Icon and ResolveIcon(config.Icon)) or FindIcon(NOTIFY_ICONS[Kind])
+    local HasContent = config.Content ~= nil and config.Content ~= ""
 
-    local slot = New("Frame", {
+    local Slot = New("Frame", {
         Size = UDim2.new(1, 0, 0, 0),
         AutomaticSize = Enum.AutomaticSize.Y,
         BackgroundTransparency = 1,
@@ -5416,109 +5509,163 @@ function UIWindow:Notify(config)
         Parent = self.NotifyList
     })
 
-    local card = New("TextButton", {
+    local Card = New("TextButton", {
         Size = UDim2.new(1, 0, 0, 0),
         AutomaticSize = Enum.AutomaticSize.Y,
-        Position = UDim2.new(0, 320, 0, 0),
+        Position = UDim2.new(0, 300, 0, 0),
         BackgroundTransparency = 0,
         BackgroundColor3 = C.Card,
         ClipsDescendants = true,
         ZIndex = 200,
-        Parent = slot
+        Parent = Slot
     }, {
-        Corner(10),
-        Stroke(C.Outline, 0, 1)
+        Corner(12),
+        Stroke(Accent, 0.6, 1)
     })
 
     New("Frame", {
-        Name = "Line",
-        Size = UDim2.new(0, 4, 1, 0),
-        BackgroundColor3 = dotColor,
-        Parent = card
+        Name = "Glow",
+        Size = UDim2.fromScale(1, 1),
+        BackgroundColor3 = Accent,
+        BackgroundTransparency = 0,
+        Parent = Card
+    }, {
+        Corner(12),
+        New("UIGradient", {
+            Transparency = NumberSequence.new({
+                NumberSequenceKeypoint.new(0, 0.84),
+                NumberSequenceKeypoint.new(0.55, 1),
+                NumberSequenceKeypoint.new(1, 1)
+            })
+        })
     })
 
-    local body = New("Frame", {
+    local Body = New("Frame", {
         Size = UDim2.new(1, 0, 0, 0),
         AutomaticSize = Enum.AutomaticSize.Y,
         BackgroundTransparency = 1,
-        Parent = card
+        Parent = Card
     }, {
         New("UIPadding", {
-            PaddingLeft = UDim.new(0, 18),
+            PaddingLeft = UDim.new(0, 12),
             PaddingRight = UDim.new(0, 14),
-            PaddingTop = UDim.new(0, 11),
-            PaddingBottom = UDim.new(0, 12)
+            PaddingTop = UDim.new(0, 10),
+            PaddingBottom = UDim.new(0, 10)
         }),
-        New("UIListLayout", { SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0, 4) })
+        New("UIListLayout", { SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0, 8) })
     })
 
-    local head = New("Frame", {
-        Size = UDim2.new(1, 0, 0, 16),
+    local Row = New("Frame", {
+        Size = UDim2.new(1, 0, 0, 28),
+        AutomaticSize = HasContent and Enum.AutomaticSize.Y or Enum.AutomaticSize.None,
         BackgroundTransparency = 1,
         LayoutOrder = 1,
-        Parent = body
+        Parent = Body
     })
-    local title = New("TextLabel", {
-        Size = UDim2.new(1, 0, 1, 0),
-        Weight = "Medium",
+
+    local Badge = New("Frame", {
+        Size = UDim2.fromOffset(28, 28),
+        BackgroundColor3 = Accent,
+        BackgroundTransparency = 0.82,
+        Parent = Row
+    }, { Corner(9), Stroke(Accent, 0.65, 1) })
+
+    New("ImageLabel", {
+        AnchorPoint = Vector2.new(0.5, 0.5),
+        Size = UDim2.fromOffset(16, 16),
+        Position = UDim2.fromScale(0.5, 0.5),
+        Image = IconImage or "",
+        ImageColor3 = Accent,
+        Visible = IconImage ~= nil,
+        Parent = Badge
+    })
+
+    New("Frame", {
+        AnchorPoint = Vector2.new(0.5, 0.5),
+        Size = UDim2.fromOffset(8, 8),
+        Position = UDim2.fromScale(0.5, 0.5),
+        BackgroundColor3 = Accent,
+        Visible = IconImage == nil,
+        Parent = Badge
+    }, { Corner(nil, true) })
+
+    local TextHolder = New("Frame", {
+        Position = UDim2.fromOffset(38, 0),
+        Size = UDim2.new(1, -38, HasContent and 0 or 1, 0),
+        AutomaticSize = HasContent and Enum.AutomaticSize.Y or Enum.AutomaticSize.None,
+        BackgroundTransparency = 1,
+        Parent = Row
+    }, {
+        New("UIListLayout", {
+            SortOrder = Enum.SortOrder.LayoutOrder,
+            VerticalAlignment = HasContent and Enum.VerticalAlignment.Top or Enum.VerticalAlignment.Center,
+            Padding = UDim.new(0, 2)
+        })
+    })
+
+    local Title = New("TextLabel", {
+        Size = UDim2.new(1, 0, 0, 18),
+        Weight = "SemiBold",
         TextSize = 13,
         TextTruncate = Enum.TextTruncate.AtEnd,
-        Parent = head
+        LayoutOrder = 1,
+        Parent = TextHolder
     })
-    Locale:Bind(title, "Text", config.Title or self.TitleSource)
+    Locale:Bind(Title, "Text", config.Title or self.TitleSource)
 
-    if config.Content and config.Content ~= "" then
-        local text = New("TextLabel", {
+    if HasContent then
+        local Message = New("TextLabel", {
             Size = UDim2.new(1, 0, 0, 0),
             AutomaticSize = Enum.AutomaticSize.Y,
+            TextSize = 12,
             TextWrapped = true,
             TextYAlignment = Enum.TextYAlignment.Top,
             TextColor3 = C.SubText,
+            LineHeight = 1.2,
             LayoutOrder = 2,
-            Parent = body
+            Parent = TextHolder
         })
-        Locale:Bind(text, "Text", config.Content)
+        Locale:Bind(Message, "Text", config.Content)
     end
 
-    local showTimer = duration > 0 and Pick(config.Timer, self.NotifyTimer) == true
-    if showTimer then
-        local track = New("Frame", {
-            Size = UDim2.new(1, 0, 0, 3),
-            BackgroundColor3 = dotColor,
-            BackgroundTransparency = 0.82,
-            LayoutOrder = 3,
-            Parent = body
+    local ShowTimer = Duration > 0 and Pick(config.Timer, self.NotifyTimer) == true
+    if ShowTimer then
+        local Track = New("Frame", {
+            Size = UDim2.new(1, 0, 0, 2),
+            BackgroundColor3 = Accent,
+            BackgroundTransparency = 0.85,
+            LayoutOrder = 2,
+            Parent = Body
         }, { Corner(nil, true) })
-        local fill = New("Frame", {
+        local Fill = New("Frame", {
             Size = UDim2.fromScale(1, 1),
-            BackgroundColor3 = dotColor,
-            Parent = track
+            BackgroundColor3 = Accent,
+            Parent = Track
         }, { Corner(nil, true) })
-        Tween(fill, duration, { Size = UDim2.fromScale(0, 1) }, Enum.EasingStyle.Linear)
+        Tween(Fill, Duration, { Size = UDim2.fromScale(0, 1) }, Enum.EasingStyle.Linear)
     end
 
-    local closed = false
+    local Closed = false
     local function Close()
-        if closed then
-            return
+        if not Closed then
+            Closed = true
+            local Out = Tween(Card, 0.22, { Position = UDim2.new(0, 300, 0, 0) }, Enum.EasingStyle.Quad, Enum.EasingDirection.In)
+            Out.Completed:Connect(function()
+                Slot:Destroy()
+            end)
         end
-        closed = true
-        local tween = Tween(card, 0.22, { Position = UDim2.new(0, 320, 0, 0) }, Enum.EasingStyle.Quad, Enum.EasingDirection.In)
-        tween.Completed:Connect(function()
-            slot:Destroy()
-        end)
     end
 
-    Tween(card, 0.35, { Position = UDim2.new(0, 0, 0, 0) }, Enum.EasingStyle.Back)
+    Tween(Card, 0.4, { Position = UDim2.new(0, 0, 0, 0) }, Enum.EasingStyle.Quint)
 
-    BindTap(self.Maid, card, function()
+    BindTap(self.Maid, Card, function()
         self:PlayClick("Button")
         Close()
         SafeCall(config.Callback)
     end)
 
-    if duration > 0 then
-        task.delay(duration, Close)
+    if Duration > 0 then
+        task.delay(Duration, Close)
     end
 
     return { Close = Close }
